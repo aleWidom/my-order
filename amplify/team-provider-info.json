@@ -10,6 +10,14 @@
       "StackName": "amplify-myorder-dev-210706",
       "StackId": "arn:aws:cloudformation:us-east-1:013893537323:stack/amplify-myorder-dev-210706/b5b96410-99bc-11ec-80f2-12adca98592d",
       "AmplifyAppId": "d2k7r75zaasg8"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2k7r75zaasg8",
+          "type": "manual"
+        }
+      }
     }
   }
 }
