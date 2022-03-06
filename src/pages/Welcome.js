@@ -15,3 +15,4 @@ const Welcome = ({ tableNumber, setTableNumber }) => {
 };
 
 export default Welcome;
+
