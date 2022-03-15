@@ -1,18 +1,18 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateCategory_items = /* GraphQL */ `
-  subscription OnCreateCategory_items {
-    onCreateCategory_items {
+export const onCreateCategory = /* GraphQL */ `
+  subscription OnCreateCategory {
+    onCreateCategory {
       id
       name
       photo
     }
   }
 `;
-export const onCreateItems = /* GraphQL */ `
-  subscription OnCreateItems {
-    onCreateItems {
+export const onCreateItem = /* GraphQL */ `
+  subscription OnCreateItem {
+    onCreateItem {
       id
       title
       description
@@ -23,18 +23,18 @@ export const onCreateItems = /* GraphQL */ `
     }
   }
 `;
-export const onCreateOrders = /* GraphQL */ `
-  subscription OnCreateOrders {
-    onCreateOrders {
+export const onCreateOrder_ = /* GraphQL */ `
+  subscription OnCreateOrder_ {
+    onCreateOrder_ {
       id
       date
       id_table
     }
   }
 `;
-export const onCreateRestaurants = /* GraphQL */ `
-  subscription OnCreateRestaurants {
-    onCreateRestaurants {
+export const onCreateRestaurant = /* GraphQL */ `
+  subscription OnCreateRestaurant {
+    onCreateRestaurant {
       id
       name
       address
@@ -44,9 +44,9 @@ export const onCreateRestaurants = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTables = /* GraphQL */ `
-  subscription OnCreateTables {
-    onCreateTables {
+export const onCreateTable_ = /* GraphQL */ `
+  subscription OnCreateTable_ {
+    onCreateTable_ {
       id
       table_number
       table_active

@@ -1,26 +1,26 @@
 input AMPLIFY {
-  globalAuthRule: AuthRule = { allow: public }
+  globalAuthRule: AuthRule = {allow: public}
 }
 
-input CreateCategory_itemsInput {
+input CreateCategoryInput {
   id: Int!
   name: String!
   photo: String!
 }
 
-type category_items {
+type Category {
   id: Int!
   name: String!
   photo: String!
 }
 
-input UpdateCategory_itemsInput {
+input UpdateCategoryInput {
   id: Int!
   name: String
   photo: String
 }
 
-input CreateItemsInput {
+input CreateItemInput {
   id: Int!
   title: String!
   description: String!
@@ -30,7 +30,7 @@ input CreateItemsInput {
   id_restaurant: Int!
 }
 
-type items {
+type Item {
   id: Int!
   title: String!
   description: String!
@@ -40,7 +40,7 @@ type items {
   id_restaurant: Int!
 }
 
-input UpdateItemsInput {
+input UpdateItemInput {
   id: Int!
   title: String
   description: String
@@ -50,25 +50,25 @@ input UpdateItemsInput {
   id_restaurant: Int
 }
 
-input CreateOrdersInput {
+input CreateOrder_Input {
   id: Int!
   date: AWSTimestamp!
   id_table: Int!
 }
 
-type orders {
+type Order_ {
   id: Int!
   date: AWSTimestamp!
   id_table: Int!
 }
 
-input UpdateOrdersInput {
+input UpdateOrder_Input {
   id: Int!
   date: AWSTimestamp
   id_table: Int
 }
 
-input CreateRestaurantsInput {
+input CreateRestaurantInput {
   id: Int!
   name: String!
   address: String!
@@ -77,7 +77,7 @@ input CreateRestaurantsInput {
   location: String!
 }
 
-type restaurants {
+type Restaurant {
   id: Int!
   name: String!
   address: String!
@@ -86,7 +86,7 @@ type restaurants {
   location: String!
 }
 
-input UpdateRestaurantsInput {
+input UpdateRestaurantInput {
   id: Int!
   name: String
   address: String
@@ -95,77 +95,67 @@ input UpdateRestaurantsInput {
   location: String
 }
 
-input CreateTablesInput {
+input CreateTable_Input {
   id: Int!
-  table_number: Int!
-  table_active: String!
-  table_call: String!
+  table_number: String
+  table_active: Int
+  table_call: Int
   id_restaurant: Int!
 }
 
-type tables {
+type Table_ {
   id: Int!
-  table_number: Int!
-  table_active: String!
-  table_call: String!
+  table_number: String
+  table_active: Int
+  table_call: Int
   id_restaurant: Int!
 }
 
-input UpdateTablesInput {
+input UpdateTable_Input {
   id: Int!
-  table_number: Int
-  table_active: String
-  table_call: String
+  table_number: String
+  table_active: Int
+  table_call: Int
   id_restaurant: Int
 }
 
 type Mutation {
-  deleteCategory_items(id: Int!): category_items
-  createCategory_items(
-    createCategory_itemsInput: CreateCategory_itemsInput!
-  ): category_items
-  updateCategory_items(
-    updateCategory_itemsInput: UpdateCategory_itemsInput!
-  ): category_items
-  deleteItems(id: Int!): items
-  createItems(createItemsInput: CreateItemsInput!): items
-  updateItems(updateItemsInput: UpdateItemsInput!): items
-  deleteOrders(id: Int!): orders
-  createOrders(createOrdersInput: CreateOrdersInput!): orders
-  updateOrders(updateOrdersInput: UpdateOrdersInput!): orders
-  deleteRestaurants(id: Int!): restaurants
-  createRestaurants(
-    createRestaurantsInput: CreateRestaurantsInput!
-  ): restaurants
-  updateRestaurants(
-    updateRestaurantsInput: UpdateRestaurantsInput!
-  ): restaurants
-  deleteTables(id: Int!): tables
-  createTables(createTablesInput: CreateTablesInput!): tables
-  updateTables(updateTablesInput: UpdateTablesInput!): tables
+  deleteCategory(id: Int!): Category
+  createCategory(createCategoryInput: CreateCategoryInput!): Category
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category
+  deleteItem(id: Int!): Item
+  createItem(createItemInput: CreateItemInput!): Item
+  updateItem(updateItemInput: UpdateItemInput!): Item
+  deleteOrder_(id: Int!): Order_
+  createOrder_(createOrder_Input: CreateOrder_Input!): Order_
+  updateOrder_(updateOrder_Input: UpdateOrder_Input!): Order_
+  deleteRestaurant(id: Int!): Restaurant
+  createRestaurant(createRestaurantInput: CreateRestaurantInput!): Restaurant
+  updateRestaurant(updateRestaurantInput: UpdateRestaurantInput!): Restaurant
+  deleteTable_(id: Int!): Table_
+  createTable_(createTable_Input: CreateTable_Input!): Table_
+  updateTable_(updateTable_Input: UpdateTable_Input!): Table_
 }
 
 type Query {
-  getCategory_items(id: Int!): category_items
-  listCategory_itemss: [category_items]
-  getItems(id: Int!): items
-  listItemss: [items]
-  getOrders(id: Int!): orders
-  listOrderss: [orders]
-  getRestaurants(id: Int!): restaurants
-  listRestaurantss: [restaurants]
-  getTables(id: Int!): tables
-  listTabless: [tables]
+  getCategory(id: Int!): Category
+  listCategorys: [Category]
+  getItem(id: Int!): Item
+  listItems: [Item]
+  getOrder_(id: Int!): Order_
+  listOrder_s: [Order_]
+  getRestaurant(id: Int!): Restaurant
+  listRestaurants: [Restaurant]
+  getTable_(id: Int!): Table_
+  listTable_s: [Table_]
 }
 
 type Subscription {
-  onCreateCategory_items: category_items
-    @aws_subscribe(mutations: ["createCategory_items"])
-  onCreateItems: items @aws_subscribe(mutations: ["createItems"])
-  onCreateOrders: orders @aws_subscribe(mutations: ["createOrders"])
-  onCreateRestaurants: restaurants
-    @aws_subscribe(mutations: ["createRestaurants"])
-  onCreateTables: tables @aws_subscribe(mutations: ["createTables"])
+  onCreateCategory: Category @aws_subscribe(mutations: ["createCategory"])
+  onCreateItem: Item @aws_subscribe(mutations: ["createItem"])
+  onCreateOrder_: Order_ @aws_subscribe(mutations: ["createOrder_"])
+  onCreateRestaurant: Restaurant @aws_subscribe(mutations: ["createRestaurant"])
+  onCreateTable_: Table_ @aws_subscribe(mutations: ["createTable_"])
 }
 
 schema {

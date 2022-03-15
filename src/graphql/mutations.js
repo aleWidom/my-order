@@ -1,44 +1,36 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const deleteCategory_items = /* GraphQL */ `
-  mutation DeleteCategory_items($id: Int!) {
-    deleteCategory_items(id: $id) {
+export const deleteCategory = /* GraphQL */ `
+  mutation DeleteCategory($id: Int!) {
+    deleteCategory(id: $id) {
       id
       name
       photo
     }
   }
 `;
-export const createCategory_items = /* GraphQL */ `
-  mutation CreateCategory_items(
-    $createCategory_itemsInput: CreateCategory_itemsInput!
-  ) {
-    createCategory_items(
-      createCategory_itemsInput: $createCategory_itemsInput
-    ) {
+export const createCategory = /* GraphQL */ `
+  mutation CreateCategory($createCategoryInput: CreateCategoryInput!) {
+    createCategory(createCategoryInput: $createCategoryInput) {
       id
       name
       photo
     }
   }
 `;
-export const updateCategory_items = /* GraphQL */ `
-  mutation UpdateCategory_items(
-    $updateCategory_itemsInput: UpdateCategory_itemsInput!
-  ) {
-    updateCategory_items(
-      updateCategory_itemsInput: $updateCategory_itemsInput
-    ) {
+export const updateCategory = /* GraphQL */ `
+  mutation UpdateCategory($updateCategoryInput: UpdateCategoryInput!) {
+    updateCategory(updateCategoryInput: $updateCategoryInput) {
       id
       name
       photo
     }
   }
 `;
-export const deleteItems = /* GraphQL */ `
-  mutation DeleteItems($id: Int!) {
-    deleteItems(id: $id) {
+export const deleteItem = /* GraphQL */ `
+  mutation DeleteItem($id: Int!) {
+    deleteItem(id: $id) {
       id
       title
       description
@@ -49,9 +41,9 @@ export const deleteItems = /* GraphQL */ `
     }
   }
 `;
-export const createItems = /* GraphQL */ `
-  mutation CreateItems($createItemsInput: CreateItemsInput!) {
-    createItems(createItemsInput: $createItemsInput) {
+export const createItem = /* GraphQL */ `
+  mutation CreateItem($createItemInput: CreateItemInput!) {
+    createItem(createItemInput: $createItemInput) {
       id
       title
       description
@@ -62,9 +54,9 @@ export const createItems = /* GraphQL */ `
     }
   }
 `;
-export const updateItems = /* GraphQL */ `
-  mutation UpdateItems($updateItemsInput: UpdateItemsInput!) {
-    updateItems(updateItemsInput: $updateItemsInput) {
+export const updateItem = /* GraphQL */ `
+  mutation UpdateItem($updateItemInput: UpdateItemInput!) {
+    updateItem(updateItemInput: $updateItemInput) {
       id
       title
       description
@@ -75,36 +67,36 @@ export const updateItems = /* GraphQL */ `
     }
   }
 `;
-export const deleteOrders = /* GraphQL */ `
-  mutation DeleteOrders($id: Int!) {
-    deleteOrders(id: $id) {
+export const deleteOrder_ = /* GraphQL */ `
+  mutation DeleteOrder_($id: Int!) {
+    deleteOrder_(id: $id) {
       id
       date
       id_table
     }
   }
 `;
-export const createOrders = /* GraphQL */ `
-  mutation CreateOrders($createOrdersInput: CreateOrdersInput!) {
-    createOrders(createOrdersInput: $createOrdersInput) {
+export const createOrder_ = /* GraphQL */ `
+  mutation CreateOrder_($createOrder_Input: CreateOrder_Input!) {
+    createOrder_(createOrder_Input: $createOrder_Input) {
       id
       date
       id_table
     }
   }
 `;
-export const updateOrders = /* GraphQL */ `
-  mutation UpdateOrders($updateOrdersInput: UpdateOrdersInput!) {
-    updateOrders(updateOrdersInput: $updateOrdersInput) {
+export const updateOrder_ = /* GraphQL */ `
+  mutation UpdateOrder_($updateOrder_Input: UpdateOrder_Input!) {
+    updateOrder_(updateOrder_Input: $updateOrder_Input) {
       id
       date
       id_table
     }
   }
 `;
-export const deleteRestaurants = /* GraphQL */ `
-  mutation DeleteRestaurants($id: Int!) {
-    deleteRestaurants(id: $id) {
+export const deleteRestaurant = /* GraphQL */ `
+  mutation DeleteRestaurant($id: Int!) {
+    deleteRestaurant(id: $id) {
       id
       name
       address
@@ -114,9 +106,9 @@ export const deleteRestaurants = /* GraphQL */ `
     }
   }
 `;
-export const createRestaurants = /* GraphQL */ `
-  mutation CreateRestaurants($createRestaurantsInput: CreateRestaurantsInput!) {
-    createRestaurants(createRestaurantsInput: $createRestaurantsInput) {
+export const createRestaurant = /* GraphQL */ `
+  mutation CreateRestaurant($createRestaurantInput: CreateRestaurantInput!) {
+    createRestaurant(createRestaurantInput: $createRestaurantInput) {
       id
       name
       address
@@ -126,9 +118,9 @@ export const createRestaurants = /* GraphQL */ `
     }
   }
 `;
-export const updateRestaurants = /* GraphQL */ `
-  mutation UpdateRestaurants($updateRestaurantsInput: UpdateRestaurantsInput!) {
-    updateRestaurants(updateRestaurantsInput: $updateRestaurantsInput) {
+export const updateRestaurant = /* GraphQL */ `
+  mutation UpdateRestaurant($updateRestaurantInput: UpdateRestaurantInput!) {
+    updateRestaurant(updateRestaurantInput: $updateRestaurantInput) {
       id
       name
       address
@@ -138,9 +130,9 @@ export const updateRestaurants = /* GraphQL */ `
     }
   }
 `;
-export const deleteTables = /* GraphQL */ `
-  mutation DeleteTables($id: Int!) {
-    deleteTables(id: $id) {
+export const deleteTable_ = /* GraphQL */ `
+  mutation DeleteTable_($id: Int!) {
+    deleteTable_(id: $id) {
       id
       table_number
       table_active
@@ -149,9 +141,9 @@ export const deleteTables = /* GraphQL */ `
     }
   }
 `;
-export const createTables = /* GraphQL */ `
-  mutation CreateTables($createTablesInput: CreateTablesInput!) {
-    createTables(createTablesInput: $createTablesInput) {
+export const createTable_ = /* GraphQL */ `
+  mutation CreateTable_($createTable_Input: CreateTable_Input!) {
+    createTable_(createTable_Input: $createTable_Input) {
       id
       table_number
       table_active
@@ -160,9 +152,9 @@ export const createTables = /* GraphQL */ `
     }
   }
 `;
-export const updateTables = /* GraphQL */ `
-  mutation UpdateTables($updateTablesInput: UpdateTablesInput!) {
-    updateTables(updateTablesInput: $updateTablesInput) {
+export const updateTable_ = /* GraphQL */ `
+  mutation UpdateTable_($updateTable_Input: UpdateTable_Input!) {
+    updateTable_(updateTable_Input: $updateTable_Input) {
       id
       table_number
       table_active

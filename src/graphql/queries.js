@@ -1,27 +1,27 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getCategory_items = /* GraphQL */ `
-  query GetCategory_items($id: Int!) {
-    getCategory_items(id: $id) {
+export const getCategory = /* GraphQL */ `
+  query GetCategory($id: Int!) {
+    getCategory(id: $id) {
       id
       name
       photo
     }
   }
 `;
-export const listCategory_itemss = /* GraphQL */ `
-  query ListCategory_itemss {
-    listCategory_itemss {
+export const listCategorys = /* GraphQL */ `
+  query ListCategorys {
+    listCategorys {
       id
       name
       photo
     }
   }
 `;
-export const getItems = /* GraphQL */ `
-  query GetItems($id: Int!) {
-    getItems(id: $id) {
+export const getItem = /* GraphQL */ `
+  query GetItem($id: Int!) {
+    getItem(id: $id) {
       id
       title
       description
@@ -32,9 +32,9 @@ export const getItems = /* GraphQL */ `
     }
   }
 `;
-export const listItemss = /* GraphQL */ `
-  query ListItemss {
-    listItemss {
+export const listItems = /* GraphQL */ `
+  query ListItems {
+    listItems {
       id
       title
       description
@@ -45,27 +45,27 @@ export const listItemss = /* GraphQL */ `
     }
   }
 `;
-export const getOrders = /* GraphQL */ `
-  query GetOrders($id: Int!) {
-    getOrders(id: $id) {
+export const getOrder_ = /* GraphQL */ `
+  query GetOrder_($id: Int!) {
+    getOrder_(id: $id) {
       id
       date
       id_table
     }
   }
 `;
-export const listOrderss = /* GraphQL */ `
-  query ListOrderss {
-    listOrderss {
+export const listOrder_s = /* GraphQL */ `
+  query ListOrder_s {
+    listOrder_s {
       id
       date
       id_table
     }
   }
 `;
-export const getRestaurants = /* GraphQL */ `
-  query GetRestaurants($id: Int!) {
-    getRestaurants(id: $id) {
+export const getRestaurant = /* GraphQL */ `
+  query GetRestaurant($id: Int!) {
+    getRestaurant(id: $id) {
       id
       name
       address
@@ -75,9 +75,9 @@ export const getRestaurants = /* GraphQL */ `
     }
   }
 `;
-export const listRestaurantss = /* GraphQL */ `
-  query ListRestaurantss {
-    listRestaurantss {
+export const listRestaurants = /* GraphQL */ `
+  query ListRestaurants {
+    listRestaurants {
       id
       name
       address
@@ -87,9 +87,9 @@ export const listRestaurantss = /* GraphQL */ `
     }
   }
 `;
-export const getTables = /* GraphQL */ `
-  query GetTables($id: Int!) {
-    getTables(id: $id) {
+export const getTable_ = /* GraphQL */ `
+  query GetTable_($id: Int!) {
+    getTable_(id: $id) {
       id
       table_number
       table_active
@@ -98,9 +98,9 @@ export const getTables = /* GraphQL */ `
     }
   }
 `;
-export const listTabless = /* GraphQL */ `
-  query ListTabless {
-    listTabless {
+export const listTable_s = /* GraphQL */ `
+  query ListTable_s {
+    listTable_s {
       id
       table_number
       table_active
