@@ -1,9 +1,16 @@
-import { useState } from 'react';
+
 import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import Menu from './pages/Menu';
 import Order from './pages/Order';
 import { Routes, Route } from "react-router-dom";
+
+import React, { useState } from 'react'
+import Amplify from 'aws-amplify'
+
+
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
 
 
 function App() {
