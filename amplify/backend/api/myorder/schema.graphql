@@ -1,5 +1,5 @@
 input AMPLIFY {
-  globalAuthRule: AuthRule = {allow: public}
+  globalAuthRule: AuthRule = { allow: public }
 }
 
 input CreateCategoryInput {

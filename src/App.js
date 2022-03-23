@@ -17,6 +17,8 @@ function App() {
 
   const [tableNumber, setTableNumber] = useState('');
 
+  console.log(tableNumber)
+
   const [cart, setCart] = useState([])
 
   return (
