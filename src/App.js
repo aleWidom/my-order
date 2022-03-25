@@ -15,19 +15,17 @@ Amplify.configure(awsExports);
 
 function App() {
 
-  const [tableNumber, setTableNumber] = useState('');
-
-  console.log(tableNumber)
+  const [table, setTable] = useState('');
 
   const [cart, setCart] = useState([])
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Welcome tableNumber={tableNumber} setTableNumber={setTableNumber} />} />
-        <Route path="/table/:params" element={<Home tableNumber={tableNumber} />} />
-        <Route path="/table/:params/menu" element={<Menu tableNumber={tableNumber} cart={cart} setCart={setCart} />} />
-        <Route path="/table/:params/menu/order" element={<Order cart={cart} tableNumber={tableNumber} />} />
+        <Route path="/" element={<Welcome table={table} setTable={setTable} />} />
+        <Route path="/table/:params" element={<Home table={table} />} />
+        <Route path="/table/:params/menu" element={<Menu table={table} cart={cart} setCart={setCart} />} />
+        <Route path="/table/:params/menu/order" element={<Order cart={cart} table={table} />} />
       </Routes>
     </>
   );

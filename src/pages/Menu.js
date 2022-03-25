@@ -6,7 +6,7 @@ import HeaderBrandTable from "../components/molecules/HeaderBrandTable";
 import { Link } from 'react-router-dom'
 import styles from "./Menu.module.css"
 
-const Menu = ({ tableNumber, cart, setCart }) => {
+const Menu = ({table, cart, setCart }) => {
 
 
     const [categorySelected, setCategorySelected] = useState("Pizzanesas")
@@ -17,12 +17,12 @@ const Menu = ({ tableNumber, cart, setCart }) => {
 
     return (
         <>
-            <HeaderBrandTable tableNumber={tableNumber} />
+            <HeaderBrandTable table={table} />
             <CardsCategories handleClick={handleClick} category={categorySelected} />
             <CardsDishFood cart={cart} setCart={setCart} category={categorySelected} />
             <div className={styles.container}>
-                {cart.length === 0 ? "" : <Link to={`/table/${tableNumber}/menu/order`} className={styles.order}>Ver mi orden</Link>}
-                <Link to={`/table/${tableNumber}`} className={styles.home}>Volver a home</Link>
+                {cart.length === 0 ? "" : <Link to={`/table/${table.table_number}/menu/order`} className={styles.order}>Ver mi orden</Link>}
+                <Link to={`/table/${table.table_number}`} className={styles.home}>Volver a home</Link>
             </div>
         </>
     )

@@ -4,7 +4,7 @@ import HeaderBrandTable from "../components/molecules/HeaderBrandTable";
 import styles from './Home.module.css'
 
 
-const Home = ({ tableNumber }) => {
+const Home = ({ table }) => {
 
     const [call, setCall] = useState(false)
 
@@ -18,7 +18,7 @@ const Home = ({ tableNumber }) => {
 
     return (
         <div className={styles.home}>
-            <HeaderBrandTable tableNumber={tableNumber} />
+            <HeaderBrandTable table={table} />
             <div className={styles.container}>
                 {call === false ? <p onClick={handleCall} className={styles.call}>Llamar camarera/o</p> :
                     <div className={styles.notCallContainer}>
@@ -26,7 +26,7 @@ const Home = ({ tableNumber }) => {
                         <button onClick={handleCancelCall} className={styles.call} >Cancelar llamado</button>
                     </div>
                 }
-                <Link to={`/table/${tableNumber}/menu`} className={styles.menu}>Menú</Link>
+                <Link to={`/table/${table.table_number}/menu`} className={styles.menu}>Menú</Link>
             </div>
         </div>
     )
