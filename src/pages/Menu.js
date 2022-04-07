@@ -6,13 +6,13 @@ import HeaderBrandTable from "../components/molecules/HeaderBrandTable";
 import { Link } from 'react-router-dom'
 import styles from "./Menu.module.css"
 
-const Menu = ({table, cart, setCart }) => {
+const Menu = ({ table, cart, setCart }) => {
 
 
     const [categorySelected, setCategorySelected] = useState("Pizzanesas")
 
     const handleClick = (categorySelected) => () => {
-        setCategorySelected(categorySelected.nameCategories)
+        setCategorySelected(categorySelected.name)
     }
 
     return (

@@ -12,8 +12,9 @@ const CardsCategories = ({ handleClick, category }) => {
   const [cardsHeaderMenu, setCardsHeaderMenu] = useState([]);
 
   useEffect(() => {
-    const categories = getAllCategories()
-    setCardsHeaderMenu(categories)
+    getAllCategories()
+      .then((data) => setCardsHeaderMenu(data))
+      .catch((err) => console.log(err))
   }, []);
 
 
@@ -24,9 +25,9 @@ const CardsCategories = ({ handleClick, category }) => {
           slidesPerView={3}>
           {cardsHeaderMenu.map((e) => (
             <SwiperSlide key={e.id}>
-              {e.nameCategories === category ?
-                <CardCategorie source={e.photo} handleClick={handleClick(e)} description={e.nameCategories} alt={e.nameCategories} clases={styles.selected} /> :
-                <CardCategorie source={e.photo} handleClick={handleClick(e)} description={e.nameCategories} alt={e.nameCategories} clases={styles.notSelected} />
+              {e.name === category ?
+                <CardCategorie source={e.photo} handleClick={handleClick(e)} description={e.name} alt={e.name} clases={styles.selected} /> :
+                <CardCategorie source={e.photo} handleClick={handleClick(e)} description={e.name} alt={e.name} clases={styles.notSelected} />
               }
             </SwiperSlide>
           ))}

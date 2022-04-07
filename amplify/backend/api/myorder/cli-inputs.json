@@ -6,7 +6,11 @@
     "gqlSchemaPath": "D:\\Escritorio x Ale\\Resto-Cursos\\my-order\\amplify\\backend\\api\\myorder\\schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-04-04T23:12:38.471Z",
+      "keyDescription": ""
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
   }
 }

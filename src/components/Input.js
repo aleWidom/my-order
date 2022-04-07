@@ -6,9 +6,9 @@ import { useState, useEffect } from 'react';
 
 import { API } from 'aws-amplify'
 import * as queries from '../graphql/queries';
-import * as mutations from '../graphql/mutations';
+import { updateTable_ as updateTable } from '../graphql/mutations';
 
-console.log(mutations.updateTable_)
+console.log(updateTable)
 
 const Input = ({ table, setTable }) => {
 
@@ -41,11 +41,11 @@ const Input = ({ table, setTable }) => {
                 table_active: 1
             };
 
-            const updatedTable = await API.graphql({ query: mutations.updateTable_, variables: { input: updateTableActive } });
+            const updatedTable = await API.graphql({ query: updateTable, variables: { input: updateTableActive } });
 
             setTable(updatedTable)
         }
-        catch (err) { console.log('error fetching todos') }
+        catch (err) { console.log(err) }
     }
 
 
