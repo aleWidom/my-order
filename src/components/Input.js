@@ -20,10 +20,14 @@ const Input = ({ table, setTable, tablesId1Restaurant }) => {
 
     const handleClick = () => {
         updateTableNumberActive(table)
-            .then((data) => setTable(data))
+            .then((data) => {
+                console.log(data.data.updateTable_)
+                setTable(data.data.updateTable_)
+            })
             .catch((err) => err)
-
     }
+
+
 
     return (
         <div className={styles.container}>

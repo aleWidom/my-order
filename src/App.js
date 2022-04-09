@@ -19,11 +19,12 @@ function App() {
 
   const [cart, setCart] = useState([])
 
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Welcome table={table} setTable={setTable} />} />
-        <Route path="/table/:params" element={<Home table={table} />} />
+        <Route path="/table/:params" element={<Home table={table} setTable={setTable} />} />
         <Route path="/table/:params/menu" element={<Menu table={table} cart={cart} setCart={setCart} />} />
         <Route path="/table/:params/menu/order" element={<Order cart={cart} table={table} />} />
       </Routes>
