@@ -24,7 +24,6 @@ const Home = ({ table, setTable }) => {
             .catch((err) => err)
     }
 
-    console.log(table)
 
     return (
         <div className={styles.home}>

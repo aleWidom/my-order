@@ -14,7 +14,7 @@ const Input = ({ table, setTable, tablesId1Restaurant }) => {
         setValueInput(e.target.value)
         setTable("")
         const value = e.target.value
-        const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
+        const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() /* && e.table_active === 0 */)
         tableNumberEntered !== undefined && setTable(tableNumberEntered)
     }
 
