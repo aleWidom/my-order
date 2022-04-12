@@ -5,14 +5,14 @@ import CardCategorie from "./CardCategorie";
 import styles from "./CardsCategories.module.css"
 
 
-const CardsCategories = ({ cardsHeaderMenu, handleClickCategory, category }) => {
+const CardsCategories = ({categories, handleClickCategory, category }) => {
 
   return (
     <>
       <div className={styles.header}>
         <Swiper spaceBetween={50}
           slidesPerView={3}>
-          {cardsHeaderMenu.map((e) => (
+          {categories.map((e) => (
             <SwiperSlide key={e.id}>
               {e.name === category ?
                 <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alt={e.name} clases={styles.selected} /> :

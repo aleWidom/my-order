@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from "./Menu.module.css"
 
-import { getAllCategories, getAllItems } from "../services/menu";
+import { getAllCategories, getItemsAccordingToSelectedCategory } from "../services/menu";
 
 import CardsCategories from '../components/molecules/CardsCategories'
 import CardsDishFood from "../components/molecules/CardsDishFood";
@@ -30,26 +30,13 @@ const Menu = ({ table, cart, setCart }) => {
     }, []);
 
 
-    /*   useEffect(() => {
-          getAllItems()
-              .then((data) => {
-                  console.log(categories)
-                  const categoryDish = categories.length > 0 && categories?.find((e) => e.name === categorySelected)
-                  console.log(categoryDish)
-                  const dishAccordingCategory = data.filter((e) => e.id_category === categoryDish?.id)
-                  setFoodCategory(dishAccordingCategory)
-              })
-              .catch((err) => console.log(err))
-      }, [categories, categorySelected]) */
-
     useEffect(() => {
-        getAllItems(categories, categorySelected)
+        getItemsAccordingToSelectedCategory(categories, categorySelected)
             .then((data) => {
                 setFoodCategory(data)
             })
             .catch((err) => console.log(err))
     }, [categories, categorySelected])
-
 
 
     //CardsCategories
@@ -72,8 +59,8 @@ const Menu = ({ table, cart, setCart }) => {
     return (
         <>
             <HeaderBrandTable table={table} />
-            <CardsCategories handleClickCategory={handleClickCategory} category={categorySelected} cardsHeaderMenu={categories} />
-            <CardsDishFood cart={cart} foodCategory={foodCategory} setCart={setCart} category={categorySelected} cardsHeaderMenu={categories} handleClickNotSelected={handleClickNotSelected} handleClickSelected={handleClickSelected} />
+            <CardsCategories handleClickCategory={handleClickCategory} category={categorySelected} categories={categories} />
+            <CardsDishFood cart={cart} foodCategory={foodCategory} setCart={setCart} category={categorySelected}  handleClickNotSelected={handleClickNotSelected} handleClickSelected={handleClickSelected} />
             <div className={styles.container}>
                 {cart.length === 0 ? "" : <Link to={`/table/${table.table_number}/menu/order`} className={styles.order}>Ver mi orden</Link>}
                 <Link to={`/table/${table.table_number}`} className={styles.home}>Volver a home</Link>
