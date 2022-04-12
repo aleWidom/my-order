@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/restaurants": {
+      "name": "/restaurants",
+      "lambdaFunction": "myOrderApiRestaurantsLambda",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -12,12 +12,10 @@
       "AmplifyAppId": "d32tto94zey57p"
     },
     "categories": {
-      "api": {
-        "myorder": {
-          "rdsRegion": "us-east-1",
-          "rdsClusterIdentifier": "arn:aws:rds:us-east-1:013893537323:cluster:myorderdatabase",
-          "rdsSecretStoreArn": "arn:aws:secretsmanager:us-east-1:013893537323:secret:rds-db-credentials/cluster-FLQNCDKZYAM7OVVBQUCWZJY3LQ/admin-O4x6xW",
-          "rdsDatabaseName": "myorder"
+      "function": {
+        "myOrderApiRestaurantsLambda": {
+          "deploymentBucketName": "amplify-myorder-dev-213255-deployment",
+          "s3Key": "amplify-builds/myOrderApiRestaurantsLambda-713733726f5664756739-build.zip"
         }
       }
     }
