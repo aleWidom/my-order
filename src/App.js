@@ -19,6 +19,7 @@ function App() {
 
   const [cart, setCart] = useState([])
 
+  console.log("prueba")
 
   return (
     <>

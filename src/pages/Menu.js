@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from "./Menu.module.css"
 
-import { getAllCategories, getAllProducts } from "../services/menu";
+import { getAllCategories, getAllItems } from "../services/menu";
 
 import CardsCategories from '../components/molecules/CardsCategories'
 import CardsDishFood from "../components/molecules/CardsDishFood";
@@ -22,17 +22,30 @@ const Menu = ({ table, cart, setCart }) => {
 
     useEffect(() => {
         getAllCategories()
-            .then((data) => setCategories(data))
+            .then((data) => {
+                console.log({ data })
+                setCategories(data)
+            })
             .catch((err) => console.log(err))
     }, []);
 
 
+    /*   useEffect(() => {
+          getAllItems()
+              .then((data) => {
+                  console.log(categories)
+                  const categoryDish = categories.length > 0 && categories?.find((e) => e.name === categorySelected)
+                  console.log(categoryDish)
+                  const dishAccordingCategory = data.filter((e) => e.id_category === categoryDish?.id)
+                  setFoodCategory(dishAccordingCategory)
+              })
+              .catch((err) => console.log(err))
+      }, [categories, categorySelected]) */
+
     useEffect(() => {
-        getAllProducts()
+        getAllItems(categories, categorySelected)
             .then((data) => {
-                const categoryDish = categories.find((e) => e.name === categorySelected)
-                const dishAccordingCategory = data.filter((e) => e.id_category === categoryDish.id)
-                setFoodCategory(dishAccordingCategory)
+                setFoodCategory(data)
             })
             .catch((err) => console.log(err))
     }, [categories, categorySelected])
