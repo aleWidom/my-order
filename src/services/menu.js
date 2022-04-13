@@ -1,5 +1,5 @@
 import { API } from 'aws-amplify'
-import * as queries from '../graphql/queries';
+/* import * as queries from '../graphql/queries';
 
 
 async function getAllCategories() {
@@ -21,4 +21,23 @@ async function getItemsAccordingToSelectedCategory (categories, categorySelected
 }
 
 
-export { getAllCategories, getItemsAccordingToSelectedCategory }
+export { getAllCategories, getItemsAccordingToSelectedCategory } */
+
+
+
+async function getData() {
+  console.log(2)
+  const apiName = 'myorderapi';
+  const path = '/';
+  const myInit = { // OPTIONAL
+    headers: {}, // OPTIONAL
+  };
+  try {
+    const response = await API.get(apiName, path, myInit);
+    console.log(response)
+    return response;
+  } catch (err) { console.log(err.response) }
+
+}
+
+export { getData }

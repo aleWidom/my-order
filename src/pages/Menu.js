@@ -1,4 +1,4 @@
-
+/* 
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from "./Menu.module.css"
@@ -60,7 +60,7 @@ const Menu = ({ table, cart, setCart }) => {
         <>
             <HeaderBrandTable table={table} />
             <CardsCategories handleClickCategory={handleClickCategory} category={categorySelected} categories={categories} />
-            <CardsDishFood cart={cart} foodCategory={foodCategory} setCart={setCart} category={categorySelected}  handleClickNotSelected={handleClickNotSelected} handleClickSelected={handleClickSelected} />
+            <CardsDishFood cart={cart} foodCategory={foodCategory} setCart={setCart} category={categorySelected} handleClickNotSelected={handleClickNotSelected} handleClickSelected={handleClickSelected} />
             <div className={styles.container}>
                 {cart.length === 0 ? "" : <Link to={`/table/${table.table_number}/menu/order`} className={styles.order}>Ver mi orden</Link>}
                 <Link to={`/table/${table.table_number}`} className={styles.home}>Volver a home</Link>
@@ -70,3 +70,4 @@ const Menu = ({ table, cart, setCart }) => {
 };
 
 export default Menu;
+ */

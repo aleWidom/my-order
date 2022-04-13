@@ -6,12 +6,14 @@ import Order from './pages/Order';
 import { Routes, Route } from "react-router-dom";
 
 import React, { useState } from 'react'
-import Amplify from 'aws-amplify'
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+import { getData } from './services/menu'
+import { useEffect } from "react";
 
 
-import awsExports from "./aws-exports";
-Amplify.configure(awsExports);
-
+Amplify.configure(awsconfig);
 
 function App() {
 
@@ -19,7 +21,9 @@ function App() {
 
   const [cart, setCart] = useState([])
 
-  console.log("prueba")
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <>
