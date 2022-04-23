@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "myorderApiLambda",
+            "myorderLambdaApi",
             {
               "Fn::Join": [
                 "",
                 [
-                  "myorderApiLambda",
+                  "myorderLambdaApi",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "myorderLambdaRole89228d9f",
+            "myorderLambdaRole92eda04d",
             {
               "Fn::Join": [
                 "",
                 [
-                  "myorderLambdaRole89228d9f",
+                  "myorderLambdaRole92eda04d",
                   "-",
                   {
                     "Ref": "env"
