@@ -1,4 +1,4 @@
-import { API } from 'aws-amplify'
+/* import { API } from 'aws-amplify'
 import * as queries from '../graphql/queries';
 import { updateTable_ as updateTable } from '../graphql/mutations';
 
@@ -63,4 +63,4 @@ async function updateTableNumberNotCall(table) {
 
 
 
-export { fetchTables, updateTableNumberActive, updateTableNumberCall, updateTableNumberNotCall }
+export { fetchTables, updateTableNumberActive, updateTableNumberCall, updateTableNumberNotCall } */

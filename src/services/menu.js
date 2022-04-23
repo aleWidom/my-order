@@ -1,4 +1,4 @@
-import { API } from 'aws-amplify'
+/* import { API } from 'aws-amplify' */
 
 /* import * as queries from '../graphql/queries';
 
@@ -26,7 +26,7 @@ export { getAllCategories, getItemsAccordingToSelectedCategory } */
 
 
 
-async function getData() {
+/* async function getData() {
   const apiName = 'myorderapi';
   const path = '/restaurants';
   const myInit = { // OPTIONAL
@@ -42,3 +42,4 @@ async function getData() {
 }
 
 export { getData }
+ */
