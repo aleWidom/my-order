@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/restaurants": {
-      "name": "/restaurants",
-      "lambdaFunction": "myOrderApiRestaurantsLambda",
+    "/myorder": {
+      "name": "/myorder",
+      "lambdaFunction": "myorderApiLambda",
       "permissions": {
         "setting": "open"
       }

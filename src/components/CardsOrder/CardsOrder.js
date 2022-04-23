@@ -1,24 +1,7 @@
-import CardDishFood from "../molecules/CardDishFood"
+import CardDishFood from "../CardDishFood/CardDishFood"
 import styles from "./CardsOrder.module.css"
 
-const CardsOrder = ({ quantity, setQuantity, cart }) => {
-
-    const handleQuantityAdd = (i) => () => {
-        const quantityAdd = [...quantity]
-        quantityAdd[i].quantity = quantityAdd[i].quantity + 1
-        setQuantity(
-            quantityAdd
-        )
-    }
-
-    const handleQuantitySubtract = (i) => () => {
-        const quantitySubtract = [...quantity]
-        quantitySubtract[i].quantity = quantitySubtract[i].quantity - 1
-        setQuantity(
-            quantitySubtract
-        )
-    }
-
+const CardsOrder = ({ quantity, cart, handleQuantityAdd, handleQuantitySubtract }) => {
     return (
         <div className={styles.container}>
             <h3 className={styles.header}>Mi orden</h3>

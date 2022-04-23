@@ -1,5 +1,5 @@
 /* import styles from './Brand.module.css' */
-import brand from '../images/brand.jpg'
+import brand from '../../images/brand.jpg'
 
 
 const Brand = ({ clases }) => {

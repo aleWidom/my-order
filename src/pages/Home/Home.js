@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import HeaderBrandTable from "../components/molecules/HeaderBrandTable";
+import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable";
 import styles from './Home.module.css'
 
-import { updateTableNumberCall, updateTableNumberNotCall } from "../services/tables";
+import { updateTableNumberCall, updateTableNumberNotCall } from "../../services/tables";
 
 const Home = ({ table, setTable }) => {
 

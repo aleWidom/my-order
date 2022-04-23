@@ -1,7 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import CardCategorie from "./CardCategorie";
+import CardCategorie from "../CardCategories/CardCategorie";
 import styles from "./CardsCategories.module.css"
 
 
@@ -15,8 +15,8 @@ const CardsCategories = ({categories, handleClickCategory, category }) => {
           {categories.map((e) => (
             <SwiperSlide key={e.id}>
               {e.name === category ?
-                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alt={e.name} clases={styles.selected} /> :
-                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alt={e.name} clases={styles.notSelected} />
+                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={/* e.name */ e.nameCategories} alt={/* e.name */ e.nameCategories} clases={styles.selected} /> :
+                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={/* e.name */ e.nameCategories} alt={/* e.name */ e.nameCategories} clases={styles.notSelected} />
               }
             </SwiperSlide>
           ))}

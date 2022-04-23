@@ -1,4 +1,4 @@
-import Brand from "../Brand";
+import Brand from "../Brand/Brand";
 import styles from "./HeaderBrandTable.module.css"
 
 const HeaderBrandTable = ({ table }) => {

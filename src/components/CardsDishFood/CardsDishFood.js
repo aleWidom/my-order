@@ -1,5 +1,5 @@
 import { FaTrashAlt } from "react-icons/fa";
-import CardDishFood from "./CardDishFood"
+import CardDishFood from "../CardDishFood/CardDishFood"
 import styles from "./CardsDishFood.module.css"
 
 

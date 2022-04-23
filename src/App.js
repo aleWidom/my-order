@@ -1,8 +1,8 @@
 
-import Welcome from "./pages/Welcome";
-import Home from "./pages/Home";
-import Menu from './pages/Menu';
-import Order from './pages/Order';
+import Welcome from "./pages/Welcome/Welcome";
+import Home from "./pages/Home/Home";
+import Menu from './pages/Menu/Menu';
+import Order from './pages/Order/Order';
 import { Routes, Route } from "react-router-dom";
 
 import React, { useState } from 'react'
@@ -21,9 +21,10 @@ function App() {
 
   const [cart, setCart] = useState([])
 
+/* 
   useEffect(() => {
     getData()
-  }, [])
+  }, []) */
 
   return (
     <>

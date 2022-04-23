@@ -1,4 +1,11 @@
 {
+  "function": {
+    "myorderApiLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "api": {
     "myorderapi": {
       "service": "API Gateway",
@@ -6,20 +13,13 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "myOrderApiRestaurantsLambda",
+          "resourceName": "myorderApiLambda",
           "attributes": [
             "Name",
             "Arn"
           ]
         }
       ]
-    }
-  },
-  "function": {
-    "myOrderApiRestaurantsLambda": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
     }
   }
 }
