@@ -3,7 +3,7 @@
   "paths": {
     "/myorder": {
       "name": "/myorder",
-      "lambdaFunction": "myorderLambdaApi",
+      "lambdaFunction": "myorderLambda",
       "permissions": {
         "setting": "open"
       }

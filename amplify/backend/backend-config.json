@@ -1,6 +1,6 @@
 {
   "function": {
-    "myorderLambdaApi": {
+    "myorderLambda": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -13,7 +13,7 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "myorderLambdaApi",
+          "resourceName": "myorderLambda",
           "attributes": [
             "Name",
             "Arn"

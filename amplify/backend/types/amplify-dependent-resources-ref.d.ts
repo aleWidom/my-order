@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "myorderLambdaApi": {
+        "myorderLambda": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
