@@ -8,7 +8,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
-        "myorderapi": {
+        "myorderLambdaApiRest": {
             "RootUrl": "string",
             "ApiName": "string",
             "ApiId": "string"
