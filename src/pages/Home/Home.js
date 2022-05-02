@@ -11,17 +11,17 @@ const Home = ({ table, setTable }) => {
 
     const handleCall = () => {
         setCall(true)
-        updateTableNumberCall(table)
+/*         updateTableNumberCall(table)
             .then((data) => setTable(data.data.updateTable_))
-            .catch((err) => err)
+            .catch((err) => err) */
 
     }
 
     const handleCancelCall = () => {
         setCall(false)
-        updateTableNumberNotCall(table)
+       /*  updateTableNumberNotCall(table)
             .then((data) => setTable(data.data.updateTable_))
-            .catch((err) => err)
+            .catch((err) => err) */
     }
 
 
