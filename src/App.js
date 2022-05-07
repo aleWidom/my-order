@@ -12,7 +12,6 @@ import awsconfig from './aws-exports';
 import { getData } from './services/menu'
 import { useEffect } from "react";
 
-
 Amplify.configure(awsconfig);
 
 function App() {
@@ -21,10 +20,9 @@ function App() {
 
   const [cart, setCart] = useState([])
 
-/* 
-  useEffect(() => {
-    getData()
-  }, []) */
+  /*  useEffect(() => {
+      getData()
+    }, []) */
 
   return (
     <>

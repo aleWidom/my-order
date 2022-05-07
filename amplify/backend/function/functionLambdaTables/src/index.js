@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
@@ -16,13 +16,23 @@ exports.handler = async (event) => {
     });
 
 
-    const promiseQuery = new Promise((resolve) => {
-        connection.query('SELECT * from Restaurant', function (error, results, fields) {
-            resolve(results)
-        });
-    })
+    let result;
 
-    const result = await promiseQuery
+    if (event.queryStringParameters?.active) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query('select * from Table_ Where table_active = 0 && id_restaurant = 1;', function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    } else {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query('SELECT * from Table_', function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    }
 
     return {
         statusCode: 200,
@@ -30,7 +40,7 @@ exports.handler = async (event) => {
         //  headers: {
         //      "Access-Control-Allow-Origin": "*",
         //      "Access-Control-Allow-Headers": "*"
-        //  }, 
+        //  },
         body: JSON.stringify(result),
     };
 };

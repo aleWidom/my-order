@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "myorderLambda",
+            "functionLambdaTables",
             {
               "Fn::Join": [
                 "",
                 [
-                  "myorderLambda",
+                  "functionLambdaTables",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "myorderLambdaRole831047e7",
+            "myorderLambdaRole9489a040",
             {
               "Fn::Join": [
                 "",
                 [
-                  "myorderLambdaRole831047e7",
+                  "myorderLambdaRole9489a040",
                   "-",
                   {
                     "Ref": "env"

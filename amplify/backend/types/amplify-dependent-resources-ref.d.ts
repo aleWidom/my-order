@@ -1,6 +1,12 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "myorderLambda": {
+        "functionLambdaTables": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "functionLambdaRestaurants": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
@@ -8,7 +14,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
-        "myorderLambdaApiRest": {
+        "myorderapi": {
             "RootUrl": "string",
             "ApiName": "string",
             "ApiId": "string"

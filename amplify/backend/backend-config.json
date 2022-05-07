@@ -1,19 +1,32 @@
 {
   "function": {
-    "myorderLambda": {
+    "functionLambdaTables": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "functionLambdaRestaurants": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "api": {
-    "myorderLambdaApiRest": {
+    "myorderapi": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "myorderLambda",
+          "resourceName": "functionLambdaTables",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "functionLambdaRestaurants",
           "attributes": [
             "Name",
             "Arn"
