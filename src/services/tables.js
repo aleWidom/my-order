@@ -54,13 +54,16 @@ async function updateTableNumberNotCall(table) {
 
 export { fetchTables, updateTableNumberActive, updateTableNumberCall, updateTableNumberNotCall } */
 
+
+/* const getAll = async () => {
+    const response = await axios.get(baseUrl);
+    return response.data;
+  } */
+
 async function fetchTables() {
     try {
-        console.log("hola0")
         const response = await axios.get('https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?active=true');
-        console.log("hola")
-        console.log(response)
-        return response;
+        return response.data;
     } catch (err) { console.log(err) }
 }
 
