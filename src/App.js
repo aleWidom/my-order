@@ -9,9 +9,6 @@ import React, { useState } from 'react'
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 
-import { getData } from './services/menu'
-import { useEffect } from "react";
-
 Amplify.configure(awsconfig);
 
 function App() {
@@ -19,10 +16,6 @@ function App() {
   const [table, setTable] = useState('');
 
   const [cart, setCart] = useState([])
-
-  /*  useEffect(() => {
-      getData()
-    }, []) */
 
   return (
     <>

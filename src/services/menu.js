@@ -26,20 +26,3 @@ export { getAllCategories, getItemsAccordingToSelectedCategory } */
 
 
 
-/* async function getData() {
-  const apiName = 'myorderapi';
-  const path = '/restaurants';
-  const myInit = { // OPTIONAL
-    headers: {}, // OPTIONAL
-  };
-  try {
-    const response = await API.get(apiName, path, myInit);
-    console.log(response)
-    console.log("luego response")
-    return response;
-  } catch (err) { console.log(err.response) }
-
-}
-
-export { getData }
- */

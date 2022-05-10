@@ -1,17 +1,6 @@
-/* import { API } from 'aws-amplify'
-import * as queries from '../graphql/queries';
-import { updateTable_ as updateTable } from '../graphql/mutations';
+import axios from 'axios';
 
-
-async function fetchTables() {
-    try {
-        const dataAllTables = await API.graphql({ query: queries.listTable_s })
-        const tables = dataAllTables.data.listTable_s
-        const tablesIdRestaurant1 = tables.filter((e) => e.id_restaurant === 1)
-        return tablesIdRestaurant1;
-
-    } catch (err) { console.log(err) }
-}
+/* 
 
 async function updateTableNumberActive(table) {
     try {
@@ -64,3 +53,16 @@ async function updateTableNumberNotCall(table) {
 
 
 export { fetchTables, updateTableNumberActive, updateTableNumberCall, updateTableNumberNotCall } */
+
+async function fetchTables() {
+    try {
+        console.log("hola0")
+        const response = await axios.get('https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?active=true');
+        console.log("hola")
+        console.log(response)
+        return response;
+    } catch (err) { console.log(err) }
+}
+
+
+export { fetchTables } 
