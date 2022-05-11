@@ -15,11 +15,15 @@
       "function": {
         "functionLambdaTables": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaTables-30304e696a6e63316b37-build.zip"
+          "s3Key": "amplify-builds/functionLambdaTables-58584a74486b67376e75-build.zip"
         },
         "functionLambdaRestaurants": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaRestaurants-306b3675465555324e49-build.zip"
+          "s3Key": "amplify-builds/functionLambdaRestaurants-5757377a505a3765466c-build.zip"
+        },
+        "functionLambdaItems": {
+          "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
+          "s3Key": "amplify-builds/functionLambdaItems-72756f6a7239566a7057-build.zip"
         }
       }
     }

@@ -33,7 +33,7 @@ const Welcome = ({ table, setTable }) => {
     setTable("")
     if (e.target.value.length > 2) {
       const value = e.target.value
-      const tableNumberEntered = tablesId1RestaurantActive.find((e) => e.table_number.toUpperCase() === value.toUpperCase() /* && e.table_active === 0 */)
+      const tableNumberEntered = tablesId1RestaurantActive.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
       if (tableNumberEntered !== undefined) {
         setTable(tableNumberEntered)
         setErrInput(false)

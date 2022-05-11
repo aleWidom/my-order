@@ -15,17 +15,13 @@ exports.handler = async (event) => {
         database: 'myorder'
     });
 
+    const promiseQuery = new Promise((resolve) => {
+        connection.query('SELECT * Item', function (error, results, fields) {
+            resolve(results)
+        });
+    })
 
-    let result;
-
-    if (event.queryStringParameters) {
-        const promiseQuery = new Promise((resolve) => {
-            connection.query('SELECT * from Restaurant', function (error, results, fields) {
-                resolve(results)
-            });
-        })
-        result = await promiseQuery
-    }
+    const result = await promiseQuery
 
     return {
         statusCode: 200,
