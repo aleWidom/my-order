@@ -15,7 +15,7 @@
       "function": {
         "functionLambdaTables": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaTables-7a65305954304f364c49-build.zip"
+          "s3Key": "amplify-builds/functionLambdaTables-4441534c666d70375934-build.zip"
         },
         "functionLambdaRestaurants": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",

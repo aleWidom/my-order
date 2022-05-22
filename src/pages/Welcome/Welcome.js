@@ -5,16 +5,13 @@ import styles from './Welcome.module.css'
 
 import { fetchTables } from '../../services/tables';
 import { useState, useEffect } from 'react';
-/* import { updateTableNumberActive } from '../../services/tables'; */
-
+import { updateTableNumberActive } from '../../services/tables';
 import { Link } from "react-router-dom";
-
-
 
 
 const Welcome = ({ table, setTable }) => {
 
-  const [tablesId1RestaurantActive, setTablesRestaurantId1Active] = useState([])
+  const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])
 
   const [valueInput, setValueInput] = useState("")
 
@@ -22,7 +19,7 @@ const Welcome = ({ table, setTable }) => {
 
   useEffect(() => {
     fetchTables()
-      .then((data) => setTablesRestaurantId1Active(data))
+      .then((data) => setTablesRestaurantId1(data))
       .catch((err) => err)
   }, [])
 
@@ -35,7 +32,7 @@ const Welcome = ({ table, setTable }) => {
     setTable("")
     if (e.target.value.length > 2) {
       const value = e.target.value
-      const tableNumberEntered = tablesId1RestaurantActive.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
+      const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
       if (tableNumberEntered !== undefined) {
         setTable(tableNumberEntered)
         setErrInput(false)
@@ -48,12 +45,16 @@ const Welcome = ({ table, setTable }) => {
       setErrInput(true)
     } else {
       setErrInput(false)
+      updateTableNumberActive(table)
+        .then((data) => {
+          const newTableActive = {
+            ...table,
+            table_active: 1
+          }
+          setTable(newTableActive)
+        })
+        .catch((err) => err)
     }
-    /*    updateTableNumberActive(table)
-         .then((data) => {
-           setTable(data.data.updateTable_)
-         })
-         .catch((err) => err) */
   }
 
 
