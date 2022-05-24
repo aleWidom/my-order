@@ -26,12 +26,21 @@ exports.handler = async (event) => {
         })
         result = await promiseQuery
     } else if (event.pathParameters) {
-        const promiseQuery = new Promise((resolve) => {
-            connection.query(`UPDATE Table_ Set table_active = 1 Where id = ${event.pathParameters.proxy}  `, function (error, results, fields) {
-                resolve(results)
-            });
-        })
-        result = await promiseQuery
+        if (event.pathParameters.proxy === `/call/{id}`) {
+            const promiseQuery = new Promise((resolve) => {
+                connection.query(`UPDATE Table_ Set table_call = 1 Where id = 2  `, function (error, results, fields) {
+                    resolve(results)
+                });
+            })
+            result = await promiseQuery
+        } else {
+            const promiseQuery = new Promise((resolve) => {
+                connection.query(`UPDATE Table_ Set table_active = 1 Where id = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                    resolve(results)
+                });
+            })
+            result = await promiseQuery
+        }
     } else {
         const promiseQuery = new Promise((resolve) => {
             connection.query(`SELECT * from Table_`, function (error, results, fields) {
