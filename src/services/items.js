@@ -5,15 +5,14 @@ async function getAllCategoriesIdRestaurant1() {
     const allItemsIdRestaurant1 = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
     const allCategories = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
 
-    const categoriesIdRestaurant1 = allItemsIdRestaurant1.data.map((e) => {
-        return e.id_category
+    const categoriesIdRestaurant1 = allItemsIdRestaurant1.data.map((item) => {
+        allCategories.data.map((category)=> {
+          if(item.id_category === category.id) {
+            return category
+          }
+        })
     })
-
-   /*  const  = allCategories.data.map((e)=> {
-
-    })
- */
-
+    return categoriesIdRestaurant1;
   } catch (err) { console.log(err) }
 }
 
