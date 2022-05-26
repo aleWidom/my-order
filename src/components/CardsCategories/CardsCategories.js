@@ -15,8 +15,8 @@ const CardsCategories = ({categories, handleClickCategory, category }) => {
           {categories.map((e) => (
             <SwiperSlide key={e.id}>
               {e.name === category ?
-                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={/* e.name */ e.nameCategories} alt={/* e.name */ e.nameCategories} clases={styles.selected} /> :
-                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={/* e.name */ e.nameCategories} alt={/* e.name */ e.nameCategories} clases={styles.notSelected} />
+                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.selected} /> :
+                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.notSelected} />
               }
             </SwiperSlide>
           ))}

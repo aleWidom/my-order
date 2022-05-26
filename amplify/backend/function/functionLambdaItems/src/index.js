@@ -1,30 +1,38 @@
 /**
-  *
-  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
-  */
+ *
+ * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
+ */
 
 
-exports.handler = async (event) => {
+ exports.handler = async (event) => {
 
     var mysql = require('mysql');
 
     var connection = mysql.createConnection({
-        host:
-            'myorderdatabase.cluster-ctulrcqrkejd.us-east-1.rds.amazonaws.com',
+        host: 'myorderdatabase.cluster-ctulrcqrkejd.us-east-1.rds.amazonaws.com',
         user: 'admin',
         password: 'admin123456',
         database: 'myorder'
     });
 
+    let result;
+
     const promiseQuery = new Promise((resolve) => {
-        connection.query('SELECT * from Item', function
-            (error, results, fields) {
+        connection.query(`SELECT * from Item Where id_restaurant = 1 ;`, function (error, results, fields) {
             resolve(results)
         });
     })
+    result = await promiseQuery
 
-    const result = await promiseQuery
-
+    
+    if (event.queryStringParameters?.categories !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`SELECT * Category`, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    }
 
     return {
         statusCode: 200,

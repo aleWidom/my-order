@@ -11,17 +11,28 @@ const Home = ({ table, setTable }) => {
 
     const handleCall = () => {
         setCall(true)
-/*         updateTableNumberCall(table)
-            .then((data) => setTable(data.data.updateTable_))
-            .catch((err) => err) */
-
+        updateTableNumberCall(table)
+            .then((data) => {
+                const newTableCall = {
+                    ...table,
+                    table_call: 1
+                }
+                setTable(newTableCall)
+            })
+            .catch((err) => err)
     }
 
     const handleCancelCall = () => {
         setCall(false)
-       /*  updateTableNumberNotCall(table)
-            .then((data) => setTable(data.data.updateTable_))
-            .catch((err) => err) */
+        updateTableNumberNotCall(table)
+            .then((data) => {
+                const newTableNotCall = {
+                    ...table,
+                    table_call: 0
+                }
+                setTable(newTableNotCall)
+            })
+            .catch((err) => err)
     }
 
 

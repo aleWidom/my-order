@@ -23,8 +23,6 @@ const Welcome = ({ table, setTable }) => {
       .catch((err) => err)
   }, [])
 
-
-
   //another shape iife functions (search)
 
   const handleChange = (e) => {

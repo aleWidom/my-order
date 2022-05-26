@@ -17,8 +17,6 @@ function App() {
 
   const [cart, setCart] = useState([])
 
-  console.log(table)
-
   return (
     <>
       <Routes>
