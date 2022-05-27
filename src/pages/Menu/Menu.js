@@ -27,15 +27,6 @@ const Menu = ({ table, cart, setCart }) => {
       .catch((err) => console.log(err))
   }, []);
 
-  useEffect(() => {
-    const getItemsAccordingToSelectedCategory = menu.products.filter((e) => e.category === categorySelected)
-    setFoodCategory(getItemsAccordingToSelectedCategory)
-    /*  getItemsAccordingToSelectedCategory(categories, categorySelected)
-         .then((data) => {
-             setFoodCategory(data)
-         })
-         .catch((err) => console.log(err)) */
-  }, [categorySelected] /* [categories, categorySelected] */)
 
   //CardsCategories
   const handleClickCategory = (cardSelected) => () => {

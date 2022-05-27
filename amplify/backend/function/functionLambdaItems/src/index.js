@@ -4,7 +4,7 @@
  */
 
 
- exports.handler = async (event) => {
+exports.handler = async (event) => {
 
     var mysql = require('mysql');
 
@@ -24,10 +24,10 @@
     })
     result = await promiseQuery
 
-    
+
     if (event.queryStringParameters?.categories !== undefined) {
         const promiseQuery = new Promise((resolve) => {
-            connection.query(`SELECT * Category`, function (error, results, fields) {
+            connection.query(`SELECT * from Category`, function (error, results, fields) {
                 resolve(results)
             });
         })

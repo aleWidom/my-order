@@ -15,7 +15,7 @@
       "function": {
         "functionLambdaTables": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaTables-746b7263617639692f79-build.zip"
+          "s3Key": "amplify-builds/functionLambdaTables-486a6a71653965585676-build.zip"
         },
         "functionLambdaRestaurants": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
@@ -23,7 +23,7 @@
         },
         "functionLambdaItems": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaItems-57353154326565386174-build.zip"
+          "s3Key": "amplify-builds/functionLambdaItems-385937464c4851566842-build.zip"
         }
       }
     }
