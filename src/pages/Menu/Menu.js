@@ -30,8 +30,7 @@ const Menu = ({ table, cart, setCart }) => {
 
   //CardsCategories
   const handleClickCategory = (cardSelected) => () => {
-    /*    setCategorySelected(cardSelected.name) */
-    setCategorySelected(cardSelected.nameCategories)
+    setCategorySelected(cardSelected.name)
   }
 
   //CardsDishfood

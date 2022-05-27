@@ -4,7 +4,6 @@ import 'swiper/css';
 import CardCategorie from "../CardCategories/CardCategorie";
 import styles from "./CardsCategories.module.css"
 
-
 const CardsCategories = ({categories, handleClickCategory, category }) => {
 
   return (

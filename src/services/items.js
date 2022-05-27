@@ -5,17 +5,11 @@ async function getAllCategoriesIdRestaurant1() {
     const allCategories = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
     const allItemsIdRestaurant1 = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
 
-
-    console.log(allCategories)
-    console.log(allItemsIdRestaurant1)
-
-    const categoriesIdRestaurant1 = allCategories.data.map((category) => (
-      allItemsIdRestaurant1.data.map((item) => (
+    return allCategories.data.filter((category) => (
+      allItemsIdRestaurant1.data.find((item) => (
         category.id === item.id_category && category
       ))
     ))
-    console.log(categoriesIdRestaurant1)
-    return categoriesIdRestaurant1;
   } catch (err) { console.log(err) }
 }
 
