@@ -3,13 +3,11 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import styles from "./Menu.module.css"
 
-import { getAllCategoriesIdRestaurant1 } from "../../services/items";
+import { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory } from "../../services/items";
 
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsDishFood from "../../components/CardsDishFood/CardsDishFood";
 import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable";
-
-
 
 const Menu = ({ table, cart, setCart }) => {
 
@@ -26,6 +24,14 @@ const Menu = ({ table, cart, setCart }) => {
       })
       .catch((err) => console.log(err))
   }, []);
+
+  useEffect(() => {
+    getItemsAccordingToSelectedCategory(categorySelected)
+      .then((data) => {
+        setFoodCategory(data)
+      })
+      .catch((err) => console.log(err))
+  }, [categorySelected]);
 
 
   //CardsCategories

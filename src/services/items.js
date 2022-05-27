@@ -13,16 +13,19 @@ async function getAllCategoriesIdRestaurant1() {
   } catch (err) { console.log(err) }
 }
 
-/* async function getItemsAccordingToSelectedCategory(categories, categorySelected) {
-  const categoryDish = categories.length && categories.find((e) => e.name === categorySelected)
+async function getItemsAccordingToSelectedCategory(categorySelected) {
   try {
-    const itemsData = await API.graphql({ query: queries.listItems })
-    return itemsData.data.listItems.filter((e) => e.id_category === categoryDish.id)
+    const allCategories = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
+    const allItemsIdRestaurant1 = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
+
+    const selectedCategory = allCategories.data.find((e) => e.name === categorySelected)
+    console.log(selectedCategory)
+
+    return allItemsIdRestaurant1.data.filter((e) => e.id_category === selectedCategory.id)
   } catch (err) { console.log(err) }
-} */
+}
 
 
-export { getAllCategoriesIdRestaurant1 /*getItemsAccordingToSelectedCategory */ }
-
+export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory }
 
 
