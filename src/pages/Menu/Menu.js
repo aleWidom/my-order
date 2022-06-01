@@ -34,6 +34,8 @@ const Menu = ({ table, cart, setCart }) => {
   }, [categorySelected]);
 
 
+  console.log(categorySelected)
+
   //CardsCategories
   const handleClickCategory = (cardSelected) => () => {
     setCategorySelected(cardSelected.name)
