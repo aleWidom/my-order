@@ -1,7 +1,13 @@
+import { useContext } from 'react';
+import DataContext from '../DataContext';
+
 import Brand from "../Brand/Brand";
 import styles from "./HeaderBrandTable.module.css"
 
-const HeaderBrandTable = ({ table }) => {
+const HeaderBrandTable = () => {
+
+    const { table } = useContext(DataContext)
+
     return (
         <>
             <div className={styles.headerBrandTableContainer}>

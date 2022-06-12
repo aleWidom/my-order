@@ -1,40 +1,20 @@
-import { useState } from "react"
+import { useContext } from 'react';
+import DataContext from '../../components/DataContext';
+
 import CardsOrder from "../../components/CardsOrder/CardsOrder"
 import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable"
-import { Link } from "react-router-dom"
+
 import styles from "./Order.module.css"
 
-const Order = ({ cart, table }) => {
+import { Link } from "react-router-dom"
 
-    const priceQuantityCart = cart.map((e) => {
-        return { quantity: 1, price: e.price }
-    })
+const Order = () => {
 
-    const [quantity, setQuantity] = useState(priceQuantityCart)
-
-    const total = quantity.map((e) => { return e.quantity * e.price }).reduce((acumulador, actual) => acumulador + actual)
-
-
-    const handleQuantityAdd = (i) => () => {
-        const quantityAdd = [...quantity]
-        quantityAdd[i].quantity = quantityAdd[i].quantity + 1
-        setQuantity(
-            quantityAdd
-        )
-    }
-
-    const handleQuantitySubtract = (i) => () => {
-        const quantitySubtract = [...quantity]
-        quantitySubtract[i].quantity = quantitySubtract[i].quantity - 1
-        setQuantity(
-            quantitySubtract
-        )
-    }
-
+    const { table, total } = useContext(DataContext)
     return (
         <>
-            <HeaderBrandTable table={table} />
-            <CardsOrder quantity={quantity} setQuantity={setQuantity} cart={cart} handleQuantitySubtract={handleQuantitySubtract} handleQuantityAdd={handleQuantityAdd} />
+            <HeaderBrandTable />
+            <CardsOrder />
             <div className={styles.container}>
                 <div className={styles.containerTotal}>
                     <h3 className={styles.confirm}>Confirmar Orden</h3>

@@ -1,7 +1,6 @@
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from 'react-router-dom'
-import styles from "./Menu.module.css"
 
 import { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory } from "../../services/items";
 
@@ -9,13 +8,9 @@ import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsDishFood from "../../components/CardsDishFood/CardsDishFood";
 import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable";
 
-const Menu = ({ table, cart, setCart }) => {
+import styles from "./Menu.module.css"
 
-  const [categorySelected, setCategorySelected] = useState("Pizzanesas")
-
-  const [categories, setCategories] = useState([]);
-
-  const [foodCategory, setFoodCategory] = useState([])
+const Menu = () => {
 
   useEffect(() => {
     getAllCategoriesIdRestaurant1()
@@ -33,24 +28,6 @@ const Menu = ({ table, cart, setCart }) => {
       .catch((err) => console.log(err))
   }, [categorySelected]);
 
-
-  console.log(categorySelected)
-
-  //CardsCategories
-  const handleClickCategory = (cardSelected) => () => {
-    setCategorySelected(cardSelected.name)
-  }
-
-  //CardsDishfood
-  const handleClickSelected = (item) => () => {
-    setCart([...cart, item])
-  }
-
-  //CardsDishfood
-  const handleClickNotSelected = (item) => () => {
-    const cartCurrent = cart.filter((e) => e.id !== item.id)
-    setCart(cartCurrent)
-  }
 
   return (
     <>

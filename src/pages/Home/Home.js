@@ -1,41 +1,11 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable";
 import styles from './Home.module.css'
 
-import { updateTableNumberCall, updateTableNumberNotCall } from "../../services/tables";
-
-const Home = ({ table, setTable }) => {
-
-    const [call, setCall] = useState(false)
-
-    const handleCall = () => {
-        setCall(true)
-        updateTableNumberCall(table)
-            .then((data) => {
-                const newTableCall = {
-                    ...table,
-                    table_call: 1
-                }
-                setTable(newTableCall)
-            })
-            .catch((err) => err)
-    }
-
-    const handleCancelCall = () => {
-        setCall(false)
-        updateTableNumberNotCall(table)
-            .then((data) => {
-                const newTableNotCall = {
-                    ...table,
-                    table_call: 0
-                }
-                setTable(newTableNotCall)
-            })
-            .catch((err) => err)
-    }
 
 
+const Home = () => {
     return (
         <div className={styles.home}>
             <HeaderBrandTable table={table} />

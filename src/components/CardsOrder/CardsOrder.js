@@ -1,7 +1,14 @@
+import { useContext } from "react";
+import DataContext from "../DataContext";
+
 import CardDishFood from "../CardDishFood/CardDishFood"
+
 import styles from "./CardsOrder.module.css"
 
-const CardsOrder = ({ quantity, cart, handleQuantityAdd, handleQuantitySubtract }) => {
+const CardsOrder = () => {
+
+    const { quantity, cart, handleQuantityAdd, handleQuantitySubtract } = useContext(DataContext)
+
     return (
         <div className={styles.container}>
             <h3 className={styles.header}>Mi orden</h3>

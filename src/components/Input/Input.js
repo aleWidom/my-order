@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import DataContext from '../DataContext';
+
 import styles from "./Input.module.css";
 
 
 
-const Input = ({ handleChange, valueInput, label, placeholder, children, error, msgError }) => {
+const Input = () => {
+
+    const { handleChange, valueInput, label, placeholder, children, error, msgError } = useContext(DataContext)
+
     return (
         <div className={styles.container}>
             <label className={styles.label}>{label}</label>
