@@ -1,27 +1,42 @@
-import { useEffect, useContext } from 'react';
-import DataContext from '../../components/DataContext';
+import { useContext, useState } from 'react';
+import { TableContext } from '../../context/tables';
 
-import Input from '../../components/Input/Input';
-import Brand from '../../components/Brand/Brand';
-
-import { fetchTables } from '../../services/tables';
-
-import styles from './Welcome.module.css'
+import { updateTableNumberActive } from '../../services';
 
 import { Link } from "react-router-dom";
+
+import Input from '../../components/Input/Input'
+import Brand from '../../components/Brand/Brand';
+
+import styles from './Welcome.module.css'
 
 
 const Welcome = () => {
 
-  const { setTablesRestaurantId1, table, handleClickInput } = useContext(DataContext)
+  const [errInput, setErrInput] = useState(false)
 
-  useEffect(() => {
-    fetchTables()
-      .then((data) => setTablesRestaurantId1(data))
-      .catch((err) => err)
-  }, [])
+  const { table, setTable } = useContext(TableContext)
 
-  //another shape iife functions (search)
+  console.log(table)
+  console.log(errInput)
+
+
+  const handleClickInput = () => {
+    if (table === "") {
+      setErrInput(true)
+    } else {
+      setErrInput(false)
+      updateTableNumberActive(table)
+        .then((data) => {
+          const newTableActive = {
+            ...table,
+            table_active: 1
+          }
+          setTable(newTableActive)
+        })
+        .catch((err) => err)
+    }
+  }
 
   return (
     <div className={styles.welcome}>

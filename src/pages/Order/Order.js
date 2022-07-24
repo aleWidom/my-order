@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import DataContext from '../../components/DataContext';
+import DataContext from '../../context/DataContext';
 
 import CardsOrder from "../../components/CardsOrder/CardsOrder"
 import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable"

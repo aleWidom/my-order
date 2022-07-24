@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import DataContext from '../DataContext';
+import DataContext from '../../context/DataContext';
 
 import Brand from "../Brand/Brand";
 import styles from "./HeaderBrandTable.module.css"
