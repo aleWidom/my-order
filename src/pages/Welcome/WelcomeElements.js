@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 import Input from '../../components/Input/Input'
 import Brand from '../../components/Brand/Brand';
 
-import styles from './Welcome.module.css'
 
 
-const Welcome = () => {
+
+export const WelcomeElements = () => {
 
   const [errInput, setErrInput] = useState(false)
 
@@ -39,19 +39,18 @@ const Welcome = () => {
   }
 
   return (
-    <div className={styles.welcome}>
-      <h3 className={styles.header}>Bienvenidos...</h3>
-      <Brand clases={styles.brand} />
+
+      <>
+      <Brand /* className={styles.brand} */ />
       <Input label={"Por favor ingresa tu mesa."} placeholder={"Nº Mesa"} msgError={"Debe colocar una mesa existente disponible."} >
         {table === "" ?
-          <Link to={`/`} className={styles.link} onClick={handleClickInput} >Ingresar</Link> :
-          <Link to={`/table/${table.table_number}`} className={styles.link} onClick={handleClickInput} >Ingresar</Link>
+          <Link to={`/`} /* className={styles.link} */ onClick={handleClickInput} >Ingresar</Link> :
+          <Link to={`/table/${table.table_number}`} /* className={styles.link} */ onClick={handleClickInput} >Ingresar</Link>
         }
       </Input>
-    </div>
+      </>
+ 
   )
 };
-
-export default Welcome;
 
 
