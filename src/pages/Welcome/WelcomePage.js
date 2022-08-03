@@ -1,4 +1,4 @@
-import {WelcomeElements} from "./WelcomeElements";
+import { WelcomeElements } from "./WelcomeElements";
 import { TableProvider } from "../../context/tables"
 
 import styles from './WelcomePage.module.css'
@@ -16,5 +16,6 @@ const WelcomePage = () => {
 };
 
 export default WelcomePage;
+
 
 

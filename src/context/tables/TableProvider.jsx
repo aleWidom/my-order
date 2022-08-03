@@ -3,7 +3,7 @@ import { TableContext } from './';
 
 /* import { updateTableNumberActive, updateTableNumberNotCall, updateTableNumberCall } from '../services/tables'; */
 
-export const TableProvider = ({children}) => {
+export const TableProvider = ({ children }) => {
 
     const [table, setTable] = useState('mesa mesa mesa');
     /* 
@@ -43,9 +43,7 @@ export const TableProvider = ({children}) => {
             call, */
 
 
-/*  const [valueInput, setValueInput] = useState("")
-
-const [errInput, setErrInput] = useState(false)
+/*
 
 const priceQuantityCart = cart.map((e) => {
 return { quantity: 1, price: e.price }
@@ -62,18 +60,7 @@ const [foodCategory, setFoodCategory] = useState([])
 const total = quantity.map((e) => { return e.quantity * e.price }).reduce((acumulador, actual) => acumulador + actual)
 */
 
-/*   const handleChangeInput = (e) => {
-      setValueInput(e.target.value)
-      setTable("")
-      if (e.target.value.length > 2) {
-          const value = e.target.value
-          const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
-          if (tableNumberEntered !== undefined) {
-              setTable(tableNumberEntered)
-              setErrInput(false)
-          }
-      }
-  } */
+
 
 /*
 */
