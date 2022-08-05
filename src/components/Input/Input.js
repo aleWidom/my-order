@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { fetchTables } from '../../services';
-
 import styles from "./Input.module.css";
 
 const Input = ({ label, placeholder, setTable, children }) => {
 
-    const [valueInput, setValueInput] = useState("")
-
-    const [error, msgError] = useState("")
-
-    const [errInput, setErrInput] = useState(false)
-
-    const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])
-
+    const [tablesId1Restaurant, setTablesRestaurantId1] = useState([]) 
+ 
     useEffect(() => {
         fetchTables()
             .then((data) => {
@@ -33,25 +26,6 @@ const Input = ({ label, placeholder, setTable, children }) => {
             }
         }
     }
-
-    /*     const handleClickInput = () => {
-            if (table === "") {
-                setErrInput(true)
-            } else {
-                setErrInput(false)
-                updateTableNumberActive(table)
-                    .then((data) => {
-                        const newTableActive = {
-                            ...table,
-                            table_active: 1
-                        }
-                        setTable(newTableActive)
-                    })
-                    .catch((err) => err)
-            }
-        } */
-
-
 
     return (
         <div className={styles.container}>
