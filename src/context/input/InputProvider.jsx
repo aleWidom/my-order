@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { InputContext } from '.';
 
 export const InputProvider = ({ children }) => {
@@ -13,7 +14,7 @@ export const InputProvider = ({ children }) => {
         <InputContext.Provider value={{
             valueInput,
             setValueInput,
-            error, 
+            error,
             msgError,
             errInput,
             setErrInput

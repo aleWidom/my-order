@@ -1,22 +1,17 @@
-import React, { useState, useEffect} from 'react';
-import { fetchTables } from '../../services';
+import React, { useContext } from 'react';
+import { InputContext } from '../../context/input';
+import { useFetchTables } from '../../hooks/useFetchTables';
 import styles from "./Input.module.css";
 
 const Input = ({ label, placeholder, setTable, children }) => {
 
-    const [tablesId1Restaurant, setTablesRestaurantId1] = useState([]) 
- 
-    useEffect(() => {
-        fetchTables()
-            .then((data) => {
-                setTablesRestaurantId1(data)
-            })
-    }, [])
+    const { valueInput, setValueInput, error, msgError, setErrInput } = useContext(InputContext)
 
+    const { tablesId1Restaurant } = useFetchTables()
 
     const handleChange = (e) => {
         setValueInput(e.target.value)
-        setTable("")
+        setTable('')
         if (e.target.value.length > 2) {
             const value = e.target.value
             const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)

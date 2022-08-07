@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { TableContext } from './';
 
-/* import { updateTableNumberActive, updateTableNumberNotCall, updateTableNumberCall } from '../services/tables'; */
-
 export const TableProvider = ({ children }) => {
 
-    const [table, setTable] = useState('mesa mesa mesa');
-    /* 
-        const [tablesId1Restaurant, setTablesRestaurantId1] = useState([]) */
+    const [table, setTable] = useState('');
+
+    const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])
+
 
     return (
         <TableContext.Provider value={{
             table,
-            setTable
+            setTable,
+            tablesId1Restaurant,
+            setTablesRestaurantId1
         }}>
             {children}
         </TableContext.Provider>
