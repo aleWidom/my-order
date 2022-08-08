@@ -14,7 +14,7 @@ const Input = ({ label, placeholder, setTable, children }) => {
         setTable('')
         if (e.target.value.length > 2) {
             const value = e.target.value
-            const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
+            const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 1)
             if (tableNumberEntered !== undefined) {
                 setTable(tableNumberEntered)
                 setErrInput("")

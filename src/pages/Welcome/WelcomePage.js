@@ -1,19 +1,19 @@
 import { WelcomeElements } from "./WelcomeElements";
 import { TableProvider } from "../../context/tables"
+import { InputProvider } from "../../context/input";
 
 import styles from './WelcomePage.module.css'
-import { InputProvider } from "../../context/input";
 
 const WelcomePage = () => {
 
   return (
     <TableProvider>
-      <InputProvider>
-        <div className={styles.welcome}>
-          <h3 className={styles.header}>Bienvenidos...</h3>
+      <div className={styles.welcome}>
+        <h3 className={styles.header}>Bienvenidos...</h3>
+        <InputProvider>
           <WelcomeElements />
-        </div>
-      </InputProvider>
+        </InputProvider>
+      </div>
     </TableProvider>
   )
 };

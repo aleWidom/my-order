@@ -1,12 +1,13 @@
-import { useContext } from 'react';
-import DataContext from '../../context/DataContext';
-
+import { useContext } from "react";
+import { TableContext } from "../../context/tables";
 import Brand from "../Brand/Brand";
 import styles from "./HeaderBrandTable.module.css"
 
 const HeaderBrandTable = () => {
 
-    const { table } = useContext(DataContext)
+    const {table} = useContext(TableContext)
+
+    console.log(table)
 
     return (
         <>
