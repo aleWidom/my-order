@@ -16,6 +16,7 @@ const Input = ({ label, placeholder, setTable, children }) => {
             const value = e.target.value
             const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 1)
             if (tableNumberEntered !== undefined) {
+                console.log(tableNumberEntered)
                 setTable(tableNumberEntered)
                 setErrInput("")
             }

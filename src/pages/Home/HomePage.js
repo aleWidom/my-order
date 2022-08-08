@@ -1,6 +1,5 @@
 
 import { Link } from "react-router-dom";
-import { TableProvider } from "../../context/tables";
 import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable";
 import styles from './HomePage.module.css'
 
@@ -8,7 +7,6 @@ import styles from './HomePage.module.css'
 
 const HomePage = () => {
     return (
-        <TableProvider>
             <div className={styles.home}>
                 <HeaderBrandTable/>
                {/*  <div className={styles.container}>
@@ -21,7 +19,6 @@ const HomePage = () => {
                     <Link to={`/table/${table.table_number}/menu`} className={styles.menu}>Menú</Link>
                 </div> */}
             </div>
-        </TableProvider>
     )
 };
 

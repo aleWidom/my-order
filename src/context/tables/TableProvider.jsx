@@ -5,8 +5,9 @@ export const TableProvider = ({ children }) => {
 
     const [table, setTable] = useState('');
 
-    const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])
+    console.log(table)
 
+    const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])
 
     return (
         <TableContext.Provider value={{
