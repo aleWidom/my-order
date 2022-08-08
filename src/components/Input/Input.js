@@ -5,7 +5,7 @@ import styles from "./Input.module.css";
 
 const Input = ({ label, placeholder, setTable, children }) => {
 
-    const { valueInput, setValueInput, error, msgError, setErrInput } = useContext(InputContext)
+    const { valueInput, setValueInput, errInput, setErrInput } = useContext(InputContext)
 
     const { tablesId1Restaurant } = useFetchTables()
 
@@ -17,7 +17,7 @@ const Input = ({ label, placeholder, setTable, children }) => {
             const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 0)
             if (tableNumberEntered !== undefined) {
                 setTable(tableNumberEntered)
-                setErrInput(false)
+                setErrInput("")
             }
         }
     }
@@ -29,8 +29,8 @@ const Input = ({ label, placeholder, setTable, children }) => {
                 <input onChange={handleChange} value={valueInput} placeholder={placeholder} className={styles.input} />
                 {children}
             </div>
-            {error ?
-                <span className={styles.error}>{msgError}</span> :
+            {errInput !== '' ?
+                <span className={styles.error}>{errInput}</span> :
                 ""
             }
         </div>

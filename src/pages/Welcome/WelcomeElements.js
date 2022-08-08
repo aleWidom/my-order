@@ -15,9 +15,9 @@ export const WelcomeElements = () => {
 
   const handleEnter = () => {
     if (table === "") {
-      setErrInput(true)
+      setErrInput("Debe colocar una mesa existente disponible")
     } else {
-      setErrInput(false)
+      setErrInput("")
       updateTableNumberActive(table)
         .then((data) => {
           const newTableActive = {
