@@ -7,8 +7,6 @@ const HeaderBrandTable = () => {
 
     const {table} = useContext(TableContext)
 
-    console.log(table)
-
     return (
         <>
             <div className={styles.headerBrandTableContainer}>

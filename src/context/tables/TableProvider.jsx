@@ -5,16 +5,18 @@ export const TableProvider = ({ children }) => {
 
     const [table, setTable] = useState('');
 
-    console.log(table)
-
     const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])
+
+    const [call, setCall] = useState(false)
 
     return (
         <TableContext.Provider value={{
             table,
             setTable,
             tablesId1Restaurant,
-            setTablesRestaurantId1
+            setTablesRestaurantId1,
+            call,
+            setCall
         }}>
             {children}
         </TableContext.Provider>
@@ -99,33 +101,6 @@ const total = quantity.map((e) => { return e.quantity * e.price }).reduce((acumu
      setCart(cartCurrent)
  } */
 
-/*     const [call, setCall] = useState(false) */
-
-/*  const handleCall = () => {
-     setCall(true)
-     updateTableNumberCall(table)
-         .then((data) => {
-             const newTableCall = {
-                 ...table,
-                 table_call: 1
-             }
-             setTable(newTableCall)
-         })
-         .catch((err) => err)
- } */
-/*
-    const handleCancelCall = () => {
-        setCall(false)
-        updateTableNumberNotCall(table)
-            .then((data) => {
-                const newTableNotCall = {
-                    ...table,
-                    table_call: 0
-                }
-                setTable(newTableNotCall)
-            })
-            .catch((err) => err)
-    } */
 
 
 /*     const [cart, setCart] = useState([]) */
