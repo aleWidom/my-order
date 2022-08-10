@@ -1,10 +1,18 @@
 
+import { useContext } from 'react';
+import { OrderContext } from '../../context/order';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import CardCategorie from "../CardCategories/CardCategorie";
 import styles from "./CardsCategories.module.css"
 
-const CardsCategories = ({categories, handleClickCategory, category }) => {
+const CardsCategories = () => {
+
+  const {categorySelected,setCategorySelected, categories} = useContext(OrderContext)
+
+  const handleClickCategory = (cardSelected) => () => {
+    setCategorySelected(cardSelected.name)
+}
 
   return (
     <>
@@ -13,7 +21,7 @@ const CardsCategories = ({categories, handleClickCategory, category }) => {
           slidesPerView={3}>
           {categories.map((e) => (
             <SwiperSlide key={e.id}>
-              {e.name === category ?
+              {e.name ===  categorySelected ?
                 <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.selected} /> :
                 <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.notSelected} />
               }

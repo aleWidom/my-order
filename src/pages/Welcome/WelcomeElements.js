@@ -20,7 +20,6 @@ export const WelcomeElements = () => {
       setErrInput("")
       updateTableNumberActive(table)
         .then((data) => {
-          console.log('oooooa')
           const newTableActive = {
             ...table,
             table_active: 1
