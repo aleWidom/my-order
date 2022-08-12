@@ -4,23 +4,24 @@ import { OrderContext } from '.';
 
 export const OrderProvider = ({ children }) => {
 
-    const [categorySelected, setCategorySelected] = useState("Pizzanesas")
+    const [nameCategorySelected, setNameCategorySelected] = useState("Pizzanesas")
 
     const [categories, setCategories] = useState([]);
 
     const [cart, setCart] = useState([]) 
 
-    const [foodCategory, setFoodCategory] = useState([])
+    const [platesSelectedCategory, setPlatesSelectedCategory] = useState([])
 
     return (
         <OrderContext.Provider value={{
-            categorySelected,
-            setCategorySelected,
+            nameCategorySelected,
+            setNameCategorySelected,
             categories,
             setCategories,
             cart,
             setCart,
-            foodCategory
+            platesSelectedCategory,
+            setPlatesSelectedCategory
         }}>
             {children}
         </OrderContext.Provider>
@@ -89,12 +90,3 @@ const total = quantity.map((e) => { return e.quantity * e.price }).reduce((acumu
     )
 } */
 
-/* useEffect(() => {
-    getItemsAccordingToSelectedCategory(categorySelected)
-      .then((data) => {
-        setFoodCategory(data)
-      })
-      .catch((err) => console.log(err))
-  }, [categorySelected]);
- 
- */

@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import { OrderContext } from '../../context/order';
 import { TableContext } from '../../context/tables';
+import { useFetchPlates } from '../../hooks';
 import { useFetchCategories } from "../../hooks/useFetchCategories";
-import { getItemsAccordingToSelectedCategory } from "../../services/items";
 
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsDishFood from "../../components/CardsDishFood/CardsDishFood";
@@ -13,12 +13,14 @@ import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable
 import styles from "./MenuPage.module.css"
 
 const MenuPage = () => {
+  
+  const {cart, nameCategorySelected} = useContext(OrderContext)
+  
+  const {table} = useContext(TableContext)
 
   useFetchCategories()
-
-  const {cart} = useContext(OrderContext)
-
-  const {table} = useContext(TableContext)
+  
+  useFetchPlates(nameCategorySelected)
 
   return (
     <>
