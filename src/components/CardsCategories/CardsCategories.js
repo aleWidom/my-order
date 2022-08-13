@@ -8,20 +8,20 @@ import styles from "./CardsCategories.module.css"
 
 const CardsCategories = () => {
 
-  const {categorySelected,setCategorySelected, categories} = useContext(OrderContext)
+  const { nameCategorySelected, setNameCategorySelected, categoriesMenuRestaurant } = useContext(OrderContext)
 
   const handleClickCategory = (cardSelected) => () => {
-    setCategorySelected(cardSelected.name)
-}
+    setNameCategorySelected(cardSelected.name)
+  }
 
   return (
     <>
       <div className={styles.header}>
         <Swiper spaceBetween={50}
           slidesPerView={3}>
-          {categories.map((e) => (
+          {categoriesMenuRestaurant.map((e) => (
             <SwiperSlide key={e.id}>
-              {e.name ===  categorySelected ?
+              {e.name === nameCategorySelected ?
                 <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.selected} /> :
                 <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.notSelected} />
               }

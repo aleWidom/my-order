@@ -4,14 +4,14 @@ import { getAllCategoriesIdRestaurant1 } from "../services/items";
 
 export const useFetchCategories = () => {
 
-    const {setCategories} = useContext(OrderContext)
+  const { setCategoriesMenuRestaurant } = useContext(OrderContext)
 
-    useEffect(() => {
-        getAllCategoriesIdRestaurant1()
-          .then((data) => {
-            setCategories(data)
-          })
-          .catch((err) => console.log(err))
-      }, []);
-      
+  useEffect(() => {
+    getAllCategoriesIdRestaurant1()
+      .then((data) => {
+        setCategoriesMenuRestaurant(data)
+      })
+      .catch((err) => console.log(err))
+  }, []);
+
 }

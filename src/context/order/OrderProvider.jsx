@@ -6,22 +6,22 @@ export const OrderProvider = ({ children }) => {
 
     const [nameCategorySelected, setNameCategorySelected] = useState("Pizzanesas")
 
-    const [categories, setCategories] = useState([]);
+    const [categoriesMenuRestaurant, setCategoriesMenuRestaurant] = useState([]);
 
-    const [cart, setCart] = useState([]) 
+    const [cart, setCart] = useState([])
 
-    const [platesSelectedCategory, setPlatesSelectedCategory] = useState([])
+    const [platesSelectedCategoryRestaurant, setPlatesSelectedCategoryRestaurant] = useState([])
 
     return (
         <OrderContext.Provider value={{
             nameCategorySelected,
             setNameCategorySelected,
-            categories,
-            setCategories,
+            categoriesMenuRestaurant,
+            setCategoriesMenuRestaurant,
             cart,
             setCart,
-            platesSelectedCategory,
-            setPlatesSelectedCategory
+            platesSelectedCategoryRestaurant,
+            setPlatesSelectedCategoryRestaurant
         }}>
             {children}
         </OrderContext.Provider>

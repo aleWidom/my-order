@@ -7,7 +7,7 @@ import styles from "./CardsDishFood.module.css"
 
 const CardsDishFood = () => {
 
-    const {cart, setCart, categorySelected, foodCategory} = useContext(OrderContext)
+    const { cart, setCart, categorySelected, platesSelectedCategoryRestaurant } = useContext(OrderContext)
 
     const handleClickSelected = (item) => () => {
         setCart([...cart, item])
@@ -21,7 +21,7 @@ const CardsDishFood = () => {
     return (
         <div className={styles.container}>
             <h3 className={styles.header}>{categorySelected}</h3>
-            {foodCategory.map((e) => (
+            {platesSelectedCategoryRestaurant.map((e) => (
                 cart.filter((item) => item.id === e.id).length > 0 ?
                     <CardDishFood key={e.id} price={`$${e.price}`} header={e.title} description={e.description} source={e.photo}>
                         <button className={styles.agreggate}>Agregado</button>
