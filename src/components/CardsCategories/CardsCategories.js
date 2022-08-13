@@ -12,6 +12,7 @@ const CardsCategories = () => {
 
   const handleClickCategory = (cardSelected) => () => {
     setNameCategorySelected(cardSelected.name)
+
   }
 
   return (
