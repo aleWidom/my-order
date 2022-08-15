@@ -1,10 +1,7 @@
-import { useContext, useEffect } from "react";
-import { OrderContext } from "../context/order";
+import { useEffect } from "react";
 import { getAllCategoriesIdRestaurant1 } from "../services/items";
 
-export const useFetchCategories = () => {
-
-  const { setCategoriesMenuRestaurant } = useContext(OrderContext)
+export const useFetchCategories = (setCategoriesMenuRestaurant) => {
 
   useEffect(() => {
     getAllCategoriesIdRestaurant1()
@@ -12,6 +9,6 @@ export const useFetchCategories = () => {
         setCategoriesMenuRestaurant(data)
       })
       .catch((err) => console.log(err))
-  }, []);
+  }, [setCategoriesMenuRestaurant]);
 
 }

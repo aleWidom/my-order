@@ -1,18 +1,14 @@
-import { useContext, useEffect } from "react";
-import { OrderContext } from "../context/order";
+import { useEffect } from "react";
 import { getItemsAccordingToSelectedCategory } from "../services";
 
-export const useFetchPlates = (nameCategorySelected) => {
-
-  const { setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
-
+export const useFetchPlates = (nameCategorySelected, setPlatesSelectedCategoryRestaurant) => {
   useEffect(() => {
     getItemsAccordingToSelectedCategory(nameCategorySelected)
       .then((data) => {
         setPlatesSelectedCategoryRestaurant(data)
       })
       .catch((err) => console.log(err))
-  }, [nameCategorySelected]);
+  }, [nameCategorySelected, setPlatesSelectedCategoryRestaurant]);
 
 
 }
