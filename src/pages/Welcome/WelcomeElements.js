@@ -5,6 +5,7 @@ import { InputContext } from '../../context/input'
 import { updateTableNumberActive } from '../../services';
 import Brand from '../../components/Brand/Brand';
 import Input from '../../components/Input/Input'
+import styles from './WelcomeElements.module.css'
 
 
 export const WelcomeElements = () => {
@@ -33,12 +34,11 @@ export const WelcomeElements = () => {
   return (
     <>
       <Brand />
-      <Input label={"Por favor ingresa tu mesa."} placeholder={"Nº Mesa"} setTable={setTable}>
-        {table === "" ?
-          <Link to={`/`} onClick={handleEnter}>Ingresar</Link> :
-          <Link to={`/table/${table.table_number}`} onClick={handleEnter}>Ingresar</Link>
+      <Input placeholder={"Por favor ingrese su Nº de Mesa"} setTable={setTable}/>
+      {table === "" ?
+          <Link to={`/`} onClick={handleEnter} className={styles.mesaSinEncontrar}>Ingresar</Link> :
+          <Link to={`/table/${table.table_number}`} className={styles.mesaEncontrada} onClick={handleEnter}>Ingresar</Link>
         }
-      </Input>
     </>
   )
 };

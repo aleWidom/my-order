@@ -3,7 +3,7 @@ import { InputContext } from '../../context/input';
 import { useFetchTables } from '../../hooks/useFetchTables';
 import styles from "./Input.module.css";
 
-const Input = ({ label, placeholder, setTable, children }) => {
+const Input = ({placeholder, setTable, children }) => {
 
     const { valueInput, setValueInput, errInput, setErrInput } = useContext(InputContext)
 
@@ -25,15 +25,14 @@ const Input = ({ label, placeholder, setTable, children }) => {
 
     return (
         <div className={styles.container}>
-            <label className={styles.label}>{label}</label>
             <div className={styles.containerInputLink}>
                 <input onChange={handleChange} value={valueInput} placeholder={placeholder} className={styles.input} />
                 {children}
             </div>
-            {errInput !== '' ?
+          {/*   {errInput !== '' ?
                 <span className={styles.error}>{errInput}</span> :
                 ""
-            }
+            } */}
         </div>
     )
 };

@@ -7,16 +7,14 @@
     justify-content: center;
 }
 
-.brand {
-    width: 70%;
-}
-
 .header {
     color: #ff0000;
-    font-size: 21px;
+    font-size: 18px;
 }
 
-.containerInput {
+
+  
+/* .containerInput {
     display: flex;
     border: solid;
 }
@@ -32,5 +30,4 @@
   .link:hover {
     cursor: pointer;
     background-color: #da0101;
-  }
-  
+  } */

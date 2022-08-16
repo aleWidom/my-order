@@ -1,11 +1,11 @@
-/* import styles from './Brand.module.css' */
 import brand from '../../images/brand.jpg'
+import styles from './Brand.module.css' 
 
 
-const Brand = ({ clases }) => {
+const Brand = () => {
     return (
         <>
-            <img src={brand} alt={'brand'} className={clases} />
+            <img src={brand} alt={'brand'} className={styles.brand} />
         </>
     )
 };
