@@ -10,8 +10,13 @@ const CardsPlates = () => {
     const { cart, setCart, categorySelected, platesSelectedCategoryRestaurant } = useContext(OrderContext)
 
     const handleClickSelected = (item) => () => {
-        setCart([...cart, item])
+        const itemAdd = {
+            ...item,
+            quantity:1
+        }
+        setCart([...cart, itemAdd])
     }
+
 
     const handleClickNotSelected = (item) => () => {
         const cartCurrent = cart.filter((e) => e.id !== item.id)
