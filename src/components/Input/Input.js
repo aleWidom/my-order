@@ -27,12 +27,11 @@ const Input = ({placeholder, setTable, children }) => {
         <div className={styles.container}>
             <div className={styles.containerInputLink}>
                 <input onChange={handleChange} value={valueInput} placeholder={placeholder} className={styles.input} />
-                {children}
             </div>
-          {/*   {errInput !== '' ?
+             {errInput !== '' ?
                 <span className={styles.error}>{errInput}</span> :
                 ""
-            } */}
+            } 
         </div>
     )
 };

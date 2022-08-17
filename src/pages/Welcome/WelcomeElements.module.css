@@ -1,8 +1,9 @@
 .mesaSinEncontrar {
-    background-color: rgb(187, 187, 187);
+    background-color:rgb(175 175 175);
     text-decoration: none;
     color: #fff;
     padding: 0px 5px;
+    margin-top: -10px;
 }
 
 .mesaEncontrada {
@@ -10,4 +11,6 @@
     text-decoration: none;
     color: #fff;
     padding: 0px 5px;
+    margin-top: -10px;
 }
+
