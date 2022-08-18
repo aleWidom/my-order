@@ -12,7 +12,7 @@ Amplify.configure(awsconfig);
 
 function App() {
   return (
-    <TableProvider>
+      <TableProvider>
       <OrderProvider>
         <Routes>
           <Route path="/" element={<WelcomePage/>} />

@@ -33,12 +33,14 @@ export const WelcomeElements = () => {
 
   return (
     <>
-      <Brand />
-      <Input placeholder={"Por favor ingrese su Nº de Mesa"} setTable={setTable}/>
+      <div className={styles.brand}>
+        <Brand />
+      </div>
+      <Input placeholder={"Por favor ingrese su Nº de Mesa"} setTable={setTable} />
       {table === "" ?
-          <Link to={`/`} onClick={handleEnter} className={styles.mesaSinEncontrar}>Ingresar</Link> :
-          <Link to={`/table/${table.table_number}`} className={styles.mesaEncontrada} onClick={handleEnter}>Ingresar</Link>
-        }
+        <Link to={`/`} onClick={handleEnter} className={styles.mesaSinEncontrar}>Ingresar</Link> :
+        <Link to={`/table/${table.table_number}`} className={styles.mesaEncontrada} onClick={handleEnter}>Ingresar</Link>
+      }
     </>
   )
 };

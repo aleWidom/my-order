@@ -5,12 +5,14 @@ import styles from "./HeaderBrandTable.module.css"
 
 const HeaderBrandTable = () => {
 
-    const {table} = useContext(TableContext)
+    const { table } = useContext(TableContext)
 
     return (
         <>
             <div className={styles.headerBrandTableContainer}>
-                <Brand clases={styles.brand} />
+                <div className={styles.brand}>
+                    <Brand />
+                </div>
                 <div className={styles.table}>
                     <p>Mesa</p>
                     <p className={styles.tableNumber}>{`N° ${table.table_number}`} </p>
