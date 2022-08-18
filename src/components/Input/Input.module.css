@@ -17,19 +17,10 @@
 }
 
 .error {
-  width: 207px;
-  height: 12px;
   font-family: 'Arial';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 9.95072px;
-  line-height: 12px;
-  /* identical to box height */
   color: #F32424;
-  /* Inside auto layout */
-  flex: none;
-  order: 4;
-  flex-grow: 0;
+  order: 3;
+  font-size: 12px;
 }
 
 
