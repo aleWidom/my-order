@@ -3,6 +3,7 @@ import { TableContext } from './';
 
 export const TableProvider = ({ children }) => {
 
+    //TODO DEBE IR UN OBJETO COMO MESA
     const [table, setTable] = useState('');
 
     const [tablesId1Restaurant, setTablesRestaurantId1] = useState([])

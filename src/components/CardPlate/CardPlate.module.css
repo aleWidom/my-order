@@ -1,5 +1,9 @@
 .container {
-  box-shadow: rgba(119, 119, 119, 0.8) 0px 8px 34px -25px;
+  width: 173px;
+height: 136px;
+background: #1dd73f;
+}
+  /*   box-shadow: rgba(119, 119, 119, 0.8) 0px 8px 34px -25px;
   width: 80%;
   padding: 12px;
   margin: 10px 0px;
@@ -7,10 +11,10 @@
   font-size: 16px;
   font-weight: 700;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; */
 
-.cardBody {
+
+/* .cardBody {
   display: flex;
   margin-top: -10px;
 }
@@ -39,4 +43,4 @@
   color: rgb(88, 88, 88);
   font-size: 12px;
 }
-
+ */

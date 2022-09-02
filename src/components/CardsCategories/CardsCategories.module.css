@@ -1,6 +1,15 @@
 .header {
   display: flex;
-  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 24px 24px;
+  position: absolute;
+  width: 414px;
+  height: 48px;
+  left: 0px;
+  top: 208px;
+  box-sizing: border-box;
 }
 
 .selected {

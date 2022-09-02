@@ -10,33 +10,24 @@ const CardsPlates = () => {
     const { cart, setCart, categorySelected, platesSelectedCategoryRestaurant } = useContext(OrderContext)
 
     const handleClickSelected = (item) => () => {
+        alert('Producto solicitado')
         const itemAdd = {
             ...item,
-            quantity:1
+            quantity: 1
         }
         setCart([...cart, itemAdd])
     }
 
-
-    const handleClickNotSelected = (item) => () => {
-        const cartCurrent = cart.filter((e) => e.id !== item.id)
-        setCart(cartCurrent)
-    }
-
     return (
         <div className={styles.container}>
-            <h3 className={styles.header}>{categorySelected}</h3>
-            {platesSelectedCategoryRestaurant.map((e) => (
-                cart.filter((item) => item.id === e.id).length > 0 ?
+            <h3 className={styles.title}>{/* {categorySelected} */}Platos</h3>
+            <div className={styles.cardsPlates}>
+             {/*    {platesSelectedCategoryRestaurant.map((e) => (
                     <CardPlate key={e.id} price={`$${e.price}`} header={e.title} description={e.description} source={e.photo}>
-                        <button className={styles.agreggate}>Agregado</button>
-                        <FaTrashAlt onClick={handleClickNotSelected(e)} className={styles.buttonRemove} />
+                        <button className={styles.notAgreggate} onClick={handleClickSelected(e)}>Solicitar</button>
                     </CardPlate>
-                    :
-                    <CardPlate key={e.id} price={`$${e.price}`} header={e.title} description={e.description} source={e.photo}>
-                        <button className={styles.notAgreggate} onClick={handleClickSelected(e)}>Agregar al pedido</button>
-                    </CardPlate>
-            ))}
+                ))} */}
+            </div>
         </div>
     )
 };

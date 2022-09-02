@@ -1,8 +1,12 @@
 .container {
-  width: 90%;
-  text-align: center;
-}
-
-.imgCardCategorie {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  background-color: #cccccc;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  color:  #585858;
 }

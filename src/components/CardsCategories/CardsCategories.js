@@ -12,7 +12,6 @@ const CardsCategories = () => {
 
   const handleClickCategory = (cardSelected) => () => {
     setNameCategorySelected(cardSelected.name)
-
   }
 
   return (
@@ -23,8 +22,8 @@ const CardsCategories = () => {
           {categoriesMenuRestaurant.map((e) => (
             <SwiperSlide key={e.id}>
               {e.name === nameCategorySelected ?
-                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.selected} /> :
-                <CardCategorie source={e.photo} handleClick={handleClickCategory(e)} description={e.name} alternativo={e.name} clases={styles.notSelected} />
+                <CardCategorie  handleClick={handleClickCategory(e)} description={e.name} /> :
+                <CardCategorie  handleClick={handleClickCategory(e)} description={e.name} /* clases={styles.notSelected} */ />
               }
             </SwiperSlide>
           ))}

@@ -2,6 +2,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0px;
+  position: absolute;
+  width: 366px;
+  height: 184px;
+  left: 24px;
+  top: 280px;
+  background-color: blue;
+}
+
+.cardsPlates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  width: 366px;
+  height: 160px;
+  background-color: blueviolet;
+  
+}
+
+.title {
+  background-color: rgb(211, 255, 146);
+  font-size: 16px;
+  width: 366px;
+  height: 24px;
+}
+
+
+/* .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
@@ -30,3 +63,4 @@
   padding: 5px;
   cursor: pointer;
 }
+ */

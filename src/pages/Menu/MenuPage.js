@@ -1,37 +1,44 @@
 
-import { useContext } from 'react';
-import { Link } from 'react-router-dom'
-import { OrderContext } from '../../context/order';
-import { TableContext } from '../../context/tables';
-import { useFetchPlates } from '../../hooks';
-import { useFetchCategories } from "../../hooks/useFetchCategories";
-
+import { useState, useContext } from 'react';
+import Loading from '../../components/Loading/Loading';
+import Input from '../../components/Input/Input';
+import Header from '../../components/Header/Header';
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
-import CardsPlates from "../../components/CardsPlates/CardsPlates";
-import HeaderBrandTable from "../../components/HeaderBrandTable/HeaderBrandTable";
+import CardsPlates from '../../components/CardsPlates/CardsPlates'
 
+import { useFetchCategories, useFetchPlates } from "../../hooks";
+import { InputProvider } from '../../context/input';
+import { OrderContext } from '../../context/order';
 import styles from "./MenuPage.module.css"
 
 const MenuPage = () => {
 
-  const { cart, nameCategorySelected, setCategoriesMenuRestaurant, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
+  const [loading, setLoading] = useState(true)
 
-  const { table } = useContext(TableContext)
+  const { /* cart ,*/ nameCategorySelected, setCategoriesMenuRestaurant , setPlatesSelectedCategoryRestaurant} = useContext(OrderContext)
+
+
+  setTimeout(() => {
+    setLoading(false)
+  }, 4000);
 
   useFetchCategories(setCategoriesMenuRestaurant)
 
   useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
 
   return (
-    <>
-      <HeaderBrandTable />
-      <CardsCategories />
-      <CardsPlates />
-      <div className={styles.container}>
-        {cart.length === 0 ? "" : <Link to={`/table/${table.table_number}/menu/order`} className={styles.order}>Ver mi orden</Link>}
-        <Link to={`/table/${table.table_number}`} className={styles.home}>Volver a home</Link>
-      </div>
-    </>
+    <div className={styles.container}>
+      {loading ?
+        <Loading /> :
+        <>
+          <Header />
+          <InputProvider>
+            <Input />
+          </InputProvider>
+          <CardsCategories/>
+          <CardsPlates/>
+        </>}
+    </div>
   )
 };
 
