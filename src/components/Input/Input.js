@@ -4,7 +4,7 @@ import { InputContext } from '../../context/input';
 import { useFetchTables } from '../../hooks/useFetchTables';
 import styles from "./Input.module.css";
 
-const Input = ({setTable }) => {
+const Input = ({ setTable }) => {
 
     const { valueInput, setValueInput, errInput, setErrInput } = useContext(InputContext)
 
@@ -25,15 +25,13 @@ const Input = ({setTable }) => {
     }
 
     return (
-        <div className={styles.container}>
-           <div className={styles.containerInputSearch}>
-           <input onChange={handleChange} value={valueInput} placeholder={"Buscar..."} className={styles.input} />
-            <FaSearch className={styles.search}/>
+        <div className={styles.containerInputSearch}>
+            <input onChange={handleChange} value={valueInput} placeholder={"Buscar..."} className={styles.input} />
+            <FaSearch className={styles.search} />
             {errInput !== '' ?
                 <span className={styles.error}>{errInput}</span> :
                 ""
             }
-           </div>
         </div>
     )
 };

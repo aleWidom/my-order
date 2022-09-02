@@ -1,77 +1,75 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    width: 414px;
-    height: 120px;
-    padding: 24px;
-    left: 0px;
-    top: 0px;
-    border-bottom: solid 1px rgb(174, 174, 174);
-    background-color: rebeccapurple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  position: absolute;
+  width: 366px;
+  height: 120px;
+  left: 24px;
+  top: 0px;
 }
 
 .containerMenuBrand {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    width: 183px;
-    height: 120px;
-    background-color: rgb(127, 247, 179);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: 183px;
+  height: 120px;
+  background-color: rgb(127, 247, 179);
 }
 
 .menuIcon {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24px;
 }
 
 .brand {
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
 }
 
-.containerTableWaiter  {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 8px;
-    width: 171px;
-    height: 88px;
-    background-color: rgb(127, 247, 179);
+.containerTableWaiter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  width: 171px;
+  height: 88px;
+  background-color: rgb(127, 247, 179);
 }
 
 .waiter {
-    display: flex;
-    justify-content: flex-end;
-    width: 24px;
-    height: 32px;
-    font-size: 16px;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 24px;
+  height: 32px;
+  font-size: 16px;
+  align-items: center;
 }
 
 .table {
-    background-color: #F31F1F;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
+  background-color: #f31f1f;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
 }
 
 .tableNumber {
-    text-align: center;
-    font-size: 12px;
-    color: #fff;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
 }
