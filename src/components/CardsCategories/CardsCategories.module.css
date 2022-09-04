@@ -10,13 +10,10 @@
   left: 0px;
   top: 208px;
   box-sizing: border-box;
+  background-color: rebeccapurple;
 }
 
-.selected {
-  border-bottom: 1px solid rgb(255, 152, 105);
-  margin-top: 0px;
-}
-
-.notSelected {
-  margin-top: 0px;
+.categories,
+.categoriesNotSelected {
+  text-decoration: none;
 }

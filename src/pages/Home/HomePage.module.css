@@ -1,4 +1,20 @@
 .container {
+  position: relative;
+  width: 414px;
+  height: 896px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardsPlates {
+  position: absolute;
+  left: 24px;
+  top: 279px;
+}
+
+/* .container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -46,3 +62,4 @@
   justify-content: center;
   align-items: center;
 }
+ */

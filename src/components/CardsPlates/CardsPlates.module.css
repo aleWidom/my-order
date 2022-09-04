@@ -3,11 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 0px;
-  position: absolute;
   width: 366px;
   height: 160px;
-  left: 24px;
-  top: 279px;
   background-color: rgb(116, 116, 238);
 }
 

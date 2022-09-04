@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import HomePage from './pages/Home/HomePage'
 import MenuPage from './pages/Menu/MenuPage'
-
 import { TableProvider } from "./context/tables";
 import { OrderProvider } from "./context/order";
 
@@ -12,11 +12,11 @@ Amplify.configure(awsconfig);
 
 function App() {
   return (
-      <TableProvider>
+    <TableProvider>
       <OrderProvider>
         <Routes>
-          <Route path="/table/:id/menu" element={<MenuPage/>} />
-{/*            <Route path="/table/:id/menu" element={<MenuPage/>} /> */}
+          <Route path="/table/:id/home" element={<HomePage />} />
+          <Route path="/table/:id/menu" element={<MenuPage />} />
         </Routes>
       </OrderProvider>
     </TableProvider>
