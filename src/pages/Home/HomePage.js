@@ -10,6 +10,7 @@ import { useFetchCategories, useFetchPlates } from "../../hooks";
 import { InputProvider } from '../../context/input';
 import { OrderContext } from '../../context/order';
 import styles from "./HomePage.module.css"
+import Footer from '../../components/Footer/Footer';
 
 const HomePage = () => {
 
@@ -36,8 +37,17 @@ const HomePage = () => {
             <Input />
           </InputProvider>
           <CardsCategories />
-          <div className={styles.cardsPlates}>
+          <div className={styles.cardsMostPopular}>
             <CardsPlates />
+          </div>
+          <div className={styles.suggestions}>
+            <CardsPlates />
+          </div>
+          <div className={styles.daysPlates}>
+            <CardsPlates />
+          </div>
+          <div className={styles.footer}>
+          <Footer/>
           </div>
         </>}
     </div>

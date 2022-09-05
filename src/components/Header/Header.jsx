@@ -1,20 +1,24 @@
-import { useContext } from "react";
-import { TableContext } from "../../context/tables";
+
+import {useLocation} from "react-router-dom"
 import Brand from "../Brand/Brand";
 import MenuIcon from "../MenuIcon/MenuIcon";
+import BackIcon from "../BackIcon/BackIcon"
+import TableIcon from "../TableIcon/TableIcon";
 import WaiterIcon from "../WaiterIcon/WaiterIcon"
 import styles from "./Header.module.css"
 
 const Header = () => {
 
-    const { table } = useContext(TableContext)
+   const {pathname} = useLocation()
+
+   const page = pathname.slice(-4)
 
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.containerMenuBrand}>
                     <div className={styles.menuIcon}>
-                        <MenuIcon />
+                        {page === 'home' ? <MenuIcon /> : <BackIcon/>}
                     </div>
                     <div className={styles.brand}>
                         <Brand />
@@ -22,7 +26,7 @@ const Header = () => {
                 </div>
                 <div className={styles.containerTableWaiter}>
                     <div className={styles.table}>
-                        <p className={styles.tableNumber}>Mesa {`N° ${table.table_number}`} </p>
+                       <TableIcon/>
                     </div>
                     <div className={styles.waiter}>
                         <WaiterIcon />

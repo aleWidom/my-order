@@ -2,7 +2,7 @@ import { FaBars } from "react-icons/fa";
 
 const MenuIcon = () => {
   return (
-    <FaBars/>
+    <FaBars color={'#000'}/>
   )
 }
 

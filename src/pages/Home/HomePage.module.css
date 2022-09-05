@@ -8,12 +8,39 @@
   align-items: center;
 }
 
-.cardsPlates {
+.cardsMostPopular {
   position: absolute;
   left: 24px;
   top: 279px;
 }
 
+.suggestions {
+  position: absolute;
+  width: 366px;
+  height: 160px;
+  left: 24px;
+  top: 471px;
+}
+
+.daysPlates {
+  position: absolute;
+width: 366px;
+height: 160px;
+left: 24px;
+top: 663px;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 366px;
+  height: 36px;
+  left: 24px;
+  top: 855px;
+background-color: #000;
+}
 /* .container {
   width: 100%;
   height: 100vh;

@@ -1,12 +1,29 @@
-.container {
+.selected, .notSelected {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 32px;
-  background-color: #cccccc;
   box-sizing: border-box;
   border-radius: 8px;
   padding: 16px;
   font-size: 16px;
-  color: #585858;
+}
+
+.selected {
+  background-color: #000000;
+}
+
+.notSelected {
+  background-color: #ffffff;
+  border: solid 1px  #000000 ;
+}
+
+.linkSelected {
+  text-decoration: none;
+  color:#ffffff;
+}
+
+.linkNotSelected {
+  text-decoration: none;
+  color:#000000;
 }
