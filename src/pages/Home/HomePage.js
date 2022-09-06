@@ -4,13 +4,14 @@ import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
-import CardsPlates from '../../components/CardsPlates/CardsPlates'
+import CardsHome from '../../components/CardsHome/CardsHome';
 
 import { useFetchCategories, useFetchPlates } from "../../hooks";
 import { InputProvider } from '../../context/input';
 import { OrderContext } from '../../context/order';
 import styles from "./HomePage.module.css"
 import Footer from '../../components/Footer/Footer';
+
 
 const HomePage = () => {
 
@@ -28,29 +29,31 @@ const HomePage = () => {
   useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
 
   return (
-    <div className={styles.container}>
+    <>
       {loading ?
-        <Loading /> :
-        <>
+        <div className={styles.mainContainerLoading}>
+          <Loading />
+        </div> :
+        <div  className={styles.mainContainerHome}>
           <Header />
           <InputProvider>
             <Input />
           </InputProvider>
           <CardsCategories />
           <div className={styles.cardsMostPopular}>
-            <CardsPlates />
+            <CardsHome title={'Platos más solicitados.'} />
           </div>
           <div className={styles.suggestions}>
-            <CardsPlates />
+            <CardsHome title={'Sugerencias del cheff.'} />
           </div>
           <div className={styles.daysPlates}>
-            <CardsPlates />
+            <CardsHome title={'Platos del día.'} />
           </div>
           <div className={styles.footer}>
           <Footer/>
           </div>
-        </>}
-    </div>
+        </div>}
+    </>
   )
 };
 

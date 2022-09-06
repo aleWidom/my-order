@@ -3,9 +3,9 @@ import { useState, useContext } from 'react';
 import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
-import CardsCategories from '../../components/CardsCategories/CardsCategories'
-import CardsPlates from '../../components/CardsPlates/CardsPlates'
 import HeaderImgCategorieSelected from '../../components/HeaderImgCategorieSelected/HeaderImgCategorieSelected';
+import CardsCategories from '../../components/CardsCategories/CardsCategories'
+import CardsMenu from '../../components/CardsMenu/CardsMenu'
 
 import { useFetchCategories, useFetchPlates } from "../../hooks";
 import { InputProvider } from '../../context/input';
@@ -28,23 +28,24 @@ const MenuPage = () => {
     useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
 
     return (
-        <div className={styles.container}>
+        <>
             {loading ?
-                <Loading /> :
-                <>
+                <div className={styles.mainContainerLoading}>
+                    <Loading />
+                </div> :
+                <div className={styles.mainContainerMenu}>
                     <Header />
                     <InputProvider>
                         <Input />
                     </InputProvider>
                     <CardsCategories />
-                    <div className={styles.headerImgCategorieSelected}>
-                        <HeaderImgCategorieSelected />
-                    </div>
-                    <div className={styles.cardsPlates}>
-                        <CardsPlates />
-                    </div>
-                </>}
-        </div>
+                    <HeaderImgCategorieSelected />
+                    <CardsMenu />
+                    {/*   <div className={styles.footer}>
+            <Footer/>
+            </div> */}
+                </div>}
+        </>
     )
 };
 

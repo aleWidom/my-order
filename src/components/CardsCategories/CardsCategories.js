@@ -16,7 +16,7 @@ const CardsCategories = () => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.containerCategories}>
         <Swiper spaceBetween={50}
           slidesPerView={3}>
           {categoriesMenuRestaurant.map((e) => (

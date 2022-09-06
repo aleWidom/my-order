@@ -1,9 +1,9 @@
-.container {
-  position: absolute;
+.containerCategories {
   width: 366px;
   height: 32px;
-  left: 24px;
-  top: 215.5px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
 
 .selected,

@@ -4,9 +4,9 @@ import styles from './Loading.module.css'
 
 const Loading = () => {
   return (
-    <div className={styles.container}>
-    <Brand/>
-    <BeatLoader size={10} color={'#fe0000'} margin={10}/>
+    <div className={styles.containerLoading}>
+      <Brand />
+      <BeatLoader size={10} color={'#fe0000'} margin={10} />
     </div>
   )
 }

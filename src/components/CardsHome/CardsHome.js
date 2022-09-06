@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { OrderContext } from "../../context/order";
-import CardPlate from "../CardPlate/CardPlate"
+import CardHome from "../CardHome/CardHome"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import styles from './CardsPlates.module.css'
+import styles from './CardsHome.module.css'
 
 
-const CardsPlates = () => {
+const CardsHome = ({title}) => {
 
     const { cart, setCart, categorySelected, platesSelectedCategoryRestaurant } = useContext(OrderContext)
 
@@ -23,13 +23,13 @@ const CardsPlates = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>{/* {categorySelected} */}Platos</h3>
+            <h3 className={styles.title}>{/* {categorySelected} */}{title}</h3>
             <Swiper slidesPerView={2} spaceBetween={20} className={styles.cardsPlates}>
                 {platesSelectedCategoryRestaurant.map((e) => (
                     <SwiperSlide key={e.id}>
-                        <CardPlate key={e.id} price={`$${e.price}`} header={e.title} description={e.description} source={e.photo}>
+                        <CardHome key={e.id} price={`$${e.price}`} header={e.title} description={e.description} source={e.photo}>
                             {/*               <button className={styles.notAgreggate} onClick={handleClickSelected(e)}>Solicitar</button> */}
-                        </CardPlate>
+                        </CardHome>
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -40,4 +40,4 @@ const CardsPlates = () => {
 
 
 
-export default CardsPlates;
+export default CardsHome;

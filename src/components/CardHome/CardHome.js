@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './CardPlate.module.css'
+import styles from './CardHome.module.css'
 
 
-const CardPlate = ({ price, description, header, children, source }) => {
+const CardHome= ({ price, description, header, children, source }) => {
     return <div className={styles.container}>
         <h4 className={styles.header}>{header}</h4>
         <div className={styles.cardBody}>
@@ -18,4 +18,4 @@ const CardPlate = ({ price, description, header, children, source }) => {
     </div>;
 }
 
-export default CardPlate;
+export default CardHome;

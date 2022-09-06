@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.containerHeader}>
                 <div className={styles.containerMenuBrand}>
                     <div className={styles.menuIcon}>
                         {page === 'home' ? <MenuIcon /> : <BackIcon/>}
