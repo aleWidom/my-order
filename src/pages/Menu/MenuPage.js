@@ -1,31 +1,24 @@
 
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer'
 import HeaderImgCategorieSelected from '../../components/HeaderImgCategorieSelected/HeaderImgCategorieSelected';
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsMenu from '../../components/CardsMenu/CardsMenu'
-
-import { useFetchCategories, useFetchPlates } from "../../hooks";
 import { InputProvider } from '../../context/input';
-import { OrderContext } from '../../context/order';
+
 import styles from "./MenuPage.module.css"
 
 const MenuPage = () => {
 
-    const [loading, setLoading] = useState(true)
-
-    const { /* cart ,*/ nameCategorySelected, setCategoriesMenuRestaurant, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
+    const [loading, setLoading] = useState(false) //TODO PASARLO A TRUE una vez que lo tenga más claro cuando y donde debe cargar
 
 
-    setTimeout(() => {
+   setTimeout(() => {
         setLoading(false)
-    }, 4000);
-
-    useFetchCategories(setCategoriesMenuRestaurant)
-
-    useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
+    }, 4000); 
 
     return (
         <>
@@ -41,9 +34,9 @@ const MenuPage = () => {
                     <CardsCategories />
                     <HeaderImgCategorieSelected />
                     <CardsMenu />
-                    {/*   <div className={styles.footer}>
-            <Footer/>
-            </div> */}
+                    <div className={styles.footer}>
+                        <Footer />
+                    </div>
                 </div>}
         </>
     )

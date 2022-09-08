@@ -8,8 +8,6 @@ export const OrderProvider = ({ children }) => {
 
     const [categoriesMenuRestaurant, setCategoriesMenuRestaurant] = useState([]);
 
-    const [cart, setCart] = useState([])
-
     const [platesSelectedCategoryRestaurant, setPlatesSelectedCategoryRestaurant] = useState([])
 
     return (
@@ -18,8 +16,6 @@ export const OrderProvider = ({ children }) => {
             setNameCategorySelected,
             categoriesMenuRestaurant,
             setCategoriesMenuRestaurant,
-            cart,
-            setCart,
             platesSelectedCategoryRestaurant,
             setPlatesSelectedCategoryRestaurant
         }}>

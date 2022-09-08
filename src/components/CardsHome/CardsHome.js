@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { FaTrashAlt } from "react-icons/fa";
 import { OrderContext } from "../../context/order";
+import { useFetchPlates } from "../../hooks";
 import CardHome from "../CardHome/CardHome"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './CardsHome.module.css'
@@ -8,18 +8,9 @@ import styles from './CardsHome.module.css'
 
 const CardsHome = ({title}) => {
 
-    const { cart, setCart, categorySelected, platesSelectedCategoryRestaurant } = useContext(OrderContext)
+    const {platesSelectedCategoryRestaurant, nameCategorySelected, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
 
-    const handleClickSelected = (item) => () => {
-        alert('Producto solicitado')
-        const itemAdd = {
-            ...item,
-            quantity: 1
-        }
-        setCart([...cart, itemAdd])
-    }
-
-    console.log(platesSelectedCategoryRestaurant)
+    useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
 
     return (
         <div className={styles.container}>
@@ -27,9 +18,7 @@ const CardsHome = ({title}) => {
             <Swiper slidesPerView={2} spaceBetween={20} className={styles.cardsPlates}>
                 {platesSelectedCategoryRestaurant.map((e) => (
                     <SwiperSlide key={e.id}>
-                        <CardHome key={e.id} price={`$${e.price}`} header={e.title} description={e.description} source={e.photo}>
-                            {/*               <button className={styles.notAgreggate} onClick={handleClickSelected(e)}>Solicitar</button> */}
-                        </CardHome>
+                        <CardHome key={e.id} source={e.photo}/>
                     </SwiperSlide>
                 ))}
             </Swiper>

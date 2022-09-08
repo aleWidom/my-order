@@ -1,18 +1,21 @@
 
 import { useContext } from 'react';
-import { OrderContext } from '../../context/order';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { OrderContext } from '../../context/order';
+import { useFetchCategories } from '../../hooks';
 import CardCategorie from "../CardCategories/CardCategorie";
-import styles from "./CardsCategories.module.css"
+import styles from "./CardsCategories.module.css" 
 
 const CardsCategories = () => {
 
-  const { nameCategorySelected, setNameCategorySelected, categoriesMenuRestaurant } = useContext(OrderContext)
+  const { nameCategorySelected, categoriesMenuRestaurant, setNameCategorySelected, setCategoriesMenuRestaurant } = useContext(OrderContext)
 
   const handleClickCategory = (cardSelected) => () => {
     setNameCategorySelected(cardSelected.name)
   }
+
+  useFetchCategories(setCategoriesMenuRestaurant)
 
   return (
     <>

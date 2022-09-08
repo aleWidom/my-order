@@ -32,3 +32,14 @@
   top: 471px;
 }
 
+.footer {
+  width: 366px;
+  height: 36px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  order: 5;
+  flex-grow: 0;
+}
