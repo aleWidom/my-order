@@ -18,9 +18,7 @@ const CardsMenu = ({ title }) => {
         <>
             {platesSelectedCategoryRestaurant.map((e) => {
                 return <div className={styles.containerCardsMenu}>
-                    <CardMenu header={e.title} source={e.photo} description={e.description} price={e.price}>
-                        {/*               <button className={styles.notAgreggate} onClick={handleClickSelected(e)}>Solicitar</button> */}
-                    </CardMenu>
+                    <CardMenu header={e.title} source={e.photo} description={e.description} price={e.price}/>
                 </div>
             })}
         </>

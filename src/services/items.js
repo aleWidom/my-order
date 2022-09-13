@@ -24,7 +24,14 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
   } catch (err) { console.log(err) }
 }
 
+ async function getItemsCardsHome (title) {
+  try {
+    const itemsInHome = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
+    return itemsInHome
+  } catch (err) { console.log(err) }
+} 
 
-export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory }
+
+export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsHome }
 
 
