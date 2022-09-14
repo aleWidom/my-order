@@ -24,10 +24,47 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
   } catch (err) { console.log(err) }
 }
 
- async function getItemsCardsHome (title) {
+ async function getItemsCardsHome () {
   try {
-    const itemsInHome = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
-    return itemsInHome
+    const specials = [
+      {
+        id: 1,
+        name: "Milanesas"
+      },
+      {
+        id: 2,
+        name: "Milanesas"
+      },
+      {
+        id: 3,
+        name: "Milanesas"
+      },
+      {
+        id: 4,
+        name: "Milanesas"
+      }
+    ]
+  
+    const ranking = [
+      {
+        id: 1,
+        name: "Asado"
+      }
+    ]
+  
+    const dayPlates = [
+      {
+        id: 1,
+        name: "Sopa"
+      }
+    ]
+
+    return {
+      specials,
+      ranking,
+      dayPlates
+    }
+
   } catch (err) { console.log(err) }
 } 
 

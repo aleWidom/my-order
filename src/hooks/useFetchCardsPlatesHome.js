@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { getItemsCardsHome } from "../services";
 
-export const useFetchCardsPlatesHome = (title,setPlatesSelectedCategoryRestaurant) => {
+export const useFetchCardsPlatesHome = (setCardsHome) => {
   useEffect(() => {
-    getItemsCardsHome(title)
-      .then((data) => {
-        setPlatesSelectedCategoryRestaurant(data)
-      })
-      .catch((err) => console.log(err))
-  }, []);
+    getItemsCardsHome()
+    .then((data)=> {
+      setCardsHome(data)
+    })
+  }, [setCardsHome]);
 }
