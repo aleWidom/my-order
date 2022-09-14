@@ -10,7 +10,7 @@ const BackIcon = () => {
   const {table} = useContext(TableContext)
 
   return (
-    <Link to={`/table/${table.table_number}/home`}>
+    <Link to={`/${table.table_number}`}>
       <FaArrowCircleLeft color={'#000'}  />
     </Link>
   )
