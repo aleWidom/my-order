@@ -11,11 +11,12 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 function App() {
+  //TODO AL PATH HOME HAY QUE HACER PARAMETRIZADO
   return (
     <TableProvider>
       <OrderProvider>
         <Routes>
-          <Route path="/(/:id)" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} /> 
           <Route path="/table/:id/menu" element={<MenuPage />} />
         </Routes>
       </OrderProvider>
