@@ -10,12 +10,15 @@ import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
+
+//TODO CAMBIAR HOME A PARAMETRIZADA
+
 function App() {
   return (
     <TableProvider>
       <OrderProvider>
         <Routes>
-          <Route path="/:id?" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/table/:id/menu" element={<MenuPage />} />
         </Routes>
       </OrderProvider>

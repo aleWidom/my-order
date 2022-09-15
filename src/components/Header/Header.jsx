@@ -11,14 +11,15 @@ const Header = () => {
 
    const {pathname} = useLocation()
 
-   const page = pathname.slice(-4)
+/*    const page = pathname.slice(-4) */
+
 
     return (
         <>
             <div className={styles.containerHeader}>
                 <div className={styles.containerMenuBrand}>
                     <div className={styles.menuIcon}>
-                        {page === 'home' ? <MenuIcon /> : <BackIcon/>}
+                        {pathname === '/' ? <MenuIcon /> : <BackIcon/>}
                     </div>
                     <div className={styles.brand}>
                         <Brand />

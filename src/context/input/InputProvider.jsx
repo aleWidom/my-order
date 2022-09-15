@@ -6,14 +6,14 @@ export const InputProvider = ({ children }) => {
 
     const [valueInput, setValueInput] = useState("")
 
-    const [errInput, setErrInput] = useState("")
+/*     const [errInput, setErrInput] = useState("") */
 
     return (
         <InputContext.Provider value={{
             valueInput,
             setValueInput,
-            errInput,
-            setErrInput
+     /*        errInput,
+            setErrInput */
         }}>
             {children}
         </InputContext.Provider>

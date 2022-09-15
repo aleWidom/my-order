@@ -9,8 +9,9 @@ const BackIcon = () => {
 
   const {table} = useContext(TableContext)
 
+  //TODO DEBE IR AL HOME PARAMETRIZADO
   return (
-    <Link to={`/${table.table_number}`}>
+    <Link to={`/`}>
       <FaArrowCircleLeft color={'#000'}  />
     </Link>
   )

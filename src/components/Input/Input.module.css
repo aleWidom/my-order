@@ -29,11 +29,15 @@
 
 .search {
   color: #000000;
+  font-size: 16px;
 }
 
-.error {
-  font-family: "Arial";
-  color: #f32424;
-  order: 3;
-  font-size: 12px;
+.button {
+  border: none;
+  width: 24px;
+  height: 24px;
+}
+
+.button:focus {
+  outline: none;
 }

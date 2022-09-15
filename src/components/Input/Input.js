@@ -1,38 +1,28 @@
-import React, { useContext } from 'react';
+
+import React, { useContext } from 'react'; 
 import { FaSearch } from "react-icons/fa";
 import { InputContext } from '../../context/input';
-import { useFetchTables } from '../../hooks/useFetchTables';
 import styles from "./Input.module.css";
 
-const Input = ({ setTable }) => {
+const Input = () => {
 
-    const { valueInput, setValueInput, errInput, setErrInput } = useContext(InputContext)
 
-    const { tablesId1Restaurant } = useFetchTables()
-
+    const {valueInput, setValueInput} = useContext(InputContext)
+  
     const handleChange = (e) => {
-        setValueInput(e.target.value)
-        setTable('')
-        if (e.target.value.length > 2) {
-            const value = e.target.value
-            const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 1)
-            if (tableNumberEntered !== undefined) {
-                console.log(tableNumberEntered)
-                setTable(tableNumberEntered)
-                setErrInput("")
-            }
-        }
+           setValueInput(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(valueInput)
     }
 
     return (
-        <div className={styles.containerInputSearch}>
+        <form className={styles.containerInputSearch}>
             <input onChange={handleChange} value={valueInput} placeholder={"Buscar..."} className={styles.input} />
-            <FaSearch className={styles.search} />
-            {errInput !== '' ?
-                <span className={styles.error}>{errInput}</span> :
-                ""
-            }
-        </div>
+            <button onClick={handleSubmit} className={styles.button}><FaSearch className={styles.search}/></button>
+        </form>
     )
 };
 
