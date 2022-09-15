@@ -15,7 +15,7 @@ function App() {
     <TableProvider>
       <OrderProvider>
         <Routes>
-          <Route path="/:id?" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/table/:id/menu" element={<MenuPage />} />
         </Routes>
       </OrderProvider>
