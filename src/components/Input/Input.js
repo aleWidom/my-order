@@ -6,8 +6,7 @@ import styles from "./Input.module.css";
 
 const Input = () => {
 
-
-    const {valueInput, setValueInput} = useContext(InputContext)
+    const {valueInput, setValueInput, setWordSearched} = useContext(InputContext)
   
     const handleChange = (e) => {
            setValueInput(e.target.value)
@@ -15,7 +14,7 @@ const Input = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(valueInput)
+        setWordSearched(valueInput)
     }
 
     return (

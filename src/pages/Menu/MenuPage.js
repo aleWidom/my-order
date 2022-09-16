@@ -1,5 +1,6 @@
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { InputContext } from '../../context/input';
 import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
@@ -7,7 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import HeaderImgCategorieSelected from '../../components/HeaderImgCategorieSelected/HeaderImgCategorieSelected';
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsMenu from '../../components/CardsMenu/CardsMenu'
-import { InputProvider } from '../../context/input';
+import Results from '../../components/Results/Results';
 
 import styles from "./MenuPage.module.css"
 
@@ -15,10 +16,11 @@ const MenuPage = () => {
 
     const [loading, setLoading] = useState(false) //TODO PASARLO A TRUE una vez que lo tenga más claro cuando y donde debe cargar
 
+    const { wordSearched } = useContext(InputContext)
 
-   setTimeout(() => {
+    setTimeout(() => {
         setLoading(false)
-    }, 4000); 
+    }, 4000);
 
     return (
         <>
@@ -28,13 +30,17 @@ const MenuPage = () => {
                 </div> :
                 <div className={styles.mainContainerMenu}>
                     <Header />
-                    <InputProvider>
-                        <Input />
-                    </InputProvider>
+                    <Input />
                     <CardsCategories />
                     <HeaderImgCategorieSelected />
-                    <CardsMenu />
-                    <div className={styles.footer}>
+                    {wordSearched === '' ?
+                        <div className={styles.cardsMenuContainer}>
+                            <CardsMenu />
+                        </div> :
+                        <div className={styles.resultsContainer}>
+                            <Results />
+                        </div>}
+                    <div className={styles.footerContainer}>
                         <Footer />
                     </div>
                 </div>}

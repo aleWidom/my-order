@@ -1,14 +1,3 @@
-.mainContainerMenu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px 24px;
-  gap: 32px;
-  position: relative;
-  width: 414px;
-  height: 896px;
-}
-
 .mainContainerLoading {
   display: flex;
   flex-direction: row;
@@ -20,19 +9,31 @@
   height: 896px;
 }
 
-.headerImgCategorieSelected {
-  position: absolute;
-  left: 24px;
-  top: 279px;
+.mainContainerMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 24px;
+  gap: 32px;
+  position: relative;
+  width: 414px;
+  height: 896px;
 }
 
-.cardsPlates {
-  position: absolute;
-  left: 24px;
-  top: 471px;
+.cardsMenuContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  width: 366px;
 }
 
-.footer {
+.resultsContainer {
+  background-color: rgb(25, 230, 25);
+}
+
+.footerContainer {
   width: 366px;
   height: 36px;
   background-color: #000;
@@ -40,6 +41,5 @@
   justify-content: center;
   align-items: center;
   flex: none;
-  order: 5;
   flex-grow: 0;
 }

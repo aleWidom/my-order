@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { OrderContext } from "../../context/order";
-import {useFetchPlates} from '../../hooks'
+import { useFetchPlates } from '../../hooks'
 import CardMenu from "../CardMenu/CardMenu"
 import styles from './CardsMenu.module.css'
 
 
-const CardsMenu = ({ title }) => {
+const CardsMenu = () => {
 
-    const { platesSelectedCategoryRestaurant,  nameCategorySelected,  setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
+    const { platesSelectedCategoryRestaurant, nameCategorySelected, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
 
     useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
 
@@ -18,7 +18,7 @@ const CardsMenu = ({ title }) => {
         <>
             {platesSelectedCategoryRestaurant.map((e) => {
                 return <div className={styles.containerCardsMenu}>
-                    <CardMenu header={e.title} source={e.photo} description={e.description} price={e.price}/>
+                    <CardMenu header={e.title} source={e.photo} description={e.description} price={e.price} />
                 </div>
             })}
         </>

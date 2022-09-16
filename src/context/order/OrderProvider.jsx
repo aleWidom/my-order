@@ -10,11 +10,7 @@ export const OrderProvider = ({ children }) => {
 
     const [platesSelectedCategoryRestaurant, setPlatesSelectedCategoryRestaurant] = useState([])
 
-    const [cardsHome, setCardsHome] = useState({
-            specials: [],
-            ranking:[],
-            dayPlates:[]
-        })
+    const [cardsHome, setCardsHome] = useState([])
 
     return (
         <OrderContext.Provider value={{

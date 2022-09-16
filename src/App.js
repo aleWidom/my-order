@@ -8,6 +8,7 @@ import './index.css'
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { InputProvider } from "./context/input";
 Amplify.configure(awsconfig);
 
 
@@ -17,10 +18,12 @@ function App() {
   return (
     <TableProvider>
       <OrderProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/table/:id/menu" element={<MenuPage />} />
-        </Routes>
+        <InputProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/table/:id/menu" element={<MenuPage />} />
+          </Routes>
+        </InputProvider>
       </OrderProvider>
     </TableProvider>
   );
