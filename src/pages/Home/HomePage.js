@@ -11,6 +11,7 @@ import CardsHome from '../../components/CardsHome/CardsHome';
 import Footer from '../../components/Footer/Footer';
 import Results from '../../components/Results/Results';
 import styles from "./HomePage.module.css"
+import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
 
 
 const HomePage = () => {
@@ -19,10 +20,11 @@ const HomePage = () => {
 
   const { wordSearched } = useContext(InputContext)
 
-  const { cardsHome, setCardsHome } = useContext(OrderContext)
+  const { cardsHome, setCardsHome, menuWaiterActive } = useContext(OrderContext)
 
   useFetchCardsPlatesHome(setCardsHome)
 
+  console.log(cardsHome)
 
   return (
     <>
@@ -32,9 +34,10 @@ const HomePage = () => {
         </div> :
         <div className={styles.mainContainerHome}>
           <Header />
+          {menuWaiterActive ? <CallWaiterList/> : ""}
           <Input />
           <CardsCategories />
-          {wordSearched === '' ?
+          {wordSearched.length === 0 ?
             <div className={styles.cardsHomeContainer}>
               <CardsHome cardsHome={cardsHome} />
             </div>

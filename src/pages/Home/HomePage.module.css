@@ -30,7 +30,13 @@
 }
 
 .resultsContainer {
-  background-color:green;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  width: 366px;
+  height: 410px;
 }
 
 .footerContainer {

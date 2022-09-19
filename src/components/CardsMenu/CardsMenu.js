@@ -2,8 +2,6 @@ import { useContext } from "react";
 import { OrderContext } from "../../context/order";
 import { useFetchPlates } from '../../hooks'
 import CardMenu from "../CardMenu/CardMenu"
-import styles from './CardsMenu.module.css'
-
 
 const CardsMenu = () => {
 
@@ -17,9 +15,7 @@ const CardsMenu = () => {
 
         <>
             {platesSelectedCategoryRestaurant.map((e) => {
-                return <div className={styles.containerCardsMenu}>
-                    <CardMenu header={e.title} source={e.photo} description={e.description} price={e.price} />
-                </div>
+                return <CardMenu header={e.title} source={e.photo} description={e.description} price={e.price} key={e.id} />
             })}
         </>
 

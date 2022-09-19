@@ -1,0 +1,8 @@
+
+.containerCallWaiterList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 366px;
+    background-color: rebeccapurple;
+}

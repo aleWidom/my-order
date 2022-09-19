@@ -5,7 +5,10 @@ import styles from './CardMenu.module.css'
 const CardMenu = ({ price, description, header, source }) => {
 
     const handleClickRequest = () => {
-        alert(`Su ${header} llegará a su mesa en unos instantes :)`)
+        const confirma = window.confirm(`Confirma el pedido de  ${header}?`)
+        if(confirma) {
+            alert(`Su ${header} llegará a su mesa en unos instantes :)`)
+        }
     }
 
     return <div className={styles.containerCardMenu}>

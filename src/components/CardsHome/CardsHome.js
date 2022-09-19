@@ -4,14 +4,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './CardsHome.module.css'
 
 const CardsHome = ({ cardsHome }) => {
-
-    console.log(cardsHome)
-
     return (
         <>
             {
                 cardsHome.map((sectionHome) => (
-                    <div className={styles.cardsHomeContainer} key={sectionHome.id}>
+                    <div key={sectionHome.id}>
                         <h3 className={styles.title}>{sectionHome.title}</h3>
                         <Swiper slidesPerView={2} spaceBetween={20} className={styles.cardsPlates}>
                             {sectionHome.items.map((e) => (

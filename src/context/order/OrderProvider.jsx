@@ -12,6 +12,8 @@ export const OrderProvider = ({ children }) => {
 
     const [cardsHome, setCardsHome] = useState([])
 
+    const [ menuWaiterActive, setMenuWaiterActive] = useState(false)
+
     return (
         <OrderContext.Provider value={{
             nameCategorySelected,
@@ -21,7 +23,9 @@ export const OrderProvider = ({ children }) => {
             platesSelectedCategoryRestaurant,
             setPlatesSelectedCategoryRestaurant,
             cardsHome,
-            setCardsHome
+            setCardsHome,
+            menuWaiterActive,
+            setMenuWaiterActive
         }}>
             {children}
         </OrderContext.Provider>

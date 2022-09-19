@@ -6,7 +6,7 @@ export const InputProvider = ({ children }) => {
 
     const [valueInput, setValueInput] = useState("")
 
-    const [wordSearched, setWordSearched] = useState("")
+    const [wordSearched, setWordSearched] = useState([])
 
     return (
         <InputContext.Provider value={{

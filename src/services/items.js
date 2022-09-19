@@ -24,6 +24,17 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
   } catch (err) { console.log(err) }
 }
 
+
+async function getItemsResults() {
+  try {
+    const allItemsIdRestaurant1 = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
+
+    return allItemsIdRestaurant1
+  } catch (err) { console.log(err) }
+}
+
+
+
  async function getItemsCardsHome () {
   try {
     const cardsHome = [
@@ -90,6 +101,6 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
 } 
 
 
-export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsHome }
+export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsHome, getItemsResults }
 
 

@@ -5,10 +5,6 @@
   padding: 0px;
   gap: 32px;
   width: 366px;
-  height: auto;
-  flex: none;
-  order: 4;
-  flex-grow: 0;
 }
 
 .title {
