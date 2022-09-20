@@ -1,38 +1,42 @@
-import React, { useContext } from 'react';
+
+import React, { useContext } from 'react'; 
 import { FaSearch } from "react-icons/fa";
 import { InputContext } from '../../context/input';
-import { useFetchTables } from '../../hooks/useFetchTables';
+import { OrderContext } from '../../context/order';
+import { getItemsResults } from '../../services';
 import styles from "./Input.module.css";
 
-const Input = ({ setTable }) => {
+const Input = () => {
 
-    const { valueInput, setValueInput, errInput, setErrInput } = useContext(InputContext)
+    const {valueInput, setValueInput, setWordSearched} = useContext(InputContext)
+    const {  setMenuWaiterActive } = useContext(OrderContext)
 
-    const { tablesId1Restaurant } = useFetchTables()
-
+  
     const handleChange = (e) => {
         setValueInput(e.target.value)
-        setTable('')
-        if (e.target.value.length > 2) {
-            const value = e.target.value
-            const tableNumberEntered = tablesId1Restaurant.find((e) => e.table_number.toUpperCase() === value.toUpperCase() && e.table_active === 1)
-            if (tableNumberEntered !== undefined) {
-                console.log(tableNumberEntered)
-                setTable(tableNumberEntered)
-                setErrInput("")
-            }
-        }
+
+    }
+
+    const handleFocus= (e) => {
+        setMenuWaiterActive(false)
+
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        getItemsResults(valueInput)
+        .then(({data})=> {
+            setWordSearched(data)
+            console.log(data)
+        })
+        .catch((err) => err)
     }
 
     return (
-        <div className={styles.containerInputSearch}>
-            <input onChange={handleChange} value={valueInput} placeholder={"Buscar..."} className={styles.input} />
-            <FaSearch className={styles.search} />
-            {errInput !== '' ?
-                <span className={styles.error}>{errInput}</span> :
-                ""
-            }
-        </div>
+        <form className={styles.containerInputSearch}>
+            <input onChange={handleChange} onFocus={handleFocus} value={valueInput} placeholder={"Buscar..."} className={styles.input} />
+            <button onClick={handleSubmit} className={styles.button}><FaSearch className={styles.search}/></button>
+        </form>
     )
 };
 

@@ -8,7 +8,11 @@ import './index.css'
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { InputProvider } from "./context/input";
 Amplify.configure(awsconfig);
+
+
+//TODO CAMBIAR HOME A PARAMETRIZADA
 
 function App() {
   //TODO AL PATH HOME HAY QUE HACER PARAMETRIZADO
@@ -16,7 +20,7 @@ function App() {
     <TableProvider>
       <OrderProvider>
         <Routes>
-          <Route path="/" element={<HomePage />} /> 
+          <Route path="/" element={<HomePage />} />
           <Route path="/table/:id/menu" element={<MenuPage />} />
         </Routes>
       </OrderProvider>

@@ -1,26 +1,30 @@
 
 import { useState, useContext } from 'react';
+import { InputContext } from '../../context/input';
+import { OrderContext } from '../../context/order';
+import { useFetchCardsPlatesHome } from '../../hooks';
 import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsHome from '../../components/CardsHome/CardsHome';
 import Footer from '../../components/Footer/Footer';
-
-import { InputProvider } from '../../context/input';
-
-import { useFetchCardsPlatesHome } from '../../hooks';
+import Results from '../../components/Results/Results';
 import styles from "./HomePage.module.css"
-import { OrderContext } from '../../context/order';
+import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
 
 
 const HomePage = () => {
 
-  const [loading, setLoading] = useState(false) //TODO PASARLO A TRUE
+  const [loading, setLoading] = useState(true) //TODO PASARLO A TRUE
 
-  const {cardsHome, setCardsHome} = useContext(OrderContext)
+  const { wordSearched } = useContext(InputContext)
 
-  useFetchCardsPlatesHome(setCardsHome)
+  const { cardsHome, setCardsHome, menuWaiterActive } = useContext(OrderContext)
+
+  useFetchCardsPlatesHome(setCardsHome, setLoading)
+
+  console.log(cardsHome)
 
   return (
     <>
@@ -30,20 +34,18 @@ const HomePage = () => {
         </div> :
         <div className={styles.mainContainerHome}>
           <Header />
-          <InputProvider>
-            <Input />
-          </InputProvider>
+          {menuWaiterActive ? <CallWaiterList/> : ""}
+          <Input />
           <CardsCategories />
-          <div className={styles.cardsMostPopular}>
-            <CardsHome title={'Platos más solicitados.'} sectionHone={cardsHome.specials} />
-          </div>
-          <div className={styles.suggestions}>
-            <CardsHome title={'Sugerencias del cheff.'} sectionHone={cardsHome.ranking} />
-          </div>
-          <div className={styles.daysPlates} >
-            <CardsHome title={'Platos del día.'} sectionHone={cardsHome.dayPlates} />
-          </div>
-          <div className={styles.footer}>
+          {wordSearched.length === 0 ?
+            <div className={styles.cardsHomeContainer}>
+              <CardsHome cardsHome={cardsHome} />
+            </div>
+            :
+            <div className={styles.resultsContainer}>
+              <Results />
+            </div>}
+          <div className={styles.footerContainer}>
             <Footer />
           </div>
         </div>}

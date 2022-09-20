@@ -8,7 +8,6 @@
   width: 366px;
   height: 32px;
   flex: none;
-  order: 1;
   flex-grow: 0;
   border: solid 1px #000000;
   color: #000000;
@@ -29,11 +28,15 @@
 
 .search {
   color: #000000;
+  font-size: 16px;
 }
 
-.error {
-  font-family: "Arial";
-  color: #f32424;
-  order: 3;
-  font-size: 12px;
+.button {
+  border: none;
+  width: 24px;
+  height: 24px;
+}
+
+.button:focus {
+  outline: none;
 }
