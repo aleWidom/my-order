@@ -16,13 +16,13 @@ import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
 
 const HomePage = () => {
 
-  const [loading, setLoading] = useState(false) //TODO PASARLO A TRUE
+  const [loading, setLoading] = useState(true) //TODO PASARLO A TRUE
 
   const { wordSearched } = useContext(InputContext)
 
   const { cardsHome, setCardsHome, menuWaiterActive } = useContext(OrderContext)
 
-  useFetchCardsPlatesHome(setCardsHome)
+  useFetchCardsPlatesHome(setCardsHome, setLoading)
 
   console.log(cardsHome)
 

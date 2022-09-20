@@ -6,7 +6,6 @@ import BackIcon from "../BackIcon/BackIcon"
 import TableIcon from "../TableIcon/TableIcon";
 import WaiterIcon from "../WaiterIcon/WaiterIcon"
 import styles from "./Header.module.css"
-import CallWaiterList from "../CallWaiterList/CallWaiterList";
 
 const Header = () => {
 
