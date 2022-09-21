@@ -19,10 +19,12 @@ function App() {
   return (
     <TableProvider>
       <OrderProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/table/:id/menu" element={<MenuPage />} />
-        </Routes>
+        <InputProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/table/:id/menu" element={<MenuPage />} />
+          </Routes>
+        </InputProvider>
       </OrderProvider>
     </TableProvider>
   );

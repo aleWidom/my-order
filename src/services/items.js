@@ -25,17 +25,17 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
 }
 
 
-async function getItemsResults() {
+async function getItemsResults(valueImput) {
   try {
-    const allItemsIdRestaurant1 = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
+    const searchResults = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${valueImput}`);
 
-    return allItemsIdRestaurant1
+    return searchResults;
   } catch (err) { console.log(err) }
 }
 
 
 
- async function getItemsCardsHome () {
+async function getItemsCardsHome() {
   try {
     const cardsHome = [
       {
@@ -94,11 +94,11 @@ async function getItemsResults() {
       }
 
     ]
- 
+
     return cardsHome
 
   } catch (err) { console.log(err) }
-} 
+}
 
 
 export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsHome, getItemsResults }

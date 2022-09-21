@@ -32,9 +32,9 @@ exports.handler = async (event) => {
             });
         })
         result = await promiseQuery
-    } else if (event.queryStringParameters?.search !== undefined) {
+    } else if (event.queryStringParameters?.search) {
         const promiseQuery = new Promise((resolve) => {
-            connection.query(`SELECT * from Category  Where title Like %""%  `, function (error, results, fields) {
+            connection.query(`SELECT * from Item Where title like %${event.queryStringParameters.search}%`, function (error, results, fields) {
                 resolve(results)
             });
         })
