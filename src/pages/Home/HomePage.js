@@ -2,29 +2,30 @@
 import { useState, useContext } from 'react';
 import { InputContext } from '../../context/input';
 import { OrderContext } from '../../context/order';
-import { useFetchCardsPlatesHome } from '../../hooks';
+import { useFetchCardsRanking,useFetchCardsDayPlates  } from '../../hooks';
 import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import CardsCategories from '../../components/CardsCategories/CardsCategories'
-import CardsHome from '../../components/CardsHome/CardsHome';
+import CardsRanking from '../../components/CardsRanking/CardsRanking';
 import Footer from '../../components/Footer/Footer';
 import Results from '../../components/Results/Results';
 import styles from "./HomePage.module.css"
 import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
+import CardsDayPlates from '../../components/CardsDayPlates/CardsDayPlates';
 
 
 const HomePage = () => {
 
-  const [loading, setLoading] = useState(true) //TODO PASARLO A TRUE
+  const [loading, setLoading] = useState(true) 
 
-  const { wordSearched } = useContext(InputContext)
+  const { resultsSearched} = useContext(InputContext)
 
-  const { cardsHome, setCardsHome, menuWaiterActive } = useContext(OrderContext)
+  const { cardsRanking, setCardsRanking, cardsDayPlate, setCardsDayPlate, menuWaiterActive } = useContext(OrderContext)
 
-  useFetchCardsPlatesHome(setCardsHome, setLoading)
+  useFetchCardsRanking(setCardsRanking, setLoading)
 
-  console.log(cardsHome)
+  useFetchCardsDayPlates(setCardsDayPlate)
 
   return (
     <>
@@ -37,9 +38,11 @@ const HomePage = () => {
           {menuWaiterActive ? <CallWaiterList/> : ""}
           <Input />
           <CardsCategories />
-          {wordSearched.length === 0 ?
+          {resultsSearched.length === 0 ?
             <div className={styles.cardsHomeContainer}>
-              <CardsHome cardsHome={cardsHome} />
+              <CardsRanking cardsRanking={cardsRanking} title={'Platos más solicitados'} />
+              <CardsDayPlates cardsDayPlates={cardsDayPlate}/>
+              <CardsRanking cardsRanking={cardsRanking}  title={'Sugerencias'} />
             </div>
             :
             <div className={styles.resultsContainer}>

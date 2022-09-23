@@ -4,15 +4,17 @@ import { OrderContext } from '.';
 
 export const OrderProvider = ({ children }) => {
 
-    const [nameCategorySelected, setNameCategorySelected] = useState("Pizzanesas")
+    const [nameCategorySelected, setNameCategorySelected] = useState("")
 
     const [categoriesMenuRestaurant, setCategoriesMenuRestaurant] = useState([]);
 
     const [platesSelectedCategoryRestaurant, setPlatesSelectedCategoryRestaurant] = useState([])
 
-    const [cardsHome, setCardsHome] = useState([])
+    const [cardsRanking, setCardsRanking] = useState([])
 
-    const [ menuWaiterActive, setMenuWaiterActive] = useState(false)
+    const [ cardsDayPlate,  setCardsDayPlate,] = useState([])
+
+    const [menuWaiterActive, setMenuWaiterActive] = useState(false)
 
     return (
         <OrderContext.Provider value={{
@@ -22,8 +24,10 @@ export const OrderProvider = ({ children }) => {
             setCategoriesMenuRestaurant,
             platesSelectedCategoryRestaurant,
             setPlatesSelectedCategoryRestaurant,
-            cardsHome,
-            setCardsHome,
+            cardsRanking,
+            setCardsRanking,
+            cardsDayPlate, 
+            setCardsDayPlate,
             menuWaiterActive,
             setMenuWaiterActive
         }}>

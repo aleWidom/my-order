@@ -1,24 +1,4 @@
-.containerCardsMenu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 32px;
-  width: 366px;
-}
 
-.title {
-  background-color: rgb(167, 252, 255);
-  font-size: 16px;
-  width: 366px;
-  height: 24px;
-}
-
-.cardsPlates {
-  width: 366px;
-  height: 136px;
-  background-color: rgb(190, 140, 236);
-}
 
 /* .container {
   display: flex;

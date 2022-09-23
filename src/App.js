@@ -15,6 +15,7 @@ Amplify.configure(awsconfig);
 //TODO CAMBIAR HOME A PARAMETRIZADA
 
 function App() {
+  //TODO AL PATH HOME HAY QUE HACER PARAMETRIZADO
   return (
     <TableProvider>
       <OrderProvider>

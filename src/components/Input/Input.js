@@ -8,7 +8,7 @@ import styles from "./Input.module.css";
 
 const Input = () => {
 
-    const {valueInput, setValueInput, setWordSearched} = useContext(InputContext)
+    const {valueInput, setValueInput, setResultsSearched} = useContext(InputContext)
     const {  setMenuWaiterActive } = useContext(OrderContext)
 
   
@@ -24,13 +24,24 @@ const Input = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+       if(valueInput.length === 0) {
+            setResultsSearched([])
+            alert('Debe ingresar una palabra para iniciar con la búsqueda')
+       } else {
         getItemsResults(valueInput)
         .then(({data})=> {
-            setWordSearched(data)
-            console.log(data)
+            if(data.length === 0) {
+                alert('No hay elementos que coincidan con la búsqueda, intente con otras palabras')
+                setValueInput("")
+            }
+            else {
+                setResultsSearched(data)
+            }
         })
         .catch((err) => err)
+       }
     }
+
 
     return (
         <form className={styles.containerInputSearch}>

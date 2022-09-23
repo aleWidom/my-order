@@ -2,6 +2,7 @@
 import { useState, useContext } from 'react';
 import { InputContext } from '../../context/input';
 import { OrderContext } from '../../context/order';
+import { useFetchPlates } from '../../hooks';
 import Loading from '../../components/Loading/Loading';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
@@ -16,15 +17,13 @@ import styles from "./MenuPage.module.css"
 
 const MenuPage = () => {
 
-    const [loading, setLoading] = useState(false) //TODO PASARLO A TRUE una vez que lo tenga más claro cuando y donde debe cargar
+    const [loading, setLoading] = useState(true) //TODO PASARLO A TRUE una vez que lo tenga más claro cuando y donde debe cargar
 
-    const { wordSearched } = useContext(InputContext)
+    const { resultsSearched} = useContext(InputContext)
 
-    const { menuWaiterActive } = useContext(OrderContext)
+    const { menuWaiterActive, nameCategorySelected, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
 
-    setTimeout(() => {
-        setLoading(false)
-    }, 4000);
+    useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant, setLoading)
 
     return (
         <>
@@ -38,9 +37,9 @@ const MenuPage = () => {
                     <Input />
                     <CardsCategories />
                     <HeaderImgCategorieSelected />
-                    {wordSearched.length === 0 ?
+                    {resultsSearched.length === 0 ?
                         <div className={styles.cardsMenuContainer}>
-                            <CardsMenu />
+                            <CardsMenu  setLoading={setLoading}/>
                         </div> :
                         <div className={styles.resultsContainer}>
                             <Results />

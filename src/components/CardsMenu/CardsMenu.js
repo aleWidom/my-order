@@ -1,15 +1,10 @@
 import { useContext } from "react";
-import { OrderContext } from "../../context/order";
-import { useFetchPlates } from '../../hooks'
+import { OrderContext } from "../../context/order"
 import CardMenu from "../CardMenu/CardMenu"
 
 const CardsMenu = () => {
 
-    const { platesSelectedCategoryRestaurant, nameCategorySelected, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
-
-    useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant)
-
-    console.log(platesSelectedCategoryRestaurant)
+    const { platesSelectedCategoryRestaurant} = useContext(OrderContext)
 
     return (
 

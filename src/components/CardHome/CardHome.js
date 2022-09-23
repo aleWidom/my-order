@@ -2,10 +2,12 @@ import React from 'react';
 import styles from './CardHome.module.css'
 
 
-const CardHome= ({description}) => {
+const CardHome= ({title, source}) => {
     return <div className={styles.container}>
-        <h1>{description}</h1>
-    </div>;
+    <img src={source} className={styles.img} />
+    <h5 className={styles.title}>{title}</h5>
+    </div>
+
 }
 
 export default CardHome;
