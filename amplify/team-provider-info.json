@@ -19,11 +19,11 @@
         },
         "functionLambdaRestaurants": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaRestaurants-3336666e343768503566-build.zip"
+          "s3Key": "amplify-builds/functionLambdaRestaurants-6c47346c6b7762644e5a-build.zip"
         },
         "functionLambdaItems": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaItems-356e5869507863616b61-build.zip"
+          "s3Key": "amplify-builds/functionLambdaItems-6a4465666b37752f4f4e-build.zip"
         }
       },
       "api": {
