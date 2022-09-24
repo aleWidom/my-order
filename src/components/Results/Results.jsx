@@ -5,14 +5,12 @@ import CardMenu from "../CardMenu/CardMenu"
 
 const Results = () => {
   
-  const { wordSearched } = useContext(InputContext)
-
-  console.log(wordSearched)
+  const { resultsSearched } = useContext(InputContext)
 
   return (
     <>
-    {wordSearched.map((e)=> (
-        <CardMenu header={e.header} key={e.id}/>
+    {resultsSearched.map((e)=> (
+        <CardMenu header={e.title} key={e.id} source={e.photo} description={e.description} price={e.price}/>
     ))}
     </>
   )

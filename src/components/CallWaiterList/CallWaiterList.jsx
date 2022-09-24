@@ -40,8 +40,8 @@ const CallWaiterList = () => {
                 <input type="radio" id="account" name="call" value={"account"} />
                 <label>Pedir la cuenta</label>
             </div>
-            <button>Solicitar</button>
-        </form>
+            <button className={styles.button} >Realizar solicitud</button>
+        </form >
     )
 }
 

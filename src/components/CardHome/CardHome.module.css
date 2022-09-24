@@ -1,7 +1,19 @@
 .container {
   width: 173px;
-  height: 136px;
-  background-color: #1dd73f;
+  height: 136px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid 1px rgb(0, 0, 0);
+}
+
+.img {
+ width: 50%; 
+}
+
+.title {
+  text-align: center;
 }
 
 /*   box-shadow: rgba(119, 119, 119, 0.8) 0px 8px 34px -25px;

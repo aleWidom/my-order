@@ -25,82 +25,34 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
 }
 
 
-async function getItemsResults(valueImput) {
+async function getItemsResults(valueInput) {
   try {
-    const searchResults = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${valueImput}`);
-
+    const valueInputArray = valueInput.split(" ")
+    const valueInputForQuery = valueInputArray.join('+')
+    console.log(valueInputForQuery)
+    const searchResults = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${valueInputForQuery}`);
+    console.log(searchResults)
     return searchResults;
   } catch (err) { console.log(err) }
 }
 
 
 
-async function getItemsCardsHome() {
+async function getItemsCardsRanking() {
   try {
-    const cardsHome = [
-      {
-        id: 1,
-        title: 'Platos más solicitados.',
-        items: [
-          {
-            id: 1,
-            name: "Milanesas"
-          },
-          {
-            id: 2,
-            name: "Milanesas"
-          },
-          {
-            id: 3,
-            name: "Milanesas"
-          },
-          {
-            id: 4,
-            name: "Milanesas"
-          }
-        ]
-      },
-      {
-        id: 2,
-        title: 'Sugerencias del cheff.',
-        items: [
-          {
-            id: 1,
-            name: "Asado"
-          },
-          {
-            id: 2,
-            name: "Pollo"
-          },
-          {
-            id: 3,
-            name: "Pollo con papas"
-          }
-        ]
-      },
-      {
-        id: 3,
-        title: 'Sugerencias del día.',
-        items: [
-          {
-            id: 1,
-            name: "Sopa"
-          },
-          {
-            id: 2,
-            name: "Ensalada"
-          }
-        ]
-      }
+    const cardsRanking = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?ranking`);
+    return cardsRanking;
+  } catch (err) { console.log(err) }
+}
 
-    ]
-
-    return cardsHome
-
+async function getItemsCardsDayPlates() {
+  try {
+    const cardsDayPlates = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?dayPlates`);
+    return cardsDayPlates;
   } catch (err) { console.log(err) }
 }
 
 
-export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsHome, getItemsResults }
+export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsRanking, getItemsCardsDayPlates, getItemsResults }
 
 
