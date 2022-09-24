@@ -34,7 +34,21 @@ exports.handler = async (event) => {
         result = await promiseQuery
     } else if (event.queryStringParameters?.search !== undefined) {
         const promiseQuery = new Promise((resolve) => {
-            connection.query(`SELECT * FROM Item WHERE id_restaurant = 1`, function (error, results, fields) {
+            connection.query(`select * from Item where title like "%${event.queryStringParameters.search}%"`, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    } else if (event.queryStringParameters?.ranking !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`SELECT * FROM Item WHERE id IN(1,4,8,7)`, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    } else if (event.queryStringParameters?.dayPlates !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`SELECT * FROM Item WHERE id IN(2,5,6,3)`, function (error, results, fields) {
                 resolve(results)
             });
         })
