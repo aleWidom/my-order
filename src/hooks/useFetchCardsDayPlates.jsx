@@ -8,5 +8,5 @@ export const  useFetchCardsDayPlates = (setCardsHome, setLoading) => {
       setCardsHome(data)
       setLoading(false)
     })
-  }, [setCardsHome]);
+  }, [setCardsHome, setLoading]);
 }

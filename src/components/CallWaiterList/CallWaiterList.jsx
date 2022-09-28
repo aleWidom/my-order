@@ -31,17 +31,10 @@ const CallWaiterList = () => {
     }
 
     return (
-        <form className={styles.containerCallWaiterList}  onSubmit={handleSubmitWaiterList}>
-            <div>
-                <input type="radio" id="callWaiter" name="call" value={"callWaiter"} />
-                <label>Llamar Mozo</label>
-            </div>
-            <div>
-                <input type="radio" id="account" name="call" value={"account"} />
-                <label>Pedir la cuenta</label>
-            </div>
-            <button className={styles.button} >Realizar solicitud</button>
-        </form >
+        <div className={styles.containerCallWaiterList}  onSubmit={handleSubmitWaiterList}>
+                <a href='#'>Llamar Mozo</a>
+                <a href='#'>Pedir la cuenta</a>
+        </div>
     )
 }
 

@@ -27,12 +27,15 @@ async function getItemsAccordingToSelectedCategory(categorySelected) {
 
 async function getItemsResults(valueInput) {
   try {
-    const valueInputArray = valueInput.split(" ")
-    const valueInputForQuery = valueInputArray.join('+')
-    console.log(valueInputForQuery)
-    const searchResults = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${valueInputForQuery}`);
-    console.log(searchResults)
+    const searchResults = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${valueInput}`);
     return searchResults;
+  } catch (err) { console.log(err) }
+}
+
+async function getItemsResultsCardHome(cardTitle) {
+  try {
+    const searchResultsCardHome = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${cardTitle}`);
+    return searchResultsCardHome;
   } catch (err) { console.log(err) }
 }
 
@@ -53,6 +56,6 @@ async function getItemsCardsDayPlates() {
 }
 
 
-export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsRanking, getItemsCardsDayPlates, getItemsResults }
+export { getAllCategoriesIdRestaurant1, getItemsAccordingToSelectedCategory, getItemsCardsRanking, getItemsCardsDayPlates, getItemsResults,  getItemsResultsCardHome }
 
 

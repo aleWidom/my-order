@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { getItemsCardsRanking } from "../services";
 
-export const useFetchCardsRanking = (setCardsHome, setLoading) => {
+export const useFetchCardsRanking = (setCardsHome) => {
   useEffect(() => {
     getItemsCardsRanking()
     .then(({data})=> {
       setCardsHome(data)
-      setLoading(false)
     })
   }, [setCardsHome]);
 }

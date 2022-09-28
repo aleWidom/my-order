@@ -1,22 +1,22 @@
 
 import { useState } from 'react';
-import { InputContext } from '.';
+import { SearchContext } from '.';
 
-export const InputProvider = ({ children }) => {
+export const SearchProvider = ({ children }) => {
 
     const [valueInput, setValueInput] = useState("")
 
     const [resultsSearched, setResultsSearched] = useState([])
 
     return (
-        <InputContext.Provider value={{
+        <SearchContext.Provider value={{
             valueInput,
             setValueInput,
             resultsSearched, 
             setResultsSearched
         }}>
             {children}
-        </InputContext.Provider>
+        </SearchContext.Provider>
     )
 }
 

@@ -16,6 +16,11 @@ export const OrderProvider = ({ children }) => {
 
     const [menuWaiterActive, setMenuWaiterActive] = useState(false)
 
+    const [modalRequestFood, setModalRequestFood] = useState({
+        state: false,
+        title: ""
+    })
+
     return (
         <OrderContext.Provider value={{
             nameCategorySelected,
@@ -29,7 +34,9 @@ export const OrderProvider = ({ children }) => {
             cardsDayPlate, 
             setCardsDayPlate,
             menuWaiterActive,
-            setMenuWaiterActive
+            setMenuWaiterActive,
+            modalRequestFood, 
+            setModalRequestFood
         }}>
             {children}
         </OrderContext.Provider>

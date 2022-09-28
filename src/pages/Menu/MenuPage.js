@@ -1,10 +1,11 @@
 
 import { useState, useContext } from 'react';
-import { InputContext } from '../../context/input';
+import { SearchContext } from '../../context/search';
 import { OrderContext } from '../../context/order';
 import { useFetchPlates } from '../../hooks';
 import Loading from '../../components/Loading/Loading';
-import Input from '../../components/Input/Input';
+import Modal from '../../components/Modal/Modal';
+import Search from '../../components/Search/Search';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer'
 import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
@@ -19,9 +20,9 @@ const MenuPage = () => {
 
     const [loading, setLoading] = useState(true) //TODO PASARLO A TRUE una vez que lo tenga más claro cuando y donde debe cargar
 
-    const { resultsSearched} = useContext(InputContext)
+    const { resultsSearched} = useContext(SearchContext)
 
-    const { menuWaiterActive, nameCategorySelected, setPlatesSelectedCategoryRestaurant } = useContext(OrderContext)
+    const { menuWaiterActive, nameCategorySelected, setPlatesSelectedCategoryRestaurant, modalRequestFood } = useContext(OrderContext)
 
     useFetchPlates(nameCategorySelected, setPlatesSelectedCategoryRestaurant, setLoading)
 
@@ -34,8 +35,9 @@ const MenuPage = () => {
                 <div className={styles.mainContainerMenu}>
                     <Header />
                     {menuWaiterActive ? <CallWaiterList/> : ""}
-                    <Input />
+                    <Search />
                     <CardsCategories />
+                    {modalRequestFood.state ? <Modal/> : ""}
                     <HeaderImgCategorieSelected />
                     {resultsSearched.length === 0 ?
                         <div className={styles.cardsMenuContainer}>

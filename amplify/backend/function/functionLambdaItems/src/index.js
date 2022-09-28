@@ -39,6 +39,13 @@ exports.handler = async (event) => {
             });
         })
         result = await promiseQuery
+    } else if (event.queryStringParameters?.searchCard !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`select * from Item where title = "%${event.queryStringParameters.search}%"`, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
     } else if (event.queryStringParameters?.ranking !== undefined) {
         const promiseQuery = new Promise((resolve) => {
             connection.query(`SELECT * FROM Item WHERE id IN(1,4,8,7)`, function (error, results, fields) {
@@ -46,7 +53,8 @@ exports.handler = async (event) => {
             });
         })
         result = await promiseQuery
-    } else if (event.queryStringParameters?.dayPlates !== undefined) {
+    }
+    else if (event.queryStringParameters?.dayPlates !== undefined) {
         const promiseQuery = new Promise((resolve) => {
             connection.query(`SELECT * FROM Item WHERE id IN(2,5,6,3)`, function (error, results, fields) {
                 resolve(results)

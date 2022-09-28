@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { InputContext } from "../../context/input";
+import { SearchContext } from "../../context/search";
 import { OrderContext } from "../../context/order";
-import { TableContext } from "../../context/tables";
+/* import { TableContext } from "../../context/tables"; */
 import { Link } from "react-router-dom";
 import { FaArrowCircleLeft } from "react-icons/fa";
 
 const BackIcon = () => {
-  const { table } = useContext(TableContext);
 
-  const { setValueInput } = useContext(InputContext);
+/*   const { table } = useContext(TableContext); */
+
+  const { setValueInput } = useContext(SearchContext);
 
   const { setNameCategorySelected } = useContext(OrderContext);
 

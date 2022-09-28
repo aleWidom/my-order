@@ -1,14 +1,14 @@
 
 import React, { useContext } from 'react'; 
 import { FaSearch } from "react-icons/fa";
-import { InputContext } from '../../context/input';
+import { SearchContext } from '../../context/search';
 import { OrderContext } from '../../context/order';
 import { getItemsResults } from '../../services';
-import styles from "./Input.module.css";
+import styles from "./Search.module.css";
 
-const Input = () => {
+const Search = () => {
 
-    const {valueInput, setValueInput, setResultsSearched} = useContext(InputContext)
+    const {valueInput, setValueInput, setResultsSearched} = useContext(SearchContext)
     const {  setMenuWaiterActive } = useContext(OrderContext)
 
   
@@ -17,9 +17,9 @@ const Input = () => {
 
     }
 
-    const handleFocus= (e) => {
+    const handleFocus = (e) => {
         setMenuWaiterActive(false)
-
+        setResultsSearched([])
     }
 
     const handleSubmit = (e) => {
@@ -51,4 +51,4 @@ const Input = () => {
     )
 };
 
-export default Input;
+export default Search;

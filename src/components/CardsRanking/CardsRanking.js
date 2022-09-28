@@ -25,16 +25,5 @@ export default CardsRanking ;
 
 
 
-{/* <div className={styles.cardsMostPopular}>
-<CardsHome title={'Platos más solicitados.'} sectionHone={cardsHome.specials} />
-</div>
-<div className={styles.suggestions}>
-<CardsHome title={'Sugerencias del cheff.'} sectionHone={cardsHome.ranking} />
-</div>
-<div className={styles.daysPlates} >
-<CardsHome title={'Platos del día.'} sectionHone={cardsHome.dayPlates} />
-</div> */}
-
-
 
 

@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { InputContext } from "../../context/input"
+import { SearchContext } from "../../context/search"
 import CardMenu from "../CardMenu/CardMenu"
 
 
 const Results = () => {
   
-  const { resultsSearched } = useContext(InputContext)
+  const { resultsSearched } = useContext(SearchContext)
 
   return (
     <>
@@ -17,3 +17,4 @@ const Results = () => {
 }
 
 export default Results
+

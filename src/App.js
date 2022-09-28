@@ -3,12 +3,12 @@ import HomePage from './pages/Home/HomePage'
 import MenuPage from './pages/Menu/MenuPage'
 import { TableProvider } from "./context/tables";
 import { OrderProvider } from "./context/order";
+import { SearchProvider } from "./context/search";
 
 import './index.css'
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
-import { InputProvider } from "./context/input";
 Amplify.configure(awsconfig);
 
 
@@ -19,12 +19,12 @@ function App() {
   return (
     <TableProvider>
       <OrderProvider>
-        <InputProvider>
+        <SearchProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/table/:id/menu" element={<MenuPage />} />
           </Routes>
-        </InputProvider>
+        </SearchProvider>
       </OrderProvider>
     </TableProvider>
   );
