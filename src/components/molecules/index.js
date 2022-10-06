@@ -1,0 +1,5 @@
+export * from './cards/Categories'
+export * from './cards/MainFood'
+export * from './cards/Food'
+export * from './forms/FormSearch'
+export * from './loading/MainLoading'

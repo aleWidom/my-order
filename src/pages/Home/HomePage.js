@@ -1,4 +1,4 @@
-
+/* 
 import { useState, useContext } from 'react';
 import { SearchContext } from '../../context/search';
 import { OrderContext } from '../../context/order';
@@ -11,20 +11,28 @@ import CardsCategories from '../../components/CardsCategories/CardsCategories'
 import CardsRanking from '../../components/CardsRanking/CardsRanking';
 import Footer from '../../components/Footer/Footer';
 import Results from '../../components/Results/Results';
-import styles from "./HomePage.module.css"
-import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
-import CardsDayPlates from '../../components/CardsDayPlates/CardsDayPlates';
 
+import CallWaiterList from '../../components/CallWaiterList/CallWaiterList';
+import CardsDayPlates from '../../components/CardsDayPlates/CardsDayPlates'; */
+import { useState, useContext } from 'react';
+import { OrderContext } from '../../context';
+import { useFetchCardsDayPlates } from '../../hooks';
+import { Categories, FormSearch, MainLoading } from '../../components/molecules'
+import { MainFoods, Navbar } from '../../components/organisms'
+import styles from "./HomePage.module.css"
 
 const HomePage = () => {
 
-  const [loading, setLoading] = useState(true) 
+  const [loading, setLoading] = useState(true)
 
-  const { resultsSearched} = useContext(SearchContext)
+  /* const { resultsSearched} = useContext(SearchContext)
 
   const { cardsRanking, setCardsRanking, cardsDayPlate, setCardsDayPlate, menuWaiterActive, modalRequestFood } = useContext(OrderContext)
 
-  useFetchCardsRanking(setCardsRanking)
+  useFetchCardsRanking(setCardsRanking)*/
+
+
+  const { cardsDayPlate, setCardsDayPlate } = useContext(OrderContext)
 
   useFetchCardsDayPlates(setCardsDayPlate, setLoading)
 
@@ -32,15 +40,16 @@ const HomePage = () => {
     <>
       {loading ?
         <div className={styles.mainContainerLoading}>
-          <Loading />
+          <MainLoading />
         </div> :
         <div className={styles.mainContainerHome}>
-          <Header />
-          {menuWaiterActive ? <CallWaiterList/> : ""}
-          <Search />
-          <CardsCategories />
-          {modalRequestFood.state ? <Modal/> : ""}
-          {resultsSearched.length === 0 ?
+          <Navbar />
+          {/*       {menuWaiterActive ? <CallWaiterList/> : ""} */}
+          <FormSearch />
+          <Categories />
+          <MainFoods cardsDayPlates={cardsDayPlate} />
+       {/*    {modalRequestFood.state ? <Modal /> : ""} */}
+          {/*  {resultsSearched.length === 0 ?
             <div className={styles.cardsHomeContainer}>
               <CardsRanking cardsRanking={cardsRanking} title={'Platos más solicitados'} />
               <CardsDayPlates cardsDayPlates={cardsDayPlate}/>
@@ -49,10 +58,10 @@ const HomePage = () => {
             :
             <div className={styles.resultsContainer}>
               <Results />
-            </div>}
-          <div className={styles.footerContainer}>
+            </div>} */}
+          {/* <div className={styles.footerContainer}>
             <Footer />
-          </div>
+          </div> */}
         </div>}
     </>
   )

@@ -1,0 +1,10 @@
+.containerMainBrand {
+    width: 98px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.mainBrand {
+    width: 100%;
+}
