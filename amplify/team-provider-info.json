@@ -23,7 +23,7 @@
         },
         "functionLambdaItems": {
           "deploymentBucketName": "amplify-myorder-dev-231608-deployment",
-          "s3Key": "amplify-builds/functionLambdaItems-4262736843666d474966-build.zip"
+          "s3Key": "amplify-builds/functionLambdaItems-6f62576932376b31725a-build.zip"
         }
       },
       "api": {
