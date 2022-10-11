@@ -6,14 +6,18 @@ export const SearchProvider = ({ children }) => {
 
     const [valueInput, setValueInput] = useState("")
 
-    const [resultsSearched, setResultsSearched] = useState([])
+    const [results, setResults] = useState([])
+
+    const [nameCategorySelected, setNameCategorySelected] = useState("")
 
     return (
         <SearchContext.Provider value={{
             valueInput,
             setValueInput,
-            resultsSearched, 
-            setResultsSearched
+            results, 
+            setResults,
+            nameCategorySelected,
+            setNameCategorySelected,
         }}>
             {children}
         </SearchContext.Provider>

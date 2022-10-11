@@ -6,12 +6,12 @@ import styles from './MainFood.module.css'
 
 export const MainFood = ({ title, source }) => {
 
-    const { setResultsSearched } = useContext(SearchContext)
+    const { setResults } = useContext(SearchContext)
 
     const onClickCardHome = () => {
         getItemsResultsCardHome(title)
             .then(({ data }) => {
-                setResultsSearched(data)
+                setResults(data)
             })
             .catch((err) => err)
     }

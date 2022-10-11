@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { OrderContext } from "../../../../context";
-import styles from "./Food.module.css";
+import styles from "./Plate.module.css";
 
-export const Food = ({ price, description, header, source }) => {
+export const Plate = ({ price, description, header, source }) => {
   const { modalRequestFood, setModalRequestFood } = useContext(OrderContext);
 
   const handleClickRequest = () => {

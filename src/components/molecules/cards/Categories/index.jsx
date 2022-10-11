@@ -1,24 +1,30 @@
 import { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { SearchContext, OrderContext } from "../../../../context";
-import { useFetchCategories } from "../../../../hooks";
+import {SearchContext, OrderContext} from "../../../../context";
 import "swiper/css";
 import { Categorie } from "../../../atoms";
+import { useFetchCategories } from "../../../../hooks";
+import { getItemsAccordingToSelectedCategory } from "../../../../services";
 import styles from "./Categories.module.css";
 
 export const Categories = () => {
   const {
-    nameCategorySelected,
     categoriesMenuRestaurant,
-    setNameCategorySelected,
     setCategoriesMenuRestaurant,
   } = useContext(OrderContext);
 
-  const { setResultsSearched } = useContext(SearchContext);
+  const {nameCategorySelected, setValueInput, setNameCategorySelected, setResults} = useContext(SearchContext)
+
+
 
   const handleClickCategory = (cardSelected) => () => {
-    setNameCategorySelected(cardSelected.name);
-    setResultsSearched([]);
+    getItemsAccordingToSelectedCategory(cardSelected.name)
+    .then((data) => {
+      setNameCategorySelected(cardSelected.name)
+      setResults(data)
+      setValueInput("")
+    })
+    .catch((err) => console.log(err))
   };
 
   useFetchCategories(setCategoriesMenuRestaurant);
