@@ -18,19 +18,14 @@ import { useState, useContext } from 'react';
 import { OrderContext } from '../../context';
 import { useFetchCardsDayPlates } from '../../hooks';
 import { Categories, FormSearch, MainLoading } from '../../components/molecules'
-import { MainFoods, Navbar } from '../../components/organisms'
+import { MainFoods, Foods, Navbar } from '../../components/organisms'
 import styles from "./HomePage.module.css"
 
 const HomePage = () => {
 
   const [loading, setLoading] = useState(true)
 
-  /* const { resultsSearched} = useContext(SearchContext)
-
-  const { cardsRanking, setCardsRanking, cardsDayPlate, setCardsDayPlate, menuWaiterActive, modalRequestFood } = useContext(OrderContext)
-
-  useFetchCardsRanking(setCardsRanking)*/
-
+  const { nameCategorySelected } = useContext(OrderContext)
 
   const { cardsDayPlate, setCardsDayPlate } = useContext(OrderContext)
 
@@ -47,8 +42,13 @@ const HomePage = () => {
           {/*       {menuWaiterActive ? <CallWaiterList/> : ""} */}
           <FormSearch />
           <Categories />
-          <MainFoods cardsDayPlates={cardsDayPlate} />
-       {/*    {modalRequestFood.state ? <Modal /> : ""} */}
+
+          {nameCategorySelected === '' ?
+            <MainFoods cardsDayPlates={cardsDayPlate} /> :
+            <Foods />
+          }
+
+          {/*    {modalRequestFood.state ? <Modal /> : ""} */}
           {/*  {resultsSearched.length === 0 ?
             <div className={styles.cardsHomeContainer}>
               <CardsRanking cardsRanking={cardsRanking} title={'Platos más solicitados'} />
