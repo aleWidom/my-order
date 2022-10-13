@@ -14,7 +14,7 @@ export const Menu = () => {
   
   return (
     <Link to={`/`} className={styles.containerMenu} onClick={handleClickMenu}>
-      <FaBars color={'#f31f1f'} />
+      <FaBars color={'#f31f1f'} className={styles.menu}  />
     </Link>
   )
 }

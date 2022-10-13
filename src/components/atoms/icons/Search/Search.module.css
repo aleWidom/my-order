@@ -1,5 +1,4 @@
-.inputSearch {
-    width: 318px;
-    height: 24px;
-    background-color: blueviolet;
+.button {
+    border: none;
+    cursor: pointer
 }

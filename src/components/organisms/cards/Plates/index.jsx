@@ -19,6 +19,7 @@ export const Plates = ({setLoading}) => {
             description={e.description}
             price={e.price}
             key={e.id}
+            setLoading={setLoading}
           />
         );
       })}

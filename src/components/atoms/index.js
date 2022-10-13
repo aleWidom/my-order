@@ -1,5 +1,6 @@
 export * from './brands/MainBrand'
 export * from './cards/Categorie'
+export * from './icons/Closed'
 export * from './icons/Menu'
 export * from './icons/Table'
 export * from './icons/Waiter'
