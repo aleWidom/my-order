@@ -14,6 +14,7 @@ export const Plates = ({setLoading}) => {
       {results.map((e) => {
         return (
           <Plate
+            id={e.id}
             header={e.title}
             source={e.photo}
             description={e.description}

@@ -1,5 +1,20 @@
 .containerCallWaiter {
     width: 366px;
-    height: 32px;
-    background-color: red;
+    border: solid 1px #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    gap: 16px;
+    padding: 8px;
+}
+
+.button {
+    border: none;
+    background-color: #fff;
+    border: #000 1px solid;
+    color: #000;
+    padding: 4px;
+    border-radius: 4px;
 }

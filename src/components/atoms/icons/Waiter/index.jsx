@@ -13,9 +13,7 @@ export const Waiter = () => {
   }
 
   return (
-      <div className={styles.containerWaiter}>
         <img src={bow} alt={'bow'} onClick={handleClickWaiterIcon} className={styles.waiter}/>
-      </div>
   )
 }
 

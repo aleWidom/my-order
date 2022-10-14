@@ -3,13 +3,14 @@ import { OrderContext } from '../../../../context'
 import styles from './MainPlate.module.css'
 
 
-export const MainPlate = ({header, price, source, description }) => {
+export const MainPlate = ({header, price, source, description, id }) => {
 
     const { modalPlate, setModalPlate } = useContext(OrderContext);
 
     const onClickCardHome = () => {
         setModalPlate({
             ...modalPlate,
+            id: id,
             state: true,
             title: header,
             price: price,

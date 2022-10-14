@@ -3,6 +3,7 @@ import { MainPlate } from "../../../molecules";
 import styles from "./MainPlates.module.css";
 
 export const MainPlates = ({ cardsDayPlates, cardsRankingPlates }) => {
+  
   return (
     <>
       <div className={styles.container}>
@@ -14,7 +15,7 @@ export const MainPlates = ({ cardsDayPlates, cardsRankingPlates }) => {
         >
           {cardsDayPlates.map((e) => (
             <SwiperSlide key={e.id} >
-              <MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} />
+              <MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id}/>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -28,7 +29,7 @@ export const MainPlates = ({ cardsDayPlates, cardsRankingPlates }) => {
         >
           {cardsRankingPlates.map((e) => (
             <SwiperSlide key={e.id} >
-              <MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} />
+              <MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id} />
             </SwiperSlide>
           ))}
         </Swiper>

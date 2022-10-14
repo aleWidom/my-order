@@ -2,21 +2,26 @@ import React, { useContext } from "react";
 import { OrderContext } from "../../../../context";
 import styles from "./Plate.module.css";
 
-export const Plate = ({ price, description, header, source, setLoading }) => {
+export const Plate = ({ price, description, header, source, id }) => {
 
-const { modalPlate, setModalPlate } = useContext(OrderContext);
+const { modalPlate, setModalPlate, cart } = useContext(OrderContext);
 
   const handleClickRequest = () => {
     setModalPlate({
       ...modalPlate,
+      id: id,
       state: true,
       title: header,
       price: price,
       img: source,
       description: description
     });
-
   };
+
+  const plateInCart = cart.find((e) => {
+    return e.title === header
+  })
+
 
   return (
     <div className={styles.containerCardMenu} onClick={handleClickRequest}>
@@ -28,6 +33,7 @@ const { modalPlate, setModalPlate } = useContext(OrderContext);
             : description}
         </p>
         <p className={styles.price}>${price}</p>
+        <p>{plateInCart && <small className={styles.plateInCart}>{`Su ${plateInCart.title} llegara en unos minutos a su mesa ${':)'}` }</small>}</p> 
       </div>
       <div className={styles.containerImg}>
         <img src={source} className={styles.imgCardDishFood} alt={""} />

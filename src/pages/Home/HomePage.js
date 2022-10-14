@@ -11,42 +11,35 @@ const HomePage = () => {
 
   const { results } = useContext(SearchContext)
 
-  const { cardsDayPlates, cardsRankingPlates, setCardsDayPlates, setCardsRankingPlates, modalPlate } = useContext(OrderContext)
+  const { cardsDayPlates, cardsRankingPlates, setCardsDayPlates, setCardsRankingPlates, modalPlate, cart } = useContext(OrderContext)
 
   useFetchCardsDayPlates(setCardsDayPlates, setLoading)
 
   useFetchCardsRankingPlates(setCardsRankingPlates, setLoading)
 
-  console.log(loading)
+  console.log(cart)
 
-
-  if (loading) {
-    return (
+  return (
+    <>
+      {loading ? 
       <div className={styles.mainContainerLoading}>
         <MainLoading />
-      </div>
-    )
-  } else {
-    if (modalPlate.state) {
-      return (
-          <ModalPlate/>
-      )
-    }
-    else {
-      return (
-        <div className={styles.mainContainerHome}>
-          <Navbar />
-          <CallWaiter/>
-          <FormSearch />
-          <Categories />
-          {results.length === 0 ?
-            <MainPlates cardsDayPlates={cardsDayPlates} cardsRankingPlates={cardsRankingPlates} /> :
-            <Plates setLoading={setLoading} />
-          }
-        </div>
-      )
-    }
-  }
+      </div> :
+        <>
+          <div className={styles.mainContainerHome}>
+            <Navbar />
+            <CallWaiter />
+            <FormSearch />
+            <Categories />
+            {results.length === 0 ?
+              <MainPlates cardsDayPlates={cardsDayPlates} cardsRankingPlates={cardsRankingPlates} /> :
+              <Plates setLoading={setLoading} />
+            }
+          </div>
+          {modalPlate.state ? <ModalPlate /> : ""}
+        </>}
+    </>
+  )
 };
 
 export default HomePage;

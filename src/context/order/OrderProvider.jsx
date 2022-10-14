@@ -15,16 +15,23 @@ export const OrderProvider = ({ children }) => {
     const [menuWaiterActive, setMenuWaiterActive] = useState(false)
 
     const [modalPlate, setModalPlate] = useState({
+        id: 0,
         state: false,
         title: "",
         price: 0,
         img: "",
         description: "",
+        quantity: 1
     })
+    
+    const [cart, setCart] = useState([])
 
-    const [modalRequest, setModalRequest] = useState({
+    
+   /*  const [modalRequest, setModalRequest] = useState({
         state: false
     })
+ */
+
 
     return (
         <OrderContext.Provider value={{
@@ -38,8 +45,10 @@ export const OrderProvider = ({ children }) => {
             setMenuWaiterActive,
             modalPlate,
             setModalPlate,
-            modalRequest, 
-            setModalRequest
+            cart,
+            setCart
+          /*   modalRequest, 
+            setModalRequest */
         }}>
             {children}
         </OrderContext.Provider>
