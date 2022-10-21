@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { OrderContext, SearchContext } from '../../context';
 import { useFetchCardsDayPlates, useFetchCardsRankingPlates } from '../../hooks';
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate } from '../../components/molecules'
@@ -37,6 +38,7 @@ const HomePage = () => {
             }
           </div>
           {modalPlate.state ? <ModalPlate /> : ""}
+          {cart.length > 0 && <Link to={'/order'} >{`Mi orden: ${cart.length}`}</Link>}
         </>}
     </>
   )

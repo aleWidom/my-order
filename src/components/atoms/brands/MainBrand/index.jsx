@@ -8,6 +8,8 @@ import styles from './MainBrand.module.css'
 export const MainBrand = () => {
 
     const {setResults} = useContext(SearchContext)
+
+    
   
     const handleClickMenu = () => {
       setResults([])

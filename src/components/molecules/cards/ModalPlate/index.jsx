@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext} from 'react'
 import { OrderContext } from '../../../../context'
 import { Closed } from '../../../atoms'
 import styles from './ModalPlate.module.css'

@@ -1,0 +1,9 @@
+.mainContainerOrder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 414px;
+    height: 896px;
+    padding: 0px 24px;
+  }

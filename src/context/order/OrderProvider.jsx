@@ -26,6 +26,7 @@ export const OrderProvider = ({ children }) => {
     
     const [cart, setCart] = useState([])
 
+
     
    /*  const [modalRequest, setModalRequest] = useState({
         state: false
@@ -46,7 +47,7 @@ export const OrderProvider = ({ children }) => {
             modalPlate,
             setModalPlate,
             cart,
-            setCart
+            setCart,
           /*   modalRequest, 
             setModalRequest */
         }}>

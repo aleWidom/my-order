@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from './pages/Home/HomePage'
+import OrderPage from './pages/Order/OrderPage'
 import { TableProvider } from "./context/tables";
 import { OrderProvider } from "./context/order";
 import { SearchProvider } from "./context/search";
@@ -21,6 +22,7 @@ function App() {
         <SearchProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/order" element={<OrderPage />} />
           </Routes>
         </SearchProvider>
       </OrderProvider>
