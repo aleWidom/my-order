@@ -4,39 +4,52 @@ import { OrderContext } from '.';
 
 export const OrderProvider = ({ children }) => {
 
-    const [nameCategorySelected, setNameCategorySelected] = useState("")
+
 
     const [categoriesMenuRestaurant, setCategoriesMenuRestaurant] = useState([]);
 
-    const [platesSelectedCategoryRestaurant, setPlatesSelectedCategoryRestaurant] = useState([])
+    const [cardsRankingPlates, setCardsRankingPlates] = useState([])
 
-    const [cardsRanking, setCardsRanking] = useState([])
-
-    const [ cardsDayPlate,  setCardsDayPlate,] = useState([])
+    const [cardsDayPlates, setCardsDayPlates,] = useState([])
 
     const [menuWaiterActive, setMenuWaiterActive] = useState(false)
 
-    const [modalRequestFood, setModalRequestFood] = useState({
+    const [modalPlate, setModalPlate] = useState({
+        id: 0,
         state: false,
-        title: ""
+        title: "",
+        price: 0,
+        img: "",
+        description: "",
+        quantity: 1
     })
+    
+    const [cart, setCart] = useState([])
+
+
+    
+   /*  const [modalRequest, setModalRequest] = useState({
+        state: false
+    })
+ */
+
 
     return (
         <OrderContext.Provider value={{
-            nameCategorySelected,
-            setNameCategorySelected,
             categoriesMenuRestaurant,
             setCategoriesMenuRestaurant,
-            platesSelectedCategoryRestaurant,
-            setPlatesSelectedCategoryRestaurant,
-            cardsRanking,
-            setCardsRanking,
-            cardsDayPlate, 
-            setCardsDayPlate,
+            cardsRankingPlates,
+            setCardsRankingPlates,
+            cardsDayPlates,
+            setCardsDayPlates,
             menuWaiterActive,
             setMenuWaiterActive,
-            modalRequestFood, 
-            setModalRequestFood
+            modalPlate,
+            setModalPlate,
+            cart,
+            setCart,
+          /*   modalRequest, 
+            setModalRequest */
         }}>
             {children}
         </OrderContext.Provider>

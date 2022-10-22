@@ -1,14 +1,35 @@
 .containerNavbar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0px;
     gap: 42px;
-    
     position: relative;
     width: 366px;
     height: 56px;
-    
-    background: #159338;
-} 
+}
+
+.containerMenuBrand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 183px;
+    height: 56px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.containerTableWaiter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 400px;
+    height: 56px;
+}

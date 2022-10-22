@@ -1,20 +1,30 @@
 import React, { useContext } from "react";
 import { OrderContext } from "../../../../context";
-import styles from "./Food.module.css";
+import styles from "./Plate.module.css";
 
-export const Food = ({ price, description, header, source }) => {
-  const { modalRequestFood, setModalRequestFood } = useContext(OrderContext);
+export const Plate = ({ price, description, header, source, id }) => {
+
+const { modalPlate, setModalPlate, cart } = useContext(OrderContext);
 
   const handleClickRequest = () => {
-    setModalRequestFood({
-      ...modalRequestFood,
+    setModalPlate({
+      ...modalPlate,
+      id: id,
       state: true,
       title: header,
+      price: price,
+      img: source,
+      description: description
     });
   };
 
+  const plateInCart = cart.find((e) => {
+    return e.title === header
+  })
+
+
   return (
-    <div className={styles.containerCardMenu}>
+    <div className={styles.containerCardMenu} onClick={handleClickRequest}>
       <div className={styles.containerDescription}>
         <h4 className={styles.header}>{header}</h4>
         <p className={styles.description}>
@@ -23,9 +33,7 @@ export const Food = ({ price, description, header, source }) => {
             : description}
         </p>
         <p className={styles.price}>${price}</p>
-        <button onClick={handleClickRequest} className={styles.button}>
-          Solicitar
-        </button>
+        <p>{plateInCart && <small className={styles.plateInCart}>{`Su ${plateInCart.title} llegara en unos minutos a su mesa ${':)'}` }</small>}</p> 
       </div>
       <div className={styles.containerImg}>
         <img src={source} className={styles.imgCardDishFood} alt={""} />

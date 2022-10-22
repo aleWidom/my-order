@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import {getItemsCardsDayPlates} from "../services";
 
-export const  useFetchCardsDayPlates = (setCardsHome, setLoading) => {
+export const  useFetchCardsDayPlates = (setCardsDayPlates, setLoading) => {
   useEffect(() => {
     getItemsCardsDayPlates()
     .then(({data})=> {
-      setCardsHome(data)
+      setCardsDayPlates(data)
       setLoading(false)
     })
-  }, [setCardsHome, setLoading]);
+  }, [setCardsDayPlates, setLoading]);
 }

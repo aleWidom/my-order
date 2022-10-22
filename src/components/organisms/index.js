@@ -1,3 +1,3 @@
 export * from './Navbar'
-export * from './cards/Foods'
-export * from './cards/MainFoods'
+export * from './cards/Plates'
+export * from './cards/MainPlates'

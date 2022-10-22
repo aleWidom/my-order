@@ -43,8 +43,8 @@ async function getItemsResultsCardHome(cardTitle) {
 
 async function getItemsCardsRanking() {
   try {
-    const cardsRanking = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?ranking`);
-    return cardsRanking;
+    const cardsRankingPlates = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?ranking`);
+    return cardsRankingPlates;
   } catch (err) { console.log(err) }
 }
 

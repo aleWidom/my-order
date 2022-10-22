@@ -6,7 +6,7 @@ import styles from "./FormSearch.module.css";
 
 export const FormSearch = () => {
 
-    const {valueInput, setValueInput, setResultsSearched} = useContext(SearchContext)
+    const {valueInput, setValueInput, setResults, setNameCategorySelected} = useContext(SearchContext)
    
     const {  setMenuWaiterActive } = useContext(OrderContext)
 
@@ -18,13 +18,11 @@ export const FormSearch = () => {
 
     const handleFocus = (e) => {
         setMenuWaiterActive(false)
-        setResultsSearched([])
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
        if(valueInput.length === 0) {
-            setResultsSearched([])
             alert('Debe ingresar una palabra para iniciar con la búsqueda')
        } else {
         getItemsResults(valueInput)
@@ -34,7 +32,8 @@ export const FormSearch = () => {
                 setValueInput("")
             }
             else {
-                setResultsSearched(data)
+                setResults(data)
+                setNameCategorySelected('')
             }
         })
         .catch((err) => err)
@@ -60,7 +59,7 @@ import styles from "./Search.module.css";
 
 const Search = () => {
 
-    const {valueInput, setValueInput, setResultsSearched} = useContext(SearchContext)
+    const {valueInput, setValueInput, setResults} = useContext(SearchContext)
     const {  setMenuWaiterActive } = useContext(OrderContext)
 
   
@@ -71,13 +70,13 @@ const Search = () => {
 
     const handleFocus = (e) => {
         setMenuWaiterActive(false)
-        setResultsSearched([])
+        setResults([])
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
        if(valueInput.length === 0) {
-            setResultsSearched([])
+            setResults([])
             alert('Debe ingresar una palabra para iniciar con la búsqueda')
        } else {
         getItemsResults(valueInput)
@@ -87,7 +86,7 @@ const Search = () => {
                 setValueInput("")
             }
             else {
-                setResultsSearched(data)
+                setResults(data)
             }
         })
         .catch((err) => err)

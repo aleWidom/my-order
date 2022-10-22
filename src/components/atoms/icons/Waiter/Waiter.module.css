@@ -1,5 +1,4 @@
-.containerWaiter {
-    width: 24px;
-    height: 24px;
-    background-color: aqua;
+.waiter {
+    width: 20px;
+    height: 20px;
 }
