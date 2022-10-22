@@ -7,7 +7,7 @@ export const MainFoods = ({ cardsDayPlates }) => {
     <div>
       <h3 className={styles.title}>Platos del día</h3>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={20}
         className={styles.cardsPlates}
       >
