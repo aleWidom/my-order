@@ -1,86 +1,86 @@
 .containerModalPlate {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    width: 100%;
-    height: 896px;
-    position: absolute;
-    top: 0px;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+  height: 896px;
+  position: absolute;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
 }
 
-
 .modalPlate {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0px;
-    gap: 4px;
-    font-size: 16px;
-    border: solid 1px grey;
-    border-radius: 4px;
-    padding: 4px;
-    background-color: #fff;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+  gap: 8px;
+  font-size: 16px;
+  border: solid 1px grey;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #fff;
 }
 
 .description {
-    text-align: center;
-    font-size: 14px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .img {
-    width: 25%;
+  width: 25%;
 }
 
 .price {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .buttonClosedModal {
-    display: flex;
-    justify-content: flex-end;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  cursor: pointer;
 }
 
 .request {
-    border-radius: 4px;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    padding: 8px;
-    margin-top: 8px;
+  border-radius: 4px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+  margin-top: 8px;
+  cursor: pointer;
 }
 
 .containerQuantity {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .quantity {
-    text-align: center;
-    font-size: 14px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .buttonQuantity {
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    border: solid 1px #000;
-    border-radius: 50px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 16px;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border: solid 1px #000;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
 }
