@@ -1,0 +1,12 @@
+.containerMenu {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu {
+    height: 24px;
+    width: 24px;
+}
