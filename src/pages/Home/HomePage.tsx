@@ -11,6 +11,7 @@ import {
   FormSearch,
   MainLoading,
   ModalPlate,
+  ModalPlateRequired,
 } from "../../components/molecules";
 import { MainPlates, Plates, Navbar } from "../../components/organisms";
 import styles from "./HomePage.module.css";
@@ -20,8 +21,13 @@ const HomePage = () => {
 
   const { results } = useContext(SearchContext);
 
-  const { cardsDayPlates, cardsRankingPlates, modalPlate, cart } =
-    useContext(OrderContext);
+  const {
+    cardsDayPlates,
+    cardsRankingPlates,
+    modalPlate,
+    modalPlateRequired,
+    cart,
+  } = useContext(OrderContext);
 
   useFetchCardsDayPlates();
 
@@ -51,7 +57,8 @@ const HomePage = () => {
               <Plates />
             )}
           </div>
-          {modalPlate.state ? <ModalPlate /> : ""}
+          {modalPlate.state && <ModalPlate />}
+          {modalPlateRequired.state && <ModalPlateRequired />}
           {cart.length > 0 && (
             <Link to={"/order"}>{`Mis solicitudes: ${cart.length}`}</Link>
           )}

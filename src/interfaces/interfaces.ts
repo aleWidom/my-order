@@ -35,3 +35,10 @@ export interface ModalPlate {
   price: string;
   quantity: number;
 }
+
+export interface ModalPlateRequired {
+  id: number;
+  title: string;
+  quantity: number;
+  state: boolean;
+}

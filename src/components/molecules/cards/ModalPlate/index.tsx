@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { OrderContext } from "../../../../context";
 import { Closed } from "../../../atoms";
+import { ModalPlateRequired } from "../ModalPlateRequired";
 import styles from "./ModalPlate.module.css";
 
 export const ModalPlate = () => {
-  const { modalPlate, setModalPlate, cart, setCart } = useContext(OrderContext);
+  const { modalPlate, setModalPlate, setModalPlateRequired, cart, setCart } =
+    useContext(OrderContext);
 
   const closedModalPlate = () => {
     setModalPlate({
@@ -29,6 +31,12 @@ export const ModalPlate = () => {
         description: modalPlate.description,
       },
     ]);
+    setModalPlateRequired({
+      id: modalPlate.id,
+      title: modalPlate.title,
+      quantity: modalPlate.quantity,
+      state: true,
+    });
     setModalPlate({
       id: 0,
       state: false,

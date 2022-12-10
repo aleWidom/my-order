@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { OrderContext } from ".";
-import { Plate, ModalPlate, CategoryRestaurant } from "../../interfaces";
+import {
+  Plate,
+  ModalPlate,
+  ModalPlateRequired,
+  CategoryRestaurant,
+} from "../../interfaces";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -26,14 +31,17 @@ export const OrderProvider = ({ children }: Props) => {
     quantity: 1,
   });
 
+  const [modalPlateRequired, setModalPlateRequired] =
+    useState<ModalPlateRequired>({
+      id: 0,
+      title: "",
+      quantity: 1,
+      state: false,
+    });
+
   const [cart, setCart] = useState<Plate[]>([]);
 
   const [loading, setLoading] = useState<boolean>(true);
-
-  /*  const [modalRequest, setModalRequest] = useState({
-        state: false
-    })
- */
 
   return (
     <OrderContext.Provider
@@ -52,8 +60,8 @@ export const OrderProvider = ({ children }: Props) => {
         setCart,
         loading,
         setLoading,
-        /*   modalRequest, 
-            setModalRequest */
+        modalPlateRequired,
+        setModalPlateRequired,
       }}
     >
       {children}

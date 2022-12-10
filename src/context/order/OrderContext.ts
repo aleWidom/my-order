@@ -1,5 +1,10 @@
 import { createContext } from "react";
-import { Plate, ModalPlate, CategoryRestaurant } from "../../interfaces";
+import {
+  Plate,
+  ModalPlate,
+  ModalPlateRequired,
+  CategoryRestaurant,
+} from "../../interfaces";
 
 interface ContextProps {
   categoriesMenuRestaurant: CategoryRestaurant[];
@@ -12,6 +17,8 @@ interface ContextProps {
   setMenuWaiterActive: (description: boolean) => void;
   modalPlate: ModalPlate;
   setModalPlate: (description: ModalPlate) => void;
+  modalPlateRequired: ModalPlateRequired;
+  setModalPlateRequired: (description: ModalPlateRequired) => void;
   cart: Plate[];
   setCart: (description: Plate[]) => void;
   loading: boolean;

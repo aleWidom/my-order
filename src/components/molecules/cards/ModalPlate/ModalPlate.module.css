@@ -8,12 +8,12 @@
   height: 896px;
   position: absolute;
   top: 0px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
 .modalPlate {
-  width: 30%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,6 @@
   padding: 10px 0px;
   gap: 8px;
   font-size: 16px;
-  border: solid 1px grey;
   border-radius: 4px;
   padding: 8px;
   background-color: #fff;
