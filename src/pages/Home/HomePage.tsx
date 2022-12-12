@@ -14,6 +14,7 @@ import {
   ModalPlateRequired,
 } from "../../components/molecules";
 import { MainPlates, Plates, Navbar } from "../../components/organisms";
+import Requireds from "../../components/molecules/section/Requireds";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -25,18 +26,15 @@ const HomePage = () => {
     cardsDayPlates,
     cardsRankingPlates,
     modalPlate,
-    modalPlateRequired,
-    cart,
+    modalPlateRequired
   } = useContext(OrderContext);
 
   useFetchCardsDayPlates();
 
   useFetchCardsRankingPlates();
 
-  console.log(cart);
-
   return (
-    <>
+    <div className={styles.container}>
       {loading ? (
         <div className={styles.mainContainerLoading}>
           <MainLoading />
@@ -59,12 +57,10 @@ const HomePage = () => {
           </div>
           {modalPlate.state && <ModalPlate />}
           {modalPlateRequired.state && <ModalPlateRequired />}
-          {cart.length > 0 && (
-            <Link to={"/order"}>{`Mis solicitudes: ${cart.length}`}</Link>
-          )}
+          <Requireds />
         </>
       )}
-    </>
+    </div>
   );
 };
 

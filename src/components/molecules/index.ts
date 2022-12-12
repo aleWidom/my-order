@@ -6,3 +6,4 @@ export * from "./cards/ModalPlate";
 export * from "./cards/ModalPlateRequired";
 export * from "./forms/FormSearch";
 export * from "./loading/MainLoading";
+export * from "./section/Requireds";
