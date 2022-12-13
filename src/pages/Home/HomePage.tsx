@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { OrderContext, SearchContext } from "../../context";
 import {
   useFetchCardsDayPlates,
@@ -34,7 +33,7 @@ const HomePage = () => {
   useFetchCardsRankingPlates();
 
   return (
-    <div className={styles.container}>
+    <>
       {loading ? (
         <div className={styles.mainContainerLoading}>
           <MainLoading />
@@ -55,12 +54,12 @@ const HomePage = () => {
               <Plates />
             )}
           </div>
+          <Requireds />
           {modalPlate.state && <ModalPlate />}
           {modalPlateRequired.state && <ModalPlateRequired />}
-          <Requireds />
         </>
       )}
-    </div>
+    </>
   );
 };
 

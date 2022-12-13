@@ -8,11 +8,16 @@ const Requireds = () => {
   const { cart, modalPlate, modalPlateRequired } = useContext(OrderContext)
 
   return (
-    <div className={styles.required}>
+    <>
       {cart.length > 0 && modalPlate.state === false && modalPlateRequired.state === false && (
-        <Link to={"/order"}>{`Mis solicitudes: ${cart.length}`}</Link>
+        <div className={styles.required}>
+          <Link to={"/order"} className={styles.link}>{`Ver mis solicitudes >`}</Link>
+          <div className={styles.quantity}>
+            <small>{cart.length}</small>
+          </div>
+        </div>
       )}
-    </div>
+    </>
   )
 }
 
