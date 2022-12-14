@@ -1,0 +1,23 @@
+.containerCardOrder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    border-top: solid #000 1px;
+    height: 120px;
+  }
+  
+  .img {
+    width: 20%;
+  }
+  
+  .containerDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .state {
+    color: grey;
+  }

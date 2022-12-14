@@ -34,11 +34,17 @@ export interface ModalPlate {
   state: boolean;
   price: string;
   quantity: number;
+  photo: string;
 }
 
 export interface ModalPlateRequired {
   id: number;
   title: string;
   quantity: number;
+  state: boolean;
+}
+
+export interface ModalSearch {
+  description: string;
   state: boolean;
 }

@@ -1,5 +1,5 @@
 .container {
-  width: 108px;
+  width: 80%;
   height: 157px; 
   display: flex;
   flex-direction: column;
@@ -16,5 +16,3 @@
   margin-top: 4px;
   font-size: 12px;
 }
-
-

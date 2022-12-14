@@ -1,7 +1,7 @@
 .required {
     background-color: #FE0000;
-    width: 414px;
-    margin-top: 16px;
+    width: 100%;
+    margin-top: 32px;
     padding: 12px 24px;
     display: flex;
     justify-content: space-between;

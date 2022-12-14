@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { OrderContext } from "../../../../context";
 import { Closed } from "../../../atoms";
-import { ModalPlateRequired } from "../ModalPlateRequired";
 import styles from "./ModalPlate.module.css";
 
 export const ModalPlate = () => {
@@ -16,6 +15,7 @@ export const ModalPlate = () => {
       price: "0",
       description: "",
       quantity: 1,
+      photo: ""
     });
   };
 
@@ -27,7 +27,7 @@ export const ModalPlate = () => {
         title: modalPlate.title,
         price: modalPlate.price,
         quantity: modalPlate.quantity,
-        photo: "",
+        photo: modalPlate.photo,
         description: modalPlate.description,
       },
     ]);
@@ -44,6 +44,7 @@ export const ModalPlate = () => {
       price: "0",
       description: "",
       quantity: 1,
+      photo: ""
     });
   };
 

@@ -27,12 +27,10 @@ export const Plate: FC<Props> = ({
       title: header,
       price: price,
       description: description,
+      photo: source
     });
   };
 
-  /*   const plateInCart = cart.find((e) => {
-    return e.title === header;
-  }); */
 
   return (
     <div className={styles.containerCardMenu} onClick={handleClickRequest}>
@@ -44,7 +42,6 @@ export const Plate: FC<Props> = ({
             : description}
         </p>
         <p className={styles.price}>${price}</p>
-        {/* <p>{plateInCart && <small className={styles.plateInCart}>{`Su ${plateInCart.title} llegara en unos minutos a su mesa ${':)'}` }</small>}</p>  */}
       </div>
       <div className={styles.containerImg}>
         <img src={source} className={styles.imgCardDishFood} alt={""} />

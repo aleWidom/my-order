@@ -13,14 +13,15 @@ export const MainPlates: FC<Props> = ({
   cardsDayPlates,
   cardsRankingPlates,
 }) => {
+
+  console.log(cardsDayPlates)
   return (
     <>
-      <div>
+      <div className={styles.cardsPlates}>
         <h3 className={styles.title}>Platos del día</h3>
         <Swiper
           slidesPerView={2.5}
           spaceBetween={20}
-          className={styles.cardsPlates}
         >
           {cardsDayPlates.map((e) => (
             <SwiperSlide key={e.id}>
@@ -36,12 +37,11 @@ export const MainPlates: FC<Props> = ({
           ))}
         </Swiper>
       </div>
-      <div className={styles.container}>
+      <div  className={styles.cardsPlates}>
         <h3 className={styles.title}>Platos más solicitados</h3>
         <Swiper
           slidesPerView={2.5}
           spaceBetween={20}
-          className={styles.cardsPlates}
         >
           {cardsRankingPlates.map((e) => (
             <SwiperSlide key={e.id}>

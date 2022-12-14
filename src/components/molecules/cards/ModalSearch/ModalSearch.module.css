@@ -1,18 +1,17 @@
-.containerModalPlate {
+.containerModalSearch {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: fixed;
   top: 0px;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  z-index: 2;
 }
 
-.modalPlate {
+.modalSearch {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -26,16 +25,11 @@
   background-color: #fff;
 }
 
-.title {
-  text-align: center;
-  font-size: 16px;
+
+.buttonClosedModal {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  cursor: pointer;
 }
 
-.quantity {
-  text-align: center;
-  font-size: 14px;
-}
-
-.emoji {
-  font-size: 24px;
-}

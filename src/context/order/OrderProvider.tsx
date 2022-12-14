@@ -29,6 +29,7 @@ export const OrderProvider = ({ children }: Props) => {
     price: "0",
     description: "",
     quantity: 1,
+    photo: ""
   });
 
   const [modalPlateRequired, setModalPlateRequired] =

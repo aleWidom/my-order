@@ -27,6 +27,7 @@ export const MainPlate: FC<Props> = ({
       title: header,
       price: price,
       description: description,
+      photo: source
     });
   };
 
