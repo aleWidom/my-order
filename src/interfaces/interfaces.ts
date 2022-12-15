@@ -44,7 +44,8 @@ export interface ModalPlateRequired {
   state: boolean;
 }
 
-export interface ModalSearch {
+export interface ModalInfo {
   description: string;
   state: boolean;
+  section: string
 }

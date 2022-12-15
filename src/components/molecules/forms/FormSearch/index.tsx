@@ -1,5 +1,4 @@
 import { InputSearch, Search } from "../../../atoms";
-import { ModalSearch } from "../../../molecules";
 import styles from "./FormSearch.module.css";
 
 export const FormSearch = () => {
@@ -7,7 +6,6 @@ export const FormSearch = () => {
     <form className={styles.containerFormSearch}>
       <InputSearch />
       <Search />
-      <ModalSearch/>
     </form>
   );
 };

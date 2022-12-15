@@ -5,21 +5,27 @@ import { getItemsResults } from "../../../../services";
 import styles from "./Search.module.css";
 
 export const Search = () => {
-  const { valueInput, setValueInput, setResults, setNameCategorySelected } =
+  const { valueInput, setValueInput, setResults, setNameCategorySelected, setModalInfo } =
     useContext(SearchContext);
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     if (valueInput.length === 0) {
-      alert("Debe ingresar una palabra para iniciar con la búsqueda");
+      setModalInfo({
+        description: "Debe ingresar una palabra.",
+        state: true,
+        section: "form"
+      })
     } else {
       getItemsResults(valueInput)
         //TODO DATA NO DEBE SER ANY
         .then(({ data }: any) => {
           if (data.length === 0) {
-            alert(
-              "No hay elementos que coincidan con la búsqueda, intente con otras palabras"
-            );
+            setModalInfo({
+              description: "No hay elementos que coincidan con la búsqueda, intente con otras palabras.",
+              state: true,
+              section: "form"
+            })
             setValueInput("");
           } else {
             setResults(data);

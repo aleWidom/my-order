@@ -11,6 +11,7 @@ import {
   MainLoading,
   ModalPlate,
   ModalPlateRequired,
+  ModalInfo
 } from "../../components/molecules";
 import { MainPlates, Plates, Navbar } from "../../components/organisms";
 import Requireds from "../../components/molecules/section/Requireds";
@@ -19,7 +20,7 @@ import styles from "./HomePage.module.css";
 const HomePage = () => {
   const { loading } = useContext(OrderContext);
 
-  const { results } = useContext(SearchContext);
+  const { results, modalInfo } = useContext(SearchContext);
 
   const {
     cardsDayPlates,
@@ -57,6 +58,7 @@ const HomePage = () => {
           <Requireds />
           {modalPlate.state && <ModalPlate />}
           {modalPlateRequired.state && <ModalPlateRequired />}
+          {modalInfo.state && <ModalInfo />}
         </>
       )}
     </>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SearchContext } from ".";
-import { Plate,ModalSearch  } from "../../interfaces";
+import { Plate,ModalInfo  } from "../../interfaces";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -13,9 +13,10 @@ export const SearchProvider = ({ children }: Props) => {
 
   const [nameCategorySelected, setNameCategorySelected] = useState<string>("");
 
-  const [modalSearchInfo , setModalSearchInfo] = useState<ModalSearch>({
+  const [modalInfo , setModalInfo] = useState<ModalInfo>({
     description: "", 
-    state: false
+    state: false,
+    section: ""
   })
 
   return (
@@ -27,8 +28,8 @@ export const SearchProvider = ({ children }: Props) => {
         setResults,
         nameCategorySelected,
         setNameCategorySelected,
-        modalSearchInfo, 
-        setModalSearchInfo
+        modalInfo, 
+        setModalInfo
       }}
     >
       {children}

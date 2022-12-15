@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Plate, ModalSearch } from "../../interfaces";
+import { Plate, ModalInfo } from "../../interfaces";
 
 interface ContextProps {
   valueInput: string;
@@ -8,8 +8,8 @@ interface ContextProps {
   setResults: (description: Plate[]) => void;
   nameCategorySelected: string;
   setNameCategorySelected: (description: string) => void;
-  modalSearchInfo: ModalSearch, 
-  setModalSearchInfo: (description: ModalSearch) => void;
+  modalInfo: ModalInfo, 
+  setModalInfo: (description: ModalInfo) => void;
 }
 
 export const SearchContext = createContext({} as ContextProps);

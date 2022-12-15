@@ -1,4 +1,4 @@
-.containerModalSearch {
+.containerModalInfo {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -11,7 +11,7 @@
   z-index: 2;
 }
 
-.modalSearch {
+.modalInfo {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -33,3 +33,7 @@
   cursor: pointer;
 }
 
+.description {
+  text-align: center;
+  font-size: 14px;
+}
