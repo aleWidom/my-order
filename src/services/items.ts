@@ -6,15 +6,7 @@ async function getAllCategoriesIdRestaurant1() {
     const allCategories = await axios.get(
       `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`
     );
-    const allItemsIdRestaurant1 = await axios.get(
-      `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`
-    );
-
-    return allCategories.data.filter((category: CategoryRestaurant) =>
-      allItemsIdRestaurant1.data.find(
-        (item: Plate) => category.id === item.id_category && category
-      )
-    );
+     return allCategories.data
   } catch (err) {
     console.log(err);
   }
