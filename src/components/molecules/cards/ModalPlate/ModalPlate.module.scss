@@ -1,3 +1,5 @@
+@import '../../../../styles/config';
+
 .containerModalPlate {
   display: flex;
   flex-direction: row;
@@ -17,22 +19,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px 0px;
-  gap: 8px;
-  font-size: 16px;
-  border-radius: 4px;
-  padding: 8px;
-  background-color: #fff;
+  padding: 0.5rem 0px;
+  gap: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: $color-primary;
 }
 
 .description {
   text-align: center;
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .title {
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -52,12 +54,12 @@
 }
 
 .request {
-  border-radius: 4px;
+  border-radius: 0.25rem;
   border: none;
-  background-color: #000;
-  color: #fff;
-  padding: 8px;
-  margin-top: 8px;
+  background-color: $color-secondary;
+  color: $color-primary;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
   cursor: pointer;
 }
 
@@ -66,21 +68,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .quantity {
   text-align: center;
-  font-size: 14px;
+  font-size:0.8 rem;
+}
+
+.priceUnit {
+  margin-top: -0.5rem;
 }
 
 .buttonQuantity {
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border: solid 1px #000;
-  border-radius: 50px;
+  width: 1rem;
+  height:  1rem;
+  background-color: $color-primary;
+  border: solid 1px $color-secondary;
+  border-radius: 2.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
-  text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
 }
+

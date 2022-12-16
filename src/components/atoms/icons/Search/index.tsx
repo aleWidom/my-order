@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { SearchContext } from "../../../../context";
 import { getItemsResults } from "../../../../services";
-import styles from "./Search.module.css";
+import styles from "./Search.module.scss";
 
 export const Search = () => {
   const { valueInput, setValueInput, setResults, setNameCategorySelected, setModalInfo } =

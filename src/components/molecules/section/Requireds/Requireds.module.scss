@@ -1,0 +1,29 @@
+@import '../../../../styles/config';
+
+.required {
+    background-color: $color-terciary;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: $color-primary;
+}
+
+.quantity {
+    background-color:$color-primary;
+    color: $color-terciary;
+    border-radius: 2.6rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+}

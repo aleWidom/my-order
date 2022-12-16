@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { OrderContext, SearchContext } from "../../../../context";
-import styles from "./InputSearch.module.css";
+import styles from "./InputSearch.module.scss";
 
 export const InputSearch = () => {
   const { setMenuWaiterActive } = useContext(OrderContext);

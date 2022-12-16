@@ -1,6 +1,6 @@
 import { MainBrand } from "../../../atoms";
 import BeatLoader from "react-spinners/BeatLoader";
-import styles from './MainLoading.module.css'
+import styles from './MainLoading.module.scss'
 
 export const MainLoading = () => {
   return (

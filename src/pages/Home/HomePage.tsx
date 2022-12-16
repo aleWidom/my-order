@@ -15,7 +15,7 @@ import {
 } from "../../components/molecules";
 import { MainPlates, Plates, Navbar } from "../../components/organisms";
 import Requireds from "../../components/molecules/section/Requireds";
-import styles from "./HomePage.module.css";
+import styles from "./HomePage.module.scss";
 
 const HomePage = () => {
   const { loading } = useContext(OrderContext);

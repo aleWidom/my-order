@@ -1,7 +1,7 @@
 
 import { useContext } from 'react';
 import { SearchContext } from '../../../../context';
-import styles from './CallWaiter.module.css'
+import styles from './CallWaiter.module.scss'
 
 export const CallWaiter = () => {
 

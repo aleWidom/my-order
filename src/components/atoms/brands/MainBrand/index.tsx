@@ -3,7 +3,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import { useLocation, Link } from "react-router-dom";
 import { SearchContext } from "../../../../context";
 import brand from "../../../../images/brand.jpg";
-import styles from "./MainBrand.module.css";
+import styles from "./MainBrand.module.scss";
 
 export const MainBrand = () => {
   const { setResults } = useContext(SearchContext);

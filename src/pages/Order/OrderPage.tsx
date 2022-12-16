@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { OrderContext } from '../../context/order/OrderContext';
 import { Navbar } from '../../components/organisms'
 import { OrderPlate } from '../../components/molecules';
-import styles from './OrderPage.module.css'
+import styles from './OrderPage.module.scss'
 
 
 const OrderPage = () => {

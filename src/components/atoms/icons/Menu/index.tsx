@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaBars} from "react-icons/fa";
 import {SearchContext } from "../../../../context";
-import styles from "./Menu.module.css"
+import styles from "./Menu.module.scss"
 
 export const Menu = () => {
 

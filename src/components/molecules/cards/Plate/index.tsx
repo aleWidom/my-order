@@ -1,6 +1,6 @@
 import { FC, useContext } from "react";
 import { OrderContext } from "../../../../context";
-import styles from "./Plate.module.css";
+import styles from "./Plate.module.scss";
 
 interface Props {
   price: string;

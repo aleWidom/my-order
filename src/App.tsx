@@ -5,7 +5,7 @@ import { TableProvider } from "./context/tables";
 import { OrderProvider } from "./context/order";
 import { SearchProvider } from "./context/search";
 
-import './index.css'
+import './styles/globals.scss'
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';

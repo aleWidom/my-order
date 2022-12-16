@@ -6,7 +6,7 @@ import { Categorie } from "../../../atoms";
 import { useFetchCategories } from "../../../../hooks";
 import { getItemsAccordingToSelectedCategory } from "../../../../services";
 import { CategoryRestaurant } from "../../../../interfaces";
-import styles from "./Categories.module.css";
+import styles from "./Categories.module.scss";
 
 export const Categories = () => {
   const { categoriesMenuRestaurant } = useContext(OrderContext);

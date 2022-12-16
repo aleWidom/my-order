@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { OrderContext } from "../../../../context";
 import { Closed } from "../../../atoms";
-import styles from "./ModalPlate.module.css";
+import styles from "./ModalPlate.module.scss";
 
 export const ModalPlate = () => {
   const { modalPlate, setModalPlate, setModalPlateRequired, cart, setCart } =
@@ -71,17 +71,18 @@ export const ModalPlate = () => {
         <h2 className={styles.title}>{modalPlate.title}</h2>
         <p className={styles.description}>{modalPlate.description}</p>
         <p className={styles.price}>${modalPlate.price}</p>
+        <small className={styles.priceUnit}> (precio x unidad)</small>
         <div className={styles.containerQuantity}>
           <p className={styles.quantity}>Cantidad: {modalPlate.quantity}</p>
           <button onClick={addQuantity} className={styles.buttonQuantity}>
-            +
+            <p className={styles.sign}>+</p>
           </button>
           {modalPlate.quantity > 1 && (
             <button
               onClick={substractQuantity}
               className={styles.buttonQuantity}
             >
-              -
+               <p className={styles.sign}>-</p>
             </button>
           )}
         </div>

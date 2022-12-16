@@ -1,6 +1,6 @@
 
 import {MainBrand, Table } from "../../atoms"
-import styles from './Navbar.module.css'
+import styles from './Navbar.module.scss'
 
 
 export const Navbar = () => {

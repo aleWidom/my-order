@@ -1,5 +1,5 @@
 import {FaWindowClose} from "react-icons/fa";
-import styles from  './Closed.module.css'
+import styles from  './Closed.module.scss'
 
 export const Closed = () => {
   return (

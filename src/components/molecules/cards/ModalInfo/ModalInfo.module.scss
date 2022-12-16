@@ -1,3 +1,5 @@
+@import '../../../../styles/config';
+
 .containerModalInfo {
   display: flex;
   flex-direction: row;
@@ -17,12 +19,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px 0px;
-  gap: 8px;
-  font-size: 16px;
-  border-radius: 4px;
-  padding: 8px;
-  background-color: #fff;
+  padding: 0.5rem 0px;
+  gap: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: $color-primary;
 }
 
 
@@ -35,5 +37,9 @@
 
 .description {
   text-align: center;
-  font-size: 14px;
+  font-size: 0.8rem;
+}
+
+.smile {
+  font-size: 1.5rem;
 }

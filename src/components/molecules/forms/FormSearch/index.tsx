@@ -1,5 +1,5 @@
 import { InputSearch, Search } from "../../../atoms";
-import styles from "./FormSearch.module.css";
+import styles from "./FormSearch.module.scss";
 
 export const FormSearch = () => {
   return (

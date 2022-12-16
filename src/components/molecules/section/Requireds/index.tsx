@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import styles from './Requireds.module.css'
+import styles from './Requireds.module.scss'
 import { useContext } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 

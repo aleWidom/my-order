@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FaRegSmile } from "react-icons/fa";
 import { Closed } from "../../../atoms";
 import { SearchContext } from '../../../../context';
-import styles from "./ModalInfo.module.css";
+import styles from "./ModalInfo.module.scss";
 
 export const ModalInfo = () => {
   const { modalInfo, setModalInfo} =
@@ -22,7 +22,7 @@ return (
         {modalInfo.section === 'form' ? 
         <button onClick={closedModalPlate} className={styles.buttonClosedModal}>
           <Closed />
-        </button> : <FaRegSmile/>}
+        </button> : <FaRegSmile className={styles.smile}/>}
         <p className={styles.description}>{modalInfo.description}</p>
       </div>
     </div>

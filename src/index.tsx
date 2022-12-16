@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import "./styles/globals.scss";
 
 import { Amplify } from "aws-amplify";
 import awsExports from "./aws-exports";

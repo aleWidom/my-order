@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { TableContext } from '../../../../context/tables'
-import styles from './Table.module.css'
+import styles from './Table.module.scss'
 
 export const Table = () => {
 

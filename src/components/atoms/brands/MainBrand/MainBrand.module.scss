@@ -1,6 +1,8 @@
+@import '../../../../styles/config';
+
 .containerMainBrand {
-    width: 98px;
-    height: 24px;
+    width: 5rem;
+    height: 1.5rem;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -14,9 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
-    width: 24px;
-    height: 24px;
-    color: #fff;
-    background-color: #fe0000;
+    border-radius: 4rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $color-primary;
+    background-color: $color-terciary;
 }

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MainPlate } from "../../../molecules";
 import { Plate } from "../../../../interfaces";
-import styles from "./MainPlates.module.css";
+import styles from "./MainPlates.module.scss";
 
 interface Props {
   cardsDayPlates: Plate[];

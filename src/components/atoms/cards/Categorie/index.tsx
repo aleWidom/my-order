@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./Categorie.module.css";
+import styles from "./Categorie.module.scss";
 
 interface Props {
   description: string;

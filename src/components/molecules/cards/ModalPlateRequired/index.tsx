@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { FaRegGrinAlt } from "react-icons/fa";
 import { OrderContext } from "../../../../context";
-import styles from "./ModalPlateRequired.module.css";
+import styles from "./ModalPlateRequired.module.scss";
 
 export const ModalPlateRequired = () => {
   const { modalPlateRequired, setModalPlateRequired } =

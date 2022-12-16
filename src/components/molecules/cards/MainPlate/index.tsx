@@ -1,6 +1,6 @@
 import { FC, useContext } from "react";
 import { OrderContext } from "../../../../context";
-import styles from "./MainPlate.module.css";
+import styles from "./MainPlate.module.scss";
 
 interface Props {
   header: string;

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
-import styles from './OrderPlate.module.css'
+import styles from './OrderPlate.module.scss'
 
 
 export const OrderPlate = () => {
@@ -15,6 +15,7 @@ export const OrderPlate = () => {
                         <h4>{cartProduct.title}</h4>
                         <small>Cantidad: {cartProduct.quantity}</small>
                         <small>Editar</small>
+                        <small>Eliminar</small>
                         <small className={styles.state}>Preparando su solicitud</small>
                     </div>
                     <img src={cartProduct.photo} alt={cartProduct.photo} className={styles.img} />
