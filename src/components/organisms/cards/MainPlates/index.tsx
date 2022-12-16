@@ -20,7 +20,7 @@ export const MainPlates: FC<Props> = ({
       <div className={styles.cardsPlates}>
         <h3 className={styles.title}>Platos del día</h3>
         <Swiper
-          slidesPerView={2.5}
+          slidesPerView={1.2}
           spaceBetween={20}
         >
           {cardsDayPlates.map((e) => (
@@ -40,7 +40,7 @@ export const MainPlates: FC<Props> = ({
       <div  className={styles.cardsPlates}>
         <h3 className={styles.title}>Platos más solicitados</h3>
         <Swiper
-          slidesPerView={2.5}
+          slidesPerView={1.2}
           spaceBetween={20}
         >
           {cardsRankingPlates.map((e) => (

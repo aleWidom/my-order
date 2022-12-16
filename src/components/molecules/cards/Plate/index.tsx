@@ -43,9 +43,9 @@ export const Plate: FC<Props> = ({
         </p>
         <p className={styles.price}>${price}</p>
       </div>
-      <div className={styles.containerImg}>
+      {/* <div className={styles.containerImg}>
         <img src={source} className={styles.imgCardDishFood} alt={""} />
-      </div>
+      </div> */}
     </div>
   );
 };
