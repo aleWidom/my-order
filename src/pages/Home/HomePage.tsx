@@ -56,7 +56,7 @@ const HomePage = () => {
             )}
           </div>
           <Requireds />
-          {modalPlate.state && <ModalPlate />}
+          {modalPlate.state && <ModalPlate buttonName='Solicitar' />}
           {modalPlateRequired.state && <ModalPlateRequired />}
           {modalInfo.state && <ModalInfo />}
         </>

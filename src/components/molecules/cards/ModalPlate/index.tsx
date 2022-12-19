@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { OrderContext } from "../../../../context";
 import { Closed } from "../../../atoms";
 import styles from "./ModalPlate.module.scss";
 
-export const ModalPlate = () => {
+interface Props {
+  buttonName: string
+}
+
+
+export const ModalPlate: FC<Props> = ({buttonName}) => {
   const { modalPlate, setModalPlate, setModalPlateRequired, cart, setCart } =
     useContext(OrderContext);
 
@@ -87,7 +92,7 @@ export const ModalPlate = () => {
           )}
         </div>
         <button onClick={handleClickRequest} className={styles.request}>
-          Solicitar
+          {buttonName}
         </button>
       </div>
     </div>

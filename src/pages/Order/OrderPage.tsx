@@ -1,22 +1,24 @@
 import { useContext } from 'react';
 import { OrderContext } from '../../context/order/OrderContext';
 import { Navbar } from '../../components/organisms'
-import { OrderPlate } from '../../components/molecules';
+import { ModalPlate, OrderPlate } from '../../components/molecules';
 import styles from './OrderPage.module.scss'
 
 
 const OrderPage = () => {
 
-  const { cart } = useContext(OrderContext)
-
-  console.log(cart)
+  const {modalPlate } = useContext(OrderContext)
 
   return (
-    <div className={styles.mainContainerOrder}>
-      <Navbar />
-      <h2 className={styles.title}>Mis solicitudes</h2>
-     <OrderPlate/>
-    </div>
+    <>
+      <div className={styles.mainContainerOrder}>
+        <Navbar />
+        <h2 className={styles.title}>Mis solicitudes</h2>
+        <OrderPlate />
+      </div>
+      {modalPlate.state && <ModalPlate buttonName={'Editar'} />}
+    </>
+
   )
 };
 
