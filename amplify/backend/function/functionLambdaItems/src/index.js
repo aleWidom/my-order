@@ -48,7 +48,7 @@ exports.handler = async (event) => {
         result = await promiseQuery
     } else if (event.queryStringParameters?.ranking !== undefined) {
         const promiseQuery = new Promise((resolve) => {
-            connection.query(`SELECT * FROM Item WHERE id IN(1,4,8,7)`, function (error, results, fields) {
+            connection.query(`SELECT * FROM Item WHERE id IN(2,61,83)`, function (error, results, fields) {
                 resolve(results)
             });
         })
@@ -56,7 +56,7 @@ exports.handler = async (event) => {
     }
     else if (event.queryStringParameters?.dayPlates !== undefined) {
         const promiseQuery = new Promise((resolve) => {
-            connection.query(`SELECT * FROM Item WHERE id IN(2,5,6,3)`, function (error, results, fields) {
+            connection.query(`SELECT * FROM Item WHERE id IN(37,85,81,111)`, function (error, results, fields) {
                 resolve(results)
             });
         })
