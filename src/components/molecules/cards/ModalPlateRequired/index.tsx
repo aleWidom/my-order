@@ -20,26 +20,26 @@ export const ModalPlateRequired = () => {
 				state: false,
 				section: '',
 			});
-		}, 3000);
+		}, 4000);
 	}, [setModalPlateRequired]);
 
 	return (
 		<div className={styles.containerModalPlate}>
 			<div className={styles.modalPlate}>
-				{(page !== 'order' || modalPlateRequired.section === 'edit') && <FaRegGrinAlt className={styles.emoji} />}
-				<h2 className={styles.title}>{page !== 'order' && `Su ${modalPlateRequired.title} llegará en unos minutos.`}</h2>
+				{(page === '/' || modalPlateRequired.section === 'edit') && <FaRegGrinAlt className={styles.emoji} />}
+				<h2 className={styles.title}>{page === '/' && `Su ${modalPlateRequired.title} llegará en unos minutos.`}</h2>
 				<h2 className={styles.title}>
-					{page === 'order' &&
+					{page !== '/' &&
 						modalPlateRequired.section === 'edit' &&
 						`Su cantidad ${modalPlateRequired.title} ha sido modificada correctamente.`}
 				</h2>
 				<h2 className={styles.title}>
-					{page === 'order' &&
+					{page !== '/' &&
 						modalPlateRequired.section === 'delete' &&
-						`Su solicitud ${modalPlateRequired.title} ha sido eliminado correctamente correctamente.`}
+						`Su solicitud ${modalPlateRequired.title} ha sido eliminado correctamente.`}
 				</h2>
 				<p className={styles.quantity}>Cantidad: {`${modalPlateRequired.quantity}`}</p>
-				{page !== 'order' && <small className={styles.edit}>Para editar la orden puede ir a sección mis solicitudes.</small>}
+				{page === '/' && <small className={styles.edit}>Para editar la orden puede ir a sección mis solicitudes.</small>}
 			</div>
 		</div>
 	);

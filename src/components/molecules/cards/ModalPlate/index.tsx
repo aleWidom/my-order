@@ -144,7 +144,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				<small className={styles.priceUnit}> (precio x unidad)</small>
 				<div className={styles.containerQuantity}>
 					<p className={styles.quantity}>Cantidad: {modalPlate.quantity}</p>
-					{(page !== 'order' || modalPlate.section === 'edit') && (
+					{(page === '/' || modalPlate.section === 'edit') && (
 						<>
 							<button onClick={addQuantity} className={styles.buttonQuantity}>
 								<p className={styles.sign}>+</p>
@@ -157,17 +157,17 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 						</>
 					)}
 				</div>
-				{page !== 'order' && (
+				{page === '/' && (
 					<button onClick={handleClickRequest} className={styles.request}>
 						{buttonName}
 					</button>
 				)}
-				{page === 'order' && buttonName === 'Editar' && (
+				{page !== '/' && buttonName === 'Editar' && (
 					<button onClick={handleEdit} className={styles.request}>
 						{buttonName}
 					</button>
 				)}
-				{page === 'order' && buttonName === 'Eliminar' && (
+				{page !== '/' && buttonName === 'Eliminar' && (
 					<button onClick={handleDelete} className={styles.request}>
 						{buttonName}
 					</button>

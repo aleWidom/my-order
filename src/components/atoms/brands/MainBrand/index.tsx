@@ -1,42 +1,34 @@
-import { useContext } from "react";
-import { FaAngleLeft } from "react-icons/fa";
-import { useLocation, Link } from "react-router-dom";
-import { SearchContext } from "../../../../context";
-import brand from "../../../../images/brand.jpg";
-import styles from "./MainBrand.module.scss";
+import { useContext } from 'react';
+import { FaAngleLeft } from 'react-icons/fa';
+import { useLocation, Link } from 'react-router-dom';
+import { SearchContext, TableContext } from '../../../../context';
+import brand from '../../../../images/brand.jpg';
+import styles from './MainBrand.module.scss';
 
 export const MainBrand = () => {
-  const { setResults } = useContext(SearchContext);
+	const { setResults } = useContext(SearchContext);
 
-  const handleClickMenu = () => {
-    setResults([]);
-  };
+	const { table } = useContext(TableContext);
 
-  const { pathname } = useLocation()
+	const handleClickMenu = () => {
+		setResults([]);
+	};
 
-  const page = pathname.slice(-5)
+	const { pathname } = useLocation();
 
-  return (
-    <Link to={`/`} className={styles.containerMainBrand} onClick={handleClickMenu}>
-      {page !== 'order' ? <img src={brand} alt={"brand"} className={styles.mainBrand} /> :
-        <div className={styles.iconOrder}>
-          <FaAngleLeft />
-        </div>
-      }
-    </Link>
-  );
+	const page = pathname.slice(-5);
+
+	console.log(page);
+
+	return (
+		<Link to={`/?table=${table.table_number}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
+			{page === '/' ? (
+				<img src={brand} alt={'brand'} className={styles.mainBrand} />
+			) : (
+				<div className={styles.iconOrder}>
+					<FaAngleLeft />
+				</div>
+			)}
+		</Link>
+	);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
