@@ -1,17 +1,15 @@
 @import '../../styles/utils';
 
 .mainContainerOrder {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-    width: 100%;
-    height: 100%;
-    padding: 0px 1.5rem;
-  }
-
-
-.title {
-  @include title
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2rem;
+	width: 100%;
+	height: 100%;
+	padding: 0px 1.5rem;
 }
 
+.title {
+	@include title;
+}

@@ -1,25 +1,24 @@
 @import '../../../../styles/config';
 
 .container {
-  width: 90%; 
-  height: 8rem;
-  background-color: red;
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-  cursor: pointer;
-  z-index: 2;
-  background-size: cover;
+	width: 90%;
+	/* 	height: 8rem; */
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+	cursor: pointer;
+	z-index: 2;
+	background-size: cover;
 }
 
 .img {
- width: 100%; 
+	width: 100%;
 }
 
 .title {
-  margin-top: 0.25rem;
-  font-size: 0.75rem;
-  width: 100%;
-  border-bottom: solid $color-terciary 1px;
-  border-right: solid $color-terciary 1px;
+	margin-top: 0.25rem;
+	font-size: 0.75rem;
+	width: 100%;
+	border-bottom: solid $color-terciary 1px;
+	border-right: solid $color-terciary 1px;
 }
