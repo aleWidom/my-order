@@ -18,7 +18,7 @@ exports.handler = async (event) => {
     let result;
 
     const promiseQuery = new Promise((resolve) => {
-        connection.query(`SELECT * from Item Where id_restaurant = 1 ;`, function (error, results, fields) {
+        connection.query(`SELECT * from Item;`, function (error, results, fields) {
             resolve(results)
         });
     })

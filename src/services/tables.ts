@@ -21,6 +21,17 @@ async function updateTableNumberActive(table: Table) {
 	}
 }
 
+async function updateTableNumberDesactive(table: Table) {
+	try {
+		const response = await axios.put(
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.table_number}?desactive`
+		);
+		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 async function updateTableNumberCall(table: Table) {
 	try {
 		const response = await axios.put(
@@ -43,4 +54,4 @@ async function updateTableNumberNotCall(table: Table) {
 	}
 }
 
-export { fetchTables, updateTableNumberActive, updateTableNumberCall, updateTableNumberNotCall };
+export { fetchTables, updateTableNumberActive, updateTableNumberDesactive, updateTableNumberCall, updateTableNumberNotCall };

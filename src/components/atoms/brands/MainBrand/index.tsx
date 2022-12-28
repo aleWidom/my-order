@@ -18,8 +18,6 @@ export const MainBrand = () => {
 
 	const page = pathname.slice(-5);
 
-	console.log(page);
-
 	return (
 		<Link to={`/?table=${table.table_number}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
 			{page === '/' ? (

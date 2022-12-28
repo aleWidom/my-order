@@ -20,7 +20,7 @@ exports.handler = async (event) => {
 
 
     const promiseQuery = new Promise((resolve) => {
-        connection.query(`SELECT * from Table_ Where id_restaurant = 1;`, function (error, results, fields) {
+        connection.query(`SELECT * from Table_`, function (error, results, fields) {
             resolve(results)
         });
     })
@@ -29,7 +29,7 @@ exports.handler = async (event) => {
 
     if (event.queryStringParameters?.active !== undefined) {
         const promiseQuery = new Promise((resolve) => {
-            connection.query(`select * from Table_ Where table_active = 1 && id_restaurant = 1;`, function (error, results, fields) {
+            connection.query(`select * from Table_ Where table_active = 1`, function (error, results, fields) {
                 resolve(results)
             });
         })
@@ -38,7 +38,17 @@ exports.handler = async (event) => {
     else if (event.queryStringParameters?.activate !== undefined) {
         if (event.queryStringParameters.activate === "activate") {
             const promiseQuery = new Promise((resolve) => {
-                connection.query(`UPDATE Table_ Set table_active = 1 Where id = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                connection.query(`UPDATE Table_ Set table_active = 1 Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                    resolve(results)
+                });
+            })
+            result = await promiseQuery
+        }
+    }
+    else if (event.queryStringParameters?.desactivate !== undefined) {
+        if (event.queryStringParameters?.desactivate === "desactivate") {
+            const promiseQuery = new Promise((resolve) => {
+                connection.query(`UPDATE Table_ Set table_active=0 && Set table_call=0  Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
                     resolve(results)
                 });
             })
@@ -48,7 +58,7 @@ exports.handler = async (event) => {
     else if (event.queryStringParameters?.call !== undefined) {
         if (event.queryStringParameters?.call === "call") {
             const promiseQuery = new Promise((resolve) => {
-                connection.query(`UPDATE Table_ Set table_call= 1 Where id = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                connection.query(`UPDATE Table_ Set table_call= 1 Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
                     resolve(results)
                 });
             })
@@ -56,7 +66,7 @@ exports.handler = async (event) => {
         }
         else if (event.queryStringParameters?.call === "notCall") {
             const promiseQuery = new Promise((resolve) => {
-                connection.query(`UPDATE Table_ Set table_call= 0 Where id = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                connection.query(`UPDATE Table_ Set table_call= 0 Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
                     resolve(results)
                 });
             })
