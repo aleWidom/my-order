@@ -10,10 +10,10 @@ async function fetchTables() {
 	}
 }
 
-async function updateTableNumberActive(table: Table) {
+async function updateTableNumberActive(table: string | null) {
 	try {
 		const response = await axios.put(
-			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.table_number}?activate=activate`
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table}?activate=activate`
 		);
 		return response.data;
 	} catch (err) {

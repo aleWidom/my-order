@@ -10,7 +10,7 @@ import styles from './HomePage.module.scss';
 const HomePage = () => {
 	const { loading } = useContext(OrderContext);
 
-	const { table, setTable } = useContext(TableContext);
+	const { setTable } = useContext(TableContext);
 
 	const [params] = useSearchParams();
 
@@ -22,8 +22,8 @@ const HomePage = () => {
 		setTable({
 			table_number: params.get('table'),
 		});
-		updateTableNumberActive(table);
-	}, [params]);
+		updateTableNumberActive(params.get('table'));
+	}, []);
 
 	useFetchCardsDayPlates();
 

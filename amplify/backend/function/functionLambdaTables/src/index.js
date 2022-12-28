@@ -48,7 +48,7 @@ exports.handler = async (event) => {
     else if (event.queryStringParameters?.desactivate !== undefined) {
         if (event.queryStringParameters?.desactivate === "desactivate") {
             const promiseQuery = new Promise((resolve) => {
-                connection.query(`UPDATE Table_ Set table_active=0 && Set table_call=0  Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                connection.query(`UPDATE Table_ Set table_active=0, table_call=0  Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
                     resolve(results)
                 });
             })
