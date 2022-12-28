@@ -23,7 +23,9 @@ async function updateTableNumberActive(table: Table) {
 
 async function updateTableNumberDesactive(table: string) {
 	try {
-		const response = await axios.put(/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table}?desactivate`);
+		const response = await axios.put(
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table}?desactivate=desactivate`
+		);
 		return response.data;
 	} catch (err) {
 		console.log(err);
