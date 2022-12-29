@@ -1,11 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { OrderContext, SearchContext, TableContext } from '../../context';
-import { useFetchCardsDayPlates, useFetchCardsRankingPlates } from '../../hooks';
+import { useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff } from '../../hooks';
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
 import { useSearchParams } from 'react-router-dom';
 import { updateTableNumberActive } from '../../services';
-import Requireds from '../../components/molecules/section/Requireds';
 import styles from './HomePage.module.scss';
 const HomePage = () => {
 	const { loading } = useContext(OrderContext);
@@ -16,7 +15,7 @@ const HomePage = () => {
 
 	const { results, modalInfo } = useContext(SearchContext);
 
-	const { cardsDayPlates, cardsRankingPlates, modalPlate, modalPlateRequired } = useContext(OrderContext);
+	const { cardsDayPlates, cardsRankingPlates, modalPlate, modalPlateRequired, cardsSpecialsCheff } = useContext(OrderContext);
 
 	useEffect(() => {
 		setTable({
@@ -29,6 +28,8 @@ const HomePage = () => {
 
 	useFetchCardsRankingPlates();
 
+	useFetchCardsSpecialsCheff();
+
 	return (
 		<>
 			{loading ? (
@@ -37,14 +38,18 @@ const HomePage = () => {
 				</div>
 			) : (
 				<>
+					<Navbar />
 					<div className={styles.mainContainerHome}>
-						<Navbar />
 						<CallWaiter />
 						<FormSearch />
 						<Categories />
-						{results.length === 0 ? <MainPlates cardsDayPlates={cardsDayPlates} cardsRankingPlates={cardsRankingPlates} /> : <Plates />}
+						{results.length === 0 ? (
+							<MainPlates cardsDayPlates={cardsDayPlates} cardsRankingPlates={cardsRankingPlates} cardsSpecialsCheff={cardsSpecialsCheff} />
+						) : (
+							<Plates />
+						)}
+						<footer className={styles.footer}>© my order todos los derechos reservados</footer>
 					</div>
-					<Requireds />
 					{modalPlate.state && <ModalPlate buttonName='Solicitar' />}
 					{modalPlateRequired.state && <ModalPlateRequired />}
 					{modalInfo.state && <ModalInfo />}

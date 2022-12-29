@@ -1,18 +1,21 @@
+import { useLocation } from 'react-router-dom';
+import { MainBrand, Table } from '../../atoms';
+import Requireds from '../../molecules/section/Requireds';
 
-import {MainBrand, Table } from "../../atoms"
-import styles from './Navbar.module.scss'
-
+import styles from './Navbar.module.scss';
 
 export const Navbar = () => {
-    return (
-        <nav className={styles.containerNavbar}>
-            <div className={styles.containerMenuBrand}>
-             <MainBrand/> 
-            </div>
-            <div className={styles.containerTableWaiter}>
-                <Table />
-            </div>
-        </nav>
-    )
-}
+	const { pathname } = useLocation();
 
+	return (
+		<nav className={pathname === '/' ? styles.containerNavbarHome : styles.containerNavbar}>
+			<div className={styles.containerMenuBrand}>
+				<MainBrand />
+			</div>
+			<div className={styles.containerTableWaiter}>
+				<Table />
+				{pathname === '/' && <Requireds />}
+			</div>
+		</nav>
+	);
+};

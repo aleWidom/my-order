@@ -13,6 +13,8 @@ export const OrderProvider = ({ children }: Props) => {
 
 	const [cardsDayPlates, setCardsDayPlates] = useState<Plate[]>([]);
 
+	const [cardsSpecialsCheff, setCardsSpecialsCheff] = useState<Plate[]>([]);
+
 	const [menuWaiterActive, setMenuWaiterActive] = useState<boolean>(false);
 
 	const [modalPlate, setModalPlate] = useState<ModalPlate>({
@@ -57,6 +59,8 @@ export const OrderProvider = ({ children }: Props) => {
 				setLoading,
 				modalPlateRequired,
 				setModalPlateRequired,
+				cardsSpecialsCheff,
+				setCardsSpecialsCheff,
 			}}
 		>
 			{children}

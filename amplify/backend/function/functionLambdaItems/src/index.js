@@ -62,6 +62,14 @@ exports.handler = async (event) => {
         })
         result = await promiseQuery
     }
+    else if (event.queryStringParameters?.specials !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`SELECT * FROM Item WHERE id IN(47,72,89)`, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    }
 
     return {
         statusCode: 200,

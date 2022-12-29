@@ -9,11 +9,22 @@ import 'swiper/css';
 interface Props {
 	cardsDayPlates: Plate[];
 	cardsRankingPlates: Plate[];
+	cardsSpecialsCheff: Plate[];
 }
 
-export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates }) => {
+export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff }) => {
 	return (
 		<>
+			<div className={styles.cardsPlates}>
+				<h3 className={styles.title}>Platos más solicitados</h3>
+				<Swiper slidesPerView={1.2} spaceBetween={20}>
+					{cardsRankingPlates.map((e) => (
+						<SwiperSlide key={e.id}>
+							<MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id} />
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
 			<div className={styles.cardsPlates}>
 				<h3 className={styles.title}>Platos del día</h3>
 				<Swiper slidesPerView={1.2} spaceBetween={20}>
@@ -24,10 +35,11 @@ export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates }) =>
 					))}
 				</Swiper>
 			</div>
+
 			<div className={styles.cardsPlates}>
-				<h3 className={styles.title}>Platos más solicitados</h3>
+				<h3 className={styles.title}>Sugerencias del chef</h3>
 				<Swiper slidesPerView={1.2} spaceBetween={20}>
-					{cardsRankingPlates.map((e) => (
+					{cardsSpecialsCheff.map((e) => (
 						<SwiperSlide key={e.id}>
 							<MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id} />
 						</SwiperSlide>
