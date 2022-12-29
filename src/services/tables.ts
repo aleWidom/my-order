@@ -10,6 +10,24 @@ async function fetchTables() {
 	}
 }
 
+async function fetchTablesActive() {
+	try {
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?active`);
+		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+async function fetchTablesActiveCall() {
+	try {
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?activeCall `);
+		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 async function updateTableNumberActive(table: string | null) {
 	try {
 		const response = await axios.put(
@@ -54,4 +72,12 @@ async function updateTableNumberNotCall(table: Table) {
 	}
 }
 
-export { fetchTables, updateTableNumberActive, updateTableNumberDesactive, updateTableNumberCall, updateTableNumberNotCall };
+export {
+	fetchTables,
+	fetchTablesActive,
+	fetchTablesActiveCall,
+	updateTableNumberActive,
+	updateTableNumberDesactive,
+	updateTableNumberCall,
+	updateTableNumberNotCall,
+};

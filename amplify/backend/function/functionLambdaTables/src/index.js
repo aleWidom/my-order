@@ -35,6 +35,14 @@ exports.handler = async (event) => {
         })
         result = await promiseQuery
     }
+    else if (event.queryStringParameters?.activeCall !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`select * from Table_ Where table_call = 1`, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    }
     else if (event.queryStringParameters?.activate !== undefined) {
         if (event.queryStringParameters.activate === "activate") {
             const promiseQuery = new Promise((resolve) => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { TableContext } from '.';
-import { Table, TableRestaurantOptions } from '../../interfaces';
+import { TableContext } from './TableContext';
+import { Table } from '../../interfaces';
 
 interface Props {
 	children: JSX.Element | JSX.Element[];
@@ -12,8 +12,6 @@ export const TableProvider = ({ children }: Props) => {
 		table_number: '5',
 	});
 
-	const [tablesId1Restaurant, setTablesRestaurantId1] = useState<TableRestaurantOptions[]>([]);
-
 	const [call, setCall] = useState<boolean>(false);
 
 	return (
@@ -21,8 +19,6 @@ export const TableProvider = ({ children }: Props) => {
 			value={{
 				table,
 				setTable,
-				tablesId1Restaurant,
-				setTablesRestaurantId1,
 				call,
 				setCall,
 			}}

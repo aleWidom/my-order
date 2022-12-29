@@ -1,20 +1,36 @@
-import { useLocation } from 'react-router-dom';
-import { updateTableNumberDesactive } from '../../services';
+import { useContext, useEffect } from 'react';
+import { AdminContext } from '../../context/adm/AdminContext';
+import { fetchTablesActiveCall } from '../../services';
 
 const AdminPage = () => {
-	const { pathname } = useLocation();
+	const { tablesCallRestaurant, setTablesCallRestaurant } = useContext(AdminContext);
 
-	const numberTable = pathname.slice(-3);
-
-	const handleDesactivate = () => {
-		updateTableNumberDesactive(numberTable);
-	};
+	useEffect(() => {
+		setInterval(() => {
+			fetchTablesActiveCall()
+				.then((data) => {
+					return setTablesCallRestaurant(data);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		}, 20000);
+	}, [setTablesCallRestaurant]);
 
 	return (
 		<>
-			<h1>Admin</h1>
-			<h2>Desactivar Mesa: {numberTable}</h2>
-			<button onClick={handleDesactivate}>Desactivar mesa</button>
+			<h1>Calls</h1>
+			{tablesCallRestaurant.map((e) => (
+				<div key={e.table_number}>
+					<h2>Mesa: {e.table_number}</h2>
+				</div>
+			))}
+			<h1>Ordenes</h1>
+			{tablesCallRestaurant.map((e) => (
+				<div key={e.table_number}>
+					<h2>Mesa: {e.table_number}</h2>
+				</div>
+			))}
 		</>
 	);
 };

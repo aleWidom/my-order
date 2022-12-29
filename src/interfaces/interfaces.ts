@@ -18,7 +18,6 @@ export interface TableRestaurantOptions {
 	table_number: string;
 	table_active: number;
 	table_call: number;
-	id_restaurant?: number;
 }
 
 export interface CategoryRestaurant {
