@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { FaBell } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { FaRegGrinAlt } from 'react-icons/fa';
 import { OrderContext } from '../../../../context';
@@ -39,7 +40,11 @@ export const ModalPlateRequired = () => {
 						`Su solicitud ${modalPlateRequired.title} ha sido eliminado correctamente.`}
 				</h2>
 				<p className={styles.quantity}>Cantidad: {`${modalPlateRequired.quantity}`}</p>
-				{page === '/' && <small className={styles.edit}>Para editar la orden puede ir a sección mis solicitudes.</small>}
+				{page === '/' && (
+					<small className={styles.edit}>
+						Para editar la orden puede ir a sección mis solicitudes <FaBell style={{ marginLeft: '0.5rem' }} />
+					</small>
+				)}
 			</div>
 		</div>
 	);

@@ -25,12 +25,12 @@ const AdminPage = () => {
 					<h2>Mesa: {e.table_number}</h2>
 				</div>
 			))}
-			<h1>Ordenes</h1>
+			{/* 	<h1>Ordenes</h1>
 			{tablesCallRestaurant.map((e) => (
 				<div key={e.table_number}>
 					<h2>Mesa: {e.table_number}</h2>
 				</div>
-			))}
+			))} */}
 		</>
 	);
 };
