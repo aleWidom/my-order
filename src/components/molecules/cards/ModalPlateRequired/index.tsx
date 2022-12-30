@@ -41,9 +41,10 @@ export const ModalPlateRequired = () => {
 				</h2>
 				<p className={styles.quantity}>Cantidad: {`${modalPlateRequired.quantity}`}</p>
 				{page === '/' && (
-					<small className={styles.edit}>
-						Para editar la orden puede ir a sección mis solicitudes <FaBell style={{ marginLeft: '0.5rem' }} />
-					</small>
+					<div className={styles.edit}>
+						<small>Para editar la orden puede ir a sección mis solicitudes</small>
+						<FaBell style={{ marginLeft: '0.4rem' }} />
+					</div>
 				)}
 			</div>
 		</div>

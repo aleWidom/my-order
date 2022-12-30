@@ -27,8 +27,8 @@ function App() {
 						<Routes>
 							<Route path='/' element={<HomePage />} />
 							<Route path={`/order/:table`} element={<OrderPage />} />
-							<Route path={`/adm`} element={<AdminPage />} />
-							<Route path={`/adm/:table`} element={<AdminTablePage />} />
+							<Route path={`/admin`} element={<AdminPage />} />
+							<Route path={`/admin/:table`} element={<AdminTablePage />} />
 						</Routes>
 					</SearchProvider>
 				</OrderProvider>

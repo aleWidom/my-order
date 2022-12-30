@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MainBrand, Table } from '../../atoms';
 import Requireds from '../../molecules/section/Requireds';
 
@@ -13,6 +13,7 @@ export const Navbar = () => {
 				<MainBrand />
 			</div>
 			<div className={styles.containerTableWaiter}>
+				<Link to={`/admin}`}></Link>
 				<Table />
 				{pathname === '/' && <Requireds />}
 			</div>
