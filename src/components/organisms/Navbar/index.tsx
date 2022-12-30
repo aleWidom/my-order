@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { FaKey } from 'react-icons/fa';
 import { MainBrand, Table } from '../../atoms';
 import Requireds from '../../molecules/section/Requireds';
 
@@ -13,7 +14,9 @@ export const Navbar = () => {
 				<MainBrand />
 			</div>
 			<div className={styles.containerTableWaiter}>
-				<Link to={`/admin}`}></Link>
+				<Link to={`/admin`}>
+					<FaKey className={styles.key} />
+				</Link>
 				<Table />
 				{pathname === '/' && <Requireds />}
 			</div>
