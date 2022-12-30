@@ -1,5 +1,6 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { updateTableNumberDesactive } from '../../services';
+import styles from './AdminTablePage.module.scss';
 
 const AdminTablePage = () => {
 	const { pathname } = useLocation();
@@ -11,11 +12,17 @@ const AdminTablePage = () => {
 	};
 
 	return (
-		<>
-			<h1>Admin Table </h1>
-			<h2>Desactivar Mesa: </h2>
-			<button onClick={handleDesactivate}>Desactivar mesa {numberTable}</button>
-		</>
+		<div className={styles.container}>
+			<div className={styles.containerHeader}>
+				<h1 className={styles.header}>Admin Table </h1>
+				<Link to={`/admin`} className={styles.link}>
+					Ir a admin
+				</Link>
+			</div>
+			<button onClick={handleDesactivate} className={styles.buttonTableDesactivate}>
+				Desactivar mesa {numberTable}
+			</button>
+		</div>
 	);
 };
 

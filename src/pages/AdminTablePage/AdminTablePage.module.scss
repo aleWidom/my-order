@@ -1,0 +1,24 @@
+@import '../../styles/config';
+
+.header {
+	font-size: 1.5rem;
+}
+
+.container {
+	padding: 1rem;
+}
+
+.containerHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.buttonTableDesactivate {
+	border: none;
+	background-color: $color-primary;
+	border-bottom: 1px solid $color-secondary;
+	font-size: 1rem;
+	margin-top: 1rem;
+	cursor: pointer;
+}

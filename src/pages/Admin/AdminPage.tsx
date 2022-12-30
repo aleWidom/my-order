@@ -24,9 +24,9 @@ const AdminPage = () => {
 			<h1 className={styles.header}>Calls</h1>
 			{tablesCallRestaurant.map((e) => (
 				<div key={e.table_number} className={styles.containerTable}>
-					<h4>Mesa: {e.table_number}</h4>
+					<h4 className={styles.numberTable}>Mesa: {e.table_number}</h4>
 					<Link to={`/admin/${e.table_number}`} className={styles.link}>
-						Ir a mesa
+						Detalle mesa
 					</Link>
 				</div>
 			))}

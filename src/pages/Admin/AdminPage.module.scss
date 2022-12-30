@@ -1,19 +1,23 @@
+@import '../../styles/config';
+
 .header {
 	font-size: 1.5rem;
 }
 
 .container {
-	padding: 1rem 1rem;
+	padding: 1rem;
 }
 
 .containerTable {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	border: solid 1px #000;
-	margin-top: 2rem;
+	border-bottom: solid 1px $color-secondary;
+	margin-top: 1rem;
 }
 
 .link {
 	margin-left: 0.5rem;
+	text-decoration: none;
+	color: $color-terciary;
 }
