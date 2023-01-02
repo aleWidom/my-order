@@ -143,18 +143,17 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				<p className={styles.price}>${modalPlate.price}</p>
 				<small className={styles.priceUnit}> (precio x unidad)</small>
 				<div className={styles.containerQuantity}>
-					<p className={styles.quantity}>Cantidad: {modalPlate.quantity}</p>
+					<p className={styles.quantity}>Cantidad: </p>
 					{(page === '/' || modalPlate.section === 'edit') && (
-						<>
+						<div>
+							<button onClick={substractQuantity} className={styles.buttonQuantity}>
+								<p className={styles.sign}>-</p>
+							</button>
+							<p>{modalPlate.quantity}</p>
 							<button onClick={addQuantity} className={styles.buttonQuantity}>
 								<p className={styles.sign}>+</p>
 							</button>
-							{modalPlate.quantity > 1 && (
-								<button onClick={substractQuantity} className={styles.buttonQuantity}>
-									<p className={styles.sign}>-</p>
-								</button>
-							)}
-						</>
+						</div>
 					)}
 				</div>
 				{page === '/' && (
