@@ -1,7 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { FaBell } from 'react-icons/fa';
+import { FaBell, FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import { FaRegGrinAlt } from 'react-icons/fa';
 import { OrderContext } from '../../../../context';
 import styles from './ModalPlateRequired.module.scss';
 
@@ -27,24 +26,29 @@ export const ModalPlateRequired = () => {
 	return (
 		<div className={styles.containerModalPlate}>
 			<div className={styles.modalPlate}>
-				{(page === '/' || modalPlateRequired.section === 'edit') && <FaRegGrinAlt className={styles.emoji} />}
-				<h2 className={styles.title}>{page === '/' && `Su ${modalPlateRequired.title} llegará en unos minutos.`}</h2>
-				<h2 className={styles.title}>
-					{page !== '/' &&
-						modalPlateRequired.section === 'edit' &&
-						`Su cantidad ${modalPlateRequired.title} ha sido modificada correctamente.`}
-				</h2>
-				<h2 className={styles.title}>
-					{page !== '/' &&
-						modalPlateRequired.section === 'delete' &&
-						`Su solicitud ${modalPlateRequired.title} ha sido eliminado correctamente.`}
-				</h2>
-				<p className={styles.quantity}>Cantidad: {`${modalPlateRequired.quantity}`}</p>
+				{page === '/' &&
+					<div className={styles.containerAdd}>
+						<FaRegCheckCircle className={styles.check} />
+						<small>Solicitud agregada</small>
+					</div>}
+					{page !== '/' && modalPlateRequired.section === 'edit' &&
+					<div className={styles.containerAdd}>
+						<FaRegCheckCircle className={styles.check} />
+						<small>Solicitud Editada</small>
+					</div>}
+					{page !== '/' && modalPlateRequired.section === 'delete' &&
+					<div className={styles.containerSubstract}>
+						<FaTrashAlt className={styles.trash} />
+						<small>Solicitud Eliminada</small>
+					</div>}
+				<h2 className={styles.title}>{modalPlateRequired.title}</h2>
+				{page !== '/' && modalPlateRequired.section === 'edit' ? <p className={styles.quantity}>Nueva cantidad solicitada: {`${modalPlateRequired.quantity} u.`}</p> :
+				 <p className={styles.quantity}>Cantidad: {`${modalPlateRequired.quantity} u.`}</p>}
 				{page === '/' && (
-					<div className={styles.edit}>
-						<small>Para editar la orden puede ir a sección mis solicitudes</small>
-						<FaBell style={{ marginLeft: '0.4rem' }} />
-					</div>
+					<>
+						<small className={styles.edit}>Para editar la orden puede ir a sección mis solicitudes</small>
+						<FaBell className={styles.edit} style={{ marginLeft: '0.4rem' }} />
+					</>
 				)}
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { OrderContext } from '../../../../context';
 import { Closed } from '../../../atoms';
@@ -133,7 +134,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	return (
-		<div className={styles.containerModalPlate}>
+		<div className={styles.containerModalPlate} onClick={closedModalPlate}>
 			<div className={styles.modalPlate}>
 				<button onClick={closedModalPlate} className={styles.buttonClosedModal}>
 					<Closed />
@@ -144,31 +145,39 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				<small className={styles.priceUnit}> (precio x unidad)</small>
 				<div className={styles.containerQuantity}>
 					<p className={styles.quantity}>Cantidad: </p>
-					{(page === '/' || modalPlate.section === 'edit') && (
-						<div>
-							<button onClick={substractQuantity} className={styles.buttonQuantity}>
-								<p className={styles.sign}>-</p>
-							</button>
+					{(page === '/' || modalPlate.section === 'edit') ? (
+						<div className={styles.containerQuantitySigns}>
+							{modalPlate.quantity > 1 ?
+							 <button onClick={substractQuantity} className={styles.buttonQuantitySubstract}>
+								<p ><small className={styles.signSubstract}>-</small></p>
+							</button> :
+							 <button className={styles.buttonQuantitySubstract}>
+							 <p ><small className={styles.signSubstractInactive}>-</small></p>
+						     </button>}
 							<p>{modalPlate.quantity}</p>
-							<button onClick={addQuantity} className={styles.buttonQuantity}>
-								<p className={styles.sign}>+</p>
+							<button onClick={addQuantity} className={styles.buttonQuantityAdd}>
+								<p ><small className={styles.signAdd}>+</small></p>
 							</button>
 						</div>
-					)}
+					): 
+					`${modalPlate.quantity} u.`}
 				</div>
 				{page === '/' && (
 					<button onClick={handleClickRequest} className={styles.request}>
-						{buttonName}
+						{buttonName} 
+						<FaRegCheckCircle/>
 					</button>
 				)}
 				{page !== '/' && buttonName === 'Editar' && (
 					<button onClick={handleEdit} className={styles.request}>
 						{buttonName}
+						<FaRegCheckCircle/>
 					</button>
 				)}
 				{page !== '/' && buttonName === 'Eliminar' && (
-					<button onClick={handleDelete} className={styles.request}>
+					<button onClick={handleDelete} className={styles.requestTrash}>
 						{buttonName}
+						<FaTrashAlt/>
 					</button>
 				)}
 			</div>

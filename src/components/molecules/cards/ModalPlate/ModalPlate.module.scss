@@ -21,7 +21,7 @@
 	justify-content: center;
 	padding: 0.5rem 0px;
 	gap: 0.5rem;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	border-radius: 0.25rem;
 	padding: 0.5rem;
 	background-color: $color-primary;
@@ -29,12 +29,12 @@
 
 .description {
 	text-align: center;
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 }
 
 .title {
 	text-align: center;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	font-weight: bold;
 }
 
@@ -53,15 +53,24 @@
 	cursor: pointer;
 }
 
-.request {
-	border-radius: 0.25rem;
+.request, .requestTrash {
 	border: none;
-	background-color: $color-secondary;
-	color: $color-primary;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $color-primary;
 	padding: 0.5rem;
 	margin-top: 0.5rem;
 	cursor: pointer;
+	color: $color-five;
+	font-size: 1.5rem;
+	gap: 0.5rem;
 }
+
+.requestTrash {
+	color: $color-terciary;
+}
+
 
 .containerQuantity {
 	width: 100%;
@@ -72,24 +81,55 @@
 	margin-top: 0.5rem;
 }
 
+.containerQuantitySigns {
+	width: 30%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: solid 1px $color-secondary;
+	padding: 0.25rem;
+	border-radius: 2.6rem;
+}
+
 .quantity {
 	text-align: center;
-	font-size: 0.8 rem;
+	font-size: 0.8rem;
 }
 
 .priceUnit {
 	margin-top: -0.5rem;
 }
 
-.buttonQuantity {
-	width: 1rem;
-	height: 1rem;
-	background-color: $color-primary;
-	border: solid 1px $color-secondary;
-	border-radius: 2.6rem;
+.buttonQuantitySubstract {
+	border: none;
+	width: 1.2rem;
+	height: 1.2rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
 	font-size: 1rem;
+}
+
+
+.buttonQuantityAdd {
+	border: none;
+	width: 1.2rem;
+	height: 1.2rem;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+
+.signAdd {
+	font-size: 1.1rem;
+}
+
+.signSubstract {
+	font-size: 1.5rem;
+}
+
+.signSubstractInactive {
+	font-size: 1.5rem;
+	color: $color-four;
 }
