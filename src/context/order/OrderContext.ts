@@ -20,6 +20,8 @@ interface ContextProps {
 	setCart: (description: Plate[]) => void;
 	loading: boolean;
 	setLoading: (description: boolean) => void;
+	loadingOrder: boolean;
+	setLoadingOrder: (description: boolean) => void;
 }
 
 export const OrderContext = createContext({} as ContextProps);

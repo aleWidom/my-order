@@ -38,7 +38,6 @@ export const ModalPlateRequired = () => {
 					</div>}
 					{page !== '/' && modalPlateRequired.section === 'delete' &&
 					<div className={styles.containerSubstract}>
-						<FaTrashAlt className={styles.trash} />
 						<small>Solicitud Eliminada</small>
 					</div>}
 				<h2 className={styles.title}>{modalPlateRequired.title}</h2>

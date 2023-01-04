@@ -20,7 +20,7 @@ export const MainBrand = () => {
 
 	return (
 		<Link to={`/?table=${table.table_number}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
-			{page === '/' ? (
+			{page !== 'order' ? (
 				<img src={brand} alt={'brand'} className={styles.mainBrand} />
 			) : (
 				<div className={styles.iconOrder}>
