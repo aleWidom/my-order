@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Table } from '../interfaces';
+import { Table, TableRestaurantOptions } from '../interfaces';
+
 
 async function fetchTables() {
 	try {
@@ -23,6 +24,23 @@ async function fetchTablesActiveCall() {
 	try {
 		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?activeCall `);
 		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+async function fetchTableStatusCall (tableNumber: string | null) {
+	try {
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?activeCall `);
+		 const data : TableRestaurantOptions[]  = response.data
+		const tableIsCall = data.find((e) => {
+			return e.table_number === tableNumber
+		})
+		if(tableIsCall?.table_call === 1 ) {
+			return true
+		} else {
+			return false
+		}
 	} catch (err) {
 		console.log(err);
 	}
@@ -76,6 +94,7 @@ export {
 	fetchTables,
 	fetchTablesActive,
 	fetchTablesActiveCall,
+	fetchTableStatusCall,
 	updateTableNumberActive,
 	updateTableNumberDesactive,
 	updateTableNumberCall,

@@ -22,7 +22,7 @@ export const Search = () => {
         .then(({ data }: any) => {
           if (data.length === 0) {
             setModalInfo({
-              description: "No hay elementos que coincidan con la búsqueda, intente con otras palabras.",
+              description: "No hay elementos que coincidan con la búsqueda.",
               state: true,
               section: "form"
             })

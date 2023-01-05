@@ -9,8 +9,6 @@ const AdminPage = () => {
 
 	const { loadingOrder, setLoadingOrder } = useContext(OrderContext)
 
-	console.log(loadingOrder)
-
 	const { tablesCallRestaurant, setTablesCallRestaurant } = useContext(AdminContext);
 
 	useEffect(()=> {
@@ -25,7 +23,7 @@ const AdminPage = () => {
 				});
 
 		}, 2000);
-	}, [])
+	}, [setLoadingOrder, setTablesCallRestaurant])
 
 
 	useEffect(() => {
@@ -54,7 +52,7 @@ const AdminPage = () => {
 					{tablesCallRestaurant.map((e) => (
 						<div key={e.table_number} className={styles.containerTable}>
 							<h4 className={styles.numberTable}>Mesa: {e.table_number}</h4>
-							<Link to={`/admin/${e.table_number}`} className={styles.link}>
+							<Link to={`/admin/${e.table_number}`} target='_blank' className={styles.link}>
 								Detalle mesa
 							</Link>
 						</div>

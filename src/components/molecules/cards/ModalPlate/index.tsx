@@ -95,8 +95,6 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			return e.id !== modalPlate.id;
 		});
 
-		console.log('delete');
-
 		setCart(newCart);
 
 		setModalPlate({

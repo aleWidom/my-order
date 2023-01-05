@@ -14,7 +14,7 @@ export const Navbar = () => {
 				<MainBrand />
 			</div>
 			<div className={styles.containerTableWaiter}>
-				<Link to={`/admin`}>
+				<Link to={`/admin` } target="_blank">
 					<FaKey className={styles.key} />
 				</Link>
 				<Table />

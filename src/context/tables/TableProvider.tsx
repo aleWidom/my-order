@@ -12,7 +12,7 @@ export const TableProvider = ({ children }: Props) => {
 		table_number: '',
 	});
 
-	const [call, setCall] = useState<boolean>(false);
+	const [call, setCall] = useState<boolean | undefined>(false);
 
 	return (
 		<TableContext.Provider

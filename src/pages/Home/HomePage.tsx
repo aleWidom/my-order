@@ -4,12 +4,14 @@ import { useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecia
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
 import { useSearchParams } from 'react-router-dom';
-import { updateTableNumberActive } from '../../services';
+import { fetchTableStatusCall, updateTableNumberActive } from '../../services';
 import styles from './HomePage.module.scss';
+
+
 const HomePage = () => {
 	const { loading } = useContext(OrderContext);
 
-	const { setTable } = useContext(TableContext);
+	const { table, setTable, setCall} = useContext(TableContext);
 
 	const [params] = useSearchParams();
 
@@ -22,7 +24,11 @@ const HomePage = () => {
 			table_number: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-	}, []);
+		fetchTableStatusCall(table.table_number)
+		.then((data) => {
+			setCall(data)
+		})
+	}, [table.table_number, params, setCall, setTable]);
 
 	useFetchCardsDayPlates();
 

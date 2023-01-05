@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { FaRegSmile } from 'react-icons/fa';
+import { FaConciergeBell, FaRegStopCircle} from 'react-icons/fa';
 import { Closed } from '../../../atoms';
 import { SearchContext, TableContext } from '../../../../context';
 import styles from './ModalInfo.module.scss';
@@ -9,7 +9,7 @@ export const ModalInfo = () => {
 
 	const { call } = useContext(TableContext);
 
-	const closedModalPlate = () => {
+	const closedModalInfo = () => {
 		setModalInfo({
 			state: false,
 			description: '',
@@ -18,16 +18,19 @@ export const ModalInfo = () => {
 	};
 
 	return (
-		<div className={styles.containerModalInfo}>
+		<>
+			<div className={styles.containerModalInfo} onClick={closedModalInfo}>
+			</div>
 			<div className={styles.modalInfo}>
 				{modalInfo.section === 'form' && (
-					<button onClick={closedModalPlate} className={styles.buttonClosedModal}>
+					<button onClick={closedModalInfo} className={styles.buttonClosedModal}>
 						<Closed />
 					</button>
 				)}
-				{modalInfo.section !== 'form' && call === true && <FaRegSmile className={styles.smile} />}
+				{modalInfo.section !== 'form' && call === true && <FaConciergeBell className={styles.icon}/>}
+				{modalInfo.section !== 'form' && call === false && <FaRegStopCircle className={styles.icon}/>}
 				<p className={styles.description}>{modalInfo.description}</p>
 			</div>
-		</div>
+		</>
 	);
 };
