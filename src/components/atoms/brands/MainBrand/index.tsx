@@ -16,7 +16,8 @@ export const MainBrand = () => {
 
 	const { pathname } = useLocation();
 
-	const page = pathname.slice(-5);
+	const page = pathname.slice(1,6);
+
 
 	return (
 		<Link to={`/?table=${table.table_number}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
