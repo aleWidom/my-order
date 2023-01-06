@@ -3,12 +3,12 @@ import { OrderContext } from "../context";
 import { getItemsCardsRanking } from "../services";
 
 export const useFetchCardsRankingPlates = () => {
-  const { setCardsRankingPlates, setLoading } = useContext(OrderContext);
+  const { setCardsRankingPlates } = useContext(OrderContext);
+
 
   useEffect(() => {
     getItemsCardsRanking().then(({ data }: any) => {
       setCardsRankingPlates(data);
-      setLoading(false);
     });
-  }, [setCardsRankingPlates, setLoading]);
+  }, [setCardsRankingPlates]);
 };

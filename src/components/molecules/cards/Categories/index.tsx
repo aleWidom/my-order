@@ -13,13 +13,13 @@ export const Categories = () => {
 
 	const { nameCategorySelected, setValueInput, setNameCategorySelected, setResults } = useContext(SearchContext);
 
-	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {
+	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {	
 		getItemsAccordingToSelectedCategory(cardSelected.name)
 			.then((data) => {
 				setNameCategorySelected(cardSelected.name);
+		/* 		setLoading(true) */
 				setResults(data);
 				setValueInput('');
-				setLoading(true)
 			})
 			.catch((err) => console.log(err));
 	};

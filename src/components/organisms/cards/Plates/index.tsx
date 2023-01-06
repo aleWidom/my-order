@@ -14,7 +14,6 @@ export const Plates = () => {
 
 
 	return (
-			
 				<div className={styles.container}>
 					<div className={styles.containerImgCategory} style={{ backgroundImage: `url(${imgCategory?.photo})` }}><h2 className={styles.title}>{imgCategory?.name}</h2></div>
 					{results.map((e) => {
