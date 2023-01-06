@@ -9,7 +9,6 @@ import styles from './HomePage.module.scss';
 
 
 const HomePage = () => {
-	const { loading } = useContext(OrderContext);
 
 	const { table, setTable, setCall} = useContext(TableContext);
 
@@ -17,7 +16,7 @@ const HomePage = () => {
 
 	const { results, modalInfo } = useContext(SearchContext);
 
-	const { cardsDayPlates, cardsRankingPlates, modalPlate, modalPlateRequired, cardsSpecialsCheff } = useContext(OrderContext);
+	const { cardsDayPlates, cardsRankingPlates, modalPlate, modalPlateRequired, cardsSpecialsCheff, loading  } = useContext(OrderContext);
 
 	useEffect(() => {
 		setTable({

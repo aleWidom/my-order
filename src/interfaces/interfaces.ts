@@ -23,6 +23,7 @@ export interface TableRestaurantOptions {
 export interface CategoryRestaurant {
 	id: number;
 	name: string;
+	photo: string;
 }
 
 export interface ModalPlate {

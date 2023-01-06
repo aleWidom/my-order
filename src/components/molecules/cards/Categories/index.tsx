@@ -9,7 +9,7 @@ import { CategoryRestaurant } from '../../../../interfaces';
 import styles from './Categories.module.scss';
 
 export const Categories = () => {
-	const { categoriesMenuRestaurant } = useContext(OrderContext);
+	const { categoriesMenuRestaurant, setLoading } = useContext(OrderContext);
 
 	const { nameCategorySelected, setValueInput, setNameCategorySelected, setResults } = useContext(SearchContext);
 
@@ -19,6 +19,7 @@ export const Categories = () => {
 				setNameCategorySelected(cardSelected.name);
 				setResults(data);
 				setValueInput('');
+				setLoading(true)
 			})
 			.catch((err) => console.log(err));
 	};
