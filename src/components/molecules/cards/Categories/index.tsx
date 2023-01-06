@@ -17,7 +17,7 @@ export const Categories = () => {
 		getItemsAccordingToSelectedCategory(cardSelected.name)
 			.then((data) => {
 				setNameCategorySelected(cardSelected.name);
-		/* 		setLoading(true) */
+				setLoading(true)
 				setResults(data);
 				setValueInput('');
 			})
