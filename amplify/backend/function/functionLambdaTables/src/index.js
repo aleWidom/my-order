@@ -43,6 +43,14 @@ exports.handler = async (event) => {
         })
         result = await promiseQuery
     }
+    else if (event.queryStringParameters?.searchTable !== undefined) {
+        const promiseQuery = new Promise((resolve) => {
+            connection.query(`Select * from Table_ Where table_number = ${event.pathParameters.proxy}  `, function (error, results, fields) {
+                resolve(results)
+            });
+        })
+        result = await promiseQuery
+    }
     else if (event.queryStringParameters?.activate !== undefined) {
         if (event.queryStringParameters.activate === "activate") {
             const promiseQuery = new Promise((resolve) => {

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Table, TableRestaurantOptions } from '../interfaces';
 
-
 async function fetchTables() {
 	try {
 		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables`);
@@ -29,17 +28,15 @@ async function fetchTablesActiveCall() {
 	}
 }
 
-async function fetchTableStatusCall (tableNumber: string | null) {
+async function fetchTableStatusCall(tableNumber: string | null) {
 	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?activeCall `);
-		 const data : TableRestaurantOptions[]  = response.data
-		const tableIsCall = data.find((e) => {
-			return e.table_number === tableNumber
-		})
-		if(tableIsCall?.table_call === 1 ) {
-			return true
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableNumber}?searchTable `);
+		const data: TableRestaurantOptions[] = response.data;
+
+		if (data[0].table_call === 1) {
+			return true;
 		} else {
-			return false
+			return false;
 		}
 	} catch (err) {
 		console.log(err);

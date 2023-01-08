@@ -1,7 +1,8 @@
 import { FC, useContext } from 'react';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import { OrderContext } from '../../../../context';
+import { OrderContext, TableContext } from '../../../../context';
+import { ordersCreate } from '../../../../services/orders';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
 
@@ -11,6 +12,8 @@ interface Props {
 
 export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	const { modalPlate, setModalPlate, setModalPlateRequired, cart, setCart } = useContext(OrderContext);
+
+	const { table } = useContext(TableContext);
 
 	const { pathname } = useLocation();
 
@@ -58,6 +61,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			photo: '',
 			section: 'request',
 		});
+		ordersCreate(table.table_number);
 	};
 
 	const handleEdit = () => {
@@ -133,54 +137,62 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	return (
 		<>
-			<div className={styles.containerModalPlate} onClick={closedModalPlate} >
-			</div>
+			<div className={styles.containerModalPlate} onClick={closedModalPlate}></div>
 			<div className={styles.modalPlate}>
-					<button onClick={closedModalPlate} className={styles.buttonClosedModal}>
-						<Closed />
-					</button>
-					<h2 className={styles.title}>{modalPlate.title}</h2>
-					<p className={styles.description}>{modalPlate.description}</p>
-					<p className={styles.price}>${modalPlate.price}</p>
-					<small className={styles.priceUnit}> (precio x unidad)</small>
-					<div className={styles.containerQuantity}>
-						<p className={styles.quantity}>Cantidad: </p>
-						{(page === '/' || modalPlate.section === 'edit') ? (
-							<div className={styles.containerQuantitySigns}>
-								{modalPlate.quantity > 1 ?
-									<button onClick={substractQuantity} className={styles.buttonQuantitySubstract}>
-										<p ><small className={styles.signSubstract}>-</small></p>
-									</button> :
-									<button className={styles.buttonQuantitySubstract}>
-										<p ><small className={styles.signSubstractInactive}>-</small></p>
-									</button>}
-								<p>{modalPlate.quantity}</p>
-								<button onClick={addQuantity} className={styles.buttonQuantityAdd}>
-									<p ><small className={styles.signAdd}>+</small></p>
+				<button onClick={closedModalPlate} className={styles.buttonClosedModal}>
+					<Closed />
+				</button>
+				<h2 className={styles.title}>{modalPlate.title}</h2>
+				<p className={styles.description}>{modalPlate.description}</p>
+				<p className={styles.price}>${modalPlate.price}</p>
+				<small className={styles.priceUnit}> (precio x unidad)</small>
+				<div className={styles.containerQuantity}>
+					<p className={styles.quantity}>Cantidad: </p>
+					{page === '/' || modalPlate.section === 'edit' ? (
+						<div className={styles.containerQuantitySigns}>
+							{modalPlate.quantity > 1 ? (
+								<button onClick={substractQuantity} className={styles.buttonQuantitySubstract}>
+									<p>
+										<small className={styles.signSubstract}>-</small>
+									</p>
 								</button>
-							</div>
-						) :
-							`${modalPlate.quantity} u.`}
-					</div>
-					{page === '/' && (
-						<button onClick={handleClickRequest} className={styles.request}>
-							{buttonName}
-							<FaRegCheckCircle />
-						</button>
-					)}
-					{page !== '/' && buttonName === 'Editar' && (
-						<button onClick={handleEdit} className={styles.request}>
-							{buttonName}
-							<FaRegCheckCircle />
-						</button>
-					)}
-					{page !== '/' && buttonName === 'Eliminar' && (
-						<button onClick={handleDelete} className={styles.requestTrash}>
-							{buttonName}
-							<FaTrashAlt />
-						</button>
+							) : (
+								<button className={styles.buttonQuantitySubstract}>
+									<p>
+										<small className={styles.signSubstractInactive}>-</small>
+									</p>
+								</button>
+							)}
+							<p>{modalPlate.quantity}</p>
+							<button onClick={addQuantity} className={styles.buttonQuantityAdd}>
+								<p>
+									<small className={styles.signAdd}>+</small>
+								</p>
+							</button>
+						</div>
+					) : (
+						`${modalPlate.quantity} u.`
 					)}
 				</div>
+				{page === '/' && (
+					<button onClick={handleClickRequest} className={styles.request}>
+						{buttonName}
+						<FaRegCheckCircle />
+					</button>
+				)}
+				{page !== '/' && buttonName === 'Editar' && (
+					<button onClick={handleEdit} className={styles.request}>
+						{buttonName}
+						<FaRegCheckCircle />
+					</button>
+				)}
+				{page !== '/' && buttonName === 'Eliminar' && (
+					<button onClick={handleDelete} className={styles.requestTrash}>
+						{buttonName}
+						<FaTrashAlt />
+					</button>
+				)}
+			</div>
 		</>
 	);
 };
