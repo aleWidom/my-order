@@ -87,6 +87,15 @@ async function updateTableNumberNotCall(table: Table) {
 	}
 }
 
+async function ordersCreate(tableNumber: string | null) {
+	try {
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableNumber}?ordersCreate`);
+		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 export {
 	fetchTables,
 	fetchTablesActive,
@@ -96,4 +105,5 @@ export {
 	updateTableNumberDesactive,
 	updateTableNumberCall,
 	updateTableNumberNotCall,
+	ordersCreate,
 };

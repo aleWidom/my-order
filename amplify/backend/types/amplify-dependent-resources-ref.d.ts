@@ -1,6 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
+    "api": {
+        "myorderapi": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
+        }
+    },
     "function": {
-        "functionLambdaTables": {
+        "functionLambdaItems": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
@@ -12,18 +19,11 @@ export type AmplifyDependentResourcesAttributes = {
             "Region": "string",
             "LambdaExecutionRole": "string"
         },
-        "functionLambdaItems": {
+        "functionLambdaTables": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
             "LambdaExecutionRole": "string"
-        }
-    },
-    "api": {
-        "myorderapi": {
-            "RootUrl": "string",
-            "ApiName": "string",
-            "ApiId": "string"
         }
     }
 }

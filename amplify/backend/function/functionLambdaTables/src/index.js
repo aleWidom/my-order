@@ -88,7 +88,17 @@ exports.handler = async (event) => {
             })
             result = await promiseQuery
         }
+        else if (event.queryStringParameters?.ordersCreate !== undefined) {
+            const promiseQuery = new Promise((resolve) => {
+                connection.query(`INSERT INTO table_name (id_table) VALUES (${event.pathParameters.proxy});`, function (error, results, fields) {
+                    resolve(results)
+                });
+            })
+            result = await promiseQuery
+        }
     }
+
+
 
 
 

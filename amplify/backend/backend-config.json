@@ -1,6 +1,38 @@
 {
+  "api": {
+    "myorderapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "functionLambdaTables"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "functionLambdaRestaurants"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "functionLambdaItems"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "function": {
-    "functionLambdaTables": {
+    "functionLambdaItems": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -10,40 +42,58 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "functionLambdaItems": {
+    "functionLambdaTables": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
-  "api": {
-    "myorderapi": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
+  "parameters": {
+    "AMPLIFY_function_functionLambdaItems_deploymentBucketName": {
+      "usedBy": [
         {
           "category": "function",
-          "resourceName": "functionLambdaTables",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
+          "resourceName": "functionLambdaItems"
+        }
+      ]
+    },
+    "AMPLIFY_function_functionLambdaItems_s3Key": {
+      "usedBy": [
         {
           "category": "function",
-          "resourceName": "functionLambdaRestaurants",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
+          "resourceName": "functionLambdaItems"
+        }
+      ]
+    },
+    "AMPLIFY_function_functionLambdaRestaurants_deploymentBucketName": {
+      "usedBy": [
         {
           "category": "function",
-          "resourceName": "functionLambdaItems",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
+          "resourceName": "functionLambdaRestaurants"
+        }
+      ]
+    },
+    "AMPLIFY_function_functionLambdaRestaurants_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "functionLambdaRestaurants"
+        }
+      ]
+    },
+    "AMPLIFY_function_functionLambdaTables_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "functionLambdaTables"
+        }
+      ]
+    },
+    "AMPLIFY_function_functionLambdaTables_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "functionLambdaTables"
         }
       ]
     }

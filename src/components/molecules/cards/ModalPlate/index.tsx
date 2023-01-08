@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { OrderContext, TableContext } from '../../../../context';
-import { ordersCreate } from '../../../../services/orders';
+import { ordersCreate } from '../../../../services/tables';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
 
