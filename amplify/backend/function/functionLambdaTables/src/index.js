@@ -90,7 +90,7 @@ exports.handler = async (event) => {
         }
         else if (event.queryStringParameters?.ordersCreate !== undefined) {
             const promiseQuery = new Promise((resolve) => {
-                connection.query(`INSERT INTO table_name (id_table) VALUES (${event.pathParameters.proxy});`, function (error, results, fields) {
+                connection.query(`INSERT INTO Order_ (id_table) VALUES (${event.pathParameters.proxy});`, function (error, results, fields) {
                     resolve(results)
                 });
             })
