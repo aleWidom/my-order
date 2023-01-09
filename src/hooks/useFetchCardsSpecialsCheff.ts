@@ -11,7 +11,6 @@ export const useFetchCardsSpecialsCheff = () => {
 	useEffect(() => {
 		getItemsCardsSpecialsCheff().then(({ data }: any) => {
 			setCardsSpecialsCheff(data);
-			console.log('useFetchCardsSpecialsCheff ')
 			setLoading(false);
 		});
 	}, [setCardsSpecialsCheff, setLoading]);

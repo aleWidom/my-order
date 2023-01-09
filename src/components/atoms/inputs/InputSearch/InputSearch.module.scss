@@ -7,3 +7,8 @@
 .inputSearch:hover {
     outline: none;
 }
+
+.inputSearch:focus {
+    outline: none;
+    border: none;
+}

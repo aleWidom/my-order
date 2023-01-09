@@ -5,7 +5,7 @@ import { getItemsResults } from "../../../../services";
 import styles from "./Search.module.scss";
 
 export const Search = () => {
-  const { valueInput, setValueInput, setResults, setNameCategorySelected, setModalInfo } =
+  const { valueInput, setValueInput, setResults, setCategorySelected, setModalInfo } =
     useContext(SearchContext);
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -29,7 +29,13 @@ export const Search = () => {
             setValueInput("");
           } else {
             setResults(data);
-            setNameCategorySelected("");
+            setCategorySelected(
+              {
+                id: 0,
+                name: "",
+                photo: "",
+              }
+            );
           }
         })
         .catch((err) => err);

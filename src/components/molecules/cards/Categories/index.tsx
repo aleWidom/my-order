@@ -11,12 +11,12 @@ import styles from './Categories.module.scss';
 export const Categories = () => {
 	const { categoriesMenuRestaurant, setLoadingPlates } = useContext(OrderContext);
 
-	const { nameCategorySelected, setValueInput, setNameCategorySelected, setResults } = useContext(SearchContext);
+	const { categorySelected, setValueInput, setCategorySelected, setResults } = useContext(SearchContext);
 
 	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {	
 		getItemsAccordingToSelectedCategory(cardSelected.name)
 			.then((data) => {
-				setNameCategorySelected(cardSelected.name);
+				setCategorySelected(cardSelected);
 				setLoadingPlates(true)
 				setResults(data);
 				setValueInput('');
@@ -32,7 +32,7 @@ export const Categories = () => {
 				<Swiper spaceBetween={50} slidesPerView={3}>
 					{categoriesMenuRestaurant.map((e) => (
 						<SwiperSlide key={e.id}>
-							{e.name === nameCategorySelected ? (
+							{e.name === categorySelected.name ? (
 								<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'selected'} />
 							) : (
 								<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'notSelected'} />

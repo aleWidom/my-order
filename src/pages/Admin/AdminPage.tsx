@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MainLoading } from '../../components/molecules';
-import { AdminContext, OrderContext } from '../../context/';
+import {AdminContext, OrderContext } from '../../context/';
 import { fetchTablesActiveCall } from '../../services';
 import styles from './AdminPage.module.scss';
 
