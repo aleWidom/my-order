@@ -3,7 +3,7 @@ import { OrderContext } from '../context';
 import { getItemsCardsSpecialsCheff } from '../services';
 
 export const useFetchCardsSpecialsCheff = () => {
-	const { setCardsSpecialsCheff, setLoading, loading } = useContext(OrderContext);
+	const { setCardsSpecialsCheff, setLoading} = useContext(OrderContext);
 
 	
 
@@ -14,5 +14,5 @@ export const useFetchCardsSpecialsCheff = () => {
 			console.log('useFetchCardsSpecialsCheff ')
 			setLoading(false);
 		});
-	}, [setCardsSpecialsCheff, setLoading, loading]);
+	}, [setCardsSpecialsCheff, setLoading]);
 };

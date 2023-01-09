@@ -22,6 +22,8 @@ interface ContextProps {
 	setLoading: (description: boolean) => void;
 	loadingOrder: boolean;
 	setLoadingOrder: (description: boolean) => void;
+	loadingPlates: boolean;
+	setLoadingPlates: (description: boolean) => void;
 }
 
 export const OrderContext = createContext({} as ContextProps);

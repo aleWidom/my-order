@@ -42,6 +42,8 @@ export const OrderProvider = ({ children }: Props) => {
 
 	const [loadingOrder, setLoadingOrder] = useState<boolean>(true);
 
+	const [loadingPlates, setLoadingPlates] = useState<boolean>(true);
+
 	return (
 		<OrderContext.Provider
 			value={{
@@ -64,7 +66,9 @@ export const OrderProvider = ({ children }: Props) => {
 				cardsSpecialsCheff,
 				setCardsSpecialsCheff,
 				loadingOrder, 
-				setLoadingOrder
+				setLoadingOrder,
+				loadingPlates, 
+				setLoadingPlates
 			}}
 		>
 			{children}
