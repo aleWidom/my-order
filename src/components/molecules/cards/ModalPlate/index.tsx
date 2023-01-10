@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { OrderContext, TableContext } from '../../../../context';
@@ -61,7 +62,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			photo: '',
 			section: 'request',
 		});
-		ordersCreate(table.table_number);
+		ordersCreate(uuidv4(), new Date().toLocaleString(), table.table_number);
 	};
 
 	const handleEdit = () => {

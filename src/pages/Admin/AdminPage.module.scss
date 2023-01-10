@@ -27,8 +27,32 @@
 	margin-top: 1rem;
 }
 
+.containerOrder {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid 1px $color-secondary;
+	margin-top: 1rem;
+	border: solid;
+	text-align: center;
+	gap: 0.5rem;
+}
+
 .link {
 	margin-left: 0.5rem;
 	text-decoration: none;
 	color: $color-terciary;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.description {
+	font-weight: 400;
+}
+
+.table {
+	color: $color-five;
 }

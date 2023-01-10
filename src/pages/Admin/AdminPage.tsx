@@ -2,13 +2,13 @@ import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MainLoading } from '../../components/molecules';
 import {AdminContext, OrderContext } from '../../context/';
-import { fetchTablesActiveCall } from '../../services';
+import { fetchOrderItem, fetchTablesActiveCall } from '../../services';
 import styles from './AdminPage.module.scss';
 
 const AdminPage = () => {
 	const { loadingOrder, setLoadingOrder } = useContext(OrderContext);
 
-	const { tablesCallRestaurant, setTablesCallRestaurant } = useContext(AdminContext);
+	const { tablesCallRestaurant, setTablesCallRestaurant, orderItem,setOrderItem } = useContext(AdminContext);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -20,8 +20,14 @@ const AdminPage = () => {
 				.catch((e) => {
 					console.log(e);
 				});
+			fetchOrderItem().then((data) => {
+				return setOrderItem(data);
+			})
+			.catch((e) => {
+				console.log(e);
+			});	
 		}, 2000);
-	}, [setLoadingOrder, setTablesCallRestaurant]);
+	}, [setLoadingOrder, setTablesCallRestaurant, setOrderItem]);
 
 	useEffect(() => {
 		setInterval(() => {
@@ -32,8 +38,15 @@ const AdminPage = () => {
 				.catch((e) => {
 					console.log(e);
 				});
+
+				fetchOrderItem().then((data) => {
+					return setOrderItem(data);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
 		}, 10000);
-	}, [setTablesCallRestaurant, setLoadingOrder]);
+	}, [setTablesCallRestaurant, setLoadingOrder, setOrderItem]);
 
 	return (
 		<>
@@ -42,6 +55,7 @@ const AdminPage = () => {
 					<MainLoading />
 				</div>
 			) : (
+				<>
 				<div className={styles.container}>
 					<h1 className={styles.header}>Calls</h1>
 					{tablesCallRestaurant.map((e) => (
@@ -53,6 +67,17 @@ const AdminPage = () => {
 						</div>
 					))}
 				</div>
+				<div className={styles.container}>
+					<h1 className={styles.header}>Orders</h1>
+					{orderItem.map((e) => (
+						<div key={e.id} className={styles.containerOrder}>
+							<h4 className={styles.title}>{e.title}</h4>
+							<h4 className={styles.description}>Cantidad: {e.quantity}</h4>
+							<h4 className={styles.table}>Table: {e.id_table}</h4>
+						</div>
+					))}
+				</div>
+				</>
 			)}
 		</>
 	);

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AdminContext } from './AdminContext';
-import { TableRestaurantOptions } from '../../interfaces';
+import { TableRestaurantOptions,OrderItem } from '../../interfaces';
+
 
 interface Props {
 	children: JSX.Element | JSX.Element[];
@@ -11,6 +12,8 @@ export const AdminProvider = ({ children }: Props) => {
 
 	const [tablesCallRestaurant, setTablesCallRestaurant] = useState<TableRestaurantOptions[]>([]);
 
+	const [orderItem, setOrderItem] = useState<OrderItem[]>([]);
+
 	return (
 		<AdminContext.Provider
 			value={{
@@ -18,6 +21,8 @@ export const AdminProvider = ({ children }: Props) => {
 				setTablesRestaurant,
 				tablesCallRestaurant,
 				setTablesCallRestaurant,
+				orderItem, 
+				setOrderItem
 			}}
 		>
 			{children}

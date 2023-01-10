@@ -50,3 +50,10 @@ export interface ModalInfo {
 	state: boolean;
 	section: string;
 }
+
+export interface OrderItem {
+	id:number;
+	title: 'string';
+	id_table: number;
+	quantity: number;
+}

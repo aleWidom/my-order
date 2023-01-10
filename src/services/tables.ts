@@ -1,47 +1,7 @@
 import axios from 'axios';
-import { Table, TableRestaurantOptions } from '../interfaces';
+import { Table } from '../interfaces';
 
-async function fetchTables() {
-	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables`);
-		return response.data;
-	} catch (err) {
-		console.log(err);
-	}
-}
 
-async function fetchTablesActive() {
-	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?active`);
-		return response.data;
-	} catch (err) {
-		console.log(err);
-	}
-}
-
-async function fetchTablesActiveCall() {
-	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?activeCall `);
-		return response.data;
-	} catch (err) {
-		console.log(err);
-	}
-}
-
-async function fetchTableStatusCall(tableNumber: string | null) {
-	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableNumber}?searchTable `);
-		const data: TableRestaurantOptions[] = response.data;
-
-		if (data[0].table_call === 1) {
-			return true;
-		} else {
-			return false;
-		}
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 async function updateTableNumberActive(table: string | null) {
 	try {
@@ -87,9 +47,9 @@ async function updateTableNumberNotCall(table: Table) {
 	}
 }
 
-async function ordersCreate(tableNumber: string | null) {
+async function ordersCreate(id: string, date: string,  tableNumber: string | null) {
 	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableNumber}?ordersCreate`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${id}/${date}/${tableNumber}?ordersCreate`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
@@ -97,10 +57,6 @@ async function ordersCreate(tableNumber: string | null) {
 }
 
 export {
-	fetchTables,
-	fetchTablesActive,
-	fetchTablesActiveCall,
-	fetchTableStatusCall,
 	updateTableNumberActive,
 	updateTableNumberDesactive,
 	updateTableNumberCall,
