@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { OrderContext, TableContext } from '../../../../context';
-import { ordersCreate } from '../../../../services/tables';
+import { ordersCreate, ordersItem } from '../../../../services/tables';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
 
@@ -34,6 +34,11 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleClickRequest = () => {
+
+		const id = uuidv4()
+
+		console.log(id)
+
 		setCart([
 			...cart,
 			{
@@ -45,6 +50,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				description: modalPlate.description,
 			},
 		]);
+		ordersItem(id, `${modalPlate.id}` , modalPlate.quantity, 'preparing')
 		setModalPlateRequired({
 			id: modalPlate.id,
 			title: modalPlate.title,
@@ -62,7 +68,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			photo: '',
 			section: 'request',
 		});
-		ordersCreate(uuidv4(), new Date().toISOString(), table.table_number);
+		ordersCreate(id, new Date().toLocaleString(), table.table_number);
 	};
 
 	const handleEdit = () => {

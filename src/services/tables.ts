@@ -57,10 +57,20 @@ async function ordersCreate(id: string, date: string,  tableNumber: string | nul
 	}
 }
 
+async function ordersItem(idOrder: string, idItem: string,  quantity: number, state:string) {
+	try {
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idOrder}/${idItem}/${quantity}?/${state}/itemOrderCreate`);
+		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 export {
 	updateTableNumberActive,
 	updateTableNumberDesactive,
 	updateTableNumberCall,
 	updateTableNumberNotCall,
 	ordersCreate,
+	ordersItem
 };
