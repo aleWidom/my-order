@@ -7,7 +7,7 @@ interface Props {
 	price: string;
 	source: string;
 	description: string;
-	id: number;
+	id: string;
 }
 
 export const MainPlate: FC<Props> = ({ header, price, source, description, id }) => {
@@ -16,7 +16,7 @@ export const MainPlate: FC<Props> = ({ header, price, source, description, id })
 	const onClickCardHome = () => {
 		setModalPlate({
 			...modalPlate,
-			id: id,
+			id: `${id}`,
 			state: true,
 			title: header,
 			price: price,

@@ -29,9 +29,9 @@ const HomePage = () => {
 		})
 	}, [table.table_number, params, setCall, setTable]);
 
-	useFetchCardsDayPlates();
+ 	useFetchCardsDayPlates();
 
-	useFetchCardsRankingPlates();
+	useFetchCardsRankingPlates(); 
 
 	useFetchCardsSpecialsCheff();
 

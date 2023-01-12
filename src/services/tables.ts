@@ -49,6 +49,7 @@ async function updateTableNumberNotCall(table: Table) {
 
 async function ordersCreate(id: string, date: string,  tableNumber: string | null) {
 	try {
+		console.log(date)
 		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${id}/${date}/${tableNumber}?ordersCreate`);
 		return response.data;
 	} catch (err) {

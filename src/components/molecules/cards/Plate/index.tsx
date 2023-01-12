@@ -7,7 +7,7 @@ interface Props {
   description: string;
   header: string;
   source: string;
-  id: number;
+  id: string;
 }
 
 export const Plate: FC<Props> = ({
@@ -22,7 +22,7 @@ export const Plate: FC<Props> = ({
   const handleClickRequest = () => {
     setModalPlate({
       ...modalPlate,
-      id: id,
+      id: `${id}`,
       state: true,
       title: header,
       price: price,

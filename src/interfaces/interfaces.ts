@@ -1,5 +1,5 @@
 export interface Plate {
-	id: number;
+	ItemID: string;
 	title: string;
 	photo: string;
 	description: string;
@@ -14,10 +14,10 @@ export interface Table {
 }
 
 export interface TableRestaurantOptions {
-	id: number;
+	TableID: string;
 	table_number: string;
-	table_active: number;
-	table_call: number;
+	table_active: string;
+	table_call: string;
 }
 
 export interface CategoryRestaurant {
@@ -27,7 +27,7 @@ export interface CategoryRestaurant {
 }
 
 export interface ModalPlate {
-	id: number;
+	id: string;
 	title: string;
 	description: string;
 	state: boolean;
@@ -38,7 +38,7 @@ export interface ModalPlate {
 }
 
 export interface ModalPlateRequired {
-	id: number;
+	id: string;
 	title: string;
 	quantity: number;
 	state: boolean;
@@ -52,7 +52,7 @@ export interface ModalInfo {
 }
 
 export interface OrderItem {
-	id:number;
+	id:string;
 	title: 'string';
 	id_table: number;
 	quantity: number;

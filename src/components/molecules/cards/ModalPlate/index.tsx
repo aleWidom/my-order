@@ -22,7 +22,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const closedModalPlate = () => {
 		setModalPlate({
-			id: 0,
+			id: '0',
 			state: false,
 			title: '',
 			price: '0',
@@ -37,7 +37,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setCart([
 			...cart,
 			{
-				id: modalPlate.id,
+				ItemID: `${modalPlate.id}`,
 				title: modalPlate.title,
 				price: modalPlate.price,
 				quantity: modalPlate.quantity,
@@ -53,7 +53,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			section: 'request',
 		});
 		setModalPlate({
-			id: 0,
+			id: '0',
 			state: false,
 			title: '',
 			price: '0',
@@ -62,12 +62,12 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			photo: '',
 			section: 'request',
 		});
-		ordersCreate(uuidv4(), new Date().toLocaleString(), table.table_number);
+		ordersCreate(uuidv4(), new Date().toISOString(), table.table_number);
 	};
 
 	const handleEdit = () => {
 		const newCart = cart.map((e) => {
-			if (modalPlate.id === e.id) {
+			if (modalPlate.id === e.ItemID) {
 				e.quantity = modalPlate.quantity;
 			}
 			return e;
@@ -76,7 +76,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setCart(newCart);
 
 		setModalPlate({
-			id: 0,
+			id: '0',
 			state: false,
 			title: '',
 			price: '0',
@@ -97,13 +97,13 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const handleDelete = () => {
 		const newCart = cart.filter((e) => {
-			return e.id !== modalPlate.id;
+			return e.ItemID !== modalPlate.id;
 		});
 
 		setCart(newCart);
 
 		setModalPlate({
-			id: 0,
+			id: '0',
 			state: false,
 			title: '',
 			price: '0',

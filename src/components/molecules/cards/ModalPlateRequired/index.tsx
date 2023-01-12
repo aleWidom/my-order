@@ -14,7 +14,7 @@ export const ModalPlateRequired = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setModalPlateRequired({
-				id: 0,
+				id: `${0}`,
 				title: '',
 				quantity: 1,
 				state: false,

@@ -21,7 +21,7 @@ export const Plates = () => {
 				<div className={styles.container}>
 					{categorySelected.name !== '' && <div className={styles.containerImgCategory} style={{ backgroundImage: `url(${categorySelected?.photo})` }}><h2 className={styles.title}>{categorySelected?.name}</h2></div>}
 					{results.map((e) => {
-						return <Plate id={e.id} header={e.title} source={e.photo} description={e.description} price={e.price} key={e.id} />;
+						return <Plate id={e.ItemID} header={e.title} source={e.photo} description={e.description} price={e.price} key={e.ItemID} />;
 					})}
 				</div>}
 		</>

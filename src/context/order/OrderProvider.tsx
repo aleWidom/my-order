@@ -18,7 +18,7 @@ export const OrderProvider = ({ children }: Props) => {
 	const [menuWaiterActive, setMenuWaiterActive] = useState<boolean>(false);
 
 	const [modalPlate, setModalPlate] = useState<ModalPlate>({
-		id: 0,
+		id: '0',
 		state: false,
 		title: '',
 		price: '0',
@@ -29,7 +29,7 @@ export const OrderProvider = ({ children }: Props) => {
 	});
 
 	const [modalPlateRequired, setModalPlateRequired] = useState<ModalPlateRequired>({
-		id: 0,
+		id: '0',
 		title: '',
 		quantity: 1,
 		state: false,

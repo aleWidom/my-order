@@ -19,8 +19,8 @@ export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates, card
 				<h3 className={styles.title}>Platos más solicitados</h3>
 				<Swiper slidesPerView={1.2} spaceBetween={20}>
 					{cardsRankingPlates.map((e) => (
-						<SwiperSlide key={e.id}>
-							<MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id} />
+						<SwiperSlide key={e.ItemID}>
+							<MainPlate key={e.ItemID} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.ItemID} />
 						</SwiperSlide>
 					))}
 				</Swiper>
@@ -29,8 +29,8 @@ export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates, card
 				<h3 className={styles.title}>Platos del día</h3>
 				<Swiper slidesPerView={1.2} spaceBetween={20}>
 					{cardsDayPlates.map((e) => (
-						<SwiperSlide key={e.id}>
-							<MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id} />
+						<SwiperSlide key={e.ItemID}>
+							<MainPlate key={e.ItemID} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.ItemID} />
 						</SwiperSlide>
 					))}
 				</Swiper>
@@ -40,8 +40,8 @@ export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates, card
 				<h3 className={styles.title}>Sugerencias del chef</h3>
 				<Swiper slidesPerView={1.2} spaceBetween={20}>
 					{cardsSpecialsCheff.map((e) => (
-						<SwiperSlide key={e.id}>
-							<MainPlate key={e.id} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.id} />
+						<SwiperSlide key={e.ItemID}>
+							<MainPlate key={e.ItemID} source={e.photo} header={e.title} price={e.price} description={e.description} id={e.ItemID} />
 						</SwiperSlide>
 					))}
 				</Swiper>
