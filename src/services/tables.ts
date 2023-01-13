@@ -49,7 +49,7 @@ async function updateTableNumberNotCall(table: Table) {
 
 async function ordersCreate(id: string, date: string,  tableNumber: string | null) {
 	try {
-		console.log(date)
+		console.log(id)
 		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${id}/${date}/${tableNumber}?ordersCreate`);
 		return response.data;
 	} catch (err) {
@@ -57,9 +57,9 @@ async function ordersCreate(id: string, date: string,  tableNumber: string | nul
 	}
 }
 
-async function ordersItem(idOrder: string, idItem: string,  quantity: number, state:string) {
+async function ordersItem(quantity: number) {
 	try {
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idOrder}/${idItem}/${quantity}?/${state}/itemOrderCreate`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${quantity}/?itemOrderCreate`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
