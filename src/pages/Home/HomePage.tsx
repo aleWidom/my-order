@@ -20,20 +20,21 @@ const HomePage = () => {
 
 	useEffect(() => {
 		setTable({
-			table_number: params.get('table'),
+			id: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-		fetchTableStatusCall(table.table_number)
+		fetchTableStatusCall(table.id)
 		.then((data) => {
 			setCall(data)
 		})
-	}, [table.table_number, params, setCall, setTable]);
+	}, [table.id, params, setCall, setTable]);
 
  	useFetchCardsDayPlates();
 
 	useFetchCardsRankingPlates(); 
 
 	useFetchCardsSpecialsCheff();
+
 
 	return (
 		<>

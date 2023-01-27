@@ -28,7 +28,7 @@ async function updateTableNumberDesactive(table: string) {
 async function updateTableNumberCall(table: Table) {
 	try {
 		const response = await axios.put(
-			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.table_number}?call=call`
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.id}?call=call`
 		);
 		return response.data;
 	} catch (err) {
@@ -39,7 +39,7 @@ async function updateTableNumberCall(table: Table) {
 async function updateTableNumberNotCall(table: Table) {
 	try {
 		const response = await axios.put(
-			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.table_number}?call=notCall`
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.id}?call=notCall`
 		);
 		return response.data;
 	} catch (err) {
@@ -47,19 +47,20 @@ async function updateTableNumberNotCall(table: Table) {
 	}
 }
 
-async function ordersCreate(id: string, date: string,  tableNumber: string | null) {
+async function ordersCreate(idRequest: string, tableId: string | null) {
 	try {
-		console.log(id)
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${id}/${date}/${tableNumber}?ordersCreate`);
+		console.log(idRequest)
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idRequest}/${tableId}?ordersCreate`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
 	}
 }
 
-async function ordersItem(quantity: number) {
+async function ordersItem(idItemRequest: string, idRequest: string, idItem: string, quantity: number) {
 	try {
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${quantity}/?itemOrderCreate`);
+		console.log(idRequest)
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idItemRequest}/${idRequest}/${idItem}/${quantity}/?itemOrderCreate`);
 		return response.data;
 	} catch (err) {
 		console.log(err);

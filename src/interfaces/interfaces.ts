@@ -10,7 +10,7 @@ export interface Plate {
 }
 
 export interface Table {
-	table_number: string | null;
+	id: string | null;
 }
 
 export interface TableRestaurantOptions {

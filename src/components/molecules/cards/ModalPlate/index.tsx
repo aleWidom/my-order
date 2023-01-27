@@ -35,7 +35,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const handleClickRequest = () => {
 
-		const id = uuidv4()	
+		const idRequest = uuidv4()	
 
 		setCart([
 			...cart,
@@ -48,7 +48,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				description: modalPlate.description,
 			},
 		]);
-		ordersItem(modalPlate.quantity)
+		ordersItem(uuidv4(),idRequest, `${modalPlate.id}`,modalPlate.quantity)
 		setModalPlateRequired({
 			id: modalPlate.id,
 			title: modalPlate.title,
@@ -66,7 +66,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			photo: '',
 			section: 'request',
 		});
-		ordersCreate(id.replaceAll('/','5'), new Date().toLocaleString(), table.table_number);
+		ordersCreate(idRequest.replaceAll('/','5'), table.id);
 	};
 
 	const handleEdit = () => {

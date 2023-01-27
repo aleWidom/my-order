@@ -9,7 +9,7 @@ interface Props {
 export const TableProvider = ({ children }: Props) => {
 	//TODO DEBE IR UN OBJETO COMO MESA
 	const [table, setTable] = useState<Table>({
-		table_number: '',
+		id: '',
 	});
 
 	const [call, setCall] = useState<boolean | undefined>(false);
