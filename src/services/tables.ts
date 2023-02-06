@@ -57,10 +57,10 @@ async function ordersCreate(idRequest: string, tableId: string | null) {
 	}
 }
 
-async function ordersItem(idItemRequest: string, idRequest: string, idItem: string, quantity: number) {
+async function ordersItem(idItemRequest: string, idItem: string, idRequest: string, quantity: number) {
 	try {
 		console.log(idRequest)
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idItemRequest}/${idRequest}/${idItem}/${quantity}/?itemOrderCreate`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idItemRequest}/${idItem}/${idRequest}/${quantity}/?itemOrderCreate`);
 		return response.data;
 	} catch (err) {
 		console.log(err);

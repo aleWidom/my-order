@@ -48,7 +48,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				description: modalPlate.description,
 			},
 		]);
-		ordersItem(uuidv4(),idRequest, `${modalPlate.id}`,modalPlate.quantity)
+		ordersItem(uuidv4(),`${modalPlate.id}`,idRequest ,modalPlate.quantity)
 		setModalPlateRequired({
 			id: modalPlate.id,
 			title: modalPlate.title,
