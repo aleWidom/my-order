@@ -47,20 +47,18 @@ async function updateTableNumberNotCall(table: Table) {
 	}
 }
 
-async function ordersCreate(idRequest: string, tableId: string | null) {
+async function peopleInTable(idPeopleInTable: string, tableId: string | null) {
 	try {
-		console.log(idRequest)
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idRequest}/${tableId}?ordersCreate`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idPeopleInTable}/${tableId}?peopleInTable`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
 	}
 }
 
-async function ordersItem(idItemRequest: string, idItem: string, idRequest: string, quantity: number) {
+async function itemPeopleInTable(idItemPeopleInTable: string, idPeopleInTable: string, quantity: number, idItem: string) {
 	try {
-		console.log(idRequest)
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idItemRequest}/${idItem}/${idRequest}/${quantity}/?itemOrderCreate`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idItemPeopleInTable}/${idPeopleInTable}/${quantity}/${idItem}/?itemPeopleInTable`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
@@ -72,6 +70,6 @@ export {
 	updateTableNumberDesactive,
 	updateTableNumberCall,
 	updateTableNumberNotCall,
-	ordersCreate,
-	ordersItem
+	peopleInTable,
+	itemPeopleInTable
 };

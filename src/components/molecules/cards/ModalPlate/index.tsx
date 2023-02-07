@@ -2,8 +2,8 @@ import { FC, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import { OrderContext, TableContext } from '../../../../context';
-import { ordersCreate, ordersItem } from '../../../../services/tables';
+import { OrderContext} from '../../../../context';
+import { itemPeopleInTable } from '../../../../services/tables';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
 
@@ -13,8 +13,6 @@ interface Props {
 
 export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	const { modalPlate, setModalPlate, setModalPlateRequired, cart, setCart } = useContext(OrderContext);
-
-	const { table } = useContext(TableContext);
 
 	const { pathname } = useLocation();
 
@@ -35,7 +33,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const handleClickRequest = () => {
 
-		const idRequest = uuidv4()	
+		const idPeopleInTable = uuidv4()	
 
 		setCart([
 			...cart,
@@ -48,7 +46,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				description: modalPlate.description,
 			},
 		]);
-		ordersItem(uuidv4(),`${modalPlate.id}`,idRequest ,modalPlate.quantity)
+		itemPeopleInTable(uuidv4(),idPeopleInTable,modalPlate.quantity,`${modalPlate.id}` )
 		setModalPlateRequired({
 			id: modalPlate.id,
 			title: modalPlate.title,
@@ -66,7 +64,6 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			photo: '',
 			section: 'request',
 		});
-		ordersCreate(idRequest.replaceAll('/','5'), table.id);
 	};
 
 	const handleEdit = () => {

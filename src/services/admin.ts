@@ -47,7 +47,7 @@ async function fetchTableStatusCall(tableNumber: string | null) {
 
 async function fetchOrderItem() {
 	try {
-		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?orderItem`);
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables?itemPeopleInTableJoin`);
         return response.data;
 
 	} catch (err) {
