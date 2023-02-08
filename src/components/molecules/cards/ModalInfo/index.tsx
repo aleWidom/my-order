@@ -7,7 +7,7 @@ import styles from './ModalInfo.module.scss';
 export const ModalInfo = () => {
 	const { modalInfo, setModalInfo } = useContext(SearchContext);
 
-	const { call } = useContext(TableContext);
+	const { sittingOnTheTableCall } = useContext(TableContext);
 
 	const closedModalInfo = () => {
 		setModalInfo({
@@ -27,8 +27,8 @@ export const ModalInfo = () => {
 						<Closed />
 					</button>
 				)}
-				{modalInfo.section !== 'form' && call === true && <FaConciergeBell className={styles.icon}/>}
-				{modalInfo.section !== 'form' && call === false && <FaRegStopCircle className={styles.icon}/>}
+				{modalInfo.section !== 'form' && sittingOnTheTableCall === true && <FaConciergeBell className={styles.icon}/>}
+				{modalInfo.section !== 'form' && sittingOnTheTableCall === false && <FaRegStopCircle className={styles.icon}/>}
 				<p className={styles.description}>{modalInfo.description}</p>
 			</div>
 		</>

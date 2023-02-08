@@ -7,7 +7,7 @@ import { ModalInfo } from '../../components/molecules';
 import styles from './AdminTablePage.module.scss';
 
 const AdminTablePage = () => {
-	const { table } = useContext(TableContext);
+	const { sittingOnTheTable } = useContext(TableContext);
 
 	const { modalInfo, setModalInfo } = useContext(SearchContext);
 
@@ -19,7 +19,7 @@ const AdminTablePage = () => {
 		updateTableNumberDesactive(numberTable);
 		setModalInfo({
 			state: true,
-			description: `La mesa ${table.TableID} ha sido desactivada`,
+			description: `La mesa ${sittingOnTheTable.TableID} ha sido desactivada`,
 			section: 'admin',
 		});
 	};

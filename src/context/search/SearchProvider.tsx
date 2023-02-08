@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SearchContext } from ".";
-import { Plate, ModalInfo, CategoryRestaurant } from "../../interfaces";
+import { PlateRestaurant, ModalInfo, CategoryRestaurant } from "../../interfaces";
+
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -9,7 +10,7 @@ interface Props {
 export const SearchProvider = ({ children }: Props) => {
   const [valueInput, setValueInput] = useState<string>("");
 
-  const [results, setResults] = useState<Plate[] | []>([]);
+  const [results, setResults] = useState<PlateRestaurant[] | []>([]);
 
   const [categorySelected, setCategorySelected] = useState<CategoryRestaurant>({
     CategoryID: '0',

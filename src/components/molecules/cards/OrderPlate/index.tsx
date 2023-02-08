@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { Plate } from '../../../../interfaces/interfaces';
+import { PlateRestaurant } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {
 	const { cart, modalPlate, setModalPlate } = useContext(OrderContext);
 
-	const handleEdit = (cartProduct: Plate) => () => {
+	const handleEdit = (cartProduct: PlateRestaurant) => () => {
 		setModalPlate({
 			...modalPlate,
 			id: cartProduct.ItemID,
@@ -21,7 +21,7 @@ export const OrderPlate = () => {
 		});
 	};
 
-	const handleDelete = (cartProduct: Plate) => () => {
+	const handleDelete = (cartProduct: PlateRestaurant) => () => {
 		setModalPlate({
 			...modalPlate,
 			id: cartProduct.ItemID,
@@ -42,7 +42,7 @@ export const OrderPlate = () => {
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
-						<small className={styles.state}>Preparando su solicitud</small>
+						<small className={styles.state}>Su pedido se esta preparando.</small>
 					</div>
 					<div className={styles.editDelete}>
 						<FaEdit onClick={handleEdit(cartProduct)} className={styles.edit} />

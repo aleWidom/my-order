@@ -7,13 +7,13 @@ import styles from './Requireds.module.scss';
 const Requireds = () => {
 	const { cart, modalPlate, modalPlateRequired } = useContext(OrderContext);
 
-	const { table } = useContext(TableContext);
+	const { sittingOnTheTable} = useContext(TableContext);
 
 	return (
 		<div className={styles.required}>
 			{cart.length > 0 && modalPlate.state === false && modalPlateRequired.state === false && (
 				<>
-					<Link to={`/order/${table.TableID}`} className={styles.link}>
+					<Link to={`/order/${sittingOnTheTable.TableID}`} className={styles.link}>
 						<FaBell />
 					</Link>
 					<div className={styles.quantity}>

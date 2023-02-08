@@ -1,13 +1,14 @@
 import { createContext } from 'react';
-import { Table } from '../../interfaces';
+import { SittingOnTheTable } from '../../interfaces';
+
 
 interface ContextProps {
-	table: Table;
-	setTable: (description: Table) => void;
-	call: boolean | undefined;
-	setCall: (description: boolean | undefined ) => void;
-	tableActive: boolean | undefined;
-	setTableActive: (description: boolean | undefined ) => void;
+	sittingOnTheTable: SittingOnTheTable;
+	setSittingOnTheTable: (description: SittingOnTheTable) => void;
+	sittingOnTheTableCall: boolean | undefined;
+	setSittingOnTheTableCall: (description: boolean | undefined ) => void;
+	sittingOnTheTableActivate: boolean | undefined;
+	setSittingOnTheTableActivate: (description: boolean | undefined ) => void;
 }
 
 export const TableContext = createContext({} as ContextProps);

@@ -1,12 +1,12 @@
 import { createContext } from 'react';
-import { TableRestaurantOptions, OrderItem } from '../../interfaces';
+import { TableRestaurant, OrderItem } from '../../interfaces';
 
 
 interface ContextProps {
-	tablesRestaurant: TableRestaurantOptions[];
-	setTablesRestaurant: (description: TableRestaurantOptions[]) => void;
-	tablesCallRestaurant: TableRestaurantOptions[];
-	setTablesCallRestaurant: (description: TableRestaurantOptions[]) => void;
+	tablesRestaurant: TableRestaurant[];
+	setTablesRestaurant: (description: TableRestaurant[]) => void;
+	tablesCallRestaurant: TableRestaurant[];
+	setTablesCallRestaurant: (description: TableRestaurant[]) => void;
 	orderItem: OrderItem[];
 	setOrderItem: (description: OrderItem[]) => void;
 }

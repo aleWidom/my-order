@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AdminContext } from './AdminContext';
-import { TableRestaurantOptions,OrderItem } from '../../interfaces';
+import { TableRestaurant,OrderItem } from '../../interfaces';
 
 
 interface Props {
@@ -8,9 +8,9 @@ interface Props {
 }
 
 export const AdminProvider = ({ children }: Props) => {
-	const [tablesRestaurant, setTablesRestaurant] = useState<TableRestaurantOptions[]>([]);
+	const [tablesRestaurant, setTablesRestaurant] = useState<TableRestaurant[]>([]);
 
-	const [tablesCallRestaurant, setTablesCallRestaurant] = useState<TableRestaurantOptions[]>([]);
+	const [tablesCallRestaurant, setTablesCallRestaurant] = useState<TableRestaurant[]>([]);
 
 	const [orderItem, setOrderItem] = useState<OrderItem[]>([]);
 

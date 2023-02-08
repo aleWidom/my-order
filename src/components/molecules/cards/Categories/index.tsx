@@ -5,7 +5,7 @@ import 'swiper/css';
 import { Categorie } from '../../../atoms';
 import { useFetchCategories } from '../../../../hooks';
 import { getItemsAccordingToSelectedCategory } from '../../../../services';
-import { CategoryRestaurant, Plate } from '../../../../interfaces';
+import { CategoryRestaurant, PlateRestaurant } from '../../../../interfaces';
 import styles from './Categories.module.scss';
 
 export const Categories = () => {
@@ -15,7 +15,7 @@ export const Categories = () => {
 
 	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {	
 		getItemsAccordingToSelectedCategory(cardSelected.CategoryID)
-			.then((data: Plate[]) => {
+			.then((data: PlateRestaurant[]) => {
 				setCategorySelected(cardSelected);
 				setLoadingPlates(true)
 				setResults(data);

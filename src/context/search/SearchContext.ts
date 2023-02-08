@@ -1,11 +1,11 @@
 import { createContext } from "react";
-import { Plate, ModalInfo, CategoryRestaurant } from "../../interfaces";
+import { PlateRestaurant, ModalInfo, CategoryRestaurant } from "../../interfaces";
 
 interface ContextProps {
   valueInput: string;
   setValueInput: (description: string) => void;
-  results: Plate[];
-  setResults: (description: Plate[] | []) => void;
+  results: PlateRestaurant[];
+  setResults: (description: PlateRestaurant[] | []) => void;
   categorySelected: CategoryRestaurant ;
   setCategorySelected: (description: CategoryRestaurant ) => void;
   modalInfo: ModalInfo, 

@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Table } from '../interfaces';
+import { SittingOnTheTable  } from '../interfaces';
+
 
 
 
@@ -25,7 +26,7 @@ async function updateTableNumberDesactive(table: string) {
 	}
 }
 
-async function updateTableNumberCall(table: Table) {
+async function updateTableNumberCall(table: SittingOnTheTable) {
 	try {
 		const response = await axios.put(
 			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.TableID}?call=call`
@@ -36,7 +37,7 @@ async function updateTableNumberCall(table: Table) {
 	}
 }
 
-async function updateTableNumberNotCall(table: Table) {
+async function updateTableNumberNotCall(table: SittingOnTheTable ) {
 	try {
 		const response = await axios.put(
 			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.TableID}?call=notCall`
@@ -49,6 +50,8 @@ async function updateTableNumberNotCall(table: Table) {
 
 async function peopleInTable(idPeopleInTable: string, tableId: string | null) {
 	try {
+		console.log(idPeopleInTable)
+		console.log(tableId)
 		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idPeopleInTable}/${tableId}?peopleInTable`);
 		return response.data;
 	} catch (err) {

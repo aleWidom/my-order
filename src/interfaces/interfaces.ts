@@ -1,29 +1,22 @@
-export interface Plate {
-	ItemID: string;
-	title: string;
-	photo: string;
-	description: string;
-	price: string;
-	id_category?: number;
-	id_restaurant?: number;
-	quantity: number;
-}
-
-export interface Table {
+export interface SittingOnTheTable {
 	TableID: string | null;
 }
 
-export interface TableRestaurantOptions {
+export interface TableRestaurant {
 	TableID: string;
 	table_number: string;
 	table_active: string;
 	table_call: string;
 }
 
-export interface CategoryRestaurant {
-	CategoryID: string;
-	name: string;
+export interface PlateRestaurant {
+	ItemID: string;
+	title: string;
 	photo: string;
+	description: string;
+	price: string;
+	id_category?: string;
+	quantity: number
 }
 
 export interface ModalPlate {
@@ -43,6 +36,12 @@ export interface ModalPlateRequired {
 	quantity: number;
 	state: boolean;
 	section: '' | 'request' | 'edit' | 'delete';
+}
+
+export interface CategoryRestaurant {
+	CategoryID: string;
+	name: string;
+	photo: string;
 }
 
 export interface ModalInfo {

@@ -1,33 +1,39 @@
 import { useContext, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { OrderContext, SearchContext, TableContext } from '../../context';
 import { useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff } from '../../hooks';
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
 import { useSearchParams } from 'react-router-dom';
-import { fetchTableStatusCall, updateTableNumberActive } from '../../services';
+import { fetchTableStatusCall, peopleInTable, updateTableNumberActive } from '../../services';
 import styles from './HomePage.module.scss';
+/* import { AdminContext } from '../../context/adm/AdminContext'; */
 
 
 const HomePage = () => {
 
-	const { table, setTable, setCall} = useContext(TableContext);
+	const { sittingOnTheTable, setSittingOnTheTableCall, setSittingOnTheTable} = useContext(TableContext);
 
 	const [params] = useSearchParams();
 
 	const { results, modalInfo } = useContext(SearchContext);
 
 	const { cardsDayPlates, cardsRankingPlates, modalPlate, modalPlateRequired, cardsSpecialsCheff, loading  } = useContext(OrderContext);
+/* 
+	const {tablesRestaurant, setTablesRestaurant} = useContext(AdminContext); */
 
 	useEffect(() => {
-		setTable({
+		setSittingOnTheTable({
 			TableID: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-		fetchTableStatusCall(table.TableID)
+		peopleInTable(uuidv4(), sittingOnTheTable.TableID)
+/* 		setTablesRestaurant() */
+		fetchTableStatusCall(sittingOnTheTable.TableID)
 		.then((data) => {
-			setCall(data)
+			setSittingOnTheTableCall(data)
 		})
-	}, [table.TableID, params, setCall, setTable]);
+	}, [sittingOnTheTable.TableID, params, setSittingOnTheTableCall, setSittingOnTheTable]);
 
  	useFetchCardsDayPlates();
 

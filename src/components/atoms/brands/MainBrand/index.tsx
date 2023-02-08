@@ -8,7 +8,7 @@ import styles from './MainBrand.module.scss';
 export const MainBrand = () => {
 	const { setResults } = useContext(SearchContext);
 
-	const { table } = useContext(TableContext);
+	const { sittingOnTheTable} = useContext(TableContext);
 
 	const handleClickMenu = () => {
 		setResults([]);
@@ -20,7 +20,7 @@ export const MainBrand = () => {
 
 
 	return (
-		<Link to={`/?table=${table.TableID}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
+		<Link to={`/?table=${sittingOnTheTable.TableID}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
 			{page !== 'order' ? (
 				<img src={brand} alt={'brand'} className={styles.mainBrand} />
 			) : (

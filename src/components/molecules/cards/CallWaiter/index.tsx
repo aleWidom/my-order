@@ -6,7 +6,7 @@ import styles from './CallWaiter.module.scss';
 export const CallWaiter = () => {
 	const { setModalInfo } = useContext(SearchContext);
 
-	const { table, call, setCall } = useContext(TableContext);
+	const {sittingOnTheTable,sittingOnTheTableCall ,setSittingOnTheTableCall} = useContext(TableContext);
 
 	const handleCall = () => {
 		setModalInfo({
@@ -23,9 +23,9 @@ export const CallWaiter = () => {
 			});
 		}, 3000);
 
-		updateTableNumberCall(table);
+		updateTableNumberCall(sittingOnTheTable);
 
-		setCall(true);
+		setSittingOnTheTableCall(true);
 	};
 
 	const handNotCall = () => {
@@ -43,13 +43,13 @@ export const CallWaiter = () => {
 			});
 		}, 3000);
 
-		updateTableNumberNotCall(table);
-		setCall(false);
+		updateTableNumberNotCall(sittingOnTheTable);
+		setSittingOnTheTableCall(false);
 	};
 
 	return (
 		<div className={styles.containerCallWaiter}>
-			{call ? (
+			{sittingOnTheTableCall ? (
 				<button className={styles.buttonCall} onClick={handNotCall}>
 					Cancelar llamado moza/o a la maesa.
 				</button>

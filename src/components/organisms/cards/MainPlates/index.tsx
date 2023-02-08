@@ -1,15 +1,15 @@
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { MainPlate } from '../../../molecules';
-import { Plate } from '../../../../interfaces';
+import { PlateRestaurant } from '../../../../interfaces';
 import styles from './MainPlates.module.scss';
 import 'swiper/css/navigation';
 import 'swiper/css';
 
 interface Props {
-	cardsDayPlates: Plate[];
-	cardsRankingPlates: Plate[];
-	cardsSpecialsCheff: Plate[];
+	cardsDayPlates: PlateRestaurant[];
+	cardsRankingPlates: PlateRestaurant[];
+	cardsSpecialsCheff: PlateRestaurant[];
 }
 
 export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff }) => {

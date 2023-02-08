@@ -4,12 +4,12 @@ import styles from './Table.module.scss'
 
 export const Table = () => {
 
-    const { table } = useContext(TableContext)
+    const { sittingOnTheTable } = useContext(TableContext)
 
     return (
         <div className={styles.containerTable}>
             <p className={styles.table}>Mesa</p>
-            <p className={styles.tableNumber}>{`${table.TableID}`} </p>
+            <p className={styles.tableNumber}>{`${sittingOnTheTable.TableID}`} </p>
         </div>
     )
 }
