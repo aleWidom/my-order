@@ -19,7 +19,7 @@ const AdminTablePage = () => {
 		updateTableNumberDesactive(numberTable);
 		setModalInfo({
 			state: true,
-			description: `La mesa ${table.id} ha sido desactivada`,
+			description: `La mesa ${table.TableID} ha sido desactivada`,
 			section: 'admin',
 		});
 	};

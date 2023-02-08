@@ -20,14 +20,14 @@ const HomePage = () => {
 
 	useEffect(() => {
 		setTable({
-			id: params.get('table'),
+			TableID: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-		fetchTableStatusCall(table.id)
+		fetchTableStatusCall(table.TableID)
 		.then((data) => {
 			setCall(data)
 		})
-	}, [table.id, params, setCall, setTable]);
+	}, [table.TableID, params, setCall, setTable]);
 
  	useFetchCardsDayPlates();
 

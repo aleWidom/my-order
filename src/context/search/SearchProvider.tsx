@@ -9,10 +9,10 @@ interface Props {
 export const SearchProvider = ({ children }: Props) => {
   const [valueInput, setValueInput] = useState<string>("");
 
-  const [results, setResults] = useState<Plate[]>([]);
+  const [results, setResults] = useState<Plate[] | []>([]);
 
   const [categorySelected, setCategorySelected] = useState<CategoryRestaurant>({
-    id: 0,
+    CategoryID: '0',
     name: "",
     photo: "",
   });

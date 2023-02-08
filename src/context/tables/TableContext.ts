@@ -6,6 +6,8 @@ interface ContextProps {
 	setTable: (description: Table) => void;
 	call: boolean | undefined;
 	setCall: (description: boolean | undefined ) => void;
+	tableActive: boolean | undefined;
+	setTableActive: (description: boolean | undefined ) => void;
 }
 
 export const TableContext = createContext({} as ContextProps);

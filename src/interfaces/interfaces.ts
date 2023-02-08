@@ -10,7 +10,7 @@ export interface Plate {
 }
 
 export interface Table {
-	id: string | null;
+	TableID: string | null;
 }
 
 export interface TableRestaurantOptions {
@@ -21,7 +21,7 @@ export interface TableRestaurantOptions {
 }
 
 export interface CategoryRestaurant {
-	id: number;
+	CategoryID: string;
 	name: string;
 	photo: string;
 }

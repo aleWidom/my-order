@@ -31,7 +31,7 @@ export const Search = () => {
             setResults(data);
             setCategorySelected(
               {
-                id: 0,
+                CategoryID: '0',
                 name: "",
                 photo: "",
               }

@@ -9,10 +9,12 @@ interface Props {
 export const TableProvider = ({ children }: Props) => {
 	//TODO DEBE IR UN OBJETO COMO MESA
 	const [table, setTable] = useState<Table>({
-		id: '',
+		TableID: '',
 	});
 
 	const [call, setCall] = useState<boolean | undefined>(false);
+	
+	const [tableActive, setTableActive] = useState<boolean | undefined>(false);
 
 	return (
 		<TableContext.Provider
@@ -21,6 +23,8 @@ export const TableProvider = ({ children }: Props) => {
 				setTable,
 				call,
 				setCall,
+				tableActive,
+				setTableActive
 			}}
 		>
 			{children}

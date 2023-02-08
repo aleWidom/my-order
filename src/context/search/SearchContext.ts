@@ -5,7 +5,7 @@ interface ContextProps {
   valueInput: string;
   setValueInput: (description: string) => void;
   results: Plate[];
-  setResults: (description: Plate[]) => void;
+  setResults: (description: Plate[] | []) => void;
   categorySelected: CategoryRestaurant ;
   setCategorySelected: (description: CategoryRestaurant ) => void;
   modalInfo: ModalInfo, 

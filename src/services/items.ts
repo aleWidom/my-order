@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CategoryRestaurant, Plate } from '../interfaces';
+
 
 async function getAllCategoriesIdRestaurant1() {
 	try {
@@ -10,14 +10,10 @@ async function getAllCategoriesIdRestaurant1() {
 	}
 }
 
-async function getItemsAccordingToSelectedCategory(categorySelected: string) {
+async function getItemsAccordingToSelectedCategory(idCategorySelected: string) {
 	try {
-		const allCategories = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
-		const selectedCategory = allCategories.data.find((e: CategoryRestaurant) => e.name === categorySelected);
-
-		const allItemsIdRestaurant1 = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
-
-		return allItemsIdRestaurant1.data.filter((e: Plate) => e.id_category === selectedCategory.id);
+		const itemsAcordingToSelectedCategory = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?itemsAcordingCategory=${idCategorySelected}`)
+		return itemsAcordingToSelectedCategory.data;
 	} catch (err) {
 		console.log(err);
 	}
@@ -47,6 +43,7 @@ async function getItemsCardsRanking() {
 		return cardsRankingPlates;
 	} catch (err) {
 		console.log(err);
+
 	}
 }
 

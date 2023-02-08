@@ -13,7 +13,7 @@ const Requireds = () => {
 		<div className={styles.required}>
 			{cart.length > 0 && modalPlate.state === false && modalPlateRequired.state === false && (
 				<>
-					<Link to={`/order/${table.id}`} className={styles.link}>
+					<Link to={`/order/${table.TableID}`} className={styles.link}>
 						<FaBell />
 					</Link>
 					<div className={styles.quantity}>

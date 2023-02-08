@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { Plate } from '../../../../interfaces';
+import { Plate } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {

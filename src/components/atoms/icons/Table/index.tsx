@@ -9,7 +9,7 @@ export const Table = () => {
     return (
         <div className={styles.containerTable}>
             <p className={styles.table}>Mesa</p>
-            <p className={styles.tableNumber}>{`${table.id}`} </p>
+            <p className={styles.tableNumber}>{`${table.TableID}`} </p>
         </div>
     )
 }
