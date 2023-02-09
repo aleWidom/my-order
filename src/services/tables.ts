@@ -29,7 +29,7 @@ async function updateTableNumberDesactive(table: string) {
 async function updateTableNumberCall(table: SittingOnTheTable) {
 	try {
 		const response = await axios.put(
-			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.TableID}?call=call`
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.id}?call=call`
 		);
 		return response.data;
 	} catch (err) {
@@ -40,7 +40,7 @@ async function updateTableNumberCall(table: SittingOnTheTable) {
 async function updateTableNumberNotCall(table: SittingOnTheTable ) {
 	try {
 		const response = await axios.put(
-			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.TableID}?call=notCall`
+			/*or get*/ `https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${table.id}?call=notCall`
 		);
 		return response.data;
 	} catch (err) {

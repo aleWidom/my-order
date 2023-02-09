@@ -9,10 +9,11 @@ import styles from './ModalPlate.module.scss';
 
 interface Props {
 	buttonName: string;
-}
+} 
 
-export const ModalPlate: FC<Props> = ({ buttonName }) => {
-	const { modalPlate, setModalPlate, setModalPlateRequired, cart, setCart } = useContext(OrderContext);
+export const ModalPlate : FC<Props>  = ({ buttonName }) => {
+ 	
+	const { modalPlate, setModalPlate, cart, setCart } = useContext(OrderContext);
 
 	const { pathname } = useLocation();
 
@@ -21,13 +22,11 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	const closedModalPlate = () => {
 		setModalPlate({
 			id: '0',
-			state: false,
 			title: '',
-			price: '0',
 			description: '',
+			price: '0',
 			quantity: 1,
-			photo: '',
-			section: '',
+			state: false
 		});
 	};
 
@@ -38,37 +37,25 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setCart([
 			...cart,
 			{
-				ItemID: `${modalPlate.id}`,
+				id: `${modalPlate.id}`,
 				title: modalPlate.title,
 				price: modalPlate.price,
 				quantity: modalPlate.quantity,
-				photo: modalPlate.photo,
 				description: modalPlate.description,
 			},
 		]);
+
 		itemPeopleInTable(uuidv4(),idPeopleInTable,modalPlate.quantity,`${modalPlate.id}` )
-		setModalPlateRequired({
-			id: modalPlate.id,
-			title: modalPlate.title,
-			quantity: modalPlate.quantity,
-			state: true,
-			section: 'request',
-		});
+		
 		setModalPlate({
-			id: '0',
-			state: false,
-			title: '',
-			price: '0',
-			description: '',
-			quantity: 1,
-			photo: '',
-			section: 'request',
+			...modalPlate,
+			modalType: 'required'
 		});
 	};
 
 	const handleEdit = () => {
 		const newCart = cart.map((e) => {
-			if (modalPlate.id === e.ItemID) {
+			if (modalPlate.id === e.id) {
 				e.quantity = modalPlate.quantity;
 			}
 			return e;
@@ -77,49 +64,24 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setCart(newCart);
 
 		setModalPlate({
-			id: '0',
-			state: false,
-			title: '',
-			price: '0',
-			description: '',
-			quantity: 1,
-			photo: '',
-			section: '',
-		});
-
-		setModalPlateRequired({
-			id: modalPlate.id,
-			title: modalPlate.title,
-			quantity: modalPlate.quantity,
-			state: true,
-			section: 'edit',
+			...modalPlate,
+			modalType: 'required',
+			modalEditOrDelete: 'edit'
 		});
 	};
 
 	const handleDelete = () => {
 		const newCart = cart.filter((e) => {
-			return e.ItemID !== modalPlate.id;
+			return e.id !== modalPlate.id;
 		});
 
 		setCart(newCart);
 
 		setModalPlate({
-			id: '0',
-			state: false,
-			title: '',
-			price: '0',
-			description: '',
-			quantity: 1,
-			photo: '',
-			section: '',
-		});
-
-		setModalPlateRequired({
-			id: modalPlate.id,
-			title: modalPlate.title,
-			quantity: modalPlate.quantity,
-			state: true,
-			section: 'delete',
+			...modalPlate,
+			modalType: 'required',
+			modalEditOrDelete: 'delete',
+		
 		});
 	};
 
@@ -150,7 +112,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				<small className={styles.priceUnit}> (precio x unidad)</small>
 				<div className={styles.containerQuantity}>
 					<p className={styles.quantity}>Cantidad: </p>
-					{page === '/' || modalPlate.section === 'edit' ? (
+					{page === '/' || modalPlate.modalEditOrDelete === 'edit'  ? (
 						<div className={styles.containerQuantitySigns}>
 							{modalPlate.quantity > 1 ? (
 								<button onClick={substractQuantity} className={styles.buttonQuantitySubstract}>
@@ -196,5 +158,5 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				)}
 			</div>
 		</>
-	);
+	); 
 };

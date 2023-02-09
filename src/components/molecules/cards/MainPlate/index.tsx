@@ -21,7 +21,7 @@ export const MainPlate: FC<Props> = ({ header, price, source, description, id })
 			title: header,
 			price: price,
 			description: description,
-			photo: source,
+			modalType: 'main'
 		});
 	};
 

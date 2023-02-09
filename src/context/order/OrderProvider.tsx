@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { OrderContext } from '.';
-import { PlateRestaurant, ModalPlate, ModalPlateRequired, CategoryRestaurant } from '../../interfaces';
+import { PlateRestaurant, PlateSelected, CategoryRestaurant } from '../../interfaces';
 
 interface Props {
 	children: JSX.Element | JSX.Element[];
@@ -17,26 +17,17 @@ export const OrderProvider = ({ children }: Props) => {
 
 	const [menuWaiterActive, setMenuWaiterActive] = useState<boolean>(false);
 
-	const [modalPlate, setModalPlate] = useState<ModalPlate>({
+	const [modalPlate, setModalPlate] = useState<PlateSelected>({
 		id: '0',
 		state: false,
 		title: '',
 		price: '0',
 		description: '',
 		quantity: 1,
-		photo: '',
-		section: '',
+		modalType: 'main'
 	});
 
-	const [modalPlateRequired, setModalPlateRequired] = useState<ModalPlateRequired>({
-		id: '0',
-		title: '',
-		quantity: 1,
-		state: false,
-		section: '',
-	});
-
-	const [cart, setCart] = useState<PlateRestaurant[]>([]);
+	const [cart, setCart] = useState<PlateSelected[]>([]);
 
 	const [loading, setLoading] = useState<boolean>(true);
 
@@ -61,8 +52,8 @@ export const OrderProvider = ({ children }: Props) => {
 				setCart,
 				loading,
 				setLoading,
-				modalPlateRequired,
-				setModalPlateRequired,
+		/* 		modalPlateRequired,
+				setModalPlateRequired, */
 				cardsSpecialsCheff,
 				setCardsSpecialsCheff,
 				loadingOrder, 

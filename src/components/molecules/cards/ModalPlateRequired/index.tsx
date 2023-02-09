@@ -5,23 +5,27 @@ import { OrderContext } from '../../../../context';
 import styles from './ModalPlateRequired.module.scss';
 
 export const ModalPlateRequired = () => {
-	const { modalPlateRequired, setModalPlateRequired } = useContext(OrderContext);
+	const { modalPlate, setModalPlate } = useContext(OrderContext);
 
 	const { pathname } = useLocation();
 
 	const page = pathname.slice(-5);
+	
 
 	useEffect(() => {
 		setTimeout(() => {
-			setModalPlateRequired({
+			setModalPlate({
 				id: `${0}`,
 				title: '',
 				quantity: 1,
 				state: false,
-				section: '',
+				description: "",
+				price: "",
+				modalType: 'main',
 			});
+			 
 		}, 4000);
-	}, [setModalPlateRequired]);
+	}, [setModalPlate]);
 
 	return (
 		<div className={styles.containerModalPlate}>
@@ -32,22 +36,22 @@ export const ModalPlateRequired = () => {
 						<small>Solicitud agregada</small>
 					</div>
 				)}
-				{page !== '/' && modalPlateRequired.section === 'edit' && (
+				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' && (
 					<div className={styles.containerAdd}>
 						<FaRegCheckCircle className={styles.check} />
 						<small>Solicitud Editada</small>
 					</div>
 				)}
-				{page !== '/' && modalPlateRequired.section === 'delete' && (
+				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'delete' && (
 					<div className={styles.containerSubstract}>
 						<small>Solicitud Eliminada</small>
 					</div>
 				)}
-				<h2 className={styles.title}>{modalPlateRequired.title}</h2>
-				{page !== '/' && modalPlateRequired.section === 'edit' ? (
-					<p className={styles.quantity}>Nueva cantidad solicitada: {`${modalPlateRequired.quantity} u.`}</p>
+				<h2 className={styles.title}>{modalPlate.title}</h2>
+				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' ? (
+					<p className={styles.quantity}>Nueva cantidad solicitada: {`${modalPlate.quantity} u.`}</p>
 				) : (
-					<p className={styles.quantity}>Cantidad: {`${modalPlateRequired.quantity} u.`}</p>
+					<p className={styles.quantity}>Cantidad: {`${modalPlate.quantity} u.`}</p>
 				)}
 				{page === '/' && (
 					<>

@@ -1,6 +1,3 @@
-export interface SittingOnTheTable {
-	TableID: string | null;
-}
 
 export interface TableRestaurant {
 	TableID: string;
@@ -16,32 +13,28 @@ export interface PlateRestaurant {
 	description: string;
 	price: string;
 	id_category?: string;
-	quantity: number
-}
-
-export interface ModalPlate {
-	id: string;
-	title: string;
-	description: string;
-	state: boolean;
-	price: string;
-	quantity: number;
-	photo: string;
-	section: '' | 'request' | 'edit' | 'delete';
-}
-
-export interface ModalPlateRequired {
-	id: string;
-	title: string;
-	quantity: number;
-	state: boolean;
-	section: '' | 'request' | 'edit' | 'delete';
 }
 
 export interface CategoryRestaurant {
 	CategoryID: string;
 	name: string;
 	photo: string;
+}
+
+export interface SittingOnTheTable {
+	id: string | null;
+}
+
+export interface PlateSelected {
+	id: string;
+	title: string;
+	description: string;
+	price: string;
+	quantity: number;
+	modalType?: 'main' | 'required',
+	modalEditOrDelete?: 'edit'| 'delete',
+	state?: boolean,
+
 }
 
 export interface ModalInfo {

@@ -9,7 +9,7 @@ interface Props {
 export const TableProvider = ({ children }: Props) => {
 	//TODO DEBE IR UN OBJETO COMO MESA
 	const [sittingOnTheTable, setSittingOnTheTable] = useState<SittingOnTheTable>({
-		TableID: '',
+		id: '',
 	});
 
 	const [sittingOnTheTableCall, setSittingOnTheTableCall] = useState<boolean | undefined>(false);

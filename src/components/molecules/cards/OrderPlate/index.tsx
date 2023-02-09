@@ -1,44 +1,45 @@
 import { useContext } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { PlateRestaurant } from '../../../../interfaces/interfaces';
+import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {
 	const { cart, modalPlate, setModalPlate } = useContext(OrderContext);
 
-	const handleEdit = (cartProduct: PlateRestaurant) => () => {
+	const handleEdit = (cartProduct: PlateSelected) => () => {
 		setModalPlate({
 			...modalPlate,
-			id: cartProduct.ItemID,
+			id: cartProduct.id,
 			state: true,
 			title: cartProduct.title,
 			price: cartProduct.price,
 			description: cartProduct.description,
 			quantity: cartProduct.quantity,
-			photo: '',
-			section: 'edit',
+			modalType: 'main',
+			modalEditOrDelete: 'edit'
+
 		});
 	};
 
-	const handleDelete = (cartProduct: PlateRestaurant) => () => {
+	const handleDelete = (cartProduct: PlateSelected) => () => {
 		setModalPlate({
 			...modalPlate,
-			id: cartProduct.ItemID,
+			id: cartProduct.id,
 			state: true,
 			title: cartProduct.title,
 			price: cartProduct.price,
 			description: cartProduct.description,
 			quantity: cartProduct.quantity,
-			photo: '',
-			section: 'delete',
+			modalType: 'main',
+			modalEditOrDelete: 'delete'
 		});
 	};
 
 	return (
 		<>
 			{cart.map((cartProduct) => (
-				<div key={cartProduct.ItemID} className={styles.containerCardOrder}>
+				<div key={cartProduct.id} className={styles.containerCardOrder}>
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>

@@ -17,17 +17,17 @@ export const Plate: FC<Props> = ({
   source,
   id,
 }) => {
-  const { modalPlate, setModalPlate /* , cart */ } = useContext(OrderContext);
+  const {setModalPlate /* , cart */ } = useContext(OrderContext);
 
   const handleClickRequest = () => {
     setModalPlate({
-      ...modalPlate,
       id: `${id}`,
       state: true,
       title: header,
       price: price,
       description: description,
-      photo: source
+      modalType: 'main',
+      quantity: 1
     });
   };
 

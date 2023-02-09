@@ -18,22 +18,22 @@ const HomePage = () => {
 
 	const { results, modalInfo } = useContext(SearchContext);
 
-	const { cardsDayPlates, cardsRankingPlates, modalPlate, modalPlateRequired, cardsSpecialsCheff, loading  } = useContext(OrderContext);
+	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading  } = useContext(OrderContext);
 /* 
 	const {tablesRestaurant, setTablesRestaurant} = useContext(AdminContext); */
 
 	useEffect(() => {
 		setSittingOnTheTable({
-			TableID: params.get('table'),
+			id: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-		peopleInTable(uuidv4(), sittingOnTheTable.TableID)
+		peopleInTable(uuidv4(), sittingOnTheTable.id)
 /* 		setTablesRestaurant() */
-		fetchTableStatusCall(sittingOnTheTable.TableID)
+		fetchTableStatusCall(sittingOnTheTable.id)
 		.then((data) => {
 			setSittingOnTheTableCall(data)
 		})
-	}, [sittingOnTheTable.TableID, params, setSittingOnTheTableCall, setSittingOnTheTable]);
+	}, [sittingOnTheTable.id, params, setSittingOnTheTableCall, setSittingOnTheTable]);
 
  	useFetchCardsDayPlates();
 
@@ -50,7 +50,7 @@ const HomePage = () => {
 				</div>
 			) : (
 				<>
-					<Navbar />
+				 	<Navbar /> 
 					<div className={styles.mainContainerHome}>
 						<CallWaiter />
 						<FormSearch />
@@ -62,8 +62,8 @@ const HomePage = () => {
 						)}
 						<footer className={styles.footer}>© my order todos los derechos reservados</footer>
 					</div>
-					{modalPlate.state && <ModalPlate buttonName='Solicitar' />}
-					{modalPlateRequired.state && <ModalPlateRequired />}
+					{modalPlate.state && modalPlate.modalType === 'main' && <ModalPlate buttonName='Solicitar'/>}
+					{modalPlate.state && modalPlate.modalType === 'required' && <ModalPlateRequired />}
 					{modalInfo.state && <ModalInfo />}
 				</>
 			)}

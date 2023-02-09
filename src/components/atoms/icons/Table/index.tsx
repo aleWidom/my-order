@@ -9,7 +9,7 @@ export const Table = () => {
     return (
         <div className={styles.containerTable}>
             <p className={styles.table}>Mesa</p>
-            <p className={styles.tableNumber}>{`${sittingOnTheTable.TableID}`} </p>
+            <p className={styles.tableNumber}>{`${sittingOnTheTable.id}`} </p>
         </div>
     )
 }

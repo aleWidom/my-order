@@ -5,7 +5,7 @@ import { ModalPlate, ModalPlateRequired, OrderPlate } from '../../components/mol
 import styles from './OrderPage.module.scss';
 
 const OrderPage = () => {
-	const { modalPlate, modalPlateRequired, cart } = useContext(OrderContext);
+	const { modalPlate, cart } = useContext(OrderContext);
 
 	return (
 		<>
@@ -20,9 +20,10 @@ const OrderPage = () => {
 						<p >Sin solicitudes en su mesa.</p>
 					</div>}
 			</div>
-			{modalPlate.state && modalPlate.section === 'edit' && <ModalPlate buttonName={'Editar'} />}
-			{modalPlate.state && modalPlate.section === 'delete' && <ModalPlate buttonName={'Eliminar'} />}
-			{modalPlateRequired.state && <ModalPlateRequired />}
+			{modalPlate.state && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'edit' && <ModalPlate buttonName='Editar' />}
+			{modalPlate.state && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'delete' && <ModalPlate buttonName='Eliminar' />}
+			{modalPlate.state && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' && <ModalPlateRequired/>}
+			{modalPlate.state && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'delete' && <ModalPlateRequired />}
 		</>
 	);
 };
