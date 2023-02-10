@@ -3,11 +3,15 @@ import { OrderContext } from '../../../../context/order/OrderContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
+import { updateItemsAccordingPeopleInTableID } from '../../../../services';
 
 export const OrderPlate = () => {
 	const { cart, modalPlate, setModalPlate } = useContext(OrderContext);
 
 	const handleEdit = (cartProduct: PlateSelected) => () => {
+	
+		updateItemsAccordingPeopleInTableID('dada')
+
 		setModalPlate({
 			...modalPlate,
 			id: cartProduct.id,

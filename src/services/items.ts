@@ -65,6 +65,15 @@ async function getItemsCardsDayPlates() {
 	}
 }
 
+async function updateItemsAccordingPeopleInTableID(id_peopleInTable) {
+	try {
+		const cardsDayPlates = await axios.put(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${ id_peopleInTable}/?updateItemsAccordingPeopleInTableID`);
+		return cardsDayPlates;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 export {
 	getAllCategoriesIdRestaurant1,
 	getItemsAccordingToSelectedCategory,
@@ -73,4 +82,6 @@ export {
 	getItemsCardsSpecialsCheff,
 	getItemsResults,
 	getItemsResultsCardHome,
+	updateItemsAccordingPeopleInTableID
+	
 };
