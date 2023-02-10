@@ -15,6 +15,8 @@ const AdminTablePage = () => {
 
 	const numberTable = pathname.slice(-3);
 
+	console.log(numberTable)
+
 	const handleDesactivate = () => {
 		updateTableNumberDesactive(numberTable);
 		setModalInfo({

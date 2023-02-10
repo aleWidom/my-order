@@ -5,10 +5,8 @@ import { useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecia
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
 import { useSearchParams } from 'react-router-dom';
-import { fetchTableStatusCall, peopleInTable, updateTableNumberActive } from '../../services';
+import { fetchTable, peopleInTable, updateTableNumberActive } from '../../services';
 import styles from './HomePage.module.scss';
-/* import { AdminContext } from '../../context/adm/AdminContext'; */
-
 
 const HomePage = () => {
 
@@ -19,27 +17,33 @@ const HomePage = () => {
 	const { results, modalInfo } = useContext(SearchContext);
 
 	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading  } = useContext(OrderContext);
-/* 
-	const {tablesRestaurant, setTablesRestaurant} = useContext(AdminContext); */
 
 	useEffect(() => {
 		setSittingOnTheTable({
 			id: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-		peopleInTable(uuidv4(), sittingOnTheTable.id)
-/* 		setTablesRestaurant() */
-		fetchTableStatusCall(sittingOnTheTable.id)
+		fetchTable(sittingOnTheTable.id)
 		.then((data) => {
-			setSittingOnTheTableCall(data)
+			if(data?.table_active !== '1' ) {				
+				const idPeopleInTableUuid = uuidv4();
+				peopleInTable(idPeopleInTableUuid , sittingOnTheTable.id)		
+			} 
+			if(data?.table_call === '1' ) {
+				setSittingOnTheTableCall(true)
+			} else {
+				setSittingOnTheTableCall(false)
+			}
 		})
 	}, [sittingOnTheTable.id, params, setSittingOnTheTableCall, setSittingOnTheTable]);
+
 
  	useFetchCardsDayPlates();
 
 	useFetchCardsRankingPlates(); 
 
 	useFetchCardsSpecialsCheff();
+
 
 
 	return (

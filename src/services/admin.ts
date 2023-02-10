@@ -29,15 +29,11 @@ async function fetchTablesActiveCall() {
 	}
 }
 
-async function fetchTableStatusCall(tableNumber: string | null) {
+async function fetchTable(tableNumber: string | null) {
 	try {
 		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableNumber}?searchTable`);
 		const data: TableRestaurant[] = response.data;
-		if (data[0].table_call === '1') {
-			return true;
-		} else {
-			return false;
-		}
+		return data[0]
 	} catch (err) {
 		console.log(err);
 	}
@@ -57,6 +53,6 @@ export {
 	fetchTables,
 	fetchTablesActive,
 	fetchTablesActiveCall,
-	fetchTableStatusCall,
+	fetchTable,
     fetchOrderItem
 };

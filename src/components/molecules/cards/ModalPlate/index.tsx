@@ -2,10 +2,12 @@ import { FC, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import { OrderContext} from '../../../../context';
-import { itemPeopleInTable } from '../../../../services/tables';
+import { OrderContext,  TableContext} from '../../../../context';
+import { fetchPeopleInTable, itemPeopleInTable } from '../../../../services/tables';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
+
+
 
 interface Props {
 	buttonName: string;
@@ -14,6 +16,8 @@ interface Props {
 export const ModalPlate : FC<Props>  = ({ buttonName }) => {
  	
 	const { modalPlate, setModalPlate, cart, setCart } = useContext(OrderContext);
+
+	const {sittingOnTheTable}= useContext(TableContext)
 
 	const { pathname } = useLocation();
 
@@ -32,9 +36,7 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 
 	const handleClickRequest = () => {
 
-		const idPeopleInTable = uuidv4()	
-
-		setCart([
+			setCart([
 			...cart,
 			{
 				id: `${modalPlate.id}`,
@@ -45,7 +47,13 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 			},
 		]);
 
-		itemPeopleInTable(uuidv4(),idPeopleInTable,modalPlate.quantity,`${modalPlate.id}` )
+		fetchPeopleInTable(sittingOnTheTable.id)
+		.then((data)=> {
+			itemPeopleInTable(uuidv4(),data[0].PeopleInTableID,modalPlate.quantity,`${modalPlate.id}` )
+		})
+		.catch((err)=> {
+			console.log(err)
+		})
 		
 		setModalPlate({
 			...modalPlate,
