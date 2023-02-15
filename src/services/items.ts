@@ -28,14 +28,6 @@ async function getItemsResults(valueInput: string) {
 	}
 }
 
-async function getItemsResultsCardHome(cardTitle: string) {
-	try {
-		const searchResultsCardHome = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?search=${cardTitle}`);
-		return searchResultsCardHome;
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 async function getItemsCardsRanking() {
 	try {
@@ -65,10 +57,29 @@ async function getItemsCardsDayPlates() {
 	}
 }
 
-async function updateItemsAccordingPeopleInTableID(id_peopleInTable) {
+
+async function fetchItemPeopleInTable(id_peopleInTable: string) {
 	try {
-		const cardsDayPlates = await axios.put(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${ id_peopleInTable}/?updateItemsAccordingPeopleInTableID`);
-		return cardsDayPlates;
+		const fetchItemPeopleInTable = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?fetchItemPeopleInTable=${id_peopleInTable}`);
+		return fetchItemPeopleInTable.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+async function updateQuantityItem(itemPeopleInTableID: string | undefined, quantity: number) {
+	try {
+		const updateQuantityItem = await axios.put(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${itemPeopleInTableID}/${quantity}?updateQuantityItem`);
+		return updateQuantityItem;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+async function deleteItem(itemPeopleInTableID: string | undefined) {
+	try {
+		const deleteItem = await axios.delete(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${itemPeopleInTableID}?deleteItem`);
+		return deleteItem;
 	} catch (err) {
 		console.log(err);
 	}
@@ -81,7 +92,10 @@ export {
 	getItemsCardsDayPlates,
 	getItemsCardsSpecialsCheff,
 	getItemsResults,
-	getItemsResultsCardHome,
-	updateItemsAccordingPeopleInTableID
-	
+	fetchItemPeopleInTable,
+	updateQuantityItem,
+	deleteItem
 };
+
+	
+

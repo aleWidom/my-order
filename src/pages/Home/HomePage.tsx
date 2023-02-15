@@ -5,7 +5,7 @@ import { useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecia
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
 import { useSearchParams } from 'react-router-dom';
-import { fetchTable, peopleInTable, updateTableNumberActive } from '../../services';
+import { fetchItemPeopleInTable, fetchPeopleInTable, fetchTable, peopleInTable, updateTableNumberActive } from '../../services';
 import styles from './HomePage.module.scss';
 
 const HomePage = () => {
@@ -16,7 +16,7 @@ const HomePage = () => {
 
 	const { results, modalInfo } = useContext(SearchContext);
 
-	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading  } = useContext(OrderContext);
+	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading, setCart  } = useContext(OrderContext);
 
 	useEffect(() => {
 		setSittingOnTheTable({
@@ -38,11 +38,25 @@ const HomePage = () => {
 	}, [sittingOnTheTable.id, params, setSittingOnTheTableCall, setSittingOnTheTable]);
 
 
+	useEffect(() => {
+		fetchPeopleInTable(sittingOnTheTable.id)
+		.then((response)=> {
+			fetchItemPeopleInTable(response[0].PeopleInTableID)
+			.then((data)=> {
+				setCart(data)
+			})
+			.catch((err)=> {
+				console.log(err)
+			})	
+		})
+	}, [setCart, sittingOnTheTable.id ])
+
  	useFetchCardsDayPlates();
 
 	useFetchCardsRankingPlates(); 
 
 	useFetchCardsSpecialsCheff();
+
 
 
 

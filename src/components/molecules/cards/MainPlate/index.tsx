@@ -16,12 +16,12 @@ export const MainPlate: FC<Props> = ({ header, price, source, description, id })
 	const onClickCardHome = () => {
 		setModalPlate({
 			...modalPlate,
-			id: `${id}`,
+			ItemID: `${id}`,
 			state: true,
 			title: header,
 			price: price,
 			description: description,
-			modalType: 'main'
+			modalType: 'main',
 		});
 	};
 

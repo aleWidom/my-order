@@ -2,22 +2,23 @@ import { FC, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import { OrderContext,  TableContext} from '../../../../context';
-import { fetchPeopleInTable, itemPeopleInTable } from '../../../../services/tables';
+import { OrderContext, TableContext } from '../../../../context';
+import { deleteItem, fetchItemPeopleInTable, updateQuantityItem,  itemPeopleInTable, fetchPeopleInTable } from '../../../../services';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
 
 
 
+
 interface Props {
 	buttonName: string;
-} 
+}
 
-export const ModalPlate : FC<Props>  = ({ buttonName }) => {
- 	
+export const ModalPlate: FC<Props> = ({ buttonName }) => {
+
 	const { modalPlate, setModalPlate, cart, setCart } = useContext(OrderContext);
 
-	const {sittingOnTheTable}= useContext(TableContext)
+	const { sittingOnTheTable } = useContext(TableContext)
 
 	const { pathname } = useLocation();
 
@@ -25,7 +26,7 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 
 	const closedModalPlate = () => {
 		setModalPlate({
-			id: '0',
+			ItemID: '0',
 			title: '',
 			description: '',
 			price: '0',
@@ -35,26 +36,26 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 	};
 
 	const handleClickRequest = () => {
-
-			setCart([
-			...cart,
-			{
-				id: `${modalPlate.id}`,
-				title: modalPlate.title,
-				price: modalPlate.price,
-				quantity: modalPlate.quantity,
-				description: modalPlate.description,
-			},
-		]);
+		fetchPeopleInTable(sittingOnTheTable.id)
+			.then((data) => {
+				itemPeopleInTable(uuidv4(), data[0].PeopleInTableID, modalPlate.quantity, `${modalPlate.ItemID}`)
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 
 		fetchPeopleInTable(sittingOnTheTable.id)
-		.then((data)=> {
-			itemPeopleInTable(uuidv4(),data[0].PeopleInTableID,modalPlate.quantity,`${modalPlate.id}` )
-		})
-		.catch((err)=> {
-			console.log(err)
-		})
-		
+			.then((response) => {
+				fetchItemPeopleInTable(response[0].PeopleInTableID)
+					.then((data) => {
+						console.log(data)
+						setCart(data)
+					})
+					.catch((err) => {
+						console.log(err)
+					})
+			})
+
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required'
@@ -62,25 +63,34 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 	};
 
 	const handleEdit = () => {
-		const newCart = cart.map((e) => {
-			if (modalPlate.id === e.id) {
-				e.quantity = modalPlate.quantity;
-			}
-			return e;
-		});
-
-		setCart(newCart);
+		
+		updateQuantityItem(modalPlate.ItemPeopleInTableID,modalPlate.quantity)
 
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required',
 			modalEditOrDelete: 'edit'
 		});
+
+		fetchPeopleInTable(sittingOnTheTable.id)
+		.then((response)=> {
+			fetchItemPeopleInTable(response[0].PeopleInTableID)
+			.then((data)=> {
+				console.log(data)
+				setCart(data)
+			})
+			.catch((err)=> {
+				console.log(err)
+			})	
+		})
 	};
 
 	const handleDelete = () => {
+
+		deleteItem(modalPlate.ItemPeopleInTableID)
+
 		const newCart = cart.filter((e) => {
-			return e.id !== modalPlate.id;
+			return e.ItemID !== modalPlate.ItemID;
 		});
 
 		setCart(newCart);
@@ -89,7 +99,7 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 			...modalPlate,
 			modalType: 'required',
 			modalEditOrDelete: 'delete',
-		
+
 		});
 	};
 
@@ -120,27 +130,32 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 				<small className={styles.priceUnit}> (precio x unidad)</small>
 				<div className={styles.containerQuantity}>
 					<p className={styles.quantity}>Cantidad: </p>
-					{page === '/' || modalPlate.modalEditOrDelete === 'edit'  ? (
+					{page === '/' || modalPlate.modalEditOrDelete === 'edit' ? (
 						<div className={styles.containerQuantitySigns}>
-							{modalPlate.quantity > 1 ? (
+							{modalPlate.quantity > 1 ?
 								<button onClick={substractQuantity} className={styles.buttonQuantitySubstract}>
 									<p>
 										<small className={styles.signSubstract}>-</small>
 									</p>
-								</button>
-							) : (
+								</button> :
 								<button className={styles.buttonQuantitySubstract}>
 									<p>
 										<small className={styles.signSubstractInactive}>-</small>
 									</p>
 								</button>
-							)}
+							}
 							<p>{modalPlate.quantity}</p>
+							{modalPlate.quantity > 0  && modalPlate.quantity < 9 ? 
 							<button onClick={addQuantity} className={styles.buttonQuantityAdd}>
-								<p>
+								<p> 
 									<small className={styles.signAdd}>+</small>
 								</p>
-							</button>
+							</button> : 
+							<button className={styles.buttonQuantityAdd}>
+								<p>
+									<small className={styles.signAddtInactive }>+</small>
+								</p>
+							</button>}
 						</div>
 					) : (
 						`${modalPlate.quantity} u.`
@@ -166,5 +181,5 @@ export const ModalPlate : FC<Props>  = ({ buttonName }) => {
 				)}
 			</div>
 		</>
-	); 
+	);
 };

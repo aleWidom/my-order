@@ -26,7 +26,10 @@ export interface SittingOnTheTable {
 }
 
 export interface PlateSelected {
-	id: string;
+	id_peopleInTable?: string,
+	ItemID: string,
+	id_item?: string;
+	id_table?: string,
 	title: string;
 	description: string;
 	price: string;
@@ -34,6 +37,10 @@ export interface PlateSelected {
 	modalType?: 'main' | 'required',
 	modalEditOrDelete?: 'edit'| 'delete',
 	state?: boolean,
+	date?: string,
+	photo?: string ,
+	id_category?: string
+	ItemPeopleInTableID?: string
 
 }
 
@@ -43,9 +50,3 @@ export interface ModalInfo {
 	section: string;
 }
 
-export interface OrderItem {
-	id:string;
-	title: 'string';
-	id_table: number;
-	quantity: number;
-}

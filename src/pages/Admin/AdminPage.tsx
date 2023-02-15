@@ -58,24 +58,29 @@ const AdminPage = () => {
 				<>
 				<div className={styles.container}>
 					<h1 className={styles.header}>Calls</h1>
-					{tablesCallRestaurant.map((e) => (
+					{tablesCallRestaurant.length > 0 ? 
+					tablesCallRestaurant.map((e) => (
 						<div key={e.table_number} className={styles.containerTable}>
 							<h4 className={styles.numberTable}>Mesa: {e.table_number}</h4>
 							<Link to={`/admin/${e.table_number}`} className={styles.link}>
 								Detalle mesa
 							</Link>
 						</div>
-					))}
+					)):
+					'No hay llamadas de ninguna mesa en este momento.'}
 				</div>
 				<div className={styles.container}>
 					<h1 className={styles.header}>Orders</h1>
-					{orderItem.map((e) => (
-						<div key={e.id} className={styles.containerOrder}>
+					{orderItem.length > 0 ? 
+					orderItem.map((e) => (
+						<div key={e.ItemID} className={styles.containerOrder}>
 							<h4 className={styles.title}>{e.title}</h4>
 							<h4 className={styles.description}>Cantidad: {e.quantity}</h4>
 							<h4 className={styles.table}>Table: {e.id_table}</h4>
+							<h4 className={styles.table}>Entregado?</h4>
 						</div>
-					))}
+					)):
+					'No hay ordenes de ninguna mesa en este momento.'}
 				</div>
 				</>
 			)}

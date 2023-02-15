@@ -1,27 +1,38 @@
-import { useContext } from 'react';
+import { useContext} from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
+import { TableContext } from '../../../../context/tables/TableContext';
+import {fetchPeopleInTable,  /* updateItemsQuantityhAccordingPeopleInTableID  */} from '../../../../services';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
-import { updateItemsAccordingPeopleInTableID } from '../../../../services';
 
 export const OrderPlate = () => {
 	const { cart, modalPlate, setModalPlate } = useContext(OrderContext);
 
+	const {sittingOnTheTable} = useContext(TableContext)
+
 	const handleEdit = (cartProduct: PlateSelected) => () => {
 	
-		updateItemsAccordingPeopleInTableID('dada')
+		fetchPeopleInTable(sittingOnTheTable.id)
+		.then((data)=> {
+			console.log(data[0])
+		/* updateItemsQuantityhAccordingPeopleInTableID('dada') */
+		})
+		.catch((err) => {
+			console.log(err)
+		})
 
 		setModalPlate({
 			...modalPlate,
-			id: cartProduct.id,
+			ItemID: cartProduct.ItemID,
 			state: true,
 			title: cartProduct.title,
 			price: cartProduct.price,
 			description: cartProduct.description,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
-			modalEditOrDelete: 'edit'
+			modalEditOrDelete: 'edit',
+			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID			
 
 		});
 	};
@@ -29,21 +40,22 @@ export const OrderPlate = () => {
 	const handleDelete = (cartProduct: PlateSelected) => () => {
 		setModalPlate({
 			...modalPlate,
-			id: cartProduct.id,
+			ItemID: cartProduct.ItemID,
 			state: true,
 			title: cartProduct.title,
 			price: cartProduct.price,
 			description: cartProduct.description,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
-			modalEditOrDelete: 'delete'
+			modalEditOrDelete: 'delete',
+			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID	
 		});
 	};
 
 	return (
 		<>
 			{cart.map((cartProduct) => (
-				<div key={cartProduct.id} className={styles.containerCardOrder}>
+				<div key={cartProduct.ItemPeopleInTableID} className={styles.containerCardOrder}>
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
@@ -58,3 +70,5 @@ export const OrderPlate = () => {
 		</>
 	);
 };
+
+

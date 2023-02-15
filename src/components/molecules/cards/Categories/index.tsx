@@ -11,7 +11,7 @@ import styles from './Categories.module.scss';
 export const Categories = () => {
 	const { categoriesMenuRestaurant, setLoadingPlates } = useContext(OrderContext);
 
-	const { categorySelected, setValueInput, setCategorySelected, setResults, results } = useContext(SearchContext);
+	const { categorySelected, setValueInput, setCategorySelected, setResults } = useContext(SearchContext);
 
 	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {	
 		getItemsAccordingToSelectedCategory(cardSelected.CategoryID)
@@ -25,8 +25,6 @@ export const Categories = () => {
 	};
 
 	useFetchCategories();
-
-	console.log(results)
 
 	return (
 		<>
