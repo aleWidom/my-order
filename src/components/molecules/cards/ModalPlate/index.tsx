@@ -76,7 +76,6 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		.then((response)=> {
 			fetchItemPeopleInTable(response[0].PeopleInTableID)
 			.then((data)=> {
-				console.log(data)
 				setCart(data)
 			})
 			.catch((err)=> {
@@ -89,18 +88,24 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 		deleteItem(modalPlate.ItemPeopleInTableID)
 
-		const newCart = cart.filter((e) => {
-			return e.ItemID !== modalPlate.ItemID;
-		});
-
-		setCart(newCart);
-
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required',
 			modalEditOrDelete: 'delete',
 
 		});
+
+		fetchPeopleInTable(sittingOnTheTable.id)
+		.then((response)=> {
+			fetchItemPeopleInTable(response[0].PeopleInTableID)
+			.then((data)=> {
+				setCart(data)
+			})
+			.catch((err)=> {
+				console.log(err)
+			})	
+		})
+
 	};
 
 	const addQuantity = () => {
