@@ -1,15 +1,27 @@
-import { useContext} from 'react';
+import { useContext, useEffect} from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { TableContext } from '../../../../context/tables/TableContext';
-import {fetchPeopleInTable,  /* updateItemsQuantityhAccordingPeopleInTableID  */} from '../../../../services';
+import {fetchOrderItem, fetchPeopleInTable,  /* updateItemsQuantityhAccordingPeopleInTableID  */} from '../../../../services';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {
-	const { cart, modalPlate, setModalPlate } = useContext(OrderContext);
+	const { cart, modalPlate, setModalPlate, setCart } = useContext(OrderContext);
 
 	const {sittingOnTheTable} = useContext(TableContext)
+
+	/* useEffect(() => {
+		setInterval(() => {
+				fetchOrderItem().then((data) => {
+					return setCart(data);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		}, 10000);
+	}, [setCart]); */
+	
 
 	const handleEdit = (cartProduct: PlateSelected) => () => {
 	
@@ -59,7 +71,8 @@ export const OrderPlate = () => {
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
-						<small className={styles.state}>Su pedido se esta preparando.</small>
+						{cartProduct.state === 'delivered' ? <small className={styles.state}>Entregado</small>
+						:<small className={styles.state}>Su pedido se esta preparando.</small>}
 					</div>
 					<div className={styles.editDelete}>
 						<FaEdit onClick={handleEdit(cartProduct)} className={styles.edit} />

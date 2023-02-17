@@ -20,10 +20,10 @@ const OrderPage = () => {
 						<p >Sin solicitudes en su mesa.</p>
 					</div>}
 			</div>
-			{modalPlate.state && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'edit' && <ModalPlate buttonName='Editar' />}
-			{modalPlate.state && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'delete' && <ModalPlate buttonName='Eliminar' />}
-			{modalPlate.state && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' && <ModalPlateRequired/>}
-			{modalPlate.state && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'delete' && <ModalPlateRequired />}
+			{modalPlate.stateModal && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'edit' && <ModalPlate buttonName='Editar' />}
+			{modalPlate.stateModal && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'delete' && <ModalPlate buttonName='Eliminar' />}
+			{modalPlate.stateModal && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' && <ModalPlateRequired/>}
+			{modalPlate.stateModal && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'delete' && <ModalPlateRequired />}
 		</>
 	);
 };

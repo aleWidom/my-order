@@ -80,8 +80,8 @@ const HomePage = () => {
 						)}
 						<footer className={styles.footer}>© my order todos los derechos reservados</footer>
 					</div>
-					{modalPlate.state && modalPlate.modalType === 'main' && <ModalPlate buttonName='Solicitar'/>}
-					{modalPlate.state && modalPlate.modalType === 'required' && <ModalPlateRequired />}
+					{modalPlate.stateModal && modalPlate.modalType === 'main' && <ModalPlate buttonName='Solicitar'/>}
+					{modalPlate.stateModal && modalPlate.modalType === 'required' && <ModalPlateRequired />}
 					{modalInfo.state && <ModalInfo />}
 				</>
 			)}

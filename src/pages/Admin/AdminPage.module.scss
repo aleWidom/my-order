@@ -55,5 +55,22 @@
 }
 
 .table {
-	color: $color-five;
+	background-color: $color-secondary;
+	color: $color-primary;
+	padding: 0.5rem;
+}
+
+.containerPreparing {
+	opacity: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid 1px $color-secondary;
+	margin-top: 1rem;
+	border: solid;
+	text-align: center;
+	gap: 0.5rem;
+	padding: 1rem;
+	background-color: $color-five;
 }

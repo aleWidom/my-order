@@ -103,7 +103,7 @@ const AdminPage = () => {
 					<h1 className={styles.header}>Orders</h1>
 					{orderItem.length > 0 ? 
 					orderItem.map((e) => (
-						<div key={e.ItemPeopleInTableID} className={styles.containerOrder}>
+						<div key={e.ItemPeopleInTableID} className={e.state === "preparing" ? styles.containerPreparing : styles.containerOrder}>
 							<h4 className={styles.title}>{e.title}</h4>
 							<h4 className={styles.description}>Cantidad: {e.quantity}</h4>
 							<h4 className={styles.table}>Table: {e.id_table}</h4>
