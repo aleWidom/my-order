@@ -1,7 +1,7 @@
 import { useContext, useEffect} from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { TableContext } from '../../../../context/tables/TableContext';
-import {fetchOrderItem, fetchPeopleInTable,  /* updateItemsQuantityhAccordingPeopleInTableID  */} from '../../../../services';
+import {fetchItemPeopleInTable, fetchPeopleInTable,  /* updateItemsQuantityhAccordingPeopleInTableID  */} from '../../../../services';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
@@ -11,16 +11,20 @@ export const OrderPlate = () => {
 
 	const {sittingOnTheTable} = useContext(TableContext)
 
-	/* useEffect(() => {
+	useEffect(() => {
 		setInterval(() => {
-				fetchOrderItem().then((data) => {
-					return setCart(data);
-				})
-				.catch((e) => {
-					console.log(e);
-				});
+			fetchPeopleInTable(sittingOnTheTable.id)
+			.then((response) => {
+				fetchItemPeopleInTable(response[0].PeopleInTableID)
+					.then((data) => {
+						setCart(data)
+					})
+					.catch((err) => {
+						console.log(err)
+					})
+			})
 		}, 10000);
-	}, [setCart]); */
+	}, [setCart, sittingOnTheTable.id]);
 	
 
 	const handleEdit = (cartProduct: PlateSelected) => () => {

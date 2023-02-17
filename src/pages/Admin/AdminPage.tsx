@@ -103,15 +103,18 @@ const AdminPage = () => {
 					<h1 className={styles.header}>Orders</h1>
 					{orderItem.length > 0 ? 
 					orderItem.map((e) => (
+						<>
+						{e.state !== 'delivered' &&
 						<div key={e.ItemPeopleInTableID} className={e.state === "preparing" ? styles.containerPreparing : styles.containerOrder}>
-							<h4 className={styles.title}>{e.title}</h4>
-							<h4 className={styles.description}>Cantidad: {e.quantity}</h4>
-							<h4 className={styles.table}>Table: {e.id_table}</h4>
-						{e.state === 'in process' && <button onClick={handleClickPreparing(e)}>Marcar pedido preparandose.</button>}
-							<button onClick={handleClickDelivered(e)}>Marcar como entregado.</button>
-						</div>
+						<h4 className={styles.title}>{e.title}</h4>
+						<h4 className={styles.description}>Cantidad: {e.quantity}</h4>
+						<h4 className={styles.table}>Table: {e.id_table}</h4>
+					{e.state === 'in process' && <button onClick={handleClickPreparing(e)}>Marcar pedido preparandose.</button>}
+						<button onClick={handleClickDelivered(e)}>Marcar como entregado.</button>
+					</div>}
+						</>
 					)):
-					'No hay ordenes de ninguna mesa en este momento.'}
+					'No hay ordenes pendientes de ninguna mesa en este momento.'}
 				</div>
 				</>
 			)}
