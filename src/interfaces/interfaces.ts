@@ -36,11 +36,12 @@ export interface PlateSelected {
 	quantity: number;
 	modalType?: 'main' | 'required',
 	modalEditOrDelete?: 'edit'| 'delete',
-	state?: boolean,
+	stateModal?: boolean,
 	date?: string,
 	photo?: string ,
 	id_category?: string
-	ItemPeopleInTableID?: string
+	ItemPeopleInTableID?: string,
+	state?: string
 
 }
 

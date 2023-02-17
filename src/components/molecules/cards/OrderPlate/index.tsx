@@ -25,7 +25,7 @@ export const OrderPlate = () => {
 		setModalPlate({
 			...modalPlate,
 			ItemID: cartProduct.ItemID,
-			state: true,
+			stateModal: true,
 			title: cartProduct.title,
 			price: cartProduct.price,
 			description: cartProduct.description,
@@ -41,7 +41,7 @@ export const OrderPlate = () => {
 		setModalPlate({
 			...modalPlate,
 			ItemID: cartProduct.ItemID,
-			state: true,
+			stateModal: true,
 			title: cartProduct.title,
 			price: cartProduct.price,
 			description: cartProduct.description,

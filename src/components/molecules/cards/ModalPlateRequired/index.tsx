@@ -18,7 +18,7 @@ export const ModalPlateRequired = () => {
 				ItemID: `${0}`,
 				title: '',
 				quantity: 1,
-				state: false,
+				stateModal: false,
 				description: "",
 				price: "",
 				modalType: 'main',

@@ -75,6 +75,8 @@ async function itemPeopleInTable(idItemPeopleInTable: string, idPeopleInTable: s
 	}
 }
 
+
+
 export {
 	updateTableNumberActive,
 	updateTableNumberDesactive,
@@ -82,5 +84,5 @@ export {
 	updateTableNumberNotCall,
 	fetchPeopleInTable,
 	peopleInTable,
-	itemPeopleInTable
+	itemPeopleInTable,
 };

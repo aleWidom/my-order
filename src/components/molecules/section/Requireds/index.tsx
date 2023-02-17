@@ -11,7 +11,7 @@ const Requireds = () => {
 
 	return (
 		<div className={styles.required}>
-			{cart.length > 0 && modalPlate.state === false && (
+			{cart.length > 0 && modalPlate.stateModal === false && (
 				<>
 					<Link to={`/order/${sittingOnTheTable.id}`} className={styles.link}>
 						<FaBell />

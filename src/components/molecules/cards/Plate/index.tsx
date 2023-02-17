@@ -22,7 +22,7 @@ export const Plate: FC<Props> = ({
   const handleClickRequest = () => {
     setModalPlate({
       ItemID: `${id}`,
-      state: true,
+      stateModal: true,
       title: header,
       price: price,
       description: description,

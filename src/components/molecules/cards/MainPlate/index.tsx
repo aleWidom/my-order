@@ -17,7 +17,7 @@ export const MainPlate: FC<Props> = ({ header, price, source, description, id })
 		setModalPlate({
 			...modalPlate,
 			ItemID: `${id}`,
-			state: true,
+			stateModal: true,
 			title: header,
 			price: price,
 			description: description,

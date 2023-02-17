@@ -19,7 +19,7 @@ export const OrderProvider = ({ children }: Props) => {
 
 	const [modalPlate, setModalPlate] = useState<PlateSelected>({
 		ItemID: '0',
-		state: false,
+		stateModal: false,
 		title: '',
 		price: '0',
 		description: '',

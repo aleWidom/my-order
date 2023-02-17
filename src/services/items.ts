@@ -85,6 +85,24 @@ async function deleteItem(itemPeopleInTableID: string | undefined) {
 	}
 }
 
+async function makeDelivered(idItemPeopleInTable: string | undefined) {
+	try {
+		const  makeDelivered = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${idItemPeopleInTable}?makeDelivered`);
+		return  makeDelivered;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+async function makePreparing(idItemPeopleInTable: string | undefined) {
+	try {
+		const  makeDelivered = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${idItemPeopleInTable}?makePreparing`);
+		return  makeDelivered;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 export {
 	getAllCategoriesIdRestaurant1,
 	getItemsAccordingToSelectedCategory,
@@ -94,7 +112,9 @@ export {
 	getItemsResults,
 	fetchItemPeopleInTable,
 	updateQuantityItem,
-	deleteItem
+	deleteItem,
+	makeDelivered,
+	makePreparing
 };
 
 	

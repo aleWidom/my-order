@@ -16,7 +16,7 @@ interface Props {
 
 export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
-	const { modalPlate, setModalPlate, cart, setCart } = useContext(OrderContext);
+	const { modalPlate, setModalPlate,setCart } = useContext(OrderContext);
 
 	const { sittingOnTheTable } = useContext(TableContext)
 
@@ -31,7 +31,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			description: '',
 			price: '0',
 			quantity: 1,
-			state: false
+			stateModal: false
 		});
 	};
 
@@ -48,7 +48,6 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			.then((response) => {
 				fetchItemPeopleInTable(response[0].PeopleInTableID)
 					.then((data) => {
-						console.log(data)
 						setCart(data)
 					})
 					.catch((err) => {
