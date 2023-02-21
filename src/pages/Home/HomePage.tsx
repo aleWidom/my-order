@@ -9,56 +9,60 @@ import { fetchItemPeopleInTable, fetchPeopleInTable, fetchTable, peopleInTable, 
 import styles from './HomePage.module.scss';
 
 const HomePage = () => {
-
-	const { sittingOnTheTable, setSittingOnTheTableCall, setSittingOnTheTable} = useContext(TableContext);
+	const { sittingOnTheTable, setSittingOnTheTableCall, setSittingOnTheTable } = useContext(TableContext);
 
 	const [params] = useSearchParams();
 
 	const { results, modalInfo } = useContext(SearchContext);
 
-	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading, setCart  } = useContext(OrderContext);
+	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading, setCart } = useContext(OrderContext);
 
+	useEffect(() => {
+		console.log('home');
+	}, []);
+
+	//se setea número de mesa elegido por el cliente del restarutante
 	useEffect(() => {
 		setSittingOnTheTable({
 			id: params.get('table'),
 		});
 		updateTableNumberActive(params.get('table'));
-		fetchTable(sittingOnTheTable.id)
-		.then((data) => {
-			if(data?.table_active !== '1' ) {				
+		/* fetchTable(sittingOnTheTable.id).then((data) => {
+			if (data?.table_active !== '1') {
 				const idPeopleInTableUuid = uuidv4();
-				peopleInTable(idPeopleInTableUuid , sittingOnTheTable.id)		
-			} 
-			if(data?.table_call === '1' ) {
-				setSittingOnTheTableCall(true)
-			} else {
-				setSittingOnTheTableCall(false)
+				peopleInTable(idPeopleInTableUuid, sittingOnTheTable.id);
 			}
-		})
+			if (data?.table_call === '1') {
+				setSittingOnTheTableCall(true);
+			} else {
+				setSittingOnTheTableCall(false);
+			}
+		}); */
 	}, [sittingOnTheTable.id, params, setSittingOnTheTableCall, setSittingOnTheTable]);
 
+	useEffect(
+		() => {
+			/* 	fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
+				fetchItemPeopleInTable(response[0].PeopleInTableID)
+					.then((data) => {
+						setCart(data);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			}); */
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[
+			/* setCart, sittingOnTheTable.id */
+		]
+	);
 
-	useEffect(() => {
-		fetchPeopleInTable(sittingOnTheTable.id)
-		.then((response)=> {
-			fetchItemPeopleInTable(response[0].PeopleInTableID)
-			.then((data)=> {
-				setCart(data)
-			})
-			.catch((err)=> {
-				console.log(err)
-			})	
-		})
-	}, [setCart, sittingOnTheTable.id ])
+	useFetchCardsDayPlates();
 
- 	useFetchCardsDayPlates();
-
-	useFetchCardsRankingPlates(); 
+	useFetchCardsRankingPlates();
 
 	useFetchCardsSpecialsCheff();
-
-
-
 
 	return (
 		<>
@@ -68,7 +72,7 @@ const HomePage = () => {
 				</div>
 			) : (
 				<>
-				 	<Navbar /> 
+					<Navbar />
 					<div className={styles.mainContainerHome}>
 						<CallWaiter />
 						<FormSearch />
@@ -80,7 +84,7 @@ const HomePage = () => {
 						)}
 						<footer className={styles.footer}>© my order todos los derechos reservados</footer>
 					</div>
-					{modalPlate.stateModal && modalPlate.modalType === 'main' && <ModalPlate buttonName='Solicitar'/>}
+					{modalPlate.stateModal && modalPlate.modalType === 'main' && <ModalPlate buttonName='Solicitar' />}
 					{modalPlate.stateModal && modalPlate.modalType === 'required' && <ModalPlateRequired />}
 					{modalInfo.state && <ModalInfo />}
 				</>

@@ -1,15 +1,15 @@
-import { useEffect, useContext } from "react";
-import { OrderContext } from "../context";
-import { getItemsCardsDayPlates } from "../services";
+import { useEffect, useContext } from 'react';
+import { OrderContext } from '../context';
+import { getItemsCardsDayPlates } from '../services';
 
 export const useFetchCardsDayPlates = () => {
-  const { setCardsDayPlates} = useContext(OrderContext);
+	const { setCardsDayPlates } = useContext(OrderContext);
 
-
-  //TODO ARREGLAR ANYS EN DATA
-  useEffect(() => {
-    getItemsCardsDayPlates().then(({ data }: any) => {
-      setCardsDayPlates(data);
-    });
-  }, [setCardsDayPlates]);
+	//TODO ARREGLAR ANYS EN DATA
+	useEffect(() => {
+		getItemsCardsDayPlates().then(({ data }: any) => {
+			setCardsDayPlates(data);
+		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 };

@@ -1,7 +1,7 @@
-import { useContext, useEffect} from 'react';
+import { useContext, useEffect } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { TableContext } from '../../../../context/tables/TableContext';
-import {fetchItemPeopleInTable, fetchPeopleInTable,  /* updateItemsQuantityhAccordingPeopleInTableID  */} from '../../../../services';
+import { fetchItemPeopleInTable, fetchPeopleInTable /* updateItemsQuantityhAccordingPeopleInTableID  */ } from '../../../../services';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
@@ -9,34 +9,31 @@ import styles from './OrderPlate.module.scss';
 export const OrderPlate = () => {
 	const { cart, modalPlate, setModalPlate, setCart } = useContext(OrderContext);
 
-	const {sittingOnTheTable} = useContext(TableContext)
+	const { sittingOnTheTable } = useContext(TableContext);
 
 	useEffect(() => {
 		setInterval(() => {
-			fetchPeopleInTable(sittingOnTheTable.id)
-			.then((response) => {
+			/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
 				fetchItemPeopleInTable(response[0].PeopleInTableID)
 					.then((data) => {
-						setCart(data)
+						setCart(data);
 					})
 					.catch((err) => {
-						console.log(err)
-					})
-			})
+						console.log(err);
+					});
+			}); */
 		}, 10000);
 	}, [setCart, sittingOnTheTable.id]);
-	
 
 	const handleEdit = (cartProduct: PlateSelected) => () => {
-	
 		fetchPeopleInTable(sittingOnTheTable.id)
-		.then((data)=> {
-			console.log(data[0])
-		/* updateItemsQuantityhAccordingPeopleInTableID('dada') */
-		})
-		.catch((err) => {
-			console.log(err)
-		})
+			.then((data) => {
+				console.log(data[0]);
+				/* updateItemsQuantityhAccordingPeopleInTableID('dada') */
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 
 		setModalPlate({
 			...modalPlate,
@@ -48,8 +45,7 @@ export const OrderPlate = () => {
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'edit',
-			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID			
-
+			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID,
 		});
 	};
 
@@ -64,7 +60,7 @@ export const OrderPlate = () => {
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'delete',
-			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID	
+			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID,
 		});
 	};
 
@@ -75,8 +71,11 @@ export const OrderPlate = () => {
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
-						{cartProduct.state === 'delivered' ? <small className={styles.state}>Entregado</small>
-						:<small className={styles.state}>Su pedido se esta preparando.</small>}
+						{cartProduct.state === 'delivered' ? (
+							<small className={styles.state}>Entregado</small>
+						) : (
+							<small className={styles.state}>Su pedido se esta preparando.</small>
+						)}
 					</div>
 					<div className={styles.editDelete}>
 						<FaEdit onClick={handleEdit(cartProduct)} className={styles.edit} />
@@ -87,5 +86,3 @@ export const OrderPlate = () => {
 		</>
 	);
 };
-
-

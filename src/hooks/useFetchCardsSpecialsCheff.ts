@@ -3,9 +3,7 @@ import { OrderContext } from '../context';
 import { getItemsCardsSpecialsCheff } from '../services';
 
 export const useFetchCardsSpecialsCheff = () => {
-	const { setCardsSpecialsCheff, setLoading} = useContext(OrderContext);
-
-	
+	const { setCardsSpecialsCheff, setLoading } = useContext(OrderContext);
 
 	//TODO ARREGLAR ANYS EN DATA
 	useEffect(() => {
@@ -13,5 +11,6 @@ export const useFetchCardsSpecialsCheff = () => {
 			setCardsSpecialsCheff(data);
 			setLoading(false);
 		});
-	}, [setCardsSpecialsCheff, setLoading]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 };

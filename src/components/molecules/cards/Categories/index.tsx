@@ -13,11 +13,11 @@ export const Categories = () => {
 
 	const { categorySelected, setValueInput, setCategorySelected, setResults } = useContext(SearchContext);
 
-	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {	
+	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {
 		getItemsAccordingToSelectedCategory(cardSelected.CategoryID)
 			.then((data: PlateRestaurant[]) => {
 				setCategorySelected(cardSelected);
-				setLoadingPlates(true)
+				setLoadingPlates(true);
 				setResults(data);
 				setValueInput('');
 			})
@@ -30,15 +30,16 @@ export const Categories = () => {
 		<>
 			<div className={styles.containerCategories}>
 				<Swiper spaceBetween={50} slidesPerView={3}>
-					{categoriesMenuRestaurant.map((e) => (
-						<SwiperSlide key={e.CategoryID}>
-							{e.name === categorySelected.name ? (
-								<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'selected'} />
-							) : (
-								<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'notSelected'} />
-							)}
-						</SwiperSlide>
-					))}
+					{categoriesMenuRestaurant.length &&
+						categoriesMenuRestaurant.map((e) => (
+							<SwiperSlide key={e.CategoryID}>
+								{e.name === categorySelected.name ? (
+									<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'selected'} />
+								) : (
+									<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'notSelected'} />
+								)}
+							</SwiperSlide>
+						))}
 				</Swiper>
 			</div>
 		</>
