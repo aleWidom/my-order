@@ -22,7 +22,6 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const closedModalPlate = () => {
 		setModalPlate({
-			ItemID: '0',
 			title: '',
 			description: '',
 			price: '0',
@@ -58,7 +57,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleEdit = () => {
-		updateQuantityItem(modalPlate.ItemPeopleInTableID, modalPlate.quantity);
+	/* 	updateQuantityItem(modalPlate.ItemPeopleInTableID, modalPlate.quantity); */
 
 		setModalPlate({
 			...modalPlate,
@@ -78,7 +77,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleDelete = () => {
-		deleteItem(modalPlate.ItemPeopleInTableID);
+/* 		deleteItem(modalPlate.ItemPeopleInTableID); */
 
 		setModalPlate({
 			...modalPlate,

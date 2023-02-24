@@ -1,16 +1,26 @@
 import { useState } from 'react';
 import { TableContext } from './TableContext';
 import { SittingOnTheTable } from '../../interfaces';
+import { TableRestaurant } from '../../interfaces/interfaces';
 
 interface Props {
 	children: JSX.Element | JSX.Element[];
 }
 
 export const TableProvider = ({ children }: Props) => {
-	//TODO DEBE IR UN OBJETO COMO MESA
+
 	const [sittingOnTheTable, setSittingOnTheTable] = useState<SittingOnTheTable>({
 		id: '',
 	});
+
+	const [stateTable, setStateTable] = useState<TableRestaurant>({
+	TableID: "",
+	table_number: "",
+	table_active: "",
+	table_call: ""
+	});
+
+	const [idPeopleInTable, setIdPeopleInTable] = useState<string>("");
 
 	const [sittingOnTheTableCall, setSittingOnTheTableCall] = useState<boolean | undefined>(false);
 	
@@ -20,11 +30,15 @@ export const TableProvider = ({ children }: Props) => {
 		<TableContext.Provider
 			value={{
 				sittingOnTheTable, 
+				idPeopleInTable,
+				setIdPeopleInTable,
 				setSittingOnTheTable,
 				sittingOnTheTableCall, 
 				setSittingOnTheTableCall,
 				sittingOnTheTableActivate,
-				setSittingOnTheTableActivate
+				setSittingOnTheTableActivate,
+				stateTable, 
+				setStateTable
 			}}
 		>
 			{children}

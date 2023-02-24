@@ -2,3 +2,8 @@ export * from './useFetchCategories';
 export * from './useFetchCardsRanking';
 export * from './useFetchCardsDayPlates';
 export * from './useFetchCardsSpecialsCheff';
+export * from './useActivateTable';
+export * from './useFetchTable';
+export * from './useIdUnicoPeopleInTable';
+export * from './useFetchCallTable';
+export * from './useFetchItems';

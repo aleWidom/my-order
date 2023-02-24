@@ -1,18 +1,17 @@
-import { FC } from 'react';
+import { useContext } from 'react';
+import { OrderContext } from '../../../../context/order/OrderContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { MainPlate } from '../../../molecules';
-import { PlateRestaurant } from '../../../../interfaces';
 import styles from './MainPlates.module.scss';
 import 'swiper/css/navigation';
 import 'swiper/css';
 
-interface Props {
-	cardsDayPlates: PlateRestaurant[];
-	cardsRankingPlates: PlateRestaurant[];
-	cardsSpecialsCheff: PlateRestaurant[];
-}
 
-export const MainPlates: FC<Props> = ({ cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff }) => {
+
+export const MainPlates = () => {
+
+	const {cardsRankingPlates, cardsDayPlates, cardsSpecialsCheff} = useContext(OrderContext)
+
 	return (
 		<>
 			<div className={styles.cardsPlates}>

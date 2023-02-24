@@ -1,16 +1,18 @@
 import { useEffect, useContext } from 'react';
 import { OrderContext } from '../context';
-import { getItemsCardsSpecialsCheff } from '../services';
+
 
 export const useFetchCardsSpecialsCheff = () => {
-	const { setCardsSpecialsCheff, setLoading } = useContext(OrderContext);
+	const { itemsRestaurant, setCardsSpecialsCheff, setLoading } = useContext(OrderContext);
 
 	//TODO ARREGLAR ANYS EN DATA
 	useEffect(() => {
-		getItemsCardsSpecialsCheff().then(({ data }: any) => {
-			setCardsSpecialsCheff(data);
-			setLoading(false);
-		});
+		const ranking = itemsRestaurant?.filter((item) => {
+			if(item.ItemID === '47' || item.ItemID === '72' || item.ItemID === '89') {
+			   return item
+		   } 
+		 })
+		 setCardsSpecialsCheff(ranking)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [itemsRestaurant]);
 };

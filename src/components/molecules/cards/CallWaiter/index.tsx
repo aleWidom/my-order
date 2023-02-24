@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { SearchContext, TableContext } from '../../../../context';
+import { useFetchCallTable } from '../../../../hooks';
 import { updateTableNumberCall, updateTableNumberNotCall } from '../../../../services';
 import styles from './CallWaiter.module.scss';
 
@@ -46,6 +47,8 @@ export const CallWaiter = () => {
 		updateTableNumberNotCall(sittingOnTheTable);
 		setSittingOnTheTableCall(false);
 	};
+
+	useFetchCallTable()
 
 	return (
 		<div className={styles.containerCallWaiter}>

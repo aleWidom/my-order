@@ -1,44 +1,23 @@
 import { useContext, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { OrderContext, SearchContext, TableContext } from '../../context';
-import { useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff } from '../../hooks';
+import { OrderContext, SearchContext} from '../../context';
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
-import { useSearchParams } from 'react-router-dom';
-import { fetchItemPeopleInTable, fetchPeopleInTable, fetchTable, peopleInTable, updateTableNumberActive } from '../../services';
+
 import styles from './HomePage.module.scss';
 
+
+
 const HomePage = () => {
-	const { sittingOnTheTable, setSittingOnTheTableCall, setSittingOnTheTable } = useContext(TableContext);
 
-	const [params] = useSearchParams();
+const { results, modalInfo } = useContext(SearchContext);
 
-	const { results, modalInfo } = useContext(SearchContext);
+	const {modalPlate,  loading, itemsRestaurant} = useContext(OrderContext);
 
-	const { cardsDayPlates, cardsRankingPlates, modalPlate, cardsSpecialsCheff, loading, setCart } = useContext(OrderContext);
+	
+
 
 	useEffect(() => {
-		console.log('home');
-	}, []);
-
-	//se setea número de mesa elegido por el cliente del restarutante
-	useEffect(() => {
-		setSittingOnTheTable({
-			id: params.get('table'),
-		});
-		updateTableNumberActive(params.get('table'));
-		/* fetchTable(sittingOnTheTable.id).then((data) => {
-			if (data?.table_active !== '1') {
-				const idPeopleInTableUuid = uuidv4();
-				peopleInTable(idPeopleInTableUuid, sittingOnTheTable.id);
-			}
-			if (data?.table_call === '1') {
-				setSittingOnTheTableCall(true);
-			} else {
-				setSittingOnTheTableCall(false);
-			}
-		}); */
-	}, [sittingOnTheTable.id, params, setSittingOnTheTableCall, setSittingOnTheTable]);
+	}, [/* sittingOnTheTable.id, params, setSittingOnTheTableCall, setSittingOnTheTable */]);
 
 	useEffect(
 		() => {
@@ -58,12 +37,6 @@ const HomePage = () => {
 		]
 	);
 
-	useFetchCardsDayPlates();
-
-	useFetchCardsRankingPlates();
-
-	useFetchCardsSpecialsCheff();
-
 	return (
 		<>
 			{loading ? (
@@ -78,7 +51,7 @@ const HomePage = () => {
 						<FormSearch />
 						<Categories />
 						{results.length === 0 ? (
-							<MainPlates cardsDayPlates={cardsDayPlates} cardsRankingPlates={cardsRankingPlates} cardsSpecialsCheff={cardsSpecialsCheff} />
+							<MainPlates/>
 						) : (
 							<Plates />
 						)}

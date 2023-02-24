@@ -1,14 +1,18 @@
 import { useEffect, useContext } from 'react';
 import { OrderContext } from '../context';
-import { getItemsCardsRanking } from '../services';
+
 
 export const useFetchCardsRankingPlates = () => {
-	const { setCardsRankingPlates } = useContext(OrderContext);
+	const { itemsRestaurant, setCardsRankingPlates } = useContext(OrderContext);
 
 	useEffect(() => {
-		getItemsCardsRanking().then(({ data }: any) => {
-			setCardsRankingPlates(data);
-		});
+
+	  const specials = itemsRestaurant?.filter((item) => {
+		 if(item.ItemID === '2' || item.ItemID === '61' || item.ItemID === '83') {
+			return item
+		} 
+	  })
+	  setCardsRankingPlates(specials)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [itemsRestaurant]);
 };

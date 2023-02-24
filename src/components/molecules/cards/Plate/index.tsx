@@ -6,22 +6,17 @@ interface Props {
   price: string;
   description: string;
   header: string;
-  source: string;
-  id: string;
 }
 
 export const Plate: FC<Props> = ({
   price,
   description,
   header,
-  source,
-  id,
 }) => {
   const {setModalPlate /* , cart */ } = useContext(OrderContext);
 
   const handleClickRequest = () => {
     setModalPlate({
-      ItemID: `${id}`,
       stateModal: true,
       title: header,
       price: price,

@@ -37,37 +37,29 @@ export const OrderPlate = () => {
 
 		setModalPlate({
 			...modalPlate,
-			ItemID: cartProduct.ItemID,
 			stateModal: true,
 			title: cartProduct.title,
-			price: cartProduct.price,
-			description: cartProduct.description,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'edit',
-			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID,
 		});
 	};
 
 	const handleDelete = (cartProduct: PlateSelected) => () => {
 		setModalPlate({
 			...modalPlate,
-			ItemID: cartProduct.ItemID,
 			stateModal: true,
 			title: cartProduct.title,
-			price: cartProduct.price,
-			description: cartProduct.description,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'delete',
-			ItemPeopleInTableID: cartProduct.ItemPeopleInTableID,
 		});
 	};
 
 	return (
 		<>
 			{cart.map((cartProduct) => (
-				<div key={cartProduct.ItemPeopleInTableID} className={styles.containerCardOrder}>
+				<div key={cartProduct.ItemID} className={styles.containerCardOrder}>
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>

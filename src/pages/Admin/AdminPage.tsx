@@ -52,7 +52,7 @@ const AdminPage = () => {
 
 	
 	const handleClickPreparing = (orderProduct: PlateSelected) => () => {
-		makePreparing(orderProduct.ItemPeopleInTableID)
+/* 		makePreparing(orderProduct.ItemPeopleInTableID) */
 
 		fetchOrderItem()
 		.then((data) => {
@@ -65,7 +65,7 @@ const AdminPage = () => {
 
 	const handleClickDelivered = (orderProduct: PlateSelected) => () => {
 		
-		makeDelivered(orderProduct.ItemPeopleInTableID)
+	/* 	makeDelivered(orderProduct.ItemPeopleInTableID) */
 		
 		
 		fetchOrderItem()
@@ -104,14 +104,8 @@ const AdminPage = () => {
 					{orderItem.length > 0 ? 
 					orderItem.map((e) => (
 						<>
-						{e.state !== 'delivered' &&
-						<div key={e.ItemPeopleInTableID} className={e.state === "preparing" ? styles.containerPreparing : styles.containerOrder}>
-						<h4 className={styles.title}>{e.title}</h4>
-						<h4 className={styles.description}>Cantidad: {e.quantity}</h4>
-						<h4 className={styles.table}>Table: {e.id_table}</h4>
-					{e.state === 'in process' && <button onClick={handleClickPreparing(e)}>Marcar pedido preparandose.</button>}
-						<button onClick={handleClickDelivered(e)}>Marcar como entregado.</button>
-					</div>}
+					{/* 
+					 */}
 						</>
 					)):
 					'No hay ordenes pendientes de ninguna mesa en este momento.'}

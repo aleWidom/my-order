@@ -1,4 +1,3 @@
-
 export interface TableRestaurant {
 	TableID: string;
 	table_number: string;
@@ -26,23 +25,21 @@ export interface SittingOnTheTable {
 }
 
 export interface PlateSelected {
-	id_peopleInTable?: string,
-	ItemID: string,
-	id_item?: string;
-	id_table?: string,
+	ItemID: string;
+	title: string;
+	quantity: number;
+	state?: string
+
+}
+
+export interface ModalPlate {
 	title: string;
 	description: string;
 	price: string;
 	quantity: number;
+	stateModal?: boolean,
 	modalType?: 'main' | 'required',
 	modalEditOrDelete?: 'edit'| 'delete',
-	stateModal?: boolean,
-	date?: string,
-	photo?: string ,
-	id_category?: string
-	ItemPeopleInTableID?: string,
-	state?: string
-
 }
 
 export interface ModalInfo {

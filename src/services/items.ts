@@ -1,6 +1,16 @@
 import axios from 'axios';
 
 
+async function fetchItemsRestaurant() {
+	try {
+		const allItems= await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items`);
+		return allItems.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+
 async function getAllCategoriesIdRestaurant1() {
 	try {
 		const allCategories = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?categories`);
@@ -104,6 +114,7 @@ async function makePreparing(idItemPeopleInTable: string | undefined) {
 }
 
 export {
+	fetchItemsRestaurant,
 	getAllCategoriesIdRestaurant1,
 	getItemsAccordingToSelectedCategory,
 	getItemsCardsRanking,

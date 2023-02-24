@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SearchContext, OrderContext } from '../../../../context';
 import 'swiper/css';
 import { Categorie } from '../../../atoms';
-import { useFetchCategories } from '../../../../hooks';
 import { getItemsAccordingToSelectedCategory } from '../../../../services';
 import { CategoryRestaurant, PlateRestaurant } from '../../../../interfaces';
 import styles from './Categories.module.scss';
@@ -20,11 +19,12 @@ export const Categories = () => {
 				setLoadingPlates(true);
 				setResults(data);
 				setValueInput('');
+
 			})
 			.catch((err) => console.log(err));
 	};
 
-	useFetchCategories();
+
 
 	return (
 		<>
