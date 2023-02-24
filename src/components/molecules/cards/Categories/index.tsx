@@ -3,25 +3,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SearchContext, OrderContext } from '../../../../context';
 import 'swiper/css';
 import { Categorie } from '../../../atoms';
-import { getItemsAccordingToSelectedCategory } from '../../../../services';
-import { CategoryRestaurant, PlateRestaurant } from '../../../../interfaces';
+import { CategoryRestaurant } from '../../../../interfaces';
 import styles from './Categories.module.scss';
 
 export const Categories = () => {
-	const { categoriesMenuRestaurant, setLoadingPlates } = useContext(OrderContext);
+	const { categoriesMenuRestaurant, itemsRestaurant } = useContext(OrderContext);
 
 	const { categorySelected, setValueInput, setCategorySelected, setResults } = useContext(SearchContext);
 
 	const handleClickCategory = (cardSelected: CategoryRestaurant) => () => {
-		getItemsAccordingToSelectedCategory(cardSelected.CategoryID)
-			.then((data: PlateRestaurant[]) => {
+		const resultsCategory = itemsRestaurant.filter((item)=> {
+			return item.id_category === cardSelected.CategoryID
+		})
 				setCategorySelected(cardSelected);
-				setLoadingPlates(true);
-				setResults(data);
+				setResults(resultsCategory);
 				setValueInput('');
-
-			})
-			.catch((err) => console.log(err));
 	};
 
 
