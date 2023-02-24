@@ -7,7 +7,7 @@ import { useContext, useEffect } from "react";
 
 export const MainLoading = () => {
 
-  const {setLoading, itemsRestaurant, cardsDayPlates }= useContext(OrderContext)
+  const {setLoading, itemsRestaurant, cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff }= useContext(OrderContext)
 
   useFetchItems()
 
@@ -26,12 +26,11 @@ export const MainLoading = () => {
 	useFetchCardsSpecialsCheff();
 
   useEffect(()=> {
-    console.log(itemsRestaurant)
-    console.log(cardsDayPlates)
-		if(itemsRestaurant.length && cardsDayPlates.length) {
+		if(itemsRestaurant.length && cardsDayPlates.length && cardsRankingPlates.length && cardsSpecialsCheff.length ) {
 			setLoading(false)
 		}
-	}, [itemsRestaurant, cardsDayPlates])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [itemsRestaurant, cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff ])
 
   return (
     <div className={styles.containerLoading}>
