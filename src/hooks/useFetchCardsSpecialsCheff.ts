@@ -3,7 +3,7 @@ import { OrderContext } from '../context';
 
 
 export const useFetchCardsSpecialsCheff = () => {
-	const { itemsRestaurant, setCardsSpecialsCheff, setLoading } = useContext(OrderContext);
+	const { itemsRestaurant, setCardsSpecialsCheff } = useContext(OrderContext);
 
 	//TODO ARREGLAR ANYS EN DATA
 	useEffect(() => {

@@ -17,8 +17,8 @@ interface ContextProps {
 	setMenuWaiterActive: (description: boolean) => void;
 	modalPlate: ModalPlate;
 	setModalPlate: (description: ModalPlate) => void;
-	cart: PlateSelected[];
-	setCart: (description: PlateSelected[]) => void;
+	cartTemporary: PlateSelected[];
+	setCartTemporary: (description: PlateSelected[]) => void;
 	loading: boolean;
 	setLoading: (description: boolean) => void;
 	loadingOrder: boolean;

@@ -25,11 +25,9 @@ export interface SittingOnTheTable {
 }
 
 export interface PlateSelected {
-	ItemID: string;
 	title: string;
 	quantity: number;
-	state?: string
-
+	price: string;
 }
 
 export interface ModalPlate {
@@ -40,6 +38,7 @@ export interface ModalPlate {
 	stateModal?: boolean,
 	modalType?: 'main' | 'required',
 	modalEditOrDelete?: 'edit'| 'delete',
+	index?: number
 }
 
 export interface ModalInfo {

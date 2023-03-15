@@ -7,7 +7,7 @@ import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {
-	const { cart, modalPlate, setModalPlate, setCart } = useContext(OrderContext);
+	const { cartTemporary, modalPlate, setModalPlate, setCartTemporary } = useContext(OrderContext);
 
 	const { sittingOnTheTable } = useContext(TableContext);
 
@@ -23,9 +23,9 @@ export const OrderPlate = () => {
 					});
 			}); */
 		}, 10000);
-	}, [setCart, sittingOnTheTable.id]);
+	}, [setCartTemporary, sittingOnTheTable.id]);
 
-	const handleEdit = (cartProduct: PlateSelected) => () => {
+	const handleEdit = (cartProduct: PlateSelected, i:number) => () => {
 		fetchPeopleInTable(sittingOnTheTable.id)
 			.then((data) => {
 				console.log(data[0]);
@@ -35,43 +35,48 @@ export const OrderPlate = () => {
 				console.log(err);
 			});
 
+
 		setModalPlate({
 			...modalPlate,
 			stateModal: true,
 			title: cartProduct.title,
+			price: cartProduct.price,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'edit',
+			index: i
 		});
 	};
 
-	const handleDelete = (cartProduct: PlateSelected) => () => {
+	const handleDelete = (cartProduct: PlateSelected, i:number) => () => {
 		setModalPlate({
 			...modalPlate,
 			stateModal: true,
+			price: cartProduct.price,
 			title: cartProduct.title,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'delete',
+			index:i
 		});
 	};
 
 	return (
 		<>
-			{cart.map((cartProduct) => (
-				<div key={cartProduct.ItemID} className={styles.containerCardOrder}>
+			{cartTemporary.map((cartProduct, i) => (
+				<div key={i} className={styles.containerCardOrder}>
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
-						{cartProduct.state === 'delivered' ? (
+						{/* {cartProduct.state === 'delivered' ? (
 							<small className={styles.state}>Entregado</small>
 						) : (
 							<small className={styles.state}>Su pedido se esta preparando.</small>
-						)}
+						)} */}
 					</div>
 					<div className={styles.editDelete}>
-						<FaEdit onClick={handleEdit(cartProduct)} className={styles.edit} />
-						<FaTrashAlt onClick={handleDelete(cartProduct)} className={styles.delete} />
+						<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />
+						<FaTrashAlt onClick={handleDelete(cartProduct, i)} className={styles.delete} />
 					</div>
 				</div>
 			))}

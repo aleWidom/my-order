@@ -8,7 +8,9 @@ const HomePage = () => {
 
 const { results, modalInfo } = useContext(SearchContext);
 
-const {modalPlate,  loading} = useContext(OrderContext);
+const {modalPlate,  loading, cartTemporary} = useContext(OrderContext);
+
+console.log(cartTemporary)
 
 	return (
 		<>

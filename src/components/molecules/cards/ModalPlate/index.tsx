@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const ModalPlate: FC<Props> = ({ buttonName }) => {
-	const { modalPlate, setModalPlate, setCart } = useContext(OrderContext);
+	const { modalPlate, setModalPlate, cartTemporary, setCartTemporary } = useContext(OrderContext);
 
 	const { sittingOnTheTable } = useContext(TableContext);
 
@@ -31,6 +31,14 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleClickRequest = () => {
+		setCartTemporary([
+			{
+				title: modalPlate.title,
+				quantity: modalPlate.quantity,
+				price: modalPlate.price
+			},
+			...cartTemporary
+		])
 		/* fetchPeopleInTable(sittingOnTheTable.id)
 			.then((data) => {
 				console.log(data);
@@ -43,7 +51,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
 			fetchItemPeopleInTable(response[0].PeopleInTableID)
 				.then((data) => {
-					setCart(data);
+					setCartTemporary(data);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -57,7 +65,16 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleEdit = () => {
-	/* 	updateQuantityItem(modalPlate.ItemPeopleInTableID, modalPlate.quantity); */
+		/* 	updateQuantityItem(modalPlate.ItemPeopleInTableID, modalPlate.quantity); */
+
+		const cartTemporaryEdit = cartTemporary.map((item,i)=> {
+			if(i === modalPlate.index) {
+				item.quantity = modalPlate.quantity
+			}
+			return item
+		})
+
+		setCartTemporary(cartTemporaryEdit)
 
 		setModalPlate({
 			...modalPlate,
@@ -65,10 +82,12 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			modalEditOrDelete: 'edit',
 		});
 
+	
+
 		/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
 			fetchItemPeopleInTable(response[0].PeopleInTableID)
 				.then((data) => {
-					setCart(data);
+					setCartTemporary(data);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -77,7 +96,13 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleDelete = () => {
-/* 		deleteItem(modalPlate.ItemPeopleInTableID); */
+		/* 		deleteItem(modalPlate.ItemPeopleInTableID); */
+
+		const cartTemporaryDelete = cartTemporary.filter((item, index)=> {
+			return index !== modalPlate.index
+		})
+
+		setCartTemporary(cartTemporaryDelete)
 
 		setModalPlate({
 			...modalPlate,
@@ -88,7 +113,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
 			fetchItemPeopleInTable(response[0].PeopleInTableID)
 				.then((data) => {
-					setCart(data);
+					setCartTemporary(data);
 				})
 				.catch((err) => {
 					console.log(err);

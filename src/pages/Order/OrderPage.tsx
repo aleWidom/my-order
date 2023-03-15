@@ -5,7 +5,7 @@ import { ModalPlate, ModalPlateRequired, OrderPlate } from '../../components/mol
 import styles from './OrderPage.module.scss';
 
 const OrderPage = () => {
-	const { modalPlate, cart } = useContext(OrderContext);
+	const { modalPlate, cartTemporary } = useContext(OrderContext);
 
 	useEffect(() => {
 		console.log('order');
@@ -15,7 +15,7 @@ const OrderPage = () => {
 		<>
 			<div className={styles.mainContainerOrder}>
 				<Navbar />
-				{cart.length > 0 ? (
+				{cartTemporary.length > 0 ? (
 					<>
 						<h2 className={styles.title}>Mis solicitudes</h2>
 						<OrderPlate />

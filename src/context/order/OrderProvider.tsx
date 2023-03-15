@@ -29,7 +29,7 @@ export const OrderProvider = ({ children }: Props) => {
 		modalType: 'main'
 	});
 
-	const [cart, setCart] = useState<PlateSelected[]>([]);
+	const [cartTemporary,setCartTemporary,] = useState<PlateSelected[]>([]);
 
 	const [loading, setLoading] = useState<boolean>(true);
 
@@ -52,8 +52,8 @@ export const OrderProvider = ({ children }: Props) => {
 				setMenuWaiterActive,
 				modalPlate,
 				setModalPlate,
-				cart,
-				setCart,
+				cartTemporary,
+				setCartTemporary,
 				loading,
 				setLoading,
 				cardsSpecialsCheff,
