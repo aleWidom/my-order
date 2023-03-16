@@ -14,12 +14,14 @@ export const useIdUnicoPeopleInTable = () => {
     //TODO VER DE QUE SE EJECUTE SOLO UNA VEZ
     
 	useEffect(() => {   
-        if(sittingOnTheTable.id !== '' && stateTable?.table_active !== '1') {
+                console.log('oaaa')
+                console.log(stateTable)
+        if(/* sittingOnTheTable.id !== '' && */ stateTable?.table_active === '0') {
                 const idPeopleInTableUuid = uuidv4();
                 peopleInTable(idPeopleInTableUuid,  sittingOnTheTable.id);
         }
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [sittingOnTheTable]);
+	}, [/* sittingOnTheTable, */ stateTable]);
 };
 
 

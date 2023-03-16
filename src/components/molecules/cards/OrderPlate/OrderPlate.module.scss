@@ -10,6 +10,17 @@
 	height: 8rem;
 }
 
+.containerCardOrderDefinitive {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	width: 100%;
+	border-top: solid $color-secondary 1px;
+	height: 8rem;
+	opacity: 75%;
+}
+
 .img {
 	width: 20%;
 }

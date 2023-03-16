@@ -31,11 +31,11 @@ export const OrderProvider = ({ children }: Props) => {
 
 	const [cartTemporary,setCartTemporary,] = useState<PlateSelected[]>([]);
 
+	const [cartDefinitive,setCartDefinitive,] = useState<PlateSelected[]>([]);
+
 	const [loading, setLoading] = useState<boolean>(true);
 
 	const [loadingOrder, setLoadingOrder] = useState<boolean>(true);
-
-/* 	const [loadingPlates, setLoadingPlates] = useState<boolean>(true); */
 
 	return (
 		<OrderContext.Provider
@@ -54,14 +54,14 @@ export const OrderProvider = ({ children }: Props) => {
 				setModalPlate,
 				cartTemporary,
 				setCartTemporary,
+				cartDefinitive,
+				setCartDefinitive,
 				loading,
 				setLoading,
 				cardsSpecialsCheff,
 				setCardsSpecialsCheff,
 				loadingOrder, 
 				setLoadingOrder,
-				/* loadingPlates, 
-				setLoadingPlates */
 			}}
 		>
 			{children}

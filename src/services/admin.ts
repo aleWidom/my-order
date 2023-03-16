@@ -31,6 +31,7 @@ async function fetchTablesActiveCall() {
 
 async function fetchTable(tableNumber: string | null) {
 	try {
+		console.log(tableNumber)
 		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableNumber}?searchTable`);
 		const data: TableRestaurant[] = response.data;
 		return data[0]

@@ -19,12 +19,12 @@ interface ContextProps {
 	setModalPlate: (description: ModalPlate) => void;
 	cartTemporary: PlateSelected[];
 	setCartTemporary: (description: PlateSelected[]) => void;
+	cartDefinitive: PlateSelected[];
+	setCartDefinitive: (description: PlateSelected[]) => void;
 	loading: boolean;
 	setLoading: (description: boolean) => void;
 	loadingOrder: boolean;
 	setLoadingOrder: (description: boolean) => void;
-/* 	loadingPlates: boolean;
-	setLoadingPlates: (description: boolean) => void; */
 }
 
 export const OrderContext = createContext({} as ContextProps);

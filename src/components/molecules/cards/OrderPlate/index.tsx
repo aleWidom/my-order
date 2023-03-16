@@ -7,9 +7,22 @@ import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {
-	const { cartTemporary, modalPlate, setModalPlate, setCartTemporary } = useContext(OrderContext);
+
+	const { cartTemporary, cartDefinitive, modalPlate, setModalPlate, setCartTemporary, setCartDefinitive} = useContext(OrderContext);
 
 	const { sittingOnTheTable } = useContext(TableContext);
+
+	useEffect(()=> {
+				setTimeout(() => {
+					setCartDefinitive([
+						...cartTemporary,
+						...cartDefinitive
+					])
+					setCartTemporary([])
+				},10000);
+	},[])
+
+	
 
 	useEffect(() => {
 		setInterval(() => {
@@ -34,7 +47,6 @@ export const OrderPlate = () => {
 			.catch((err) => {
 				console.log(err);
 			});
-
 
 		setModalPlate({
 			...modalPlate,
@@ -68,15 +80,23 @@ export const OrderPlate = () => {
 					<div className={styles.containerDescription}>
 						<h4>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
+					</div>
+					<div className={styles.editDelete}>
+						<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />
+						<FaTrashAlt onClick={handleDelete(cartProduct, i)} className={styles.delete} />
+					</div>
+				</div>
+			))}
+			{cartDefinitive.map((cartProduct, i) => (
+				<div key={i} className={styles.containerCardOrderDefinitive}>
+					<div className={styles.containerDescription}>
+						<h4>{cartProduct.title}</h4>
+						<small>Cantidad: {cartProduct.quantity}</small>
 						{/* {cartProduct.state === 'delivered' ? (
 							<small className={styles.state}>Entregado</small>
 						) : (
 							<small className={styles.state}>Su pedido se esta preparando.</small>
 						)} */}
-					</div>
-					<div className={styles.editDelete}>
-						<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />
-						<FaTrashAlt onClick={handleDelete(cartProduct, i)} className={styles.delete} />
 					</div>
 				</div>
 			))}
