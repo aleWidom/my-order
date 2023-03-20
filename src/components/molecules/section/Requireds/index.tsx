@@ -14,7 +14,7 @@ const Requireds = () => {
 			{(cartTemporary.length > 0 || cartDefinitive.length) && modalPlate.stateModal === false ?
 				(
 					<>
-						<Link to={`/order/${sittingOnTheTable.id}`} className={styles.link}>
+						<Link to={`/order/${sittingOnTheTable}`} className={styles.link}>
 							<FaBell />
 						</Link>
 

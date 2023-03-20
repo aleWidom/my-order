@@ -13,7 +13,10 @@ import './styles/globals.scss';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 
+
 Amplify.configure(awsconfig);
+
+
 
 //TODO CAMBIAR HOME A PARAMETRIZADA
 
@@ -25,7 +28,7 @@ function App() {
 				<OrderProvider>
 					<SearchProvider>
 						<Routes>
-							<Route path='/' element={<HomePage />} />
+							<Route path={'/'} element={<HomePage />} />
 							<Route path={`/order/:table`} element={<OrderPage />} />
 							<Route path={`/admin`} element={<AdminPage />} />
 							<Route path={`/admin/:table`} element={<AdminTablePage />} />

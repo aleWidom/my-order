@@ -10,8 +10,8 @@ export const useFetchTable = () => {
 //TODO VER DE QUE SE EJECUTE SOLO UNA VEZ
     
 	useEffect(() => {  
-        if (sittingOnTheTable.id !== '') {
-            fetchTable(sittingOnTheTable.id)
+        if (sittingOnTheTable!== '') {
+            fetchTable(sittingOnTheTable)
         .then((data) => {
 			if(data) {
                 setStateTable(data)

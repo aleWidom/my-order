@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { TableContext } from './TableContext';
-import { SittingOnTheTable } from '../../interfaces';
 import { TableRestaurant } from '../../interfaces/interfaces';
 
 interface Props {
@@ -9,9 +8,7 @@ interface Props {
 
 export const TableProvider = ({ children }: Props) => {
 
-	const [sittingOnTheTable, setSittingOnTheTable] = useState<SittingOnTheTable>({
-		id: '',
-	});
+	const [sittingOnTheTable, setSittingOnTheTable] = useState<string>("")
 
 	const [stateTable, setStateTable] = useState<TableRestaurant>({
 	TableID: "",

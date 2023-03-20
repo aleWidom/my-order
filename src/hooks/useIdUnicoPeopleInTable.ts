@@ -18,7 +18,7 @@ export const useIdUnicoPeopleInTable = () => {
                 console.log(stateTable)
         if(/* sittingOnTheTable.id !== '' && */ stateTable?.table_active === '0') {
                 const idPeopleInTableUuid = uuidv4();
-                peopleInTable(idPeopleInTableUuid,  sittingOnTheTable.id);
+                peopleInTable(idPeopleInTableUuid,  sittingOnTheTable);
         }
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [/* sittingOnTheTable, */ stateTable]);

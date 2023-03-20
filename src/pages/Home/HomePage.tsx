@@ -1,4 +1,4 @@
-import { useContext} from 'react';
+import { useContext, useEffect} from 'react';
 import { OrderContext, SearchContext} from '../../context';
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
@@ -8,7 +8,14 @@ const HomePage = () => {
 
 const { results, modalInfo } = useContext(SearchContext);
 
-const {modalPlate,  loading} = useContext(OrderContext);
+const {modalPlate,  loading, setCartTemporary} = useContext(OrderContext);
+
+
+useEffect(()=> {
+	if(localStorage.getItem('cartTemporary')) {
+		setCartTemporary((JSON.parse(localStorage.getItem('cartTemporary') as any)))
+	}
+},[])
 
 	return (
 		<>

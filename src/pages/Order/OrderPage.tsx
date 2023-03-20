@@ -1,20 +1,28 @@
 import { useContext, useEffect } from 'react';
-import { OrderContext } from '../../context/order/OrderContext';
+import { OrderContext, TableContext } from '../../context';
 import { Navbar } from '../../components/organisms';
 import { ModalPlate, ModalPlateRequired, OrderPlate } from '../../components/molecules';
 import styles from './OrderPage.module.scss';
 
 const OrderPage = () => {
-	const { modalPlate, cartTemporary, cartDefinitive } = useContext(OrderContext);
+	const { modalPlate, cartTemporary, cartDefinitive, setCartTemporary } = useContext(OrderContext)
 
-	useEffect(() => {
-		console.log('order');
-	}, []);
+	const { setSittingOnTheTable } = useContext(TableContext)
+
+	useEffect(()=> {
+		setSittingOnTheTable(JSON.parse(localStorage.getItem('table')as any))
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	},[])
+
+	useEffect(()=> {
+		if(localStorage.getItem('cartTemporary')) {
+			setCartTemporary((JSON.parse(localStorage.getItem('cartTemporary') as any)))
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	},[])
 
 	return (
 		<>
-			{console.log(cartTemporary)}
-			{console.log(cartDefinitive)}
 			<div className={styles.mainContainerOrder}>
 				<Navbar />
 				{cartTemporary.length || cartDefinitive.length > 0 ? (

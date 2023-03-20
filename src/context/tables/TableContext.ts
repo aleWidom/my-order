@@ -1,10 +1,10 @@
 import { createContext } from 'react';
-import { SittingOnTheTable, TableRestaurant } from '../../interfaces';
+import {TableRestaurant } from '../../interfaces';
 
 
 interface ContextProps {
-	sittingOnTheTable: SittingOnTheTable;
-	setSittingOnTheTable: (description: SittingOnTheTable) => void;
+	sittingOnTheTable: string;
+	setSittingOnTheTable: (description: string) => void;
 	idPeopleInTable: string,
 	setIdPeopleInTable: (description: string) => void;
 	sittingOnTheTableCall: boolean | undefined;

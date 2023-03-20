@@ -8,21 +8,22 @@ import styles from './OrderPlate.module.scss';
 
 export const OrderPlate = () => {
 
-	const { cartTemporary, cartDefinitive, modalPlate, setModalPlate, setCartTemporary, setCartDefinitive} = useContext(OrderContext);
+	const { cartTemporary, cartDefinitive, modalPlate, setModalPlate, setCartTemporary } = useContext(OrderContext);
 
 	const { sittingOnTheTable } = useContext(TableContext);
 
-	useEffect(()=> {
-				setTimeout(() => {
-					setCartDefinitive([
-						...cartTemporary,
-						...cartDefinitive
-					])
-					setCartTemporary([])
-				},10000);
-	},[])
 
-	
+
+	/* 	useEffect(()=> {
+						setCartDefinitive([
+							...cartTemporary,
+							...cartDefinitive
+						])
+						setCartTemporary([])
+		},[]) */
+
+
+
 
 	useEffect(() => {
 		setInterval(() => {
@@ -36,17 +37,17 @@ export const OrderPlate = () => {
 					});
 			}); */
 		}, 10000);
-	}, [setCartTemporary, sittingOnTheTable.id]);
+	}, [setCartTemporary, sittingOnTheTable]);
 
-	const handleEdit = (cartProduct: PlateSelected, i:number) => () => {
-		fetchPeopleInTable(sittingOnTheTable.id)
+	const handleEdit = (cartProduct: PlateSelected, i: number) => () => {
+		/* fetchPeopleInTable(sittingOnTheTable)
 			.then((data) => {
 				console.log(data[0]);
-				/* updateItemsQuantityhAccordingPeopleInTableID('dada') */
+				 updateItemsQuantityhAccordingPeopleInTableID('dada') 
 			})
 			.catch((err) => {
 				console.log(err);
-			});
+			}); */
 
 		setModalPlate({
 			...modalPlate,
@@ -58,9 +59,22 @@ export const OrderPlate = () => {
 			modalEditOrDelete: 'edit',
 			index: i
 		});
+
+
+		const editItem = cartTemporary.filter((e, index) => {
+			if (i === index) {
+				e.quantity = cartProduct.quantity
+			}
+			return e
+		})
+
+		setCartTemporary(editItem)
+
+		localStorage.setItem('cartTemporary', JSON.stringify(editItem))
 	};
 
-	const handleDelete = (cartProduct: PlateSelected, i:number) => () => {
+
+	const handleDelete = (cartProduct: PlateSelected, i: number) => () => {
 		setModalPlate({
 			...modalPlate,
 			stateModal: true,
@@ -69,7 +83,7 @@ export const OrderPlate = () => {
 			quantity: cartProduct.quantity,
 			modalType: 'main',
 			modalEditOrDelete: 'delete',
-			index:i
+			index: i
 		});
 	};
 
@@ -78,8 +92,9 @@ export const OrderPlate = () => {
 			{cartTemporary.map((cartProduct, i) => (
 				<div key={i} className={styles.containerCardOrder}>
 					<div className={styles.containerDescription}>
-						<h4>{cartProduct.title}</h4>
-						<small>Cantidad: {cartProduct.quantity}</small>
+						<h4>{cartProduct?.title}</h4>
+						<small>Cantidad: {cartProduct?.quantity}</small>
+						<small className={styles.state}>Su pedido esta en proceso de preparación.</small>
 					</div>
 					<div className={styles.editDelete}>
 						<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />

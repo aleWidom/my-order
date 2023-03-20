@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import { OrderContext, TableContext } from '../../../../context';
+import { OrderContext } from '../../../../context';
 import { deleteItem, fetchItemPeopleInTable, updateQuantityItem, itemPeopleInTable, fetchPeopleInTable } from '../../../../services';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
@@ -13,8 +13,6 @@ interface Props {
 
 export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	const { modalPlate, setModalPlate, cartTemporary, setCartTemporary } = useContext(OrderContext);
-
-	const { sittingOnTheTable } = useContext(TableContext);
 
 	const { pathname } = useLocation();
 
@@ -30,15 +28,26 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		});
 	};
 
+	
+
 	const handleClickRequest = () => {
-		setCartTemporary([
-			{
+
+		setCartTemporary(
+			[{
 				title: modalPlate.title,
 				quantity: modalPlate.quantity,
 				price: modalPlate.price
 			},
-			...cartTemporary
-		])
+			...cartTemporary])
+
+	localStorage.setItem('cartTemporary', JSON.stringify([{
+			title: modalPlate.title,
+			quantity: modalPlate.quantity,
+			price: modalPlate.price
+		},
+		...cartTemporary
+	]))
+	
 		/* fetchPeopleInTable(sittingOnTheTable.id)
 			.then((data) => {
 				console.log(data);
@@ -76,6 +85,8 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 		setCartTemporary(cartTemporaryEdit)
 
+		localStorage.setItem('cartTemporary', JSON.stringify(cartTemporaryEdit))
+
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required',
@@ -103,6 +114,8 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		})
 
 		setCartTemporary(cartTemporaryDelete)
+
+		localStorage.setItem('cartTemporary', JSON.stringify(cartTemporaryDelete))
 
 		setModalPlate({
 			...modalPlate,

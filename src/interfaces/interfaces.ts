@@ -20,10 +20,6 @@ export interface CategoryRestaurant {
 	photo: string;
 }
 
-export interface SittingOnTheTable {
-	id: string | null;
-}
-
 export interface PlateSelected {
 	title: string;
 	quantity: number;

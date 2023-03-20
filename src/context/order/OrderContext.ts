@@ -25,6 +25,8 @@ interface ContextProps {
 	setLoading: (description: boolean) => void;
 	loadingOrder: boolean;
 	setLoadingOrder: (description: boolean) => void;
+	clickedButtonEditOrDelete: string;
+	setClickedButtonEditOrDelete: (description: string) => void;
 }
 
 export const OrderContext = createContext({} as ContextProps);

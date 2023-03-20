@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { OrderContext } from '.';
 import { PlateRestaurant, PlateSelected, CategoryRestaurant, ModalPlate } from '../../interfaces';
 
+
 interface Props {
 	children: JSX.Element | JSX.Element[];
 }
@@ -37,6 +38,8 @@ export const OrderProvider = ({ children }: Props) => {
 
 	const [loadingOrder, setLoadingOrder] = useState<boolean>(true);
 
+	const [clickedButtonEditOrDelete, setClickedButtonEditOrDelete] = useState<string>('false');
+
 	return (
 		<OrderContext.Provider
 			value={{
@@ -62,6 +65,8 @@ export const OrderProvider = ({ children }: Props) => {
 				setCardsSpecialsCheff,
 				loadingOrder, 
 				setLoadingOrder,
+				clickedButtonEditOrDelete, 
+				setClickedButtonEditOrDelete
 			}}
 		>
 			{children}

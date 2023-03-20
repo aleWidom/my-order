@@ -13,10 +13,12 @@ export const useActivateTable = () => {
     //se setea número de mesa elegido por el cliente del restarutante y se comunica a base de datos
     //TODO VER DE QUE SE EJECUTE SOLO UNA VEZ
 	useEffect(() => {
-        setSittingOnTheTable({
-			id: params.get('table'),
-		});
+		if(!localStorage.getItem('table')) {
+			localStorage.setItem('table', JSON.stringify(params.get('table')))
+		} 
+		setSittingOnTheTable(params.get('table') as any)
 		updateTableNumberActive(params.get('table')); 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 };
+
