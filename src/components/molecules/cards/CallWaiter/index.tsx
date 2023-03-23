@@ -7,7 +7,10 @@ import styles from './CallWaiter.module.scss';
 export const CallWaiter = () => {
 	const { setModalInfo } = useContext(SearchContext);
 
-	const {sittingOnTheTable,sittingOnTheTableCall ,setSittingOnTheTableCall} = useContext(TableContext);
+	const {sittingOnTheTableCall ,setSittingOnTheTableCall} = useContext(TableContext);
+
+	const  numberTable = JSON.parse(localStorage.getItem('table') as any)
+	
 
 	const handleCall = () => {
 		setModalInfo({
@@ -24,7 +27,7 @@ export const CallWaiter = () => {
 			});
 		}, 3000);
 
-		updateTableNumberCall(sittingOnTheTable);
+		updateTableNumberCall(numberTable);
 
 		setSittingOnTheTableCall(true);
 	};
@@ -44,7 +47,7 @@ export const CallWaiter = () => {
 			});
 		}, 3000);
 
-		updateTableNumberNotCall(sittingOnTheTable);
+		updateTableNumberNotCall(numberTable);
 		setSittingOnTheTableCall(false);
 	};
 

@@ -1,9 +1,7 @@
 import { FC, useContext } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { OrderContext } from '../../../../context';
-import { deleteItem, fetchItemPeopleInTable, updateQuantityItem, itemPeopleInTable, fetchPeopleInTable } from '../../../../services';
 import { Closed } from '../../../atoms';
 import styles from './ModalPlate.module.scss';
 
@@ -20,6 +18,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const closedModalPlate = () => {
 		setModalPlate({
+			ItemID: '',
 			title: '',
 			description: '',
 			price: '0',
@@ -28,44 +27,29 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		});
 	};
 
-	
+
 
 	const handleClickRequest = () => {
 
 		setCartTemporary(
 			[{
+				ItemID: modalPlate.ItemID,
 				title: modalPlate.title,
 				quantity: modalPlate.quantity,
-				price: modalPlate.price
+				price: modalPlate.price,
 			},
 			...cartTemporary])
 
-	localStorage.setItem('cartTemporary', JSON.stringify([{
+		localStorage.setItem('cartTemporary', JSON.stringify([{
+			ItemID: modalPlate.ItemID,
 			title: modalPlate.title,
 			quantity: modalPlate.quantity,
-			price: modalPlate.price
+			price: modalPlate.price,
 		},
 		...cartTemporary
-	]))
-	
-		/* fetchPeopleInTable(sittingOnTheTable.id)
-			.then((data) => {
-				console.log(data);
-				itemPeopleInTable(uuidv4(), data[0].PeopleInTableID, modalPlate.quantity, `${modalPlate.ItemID}`);
-			})
-			.catch((err) => {
-				console.log(err);
-			}); */
+		]))
 
-		/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
-			fetchItemPeopleInTable(response[0].PeopleInTableID)
-				.then((data) => {
-					setCartTemporary(data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		}); */
+
 
 		setModalPlate({
 			...modalPlate,
@@ -74,10 +58,9 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleEdit = () => {
-		/* 	updateQuantityItem(modalPlate.ItemPeopleInTableID, modalPlate.quantity); */
 
-		const cartTemporaryEdit = cartTemporary.map((item,i)=> {
-			if(i === modalPlate.index) {
+		const cartTemporaryEdit = cartTemporary.map((item, i) => {
+			if (i === modalPlate.index) {
 				item.quantity = modalPlate.quantity
 			}
 			return item
@@ -92,24 +75,10 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			modalType: 'required',
 			modalEditOrDelete: 'edit',
 		});
-
-	
-
-		/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
-			fetchItemPeopleInTable(response[0].PeopleInTableID)
-				.then((data) => {
-					setCartTemporary(data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		}); */
 	};
 
 	const handleDelete = () => {
-		/* 		deleteItem(modalPlate.ItemPeopleInTableID); */
-
-		const cartTemporaryDelete = cartTemporary.filter((item, index)=> {
+		const cartTemporaryDelete = cartTemporary.filter((item, index) => {
 			return index !== modalPlate.index
 		})
 
@@ -122,16 +91,6 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 			modalType: 'required',
 			modalEditOrDelete: 'delete',
 		});
-
-		/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
-			fetchItemPeopleInTable(response[0].PeopleInTableID)
-				.then((data) => {
-					setCartTemporary(data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		}); */
 	};
 
 	const addQuantity = () => {

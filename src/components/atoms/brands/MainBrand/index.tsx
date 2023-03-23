@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
-import { useLocation, Link } from 'react-router-dom';
-import { SearchContext, TableContext } from '../../../../context';
+import { useLocation, Link, useSearchParams } from 'react-router-dom';
+import { SearchContext } from '../../../../context';
 import brand from '../../../../images/brand.jpg';
 import styles from './MainBrand.module.scss';
 
 export const MainBrand = () => {
+
 	const { setResults } = useContext(SearchContext);
 
-	const { sittingOnTheTable} = useContext(TableContext);
+	const [params] = useSearchParams();
 
 	const handleClickMenu = () => {
 		setResults([]);
@@ -20,7 +21,7 @@ export const MainBrand = () => {
 
 
 	return (
-		<Link to={`/?table=${sittingOnTheTable}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
+		<Link to={localStorage.getItem('table') ? `/?table=${JSON.parse(localStorage.getItem('table') as any)}` : `/?table=${params.get('table')}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
 			{page !== 'order' ? (
 				<img src={brand} alt={'brand'} className={styles.mainBrand} />
 			) : (

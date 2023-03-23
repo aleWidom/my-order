@@ -77,23 +77,7 @@ async function fetchItemPeopleInTable(id_peopleInTable: string) {
 	}
 }
 
-async function updateQuantityItem(itemPeopleInTableID: string | undefined, quantity: number) {
-	try {
-		const updateQuantityItem = await axios.put(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${itemPeopleInTableID}/${quantity}?updateQuantityItem`);
-		return updateQuantityItem;
-	} catch (err) {
-		console.log(err);
-	}
-}
 
-async function deleteItem(itemPeopleInTableID: string | undefined) {
-	try {
-		const deleteItem = await axios.delete(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${itemPeopleInTableID}?deleteItem`);
-		return deleteItem;
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 async function makeDelivered(idItemPeopleInTable: string | undefined) {
 	try {
@@ -122,8 +106,6 @@ export {
 	getItemsCardsSpecialsCheff,
 	getItemsResults,
 	fetchItemPeopleInTable,
-	updateQuantityItem,
-	deleteItem,
 	makeDelivered,
 	makePreparing
 };

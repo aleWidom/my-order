@@ -1,0 +1,50 @@
+@import '../../../../styles/config';
+
+.containerCardOrder {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	width: 100%;
+	border-top: solid $color-secondary 1px;
+	height: 8rem;
+}
+
+.containerCardOrderDefinitive {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	width: 100%;
+	border-top: solid $color-secondary 1px;
+	height: 8rem;
+	opacity: 75%;
+}
+
+.img {
+	width: 20%;
+}
+
+.containerDescription {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.editDelete {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 0.25rem;
+}
+
+.state {
+	color: $color-four;
+}
+
+.edit,
+.delete {
+	cursor: pointer;
+	font-size: 1rem;
+}

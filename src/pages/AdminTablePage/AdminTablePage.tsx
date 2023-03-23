@@ -1,27 +1,21 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/search/SearchContext';
-import { TableContext } from '../../context/tables/TableContext';
 import { updateTableNumberDesactive } from '../../services';
 import { ModalInfo } from '../../components/molecules';
 import styles from './AdminTablePage.module.scss';
 
 const AdminTablePage = () => {
-	const { sittingOnTheTable } = useContext(TableContext);
+
+	const numberTable = JSON.parse(localStorage.getItem('table') as any)
 
 	const { modalInfo, setModalInfo } = useContext(SearchContext);
-
-	const { pathname } = useLocation();
-
-	const numberTable = pathname.slice(-3);
-
-	console.log(numberTable)
 
 	const handleDesactivate = () => {
 		updateTableNumberDesactive(numberTable);
 		setModalInfo({
 			state: true,
-			description: `La mesa ${sittingOnTheTable} ha sido desactivada`,
+			description: `La mesa ${numberTable} ha sido desactivada`,
 			section: 'admin',
 		});
 	};

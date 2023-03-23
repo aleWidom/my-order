@@ -1,26 +1,24 @@
-import { useEffect, useContext } from 'react';
-import { TableContext } from '../context/tables/TableContext';
-import { fetchTable } from '../services';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import { peopleInTable, updateTableNumberActive } from '../services';
 
 export const useFetchTable = () => {
-   
-    const {setStateTable, sittingOnTheTable } = useContext(TableContext);
 
-//Busco la info de la mesa desde la base de datos según el params y la seteo en un estado de react.
-//TODO VER DE QUE SE EJECUTE SOLO UNA VEZ
-    
-	useEffect(() => {  
-        if (sittingOnTheTable!== '') {
-            fetchTable(sittingOnTheTable)
-        .then((data) => {
-			if(data) {
-                setStateTable(data)
-            }
-		})
-        .catch((err) => {
-            console.log(err)
-        })
+    const [params] = useSearchParams();
+
+    useEffect(() => {
+        //si no se encuentra en el local storage quiere decir que no ingreso antes
+        if (!localStorage.getItem('table')) {
+            //Genero el idPeopleInTable 
+            const idPeopleInTableUuid = uuidv4();
+            peopleInTable(idPeopleInTableUuid, params.get('table'));
+            //Paso la mesa a activa
+            updateTableNumberActive(params.get('table'));
+            //Guardo en local storage el idPeopleInTable y el número de mesa
+            localStorage.setItem('table', JSON.stringify(params.get('table')))
+            localStorage.setItem('idPeopleItemId', JSON.stringify(idPeopleInTableUuid))
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [sittingOnTheTable]);
+    }, []);
 };

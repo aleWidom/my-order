@@ -26,7 +26,7 @@ export const Categories = () => {
 		<>
 			<div className={styles.containerCategories}>
 				<Swiper spaceBetween={50} slidesPerView={3}>
-					{categoriesMenuRestaurant.length &&
+					{categoriesMenuRestaurant.length ?
 						categoriesMenuRestaurant.map((e) => (
 							<SwiperSlide key={e.CategoryID}>
 								{e.name === categorySelected.name ? (
@@ -35,7 +35,7 @@ export const Categories = () => {
 									<Categorie handleClick={handleClickCategory(e)} description={e.name} state={'notSelected'} />
 								)}
 							</SwiperSlide>
-						))}
+						)): ''}
 				</Swiper>
 			</div>
 		</>

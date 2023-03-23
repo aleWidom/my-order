@@ -1,17 +1,14 @@
 import { useContext, useEffect } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
-import { TableContext } from '../../../../context/tables/TableContext';
-import { fetchItemPeopleInTable, fetchPeopleInTable /* updateItemsQuantityhAccordingPeopleInTableID  */ } from '../../../../services';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
-import styles from './OrderPlate.module.scss';
+import styles from './OrderPlateUnconfirmed.module.scss';
 
-export const OrderPlate = () => {
+export const OrderPlateUnConfirmed = () => {
 
-	const { cartTemporary, cartDefinitive, modalPlate, setModalPlate, setCartTemporary } = useContext(OrderContext);
+	const { cartTemporary, modalPlate, setModalPlate, setCartTemporary} = useContext(OrderContext);
 
-	const { sittingOnTheTable } = useContext(TableContext);
-
+	const numberTable = JSON.parse(localStorage.getItem('table') as any)
 
 
 	/* 	useEffect(()=> {
@@ -37,7 +34,7 @@ export const OrderPlate = () => {
 					});
 			}); */
 		}, 10000);
-	}, [setCartTemporary, sittingOnTheTable]);
+	}, [setCartTemporary, numberTable]);
 
 	const handleEdit = (cartProduct: PlateSelected, i: number) => () => {
 		/* fetchPeopleInTable(sittingOnTheTable)
@@ -90,30 +87,18 @@ export const OrderPlate = () => {
 	return (
 		<>
 			{cartTemporary.map((cartProduct, i) => (
-				<div key={i} className={styles.containerCardOrder}>
-					<div className={styles.containerDescription}>
-						<h4>{cartProduct?.title}</h4>
-						<small>Cantidad: {cartProduct?.quantity}</small>
-						<small className={styles.state}>Su pedido esta en proceso de preparación.</small>
+				<>
+					<div key={i} className={styles.containerCardOrder}>
+						<div className={styles.containerDescription}>
+							<h4>{cartProduct?.title}</h4>
+							<small>Cantidad: {cartProduct?.quantity}</small>
+						</div>
+						<div className={styles.editDelete}>
+							<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />
+							<FaTrashAlt onClick={handleDelete(cartProduct, i)} className={styles.delete} />
+						</div>
 					</div>
-					<div className={styles.editDelete}>
-						<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />
-						<FaTrashAlt onClick={handleDelete(cartProduct, i)} className={styles.delete} />
-					</div>
-				</div>
-			))}
-			{cartDefinitive.map((cartProduct, i) => (
-				<div key={i} className={styles.containerCardOrderDefinitive}>
-					<div className={styles.containerDescription}>
-						<h4>{cartProduct.title}</h4>
-						<small>Cantidad: {cartProduct.quantity}</small>
-						{/* {cartProduct.state === 'delivered' ? (
-							<small className={styles.state}>Entregado</small>
-						) : (
-							<small className={styles.state}>Su pedido se esta preparando.</small>
-						)} */}
-					</div>
-				</div>
+				</>
 			))}
 		</>
 	);

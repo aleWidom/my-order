@@ -3,8 +3,8 @@ import {TableRestaurant } from '../../interfaces';
 
 
 interface ContextProps {
-	sittingOnTheTable: string;
-	setSittingOnTheTable: (description: string) => void;
+/* 	sittingOnTheTable: string;
+	setSittingOnTheTable: (description: string) => void; */
 	idPeopleInTable: string,
 	setIdPeopleInTable: (description: string) => void;
 	sittingOnTheTableCall: boolean | undefined;

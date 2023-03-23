@@ -4,15 +4,26 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 2rem;
+	gap: 1rem;
 	width: 100%;
 	height: 100%;
 	padding: 0px 1.5rem;
 }
 
-.title {
+.titleOrderUnconfirmed {
 	@include title;
 }
+
+.titleOrderConfirmed {
+	@include title;
+	color: $color-four;
+}
+
+
+.containerOrderConfirmed {
+	margin-top: 1rem;
+}
+
 
 .withoutRequestContainer {
 	display: flex;
@@ -20,4 +31,16 @@
 	width: 100%;
 	min-height: 100vh;
 	font-size: 0.9rem;
+}
+
+.confirm {
+	width: 100%;
+	background-color: $color-five;
+	color: $color-primary;
+	border: none;
+	padding: 1rem;
+}
+
+.hover {
+	cursor: pointer;
 }

@@ -16,6 +16,7 @@ export const MainPlate: FC<Props> = ({ header, price, source, description, id })
 	const onClickCardHome = () => {
 		setModalPlate({
 			...modalPlate,
+			ItemID: id,
 			stateModal: true,
 			title: header,
 			price: price,

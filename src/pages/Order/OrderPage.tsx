@@ -1,40 +1,64 @@
 import { useContext, useEffect } from 'react';
-import { OrderContext, TableContext } from '../../context';
+import { v4 as uuidv4 } from 'uuid';
+import { OrderContext} from '../../context';
 import { Navbar } from '../../components/organisms';
-import { ModalPlate, ModalPlateRequired, OrderPlate } from '../../components/molecules';
+import { ModalPlate, ModalPlateRequired, OrderPlateConfirmed, OrderPlateUnConfirmed} from '../../components/molecules';
 import styles from './OrderPage.module.scss';
+import { fetchItemPeopleInTable, itemPeopleInTable } from '../../services';
+
 
 const OrderPage = () => {
-	const { modalPlate, cartTemporary, cartDefinitive, setCartTemporary } = useContext(OrderContext)
+	const { modalPlate, cartTemporary, cartDefinitive, setCartTemporary, setCartDefinitive } = useContext(OrderContext)
 
-	const { setSittingOnTheTable } = useContext(TableContext)
-
-	useEffect(()=> {
-		setSittingOnTheTable(JSON.parse(localStorage.getItem('table')as any))
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	},[])
+	const  numberTable = JSON.parse(localStorage.getItem('table') as any)
 
 	useEffect(()=> {
 		if(localStorage.getItem('cartTemporary')) {
 			setCartTemporary((JSON.parse(localStorage.getItem('cartTemporary') as any)))
 		}
+		fetchItemPeopleInTable('03c4a3af-c072-4f77-820a-16b884b0ac19')
+		.then((response)=> {
+			setCartDefinitive(response)
+		})
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[])
+
+	useEffect(()=> {
+		fetchItemPeopleInTable('03c4a3af-c072-4f77-820a-16b884b0ac19')
+		.then((response) => {
+			setCartDefinitive(response)
+		})
+	},[cartDefinitive])
+
+	const handleConfirmRequest = () => {
+		cartTemporary.map((e)=> {
+			 itemPeopleInTable(uuidv4(),'03c4a3af-c072-4f77-820a-16b884b0ac19', e.quantity, e.ItemID)
+		})
+
+		setCartTemporary([])
+		localStorage.removeItem('cartTemporary')
+	}
 
 	return (
 		<>
 			<div className={styles.mainContainerOrder}>
 				<Navbar />
-				{cartTemporary.length || cartDefinitive.length > 0 ? (
+					{cartTemporary.length ? 
 					<>
-						<h2 className={styles.title}>Mis solicitudes</h2>
-						<OrderPlate />
-					</>
-				) : (
+						<h2 className={styles.titleOrderUnconfirmed}>Tu Pedido</h2>
+						<OrderPlateUnConfirmed/>
+						<button className={styles.confirm} onClick={handleConfirmRequest}>Confirmar Pedido</button>
+					</>: ''}
+					{cartDefinitive.length ?
+					<div className={styles.containerOrderConfirmed}>
+						<h2 className={styles.titleOrderConfirmed}>Pedidos en preparación / entregados</h2>
+						<OrderPlateConfirmed/>
+					</div> : ''}	
+				 {cartTemporary.length === 0 && cartDefinitive.length === 0 &&
 					<div className={styles.withoutRequestContainer}>
 						<p>Sin solicitudes en su mesa.</p>
 					</div>
-				)}
+				} 
 			</div>
 			{modalPlate.stateModal && modalPlate.modalType === 'main' && modalPlate.modalEditOrDelete === 'edit' && (
 				<ModalPlate buttonName='Editar' />

@@ -8,7 +8,7 @@ interface Props {
 
 export const TableProvider = ({ children }: Props) => {
 
-	const [sittingOnTheTable, setSittingOnTheTable] = useState<string>("")
+/* 	const [sittingOnTheTable, setSittingOnTheTable] = useState<string>("") */
 
 	const [stateTable, setStateTable] = useState<TableRestaurant>({
 	TableID: "",
@@ -26,10 +26,10 @@ export const TableProvider = ({ children }: Props) => {
 	return (
 		<TableContext.Provider
 			value={{
-				sittingOnTheTable, 
+				/* sittingOnTheTable, 
+				setSittingOnTheTable, */
 				idPeopleInTable,
 				setIdPeopleInTable,
-				setSittingOnTheTable,
 				sittingOnTheTableCall, 
 				setSittingOnTheTableCall,
 				sittingOnTheTableActivate,

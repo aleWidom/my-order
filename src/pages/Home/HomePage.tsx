@@ -37,7 +37,7 @@ useEffect(()=> {
 						)}
 						<footer className={styles.footer}>© my order todos los derechos reservados</footer>
 					</div>
-					{modalPlate.stateModal && modalPlate.modalType === 'main' && <ModalPlate buttonName='Solicitar' />}
+					{modalPlate.stateModal && modalPlate.modalType === 'main' && <ModalPlate buttonName='Agregar' />}
 					{modalPlate.stateModal && modalPlate.modalType === 'required' && <ModalPlateRequired />}
 					{modalInfo.state && <ModalInfo />}
 				</>

@@ -21,12 +21,14 @@ export interface CategoryRestaurant {
 }
 
 export interface PlateSelected {
+	ItemID: string;
 	title: string;
 	quantity: number;
 	price: string;
 }
 
 export interface ModalPlate {
+	ItemID: string,
 	title: string;
 	description: string;
 	price: string;
