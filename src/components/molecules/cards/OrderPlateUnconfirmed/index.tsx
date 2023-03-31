@@ -1,41 +1,14 @@
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { PlateSelected } from '../../../../interfaces/interfaces';
 import styles from './OrderPlateUnconfirmed.module.scss';
 
+
 export const OrderPlateUnConfirmed = () => {
 
-	const { cartTemporary, modalPlate, setModalPlate, setCartTemporary} = useContext(OrderContext);
-
-	const numberTable = JSON.parse(localStorage.getItem('table') as any)
-
-
-	/* 	useEffect(()=> {
-						setCartDefinitive([
-							...cartTemporary,
-							...cartDefinitive
-						])
-						setCartTemporary([])
-		},[]) */
-
-
-
-
-	useEffect(() => {
-		setInterval(() => {
-			/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
-				fetchItemPeopleInTable(response[0].PeopleInTableID)
-					.then((data) => {
-						setCart(data);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
-			}); */
-		}, 10000);
-	}, [setCartTemporary, numberTable]);
-
+	const {cartTemporary, modalPlate, setModalPlate, setCartTemporary } = useContext(OrderContext);
+	
 	const handleEdit = (cartProduct: PlateSelected, i: number) => () => {
 		/* fetchPeopleInTable(sittingOnTheTable)
 			.then((data) => {
@@ -53,21 +26,24 @@ export const OrderPlateUnConfirmed = () => {
 			price: cartProduct.price,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
-			modalEditOrDelete: 'edit',
+			modalEditOrDeleteOrConfirm: 'edit',
 			index: i
 		});
 
 
-		const editItem = cartTemporary.filter((e, index) => {
+	/* 	const editItem = cartTemporary.filter((e, index) => {
+			
 			if (i === index) {
 				e.quantity = cartProduct.quantity
 			}
 			return e
 		})
+ */
+	/* 	console.log('cartTemporary')
 
 		setCartTemporary(editItem)
 
-		localStorage.setItem('cartTemporary', JSON.stringify(editItem))
+		localStorage.setItem('cartTemporary', JSON.stringify(editItem)) */
 	};
 
 
@@ -79,15 +55,14 @@ export const OrderPlateUnConfirmed = () => {
 			title: cartProduct.title,
 			quantity: cartProduct.quantity,
 			modalType: 'main',
-			modalEditOrDelete: 'delete',
+			modalEditOrDeleteOrConfirm: 'delete',
 			index: i
 		});
 	};
 
 	return (
 		<>
-			{cartTemporary.map((cartProduct, i) => (
-				<>
+			{cartTemporary.map((cartProduct,i) => (
 					<div key={i} className={styles.containerCardOrder}>
 						<div className={styles.containerDescription}>
 							<h4>{cartProduct?.title}</h4>
@@ -98,7 +73,6 @@ export const OrderPlateUnConfirmed = () => {
 							<FaTrashAlt onClick={handleDelete(cartProduct, i)} className={styles.delete} />
 						</div>
 					</div>
-				</>
 			))}
 		</>
 	);

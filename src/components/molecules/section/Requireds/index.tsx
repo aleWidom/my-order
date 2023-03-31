@@ -11,7 +11,7 @@ const Requireds = () => {
 
 	return (
 		<div className={styles.required}>
-			{(cartTemporary.length > 0 || cartDefinitive.length) && modalPlate.stateModal === false ?
+			{(cartTemporary.length || cartDefinitive.length) && modalPlate.stateModal === false ?
 				(
 					<>
 						<Link to={`/order/${numberTable}`} className={styles.link}>

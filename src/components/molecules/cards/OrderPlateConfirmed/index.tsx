@@ -8,7 +8,6 @@ export const OrderPlateConfirmed = () => {
 
 	const  numberTable = JSON.parse(localStorage.getItem('table') as any)
 
-
 	/* 	useEffect(()=> {
 						setCartDefinitive([
 							...cartTemporary,
@@ -16,12 +15,9 @@ export const OrderPlateConfirmed = () => {
 						])
 						setCartTemporary([])
 		},[]) */
-
-
-
-
+/* 
 	useEffect(() => {
-		setInterval(() => {
+		setInterval(() => { */
 			/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
 				fetchItemPeopleInTable(response[0].PeopleInTableID)
 					.then((data) => {
@@ -31,17 +27,11 @@ export const OrderPlateConfirmed = () => {
 						console.log(err);
 					});
 			}); */
-		}, 10000);
-	}, [setCartTemporary,numberTable]);
-
-
-
-
-	
+/* 		}, 10000);
+	}, [setCartTemporary,numberTable]); */
 
 	return (
 		<>
-			
 			{cartDefinitive.map((cartProduct, i) => (
 				<div key={i} className={styles.containerCardOrderDefinitive}>
 					<div className={styles.containerDescription}>

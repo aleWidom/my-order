@@ -25,6 +25,7 @@ export interface PlateSelected {
 	title: string;
 	quantity: number;
 	price: string;
+	state?: string
 }
 
 export interface ModalPlate {
@@ -35,7 +36,7 @@ export interface ModalPlate {
 	quantity: number;
 	stateModal?: boolean,
 	modalType?: 'main' | 'required',
-	modalEditOrDelete?: 'edit'| 'delete',
+	modalEditOrDeleteOrConfirm?: 'temporary' | 'edit'| 'delete' | 'confirm',
 	index?: number
 }
 

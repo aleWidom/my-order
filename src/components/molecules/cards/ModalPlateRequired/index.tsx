@@ -25,7 +25,7 @@ export const ModalPlateRequired = () => {
 			});
 			 
 		}, 4000);
-	}, [setModalPlate]);
+	}, [modalPlate]);
 
 	return (
 		<div className={styles.containerModalPlate}>
@@ -36,23 +36,27 @@ export const ModalPlateRequired = () => {
 						<small>Solicitud agregada</small>
 					</div>
 				)}
-				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' && (
+				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'edit' && (
 					<div className={styles.containerAdd}>
 						<FaRegCheckCircle className={styles.check} />
 						<small>Solicitud Editada</small>
 					</div>
 				)}
-				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'delete' && (
+				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'confirm' && (
+					<div className={styles.containerAdd}>
+						<FaRegCheckCircle className={styles.check} />
+						<small>Su pedido se ha procesado correctamente.</small>
+					</div>
+				)}
+				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'delete' && (
 					<div className={styles.containerSubstract}>
 						<small>Solicitud Eliminada</small>
 					</div>
 				)}
 				<h2 className={styles.title}>{modalPlate.title}</h2>
-				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDelete === 'edit' ? (
-					<p className={styles.quantity}>Nueva cantidad solicitada: {`${modalPlate.quantity} u.`}</p>
-				) : (
+				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'edit' ? (
 					<p className={styles.quantity}>Cantidad: {`${modalPlate.quantity} u.`}</p>
-				)}
+				) : ""}
 				{page === '/' && (
 					<>
 						<small className={styles.edit}>Para editar la orden puede ir a sección mis solicitudes</small>

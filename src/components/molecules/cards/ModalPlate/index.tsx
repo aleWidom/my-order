@@ -54,12 +54,13 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required',
+			modalEditOrDeleteOrConfirm: 'temporary',
 		});
 	};
 
 	const handleEdit = () => {
 
-		const cartTemporaryEdit = cartTemporary.map((item, i) => {
+		const cartTemporaryEdit = cartTemporary.filter((item, i) => {
 			if (i === modalPlate.index) {
 				item.quantity = modalPlate.quantity
 			}
@@ -73,7 +74,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required',
-			modalEditOrDelete: 'edit',
+			modalEditOrDeleteOrConfirm: 'edit',
 		});
 	};
 
@@ -89,7 +90,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 		setModalPlate({
 			...modalPlate,
 			modalType: 'required',
-			modalEditOrDelete: 'delete',
+			modalEditOrDeleteOrConfirm: 'delete',
 		});
 	};
 
@@ -120,7 +121,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 				<small className={styles.priceUnit}> (precio x unidad)</small>
 				<div className={styles.containerQuantity}>
 					<p className={styles.quantity}>Cantidad: </p>
-					{page === '/' || modalPlate.modalEditOrDelete === 'edit' ? (
+					{page === '/' || modalPlate.modalEditOrDeleteOrConfirm === 'edit' ? (
 						<div className={styles.containerQuantitySigns}>
 							{modalPlate.quantity > 1 ? (
 								<button onClick={substractQuantity} className={styles.buttonQuantitySubstract}>
