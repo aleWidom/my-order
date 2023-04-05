@@ -1,34 +1,27 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { OrderContext } from '../../../../context/order/OrderContext';
 import styles from './OrderPlateConfirmed.module.scss';
+import { fetchItemPeopleInTable } from '../../../../services';
 
 export const OrderPlateConfirmed = () => {
 
-	const {  cartDefinitive, setCartTemporary,} = useContext(OrderContext);
+	const {  cartDefinitive, setCartDefinitive} = useContext(OrderContext);
 
-	const  numberTable = JSON.parse(localStorage.getItem('table') as any)
+/* 	setInterval(() => { 
+		console.log(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
+		if(cartDefinitive.length) {
+			fetchItemPeopleInTable(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
+			   .then((data) => {
+				   console.log(data)
+				   setCartDefinitive(data);
+				   localStorage.setItem('cartDefinitive', JSON.stringify(data))
+			   })
+			   .catch((err) => {
+				   console.log(err);
+			   });
+		}
+   }, 10000); */
 
-	/* 	useEffect(()=> {
-						setCartDefinitive([
-							...cartTemporary,
-							...cartDefinitive
-						])
-						setCartTemporary([])
-		},[]) */
-/* 
-	useEffect(() => {
-		setInterval(() => { */
-			/* fetchPeopleInTable(sittingOnTheTable.id).then((response) => {
-				fetchItemPeopleInTable(response[0].PeopleInTableID)
-					.then((data) => {
-						setCart(data);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
-			}); */
-/* 		}, 10000);
-	}, [setCartTemporary,numberTable]); */
 
 	return (
 		<>
@@ -37,11 +30,11 @@ export const OrderPlateConfirmed = () => {
 					<div className={styles.containerDescription}>
 						<h4 className={styles.title}>{cartProduct.title}</h4>
 						<small>Cantidad: {cartProduct.quantity}</small>
-						{/* {cartProduct.state === 'delivered' ? (
+						 {cartProduct.state === 'delivered' ? (
 							<small className={styles.state}>Entregado</small>
 						) : (
 							<small className={styles.state}>Su pedido se esta preparando.</small>
-						)} */}
+						)} 
 					</div>
 				</div>
 			))}

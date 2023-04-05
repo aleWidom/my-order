@@ -26,6 +26,7 @@ export interface PlateSelected {
 	quantity: number;
 	price: string;
 	state?: string
+	id_table?: string
 }
 
 export interface ModalPlate {

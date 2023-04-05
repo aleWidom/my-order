@@ -1,10 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { OrderContext } from '../../context';
+import { itemPeopleInTable } from '../../services';
+import { useFetchCarts } from '../../hooks';
 import { Navbar } from '../../components/organisms';
 import { ModalPlate, ModalPlateRequired, OrderPlateConfirmed, OrderPlateUnConfirmed } from '../../components/molecules';
 import styles from './OrderPage.module.scss';
-import { fetchItemPeopleInTable, itemPeopleInTable } from '../../services';
 
 
 const OrderPage = () => {
@@ -21,64 +22,40 @@ const OrderPage = () => {
 	
 		},[]) */
 
-
-
-	useEffect(() => {
-		if(localStorage.getItem('cartTemporary')) {
-			setCartTemporary(JSON.parse(localStorage.getItem('cartTemporary') as any))
-		}
-		if (localStorage.getItem('cartDefinitive')) {
-			setCartDefinitive(JSON.parse(localStorage.getItem('cartDefinitive') as any))
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	useFetchCarts()
 
 	const handleConfirmRequest = () => {
 
+		//agrego a la base de datos cada uno de los items pedidos y cantidad y a que PeopleTableId corresponde
 		cartTemporary.map((e) => (
 			itemPeopleInTable(uuidv4().replaceAll('/', 'a'), JSON.parse(localStorage.getItem('idPeopleTableId') as any), e.quantity, e.ItemID)
 		))
 
-		/* 	if (!localStorage.getItem('cartDefinitive')) {
-				fetchItemPeopleInTable(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
-					.then((response) => {
-						localStorage.setItem('cartDefinitive', JSON.stringify(response))
-						setCartDefinitive(response)
-					})
-			}
-			else {
-				localStorage.setItem('cartDefinitive', JSON.stringify([
-					...cartTemporary,
-					...JSON.parse(localStorage.getItem('cartDefinitive') as any)
-				]))
-	
-				console.log(localStorage.getItem('cartDefinitive'))
-	
-				setCartDefinitive([
-					...cartTemporary, ...JSON.parse(localStorage.getItem('cartDefinitive') as any)
-				])
-			} */
 
-		fetchItemPeopleInTable(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
-			.then((response) => {
-				localStorage.setItem('cartDefinitive', JSON.stringify(response)) 
-				setCartDefinitive(response)
-			})
+		
+		//seteo como cart Definitivo, el cartTemporary + lo que esta de antes como definitivo, la misma información la guardo en el localstorage
+		setCartDefinitive([
+			...cartTemporary, ...JSON.parse(localStorage.getItem('cartDefinitive') as any)
+		])
+		localStorage.setItem('cartDefinitive', JSON.stringify([
+			...cartTemporary,
+			...JSON.parse(localStorage.getItem('cartDefinitive') as any)
+		]))
 
+
+		//seteo el carrito temporario como vacio, y guardo lo mismo en el local storage
 		setCartTemporary([])
 		localStorage.setItem('cartTemporary', JSON.stringify([]))
 
 
-	 setModalPlate({
+		setModalPlate({
 			...modalPlate,
 			stateModal: true,
 			modalEditOrDeleteOrConfirm: 'confirm',
 			modalType: 'required',
-		}); 
+		});
 
 	}
-
-	console.log(cartTemporary)
 
 	return (
 		<>

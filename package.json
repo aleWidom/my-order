@@ -13,7 +13,6 @@
 		"@types/react-dom": "^18.0.9",
 		"aws-amplify": "^4.3.14",
 		"axios": "^0.27.2",
-		"caniuse-lite": "^1.0.30001377",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.3.1",

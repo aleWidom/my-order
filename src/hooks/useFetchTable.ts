@@ -15,10 +15,12 @@ export const useFetchTable = () => {
             peopleInTable(idPeopleInTableUuid, params.get('table'));
             //Paso la mesa a activa
             updateTableNumberActive(params.get('table'));
-            //Guardo en local storage el idPeopleInTable y el número de mesa
+            //Guardo en local storage el idPeopleInTable y el número de mesa y si fue llamada la mesa o no
             localStorage.setItem('table', JSON.stringify(params.get('table')))
             localStorage.setItem('idPeopleTableId', JSON.stringify(idPeopleInTableUuid))
-            // eslint-disable-next-line react-hooks/exhaustive-deps
         }
+
+        
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 };

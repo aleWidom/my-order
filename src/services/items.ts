@@ -88,14 +88,7 @@ async function makeDelivered(idItemPeopleInTable: string | undefined) {
 	}
 }
 
-async function makePreparing(idItemPeopleInTable: string | undefined) {
-	try {
-		const  makeDelivered = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items/${idItemPeopleInTable}?makePreparing`);
-		return  makeDelivered;
-	} catch (err) {
-		console.log(err);
-	}
-}
+
 
 export {
 	fetchItemsRestaurant,
@@ -107,7 +100,6 @@ export {
 	getItemsResults,
 	fetchItemPeopleInTable,
 	makeDelivered,
-	makePreparing
 };
 
 	

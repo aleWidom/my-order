@@ -1,36 +1,19 @@
-import { useContext, useEffect} from 'react';
+import { useContext} from 'react';
 import { OrderContext, SearchContext} from '../../context';
+import { useFetchCarts } from '../../hooks';
 import { CallWaiter, Categories, FormSearch, MainLoading, ModalPlate, ModalPlateRequired, ModalInfo } from '../../components/molecules';
 import { MainPlates, Plates, Navbar } from '../../components/organisms';
 import styles from './HomePage.module.scss';
-import { fetchItemPeopleInTable } from '../../services';
+
 
 const HomePage = () => {
 
 const { results, modalInfo } = useContext(SearchContext);
 
-const {modalPlate, cartTemporary, cartDefinitive, setCartDefinitive ,loading, setCartTemporary} = useContext(OrderContext);
+const {modalPlate ,loading} = useContext(OrderContext);
 
 
-useEffect(()=> {
-	if(localStorage.getItem('cartTemporary')) {
-		console.log('entre')
-		setCartTemporary((JSON.parse(localStorage.getItem('cartTemporary') as any)))
-	}
-},[])
-
-useEffect(()=> {
-	fetchItemPeopleInTable(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
-	.then((response) => {
-		setCartDefinitive(response)
-		console.log(response)
-	})
-},[]) 
-
-
-console.log(cartTemporary)
-
-
+useFetchCarts()
 
 	return (
 		<>

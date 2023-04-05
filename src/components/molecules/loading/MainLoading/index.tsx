@@ -2,7 +2,7 @@ import { MainBrand } from "../../../atoms";
 import { OrderContext } from '../../../../context/order/OrderContext';
 import BeatLoader from "react-spinners/BeatLoader";
 import styles from './MainLoading.module.scss'
-import {useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff, useFetchCategories, useFetchItems, useFetchTable,} from "../../../../hooks";
+import {useFetchCallTable, useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff, useFetchCategories, useFetchItems, useFetchTable} from "../../../../hooks";
 import { useContext, useEffect } from "react";
 
 export const MainLoading = () => {
@@ -14,12 +14,15 @@ export const MainLoading = () => {
   useFetchCategories();
 
   useFetchTable()
+
+  useFetchCallTable()
   
   useFetchCardsRankingPlates();
 
 	useFetchCardsDayPlates();
 
 	useFetchCardsSpecialsCheff();
+  
 
   useEffect(()=> {
 		if(itemsRestaurant.length && cardsDayPlates.length && cardsRankingPlates.length && cardsSpecialsCheff.length && localStorage.getItem('table') ) {
