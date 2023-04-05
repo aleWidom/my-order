@@ -11,17 +11,6 @@ import styles from './OrderPage.module.scss';
 const OrderPage = () => {
 	const { modalPlate, setModalPlate, cartTemporary, cartDefinitive, setCartTemporary, setCartDefinitive } = useContext(OrderContext)
 
-	/* 	const  numberTable = JSON.parse(localStorage.getItem('table') as any) */
-
-	/* 	useEffect(()=> {
-			fetchItemPeopleInTable(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
-			.then((response) => {
-				setCartDefinitive(response)
-				console.log(response)
-			})
-	
-		},[]) */
-
 	useFetchCarts()
 
 	const handleConfirmRequest = () => {

@@ -25,6 +25,7 @@ export const ModalPlateRequired = () => {
 			});
 			 
 		}, 4000);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalPlate]);
 
 	return (

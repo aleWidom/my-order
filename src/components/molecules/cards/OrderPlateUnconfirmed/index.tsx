@@ -7,17 +7,9 @@ import styles from './OrderPlateUnconfirmed.module.scss';
 
 export const OrderPlateUnConfirmed = () => {
 
-	const {cartTemporary, modalPlate, setModalPlate, setCartTemporary } = useContext(OrderContext);
+	const {cartTemporary, modalPlate, setModalPlate} = useContext(OrderContext);
 	
 	const handleEdit = (cartProduct: PlateSelected, i: number) => () => {
-		/* fetchPeopleInTable(sittingOnTheTable)
-			.then((data) => {
-				console.log(data[0]);
-				 updateItemsQuantityhAccordingPeopleInTableID('dada') 
-			})
-			.catch((err) => {
-				console.log(err);
-			}); */
 
 		setModalPlate({
 			...modalPlate,
@@ -29,21 +21,6 @@ export const OrderPlateUnConfirmed = () => {
 			modalEditOrDeleteOrConfirm: 'edit',
 			index: i
 		});
-
-
-	/* 	const editItem = cartTemporary.filter((e, index) => {
-			
-			if (i === index) {
-				e.quantity = cartProduct.quantity
-			}
-			return e
-		})
- */
-	/* 	console.log('cartTemporary')
-
-		setCartTemporary(editItem)
-
-		localStorage.setItem('cartTemporary', JSON.stringify(editItem)) */
 	};
 
 

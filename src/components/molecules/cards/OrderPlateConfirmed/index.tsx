@@ -8,11 +8,9 @@ export const OrderPlateConfirmed = () => {
 	const {  cartDefinitive, setCartDefinitive} = useContext(OrderContext);
 
 /* 	setInterval(() => { 
-		console.log(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
 		if(cartDefinitive.length) {
 			fetchItemPeopleInTable(JSON.parse(localStorage.getItem('idPeopleTableId') as any))
 			   .then((data) => {
-				   console.log(data)
 				   setCartDefinitive(data);
 				   localStorage.setItem('cartDefinitive', JSON.stringify(data))
 			   })
@@ -20,8 +18,8 @@ export const OrderPlateConfirmed = () => {
 				   console.log(err);
 			   });
 		}
-   }, 10000); */
-
+   }, 10000); 
+ */
 
 	return (
 		<>
