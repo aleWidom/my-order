@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-
-
-
-
 async function updateTableNumberActive(table: string | null) {
 	try {
 		const response = await axios.put(
@@ -49,9 +45,19 @@ async function updateTableNumberNotCall(table: string) {
 }
 
 
+async function peopleInTableFetch(tableId: string | null) {
+	try {
+		const response = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${tableId}?peopleInTableSearch`);
+		return response.data;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+
 async function peopleInTable(idPeopleInTable: string, tableId: string | null) {
 	try {
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idPeopleInTable}/${tableId}?peopleInTable`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idPeopleInTable}/?peopleInTable`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
@@ -74,6 +80,7 @@ export {
 	updateTableNumberDesactive,
 	updateTableNumberCall,
 	updateTableNumberNotCall,
+	peopleInTableFetch,
 	peopleInTable,
 	itemPeopleInTable,
 };
