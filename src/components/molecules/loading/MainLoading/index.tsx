@@ -25,7 +25,7 @@ export const MainLoading = () => {
   
 
   useEffect(()=> {
-		if(itemsRestaurant.length && cardsDayPlates.length && cardsRankingPlates.length && cardsSpecialsCheff.length && localStorage.getItem('table') ) {
+		if(itemsRestaurant.length && cardsDayPlates.length && cardsRankingPlates.length && cardsSpecialsCheff.length && localStorage.getItem('idPeopleTableId')) {
 			setLoading(false)
 		}
 	// eslint-disable-next-line react-hooks/exhaustive-deps

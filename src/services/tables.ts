@@ -57,7 +57,7 @@ async function peopleInTableFetch(tableId: string | null) {
 
 async function peopleInTable(idPeopleInTable: string, tableId: string | null) {
 	try {
-		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idPeopleInTable}/?peopleInTable`);
+		const response = await axios.post(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/tables/${idPeopleInTable}/${tableId}?peopleInTable`);
 		return response.data;
 	} catch (err) {
 		console.log(err);
