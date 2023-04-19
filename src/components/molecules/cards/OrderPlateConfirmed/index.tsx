@@ -18,8 +18,10 @@ export const OrderPlateConfirmed = () => {
 				   console.log(err);
 			   });
 		}
-   }, 10000); 
- */
+   }, 10000);  */
+
+
+console.log(cartDefinitive)
 
 	return (
 		<>

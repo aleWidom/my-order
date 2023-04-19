@@ -19,8 +19,6 @@ const OrderPage = () => {
 		cartTemporary.map((e) => (
 			itemPeopleInTable(uuidv4().replaceAll('/', 'a'), JSON.parse(localStorage.getItem('idPeopleTableId') as any), e.quantity, e.ItemID)
 		))
-
-
 		
 		//seteo como cart Definitivo, el cartTemporary + lo que esta de antes como definitivo, la misma información la guardo en el localstorage
 		setCartDefinitive([

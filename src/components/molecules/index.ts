@@ -7,6 +7,8 @@ export * from "./cards/ModalPlateRequired";
 export * from "./cards/ModalInfo";
 export * from "./cards/OrderPlateConfirmed";
 export * from "./cards/OrderPlateUnconfirmed";
+export * from "./cards/AdminOrdersActives";
+export * from "./cards/AdminTablesActives";
 export * from "./forms/FormSearch";
 export * from "./loading/MainLoading";
 export * from "./section/Requireds";

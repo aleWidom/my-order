@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/Home/HomePage';
 import OrderPage from './pages/Order/OrderPage';
 import AdminPage from './pages/Admin/AdminPage';
-import AdminTablePage from './pages/AdminTablePage/AdminTablePage';
 import { TableProvider } from './context/tables';
 import { OrderProvider } from './context/order';
 import { SearchProvider } from './context/search';
@@ -31,7 +30,6 @@ function App() {
 							<Route path={'/'} element={<HomePage />} />
 							<Route path={`/order/:table`} element={<OrderPage />} />
 							<Route path={`/admin`} element={<AdminPage />} />
-							<Route path={`/admin/:table`} element={<AdminTablePage />} />
 						</Routes>
 					</SearchProvider>
 				</OrderProvider>
