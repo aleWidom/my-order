@@ -11,6 +11,7 @@ export const CallWaiter = () => {
 
 	const  numberTable = JSON.parse(localStorage.getItem('table') as any)
 	
+	useFetchCallTable()
 
 	const handleCall = () => {
 		setModalInfo({
@@ -28,7 +29,6 @@ export const CallWaiter = () => {
 		}, 3000);
 
 		updateTableNumberCall(numberTable);
-		localStorage.setItem('tableCall', JSON.stringify(true))
 		setSittingOnTheTableCall(true);
 
 	};
@@ -49,11 +49,8 @@ export const CallWaiter = () => {
 		}, 3000);
 
 		updateTableNumberNotCall(numberTable);
-		localStorage.setItem('tableCall', JSON.stringify(false))
 		setSittingOnTheTableCall(false);
 	};
-
-	useFetchCallTable()
 
 	return (
 		<div className={styles.containerCallWaiter}>

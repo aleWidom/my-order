@@ -45,6 +45,7 @@ const AdminPage = () => {
 		//Busco las mesas activas
 		fetchTablesActive()
 			.then((data) => {
+				console.log(data)
 				setTablesRestaurantActives(data);
 			})
 			.catch((e) => {
@@ -53,12 +54,13 @@ const AdminPage = () => {
 
 		//Busco todas las ordenes que no esten entregadas	
 		fetchOrderItem().then((data) => {
+			console.log(data)
 			setOrderItem(data);
 		})
 			.catch((e) => {
 				console.log(e);
 			});
-	}, 30000);
+	}, 60000);
 
 
 

@@ -1,18 +1,23 @@
 import { useEffect, useContext } from 'react';
 import { TableContext } from '../context/tables/TableContext';
+import { fetchTable } from '../services';
 
 export const useFetchCallTable = () => {   
     const { setSittingOnTheTableCall} = useContext(TableContext);
 
 	useEffect(() => {  
-        //me fijo se existe un local storage llamado tableCall, si existe traigo la info, sino la seteo en false porque antes no ingresaron
-        if (localStorage.getItem('tableCall')) {
-            setSittingOnTheTableCall((JSON.parse(localStorage.getItem('tableCall') as any)))
-        }
-        else {
+        fetchTable(JSON.parse(localStorage.getItem('table') as any))
+        .then((response)=> {
+           if(response?.table_call === '1') {
+            setSittingOnTheTableCall(true)
+           }
+           else {
             setSittingOnTheTableCall(false)
-            localStorage.setItem('tableCall', JSON.stringify(false))
-        }
+           }
+        })
+        .catch((err)=> {
+            console.log(err)
+        })
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 };
