@@ -59,7 +59,7 @@ export const CallWaiter = () => {
 					Cancelar llamado moza/o a la maesa.
 				</button>
 			) : (
-				<button className={styles.buttonCall} onClick={handleCall}>
+				<button className={styles.buttonNotCall} onClick={handleCall}>
 					Llamar a moza/o a la mesa.
 				</button>
 			)}

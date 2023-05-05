@@ -6,7 +6,7 @@
 	height: 100vh;
 	position: fixed;
 	top: 0px;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(191, 191, 191, 0.3);
 	z-index: 3;
 }
 
@@ -32,12 +32,14 @@
 .description {
 	text-align: center;
 	font-size: 0.7rem;
+	color: $color-four;
 }
 
 .title {
 	text-align: center;
 	font-size: 0.9rem;
 	font-weight: bold;
+color: $color-secondary;
 }
 
 .img {
@@ -46,6 +48,7 @@
 
 .price {
 	font-weight: bold;
+	color: $color-four;
 }
 
 .buttonClosedModal {
@@ -92,15 +95,18 @@
 	border: solid 1px $color-secondary;
 	padding: 0.25rem;
 	border-radius: 2.6rem;
+	background-color: $color-secondary;
 }
 
 .quantity {
 	text-align: center;
 	font-size: 0.8rem;
+	color: $color-four;
 }
 
 .priceUnit {
 	margin-top: -0.5rem;
+	color: $color-four;
 }
 
 .buttonQuantitySubstract {
@@ -112,7 +118,7 @@
 	align-items: center;
 	font-weight: bold;
 	font-size: 1rem;
-	background-color: $color-primary;
+	background-color: $color-secondary;
 }
 
 
@@ -122,7 +128,7 @@
 	height: 1.2rem;
 	font-weight: bold;
 	font-size: 1rem;
-	background-color: $color-primary;
+	background-color: $color-secondary;
 }
 
 
@@ -136,12 +142,12 @@
 
 .signSubstractInactive {
 	font-size: 1.5rem;
-	color: $color-four;
+	color: rgb(87, 87, 87);
 }
 
 
-.signAddtInactive  {
+.signAddInactive  {
 		font-size: 1.1rem;
-	color: $color-four;
+		color: rgb(87, 87, 87);
 }
 

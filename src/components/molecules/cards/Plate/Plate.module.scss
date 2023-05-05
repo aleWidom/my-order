@@ -33,9 +33,19 @@
 	border-radius: 0.25rem;
 }
 
+
+.header {
+	color: $color-secondary;
+}
+
+.description {
+	color: $color-four;
+}
+
 .price {
 	font-weight: bold;
 	margin-top: 0.5rem;
+	color: $color-four;
 }
 
 .plateInCart {

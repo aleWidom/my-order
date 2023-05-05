@@ -146,7 +146,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 							) : (
 								<button className={styles.buttonQuantityAdd}>
 									<p>
-										<small className={styles.signAddtInactive}>+</small>
+										<small className={styles.signAddInactive}>+</small>
 									</p>
 								</button>
 							)}
