@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
 import { useLocation, Link, useSearchParams } from 'react-router-dom';
 import { SearchContext } from '../../../../context';
-import brand from '../../../../images/brand.jpg';
+import brand from '../../../../images/brand.png';
 import styles from './MainBrand.module.scss';
 
 export const MainBrand = () => {

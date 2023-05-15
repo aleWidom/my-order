@@ -136,7 +136,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 									</p>
 								</button>
 							)}
-							<p>{modalPlate.quantity}</p>
+							<p className={styles.quantitySelected}>{modalPlate.quantity}</p>
 							{modalPlate.quantity > 0 && modalPlate.quantity < 9 ? (
 								<button onClick={addQuantity} className={styles.buttonQuantityAdd}>
 									<p>

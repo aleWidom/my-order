@@ -10,9 +10,6 @@
 	padding: 0px 1.5rem;
 }
 
-.titleOrderUnconfirmed {
-	@include title;
-}
 
 .titleOrderConfirmed {
 	@include title;
@@ -33,14 +30,3 @@
 	font-size: 0.9rem;
 }
 
-.confirm {
-	width: 100%;
-	background-color: $color-five;
-	color: $color-primary;
-	border: none;
-	padding: 1rem;
-}
-
-.confirm:hover {
-	cursor: pointer;
-}

@@ -34,7 +34,7 @@ export const MainLoading = () => {
   return (
     <div className={styles.containerLoading}>
       <MainBrand />
-      <BeatLoader size={10} color={'#fe0000'} margin={10} />
+      <BeatLoader size={5} color={'#fff'} margin={2} />
     </div>
   )
 }
