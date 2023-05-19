@@ -1,13 +1,11 @@
 import { MainBrand } from "../../../atoms";
-import { OrderContext } from '../../../../context/order/OrderContext';
 import BeatLoader from "react-spinners/BeatLoader";
 import styles from './MainLoading.module.scss'
-import {useFetchCallTable, useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff, useFetchCategories, useFetchItems, useFetchTable} from "../../../../hooks";
-import { useContext, useEffect } from "react";
+import {useFetchCallTable,  useFetchTable, useFetchLoading, useFetchCardsDayPlates, useFetchCardsRankingPlates, useFetchCardsSpecialsCheff, useFetchCategories, useFetchItems} from "../../../../hooks";
+
 
 export const MainLoading = () => {
 
-  const {setLoading, itemsRestaurant, cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff }= useContext(OrderContext)
 
   useFetchItems()
 
@@ -16,20 +14,16 @@ export const MainLoading = () => {
   useFetchTable()
 
   useFetchCallTable()
-  
+
   useFetchCardsRankingPlates();
 
 	useFetchCardsDayPlates();
 
 	useFetchCardsSpecialsCheff();
   
+  useFetchLoading()
 
-  useEffect(()=> {
-		if(itemsRestaurant.length && cardsDayPlates.length && cardsRankingPlates.length && cardsSpecialsCheff.length && localStorage.getItem('idPeopleTableId')) {
-			setLoading(false)
-		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [itemsRestaurant, cardsDayPlates, cardsRankingPlates, cardsSpecialsCheff ])
+
 
   return (
     <div className={styles.containerLoading}>

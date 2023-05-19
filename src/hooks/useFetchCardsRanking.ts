@@ -7,12 +7,12 @@ export const useFetchCardsRankingPlates = () => {
 
 	useEffect(() => {
 
-	  const specials = itemsRestaurant?.filter((item) => {
+	  const ranking = itemsRestaurant?.filter((item) => {
 		 if(item.ItemID === '2' || item.ItemID === '61' || item.ItemID === '83') {
 			return item
 		} 
 	  })
-	  setCardsRankingPlates(specials)
+	  setCardsRankingPlates(ranking)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [itemsRestaurant]);
 };

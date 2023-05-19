@@ -31,67 +31,74 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const handleClickRequest = () => {
 
-		setCartTemporary(
-			[{
+		if (localStorage.getItem('idPeopleTableId')) {
+			setCartTemporary(
+				[{
+					ItemID: modalPlate.ItemID,
+					title: modalPlate.title,
+					quantity: modalPlate.quantity,
+					price: modalPlate.price,
+				},
+				...cartTemporary])
+
+			localStorage.setItem('cartTemporary', JSON.stringify([{
 				ItemID: modalPlate.ItemID,
 				title: modalPlate.title,
 				quantity: modalPlate.quantity,
 				price: modalPlate.price,
 			},
-			...cartTemporary])
-
-		localStorage.setItem('cartTemporary', JSON.stringify([{
-			ItemID: modalPlate.ItemID,
-			title: modalPlate.title,
-			quantity: modalPlate.quantity,
-			price: modalPlate.price,
-		},
-		...cartTemporary
-		]))
+			...cartTemporary
+			]))
 
 
 
-		setModalPlate({
-			...modalPlate,
-			modalType: 'required',
-			modalEditOrDeleteOrConfirm: 'temporary',
-		});
+			setModalPlate({
+				...modalPlate,
+				modalType: 'required',
+				modalEditOrDeleteOrConfirm: 'temporary',
+			});
+		}
+
 	};
 
 	const handleEdit = () => {
+		if (localStorage.getItem('idPeopleTableId')) {
+			const cartTemporaryEdit = cartTemporary.filter((item, i) => {
+				if (i === modalPlate.index) {
+					item.quantity = modalPlate.quantity
+				}
+				return item
+			})
 
-		const cartTemporaryEdit = cartTemporary.filter((item, i) => {
-			if (i === modalPlate.index) {
-				item.quantity = modalPlate.quantity
-			}
-			return item
-		})
+			setCartTemporary(cartTemporaryEdit)
 
-		setCartTemporary(cartTemporaryEdit)
+			localStorage.setItem('cartTemporary', JSON.stringify(cartTemporaryEdit))
 
-		localStorage.setItem('cartTemporary', JSON.stringify(cartTemporaryEdit))
-
-		setModalPlate({
-			...modalPlate,
-			modalType: 'required',
-			modalEditOrDeleteOrConfirm: 'edit',
-		});
+			setModalPlate({
+				...modalPlate,
+				modalType: 'required',
+				modalEditOrDeleteOrConfirm: 'edit',
+			});
+		}
 	};
 
 	const handleDelete = () => {
-		const cartTemporaryDelete = cartTemporary.filter((item, index) => {
-			return index !== modalPlate.index
-		})
 
-		setCartTemporary(cartTemporaryDelete)
-
-		localStorage.setItem('cartTemporary', JSON.stringify(cartTemporaryDelete))
-
-		setModalPlate({
-			...modalPlate,
-			modalType: 'required',
-			modalEditOrDeleteOrConfirm: 'delete',
-		});
+		if (localStorage.getItem('idPeopleTableId'))  {
+			const cartTemporaryDelete = cartTemporary.filter((item, index) => {
+				return index !== modalPlate.index
+			})
+	
+			setCartTemporary(cartTemporaryDelete)
+	
+			localStorage.setItem('cartTemporary', JSON.stringify(cartTemporaryDelete))
+	
+			setModalPlate({
+				...modalPlate,
+				modalType: 'required',
+				modalEditOrDeleteOrConfirm: 'delete',
+			});
+		}
 	};
 
 	const addQuantity = () => {

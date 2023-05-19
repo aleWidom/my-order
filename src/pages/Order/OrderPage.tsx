@@ -26,7 +26,7 @@ const OrderPage = () => {
 					: ''}
 				{cartTemporary?.length === 0 && cartDefinitive?.length === 0 &&
 					<div className={styles.withoutRequestContainer}>
-						<p>Sin solicitudes en su mesa.</p>
+						<p className={styles.emptyCart}>Sin solicitudes en su mesa.</p>
 					</div>
 				}
 			</div>

@@ -41,7 +41,8 @@ export const OrderPlateUnConfirmed = () => {
 
 	const handleConfirmRequest = () => {
 
-		//agrego a la base de datos cada uno de los items pedidos y cantidad y a que PeopleTableId corresponde
+		if(localStorage.getItem('idPeopleTableId')) {
+			//agrego a la base de datos cada uno de los items pedidos y cantidad y a que PeopleTableId corresponde
 		cartTemporary.map((e) => (
 			itemPeopleInTable(uuidv4().replaceAll('/', 'a'), JSON.parse(localStorage.getItem('idPeopleTableId') as any), e.quantity, e.ItemID)
 		))
@@ -67,6 +68,8 @@ export const OrderPlateUnConfirmed = () => {
 			modalEditOrDeleteOrConfirm: 'confirm',
 			modalType: 'required',
 		});
+		}
+		
 
 	}
 

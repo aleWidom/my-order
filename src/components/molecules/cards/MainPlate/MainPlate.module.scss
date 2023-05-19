@@ -19,7 +19,9 @@
 	font-size: 0.9rem;
 	width: 100%;
 	font-weight: 400;
-	border-bottom: solid $color-four 1px;
-	border-right: solid $color-four 1px;
-	color: $color-four;
+	border-bottom: solid $color-secondary 1px;
+	border-right: solid $color-secondary 1px;
+	color: $color-secondary;
+	padding: 0.5rem 0.5rem;
+	margin-bottom: 0.5rem;
 }

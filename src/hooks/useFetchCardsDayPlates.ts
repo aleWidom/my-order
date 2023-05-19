@@ -6,8 +6,6 @@ export const useFetchCardsDayPlates = () => {
 
 	//TODO ARREGLAR ANYS EN DATA
 	useEffect(() => {
-
-
 	  const cardsDay = itemsRestaurant?.filter((item) => {
 		 if(item.ItemID === '37' || item.ItemID === '85' || item.ItemID === '81' || item.ItemID === '111') {
 			return item

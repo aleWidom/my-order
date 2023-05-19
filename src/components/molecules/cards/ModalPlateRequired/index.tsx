@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { FaBell, FaRegCheckCircle } from 'react-icons/fa';
+import { FaBell, FaRegCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { OrderContext } from '../../../../context';
 import styles from './ModalPlateRequired.module.scss';
@@ -10,7 +10,7 @@ export const ModalPlateRequired = () => {
 	const { pathname } = useLocation();
 
 	const page = pathname.slice(-5);
-	
+
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -23,9 +23,9 @@ export const ModalPlateRequired = () => {
 				price: "",
 				modalType: 'main',
 			});
-			 
+
 		}, 4000);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalPlate]);
 
 	return (
@@ -33,14 +33,14 @@ export const ModalPlateRequired = () => {
 			<div className={styles.modalPlate}>
 				{page === '/' && (
 					<div className={styles.containerAdd}>
-						<FaRegCheckCircle className={styles.check} />
 						<small>Solicitud agregada</small>
+						<FaRegCheckCircle className={styles.check} />
 					</div>
 				)}
 				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'edit' && (
 					<div className={styles.containerAdd}>
-						<FaRegCheckCircle className={styles.check} />
 						<small>Solicitud Editada</small>
+						<FaRegCheckCircle className={styles.check} />
 					</div>
 				)}
 				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'confirm' && (
@@ -49,15 +49,14 @@ export const ModalPlateRequired = () => {
 						<small>Su pedido se ha procesado correctamente.</small>
 					</div>
 				)}
-				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'delete' && (
+				{page !== '/' && modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'delete' && (
 					<div className={styles.containerSubstract}>
 						<small>Solicitud Eliminada</small>
+						<FaTrashAlt className={styles.delete} />
 					</div>
 				)}
 				<h2 className={styles.title}>{modalPlate.title}</h2>
-				{page !== '/' &&  modalPlate.modalType === 'required' && modalPlate.modalEditOrDeleteOrConfirm === 'edit' ? (
-					<p className={styles.quantity}>Cantidad: {`${modalPlate.quantity} u.`}</p>
-				) : ""}
+				<p className={styles.quantity}>Cantidad: {`${modalPlate.quantity} u.`}</p>
 				{page === '/' && (
 					<>
 						<small className={styles.edit}>Para editar la orden puede ir a sección mis solicitudes</small>

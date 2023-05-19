@@ -6,3 +6,4 @@ export * from './useFetchTable';
 export * from './useFetchCallTable';
 export * from './useFetchItems';
 export * from './useFetchCarts';
+export * from './useFetchLoading';
