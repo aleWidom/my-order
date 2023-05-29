@@ -69,8 +69,6 @@ export const OrderPlateUnConfirmed = () => {
 			modalType: 'required',
 		});
 		}
-		
-
 	}
 
 	return (
@@ -80,7 +78,8 @@ export const OrderPlateUnConfirmed = () => {
 					<div key={i} className={styles.containerCardOrder}>
 						<div className={styles.containerDescription}>
 							<h4 className={styles.title}>{cartProduct?.title}</h4>
-							<small className={styles.quantity} >Cantidad: {cartProduct?.quantity}</small>
+							<small className={styles.price} >Precio Unitario: ${cartProduct?.price}</small>
+							<small className={styles.quantity} >Cantidad: {cartProduct?.quantity} u.</small>
 						</div>
 						<div className={styles.editDelete}>
 							<FaEdit onClick={handleEdit(cartProduct, i)} className={styles.edit} />
@@ -88,7 +87,7 @@ export const OrderPlateUnConfirmed = () => {
 						</div>
 					</div>
 			))}
-					<button className={styles.confirm} onClick={handleConfirmRequest}>Confirmar Pedido</button>
+					<button className={styles.confirm} onClick={handleConfirmRequest}>Solicitar Pedido</button>
 		</div>
 	);
 };

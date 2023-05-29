@@ -27,16 +27,17 @@ export const OrderPlateConfirmed = () => {
 
 	return (
 		<div className={styles.container}>
-			<h3 className={styles.titleOrderConfirmed}>Ordenes Anteriores</h3>
+			<h3 className={styles.titleOrderConfirmed}>Ordenes Solicitadas</h3>
 			{cartDefinitive.map((cartProduct, i) => (
 				<div key={i} className={styles.containerCardOrderDefinitive}>
 					<div className={styles.containerDescription}>
 						<h4 className={styles.title}>{cartProduct.title}</h4>
-						<small className={styles.quantity}>Cantidad: {cartProduct.quantity}</small>
+						<small className={styles.price} >Precio Unitario: ${cartProduct?.price}</small>
+						<small className={styles.quantity}>Cantidad: {cartProduct.quantity} u.</small>
 						{cartProduct.state === 'delivered' ? (
 							<small className={styles.delivered}>Entregado</small>
 						) : (
-							<small className={styles.process}>Su pedido se esta preparando.</small>
+							<small className={styles.process}>Su pedido se está preparando.</small>
 						)}
 					</div>
 				</div>
