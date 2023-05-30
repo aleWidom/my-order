@@ -12,6 +12,7 @@ export const useFetchTable = () => {
 
     useEffect(() => {
         //seteo en el storage con nombre table el número de mesa
+        //TODO SIEMPRE DEBE EJECUTARSE? CREO QUE SOLO SI NO EXISTE
         localStorage.setItem('table', JSON.stringify(params.get('table')))
 
         fetchTable(params.get('table'))

@@ -8,13 +8,6 @@
         "setting": "open"
       }
     },
-    "/restaurants": {
-      "name": "/restaurants",
-      "lambdaFunction": "functionLambdaRestaurants",
-      "permissions": {
-        "setting": "open"
-      }
-    },
     "/items": {
       "name": "/items",
       "lambdaFunction": "functionLambdaItems",

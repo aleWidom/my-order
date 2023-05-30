@@ -39,35 +39,6 @@ async function getItemsResults(valueInput: string) {
 }
 
 
-async function getItemsCardsRanking() {
-	try {
-		const cardsRankingPlates = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?ranking`);
-		return cardsRankingPlates;
-	} catch (err) {
-		console.log(err);
-
-	}
-}
-
-async function getItemsCardsSpecialsCheff() {
-	try {
-		const cardsRankingPlates = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?specials`);
-		return cardsRankingPlates;
-	} catch (err) {
-		console.log(err);
-	}
-}
-
-async function getItemsCardsDayPlates() {
-	try {
-		const cardsDayPlates = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?dayPlates`);
-		return cardsDayPlates;
-	} catch (err) {
-		console.log(err);
-	}
-}
-
-
 async function fetchItemPeopleInTable(id_peopleInTable: string) {
 	try {
 		const fetchItemPeopleInTable = await axios.get(`https://18eqrnlodc.execute-api.us-east-1.amazonaws.com/dev/items?fetchItemPeopleInTable=${id_peopleInTable}`);
@@ -94,9 +65,6 @@ export {
 	fetchItemsRestaurant,
 	getAllCategoriesIdRestaurant1,
 	getItemsAccordingToSelectedCategory,
-	getItemsCardsRanking,
-	getItemsCardsDayPlates,
-	getItemsCardsSpecialsCheff,
 	getItemsResults,
 	fetchItemPeopleInTable,
 	makeDelivered,

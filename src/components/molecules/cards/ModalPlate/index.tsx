@@ -31,7 +31,8 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const handleClickRequest = () => {
 
-		if (localStorage.getItem('idPeopleTableId')) {
+		if (localStorage.getItem('idPeopleTableId') && localStorage.getItem('idPeopleTableId') !== "undefined" ) {
+			console.log(localStorage.getItem('idPeopleTableId'))
 			setCartTemporary(
 				[{
 					ItemID: modalPlate.ItemID,
@@ -62,7 +63,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 	};
 
 	const handleEdit = () => {
-		if (localStorage.getItem('idPeopleTableId')) {
+		if (localStorage.getItem('idPeopleTableId') && localStorage.getItem('idPeopleTableId') !== "undefined") {
 			const cartTemporaryEdit = cartTemporary.filter((item, i) => {
 				if (i === modalPlate.index) {
 					item.quantity = modalPlate.quantity
@@ -84,7 +85,7 @@ export const ModalPlate: FC<Props> = ({ buttonName }) => {
 
 	const handleDelete = () => {
 
-		if (localStorage.getItem('idPeopleTableId'))  {
+		if (localStorage.getItem('idPeopleTableId') && localStorage.getItem('idPeopleTableId') !== "undefined")  {
 			const cartTemporaryDelete = cartTemporary.filter((item, index) => {
 				return index !== modalPlate.index
 			})
