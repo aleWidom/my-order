@@ -8,6 +8,7 @@ export const useFetchCarts = () => {
     const { setCartTemporary, setCartDefinitive } = useContext(OrderContext)
 
     useEffect(() => {
+        
         //si existe localStorage.getItem('cartTemporary') seteo el cartTemporary con el valor que trae, sino creo el local storage con dicho nombre y seteo un array vacio
         if (localStorage.getItem('cartTemporary')) {
             setCartTemporary((JSON.parse(localStorage.getItem('cartTemporary') as any)))

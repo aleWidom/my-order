@@ -12,7 +12,6 @@ const { results, modalInfo } = useContext(SearchContext);
 
 const {modalPlate ,loading} = useContext(OrderContext);
 
-
 useFetchCarts()
 
 	return (

@@ -18,6 +18,7 @@ export const useFetchTable = () => {
         fetchTable(params.get('table'))
             .then((response) => {
                 //si la mesa esta desocupada
+                console.log(response)
                 if (response?.table_active === '0') {
                     updateTableNumberActive(params.get('table'))
 
@@ -34,6 +35,7 @@ export const useFetchTable = () => {
                     if(!localStorage.getItem('idPeopleTableId')) {
                         peopleInTableFetch(params.get('table'))
                         .then((response) => {
+                            console.log(response)
                             localStorage.setItem('idPeopleTableId', JSON.stringify(response[0].PeopleInTableID)) 
                             setIdPeopleInTable(JSON.stringify(response[0].PeopleInTableID))
                         })
