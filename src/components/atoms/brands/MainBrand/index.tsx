@@ -19,9 +19,11 @@ export const MainBrand = () => {
 
 	const page = pathname.slice(1,6);
 
+	const numberTable = JSON.parse(localStorage.getItem('table') as any)
+
 
 	return (
-		<Link to={localStorage.getItem('table') ? `/?table=${JSON.parse(localStorage.getItem('table') as any)}` : `/?table=${params.get('table')}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
+		<Link to={localStorage.getItem('table') ? `/?table=${numberTable.tableID}` : `/?table=${params.get('table')}`} className={styles.containerMainBrand} onClick={handleClickMenu}>
 			{page !== 'order' ? (
 				<img src={brand} alt={'brand'} className={styles.mainBrand} />
 			) : (
