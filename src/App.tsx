@@ -9,12 +9,6 @@ import { AdminProvider } from './context/adm';
 
 import './styles/globals.scss';
 
-/*import Amplify from 'aws-amplify';
-import awsconfig from './aws-exports';
-
-
-Amplify.configure(awsconfig);*/
-
 //TODO CAMBIAR HOME A PARAMETRIZADA
 
 function App() {
